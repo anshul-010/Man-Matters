@@ -1,0 +1,41 @@
+{
+    "Products":
+    [
+        {
+            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+            "price":899,
+            "title":"Stage 1 Hairloss Kit for Genetics",
+            "for":"Stage 1 Hair Fall",
+            "stage":1,
+            "with":"Biotin, Redensyl, Anagain",
+            "category":"hair"
+        },
+        {
+            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/141464/Gu%2B-Min_9du6c4.jpg?tr=w-800",
+            "price":899,
+            "title":"Stage 2 Hair Regrowth Kit",
+            "for":"Stage 2 Hair Loss",
+            "stage":2,
+            "with":"5% Minoxidil, Biotin",
+            "category":"hair"
+        },
+        {
+            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/2861144/Gu%2B-Minf_fvukrk.jpg?tr=w-800",
+            "price":1099,
+            "title":"Stage 3 Hair Regrowth Kit",
+            "for":"Stage 3 & 4 Hair Fall",
+            "stage":3,
+            "with":"Minoxidil, Finasteride, Biotin",
+            "category":"hair"
+        },
+        {
+            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166915/Gu%2B-Minf%2BDHTB%20%281%29_ghd9n0.jpg?tr=w-800",
+            "price":1199,
+            "title":"Stage 4 Hair Fall Solution",
+            "for":"Stage 4 Hair Fall",
+            "stage":4,
+            "with":"Minoxidil, FInasteride, Biotin",
+            "category":"hair"
+        }
+    ]
+}
