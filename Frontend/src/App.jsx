@@ -4,13 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Login } from './Pages/Login'
 import { Signup } from './Pages/Signup'
+import { Footer } from './Componants/Footer'
 
 function App() {
 
   return (
     <>
-      <Login/>
-      <Signup/>
+      
+      <Footer/>
     </>
   )
 }
