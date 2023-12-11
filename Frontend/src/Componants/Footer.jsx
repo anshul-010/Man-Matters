@@ -17,7 +17,7 @@ import {
 
 export const Footer = () => {
   return (
-    <Box bg="blue.600" _dark={{ bg: "white" }}>
+    <Box bg="#FFFFFF" _dark={{ bg: "white" }}>
     <Stack
       direction={{ base: "column", lg: "row" }}
       w="full"
@@ -39,21 +39,21 @@ export const Footer = () => {
         flex={1}
         justify="space-around"
         fontSize={{ base: "12px", md: "16px" }}
-        color="white"
+        color="#336193"
         _dark={{ color: "white" }}
         textAlign={{ base: "center", md: "left" }}
       >
         <Flex justify="start" direction="column">
-          <Link textTransform="uppercase">Pre-Sale FAQS</Link>
-          <Link textTransform="uppercase">Submit a ticket</Link>
-          <Link textTransform="uppercase">Refer a Friend</Link>
-          <Link textTransform="uppercase">Partner Program</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Pre-Sale FAQS</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Submit a ticket</Link>
+          <Link fontSize="15px" fontWeight="bold"  textTransform="uppercase">Refer a Friend</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Partner Program</Link>
         </Flex>
         <Flex justify="start" direction="column">
-          <Link textTransform="uppercase">Services</Link>
-          <Link textTransform="uppercase">Products</Link>
-          <Link textTransform="uppercase">Recognition</Link>
-          <Link textTransform="uppercase">Blog</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Services</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Products</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Recognition</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Blog</Link>
         </Flex>
       </HStack>
       <HStack
@@ -61,21 +61,21 @@ export const Footer = () => {
         flex={1}
         justify="space-around"
         fontSize={{ base: "12px", md: "16px" }}
-        color="white"
+        color="#336193"
         _dark={{ color: "white" }}
         textAlign={{ base: "center", md: "left" }}
       >
         <Flex justify="start" direction="column">
-          <Link textTransform="uppercase">Contact us</Link>
-          <Link textTransform="uppercase">F&Q</Link>
-          <Link textTransform="uppercase">Support</Link>
-          <Link textTransform="uppercase">Main</Link>
+          <Link fontSize="15px" fontWeight="bold"  textTransform="uppercase">Contact us</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">F&Q</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Support</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Main</Link>
         </Flex>
         <Flex justify="start" direction="column">
-          <Link textTransform="uppercase">About Us</Link>
-          <Link textTransform="uppercase">Contact Us</Link>
-          <Link textTransform="uppercase">Resources</Link>
-          <Link textTransform="uppercase">Feedback</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">About Us</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Contact Us</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Resources</Link>
+          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Feedback</Link>
         </Flex>
     
         
@@ -89,19 +89,22 @@ export const Footer = () => {
       h="3.5px"
     />
     <VStack py={3}>
-    
-    <Center mt="10px">
-        <HStack fontSize={"30px"} spacing={"30px"}>
-          <BsFacebook />
-          <BsTwitter />
-          <BsPinterest />
-          <GrLinkedinOption />
-        </HStack>
-      </Center>
-      <Text textAlign="center" color="white" fontSize="smaller" _dark={{ color: "white" }}>
+    <Text  textAlign="center" color="#336193" fontSize="13px" fontWeight="bold" _dark={{ color: "white" }}>
         &copy;Copyright. All rights reserved.
       </Text>
+    
+   
+   
     </VStack>
+    <Center >
+        
+          <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/fb_3x.png?tr=w-200'/>
+          <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/insta_3x.png?tr=w-200'/>
+          <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/twitter_3x.png?tr=w-200'/>
+          <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618166/Man%20Matters/misc/yt_3x.png?tr=w-200'/>
+         
+        
+      </Center>
   </Box>
   )
 }
