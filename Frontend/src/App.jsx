@@ -9,12 +9,14 @@ import { Home } from './Pages/Home'
 import Navbar from './Componants/Navebar'
 import { AllProduct } from './Pages/AllProduct'
 
+
 function App() {
 
   return (
     <>
       <Navbar/>
       <AllRoutes/>
+
     </>
   )
 }
