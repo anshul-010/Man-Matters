@@ -4,14 +4,19 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Login } from './Pages/Login'
 import { Signup } from './Pages/Signup'
-import { Footer } from './Componants/Footer'
+import { AllRoutes } from './AllRoutes/AllRoutes'
+import { Home } from './Pages/Home'
+import Navbar from './Componants/Navebar'
+import { AllProduct } from './Pages/AllProduct'
+
 
 function App() {
 
   return (
     <>
-      
-      <Footer/>
+      <Navbar/>
+      <AllRoutes/>
+
     </>
   )
 }
