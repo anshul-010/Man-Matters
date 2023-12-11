@@ -89,42 +89,7 @@ export const Footer = () => {
       h="3.5px"
     />
     <VStack py={3}>
-      {/* <HStack justify="center">
-        <Link>
-          <Icon
-            color="gray.800"
-            _dark={{ color: "white" }}
-            h="20px"
-            w="20px"
-            as={FaFacebookF}
-          />
-        </Link>
-        <Link>
-          <Icon
-            color="gray.800"
-            _dark={{ color: "white" }}
-            h="20px"
-            w="20px"
-            as={FiTwitter}
-          />
-        </Link>
-        <Link>
-          <Icon
-            _dark={{ color: "white" }}
-            h="20px"
-            w="20px"
-            as={GrInstagram}
-          />
-        </Link>
-        <Link>
-          <Icon
-            _dark={{ color: "white" }}
-            h="20px"
-            w="20px"
-            as={FaLinkedinIn}
-          />
-        </Link>
-      </HStack> */}
+    
     <Center mt="10px">
         <HStack fontSize={"30px"} spacing={"30px"}>
           <BsFacebook />
