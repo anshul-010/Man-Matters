@@ -1,61 +1,89 @@
-import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
-import { useRef } from "react"
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Flex,
+  Heading,
+  Box
+} from "@chakra-ui/react";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios"
 
-export const Signup=()=>{
-    const { isOpen, onOpen, onClose } = useDisclosure()
-          
-            const initialRef = useRef(null)
-            const finalRef = useRef(null)
-    return(
-
-        <>
-            
-                <Button colorScheme="blue" onClick={onOpen}>Sign Up</Button>
-          
-                <Modal
-                  initialFocusRef={initialRef}
-                  finalFocusRef={finalRef}
-                  isOpen={isOpen}
-                  onClose={onClose}
-                >
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>Create your account</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody pb={6}>
-                      <FormControl>
-                        <FormLabel>First Name</FormLabel>
-                        <Input ref={initialRef} placeholder='First Name' />
-                      </FormControl>
-                      <FormControl mt={4}>
-                        <FormLabel>Last Name</FormLabel>
-                        <Input ref={initialRef} placeholder='Last Name' />
-                      </FormControl>
-
-                      <FormControl mt={4}>
-                        <FormLabel>Mobile No.</FormLabel>
-                        <Input ref={initialRef} placeholder='Mobile no.' />
-                      </FormControl>
-                    
-                      <FormControl mt={4}>
-                        <FormLabel>Email</FormLabel>
-                        <Input placeholder='Email' />
-                      </FormControl>
-                   
-                      <FormControl mt={4}>
-                        <FormLabel>Password</FormLabel>
-                        <Input placeholder='Password' />
-                      </FormControl>
-                    </ModalBody>
-          
-                    <ModalFooter>
-                      <Button colorScheme='blue' mr={3}>
-                        Register
-                      </Button>
-                      <Button onClick={onClose}>Cancel</Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
-              </>
-    )
+let initialData = {
+  firstName:"",
+  lastName:"",
+  mobile:"",
+  email:"",
+  password:""
 }
+
+export const Signup = () => {
+  const [userData, setUserData] = useState(initialData)
+
+  function handleChange(event) {
+    const {name,value} = event.target
+    setUserData((pre)=>{
+      return {...pre, [name]:name=="mobile"?+value:value}
+    })
+  }
+
+  function handleSubmit(event){
+    event.preventDefault()
+    console.log(userData)
+    axios.post(`http://localhost:8080/user/register`,userData)
+    .then((res)=>{
+      console.log(res.data)
+    })
+
+    setUserData(initialData)
+  }
+
+
+  return (
+    <>
+      <Box
+        width={{ lg: "30vw", base: "90vw" }}
+        boxShadow="base"
+        m="20px auto"
+        mb="8vh"
+        p={"10px"}
+      >
+        <Heading m="5px" fontSize="3xl" color="#22548A">
+          Sign up
+        </Heading>
+        <FormControl mt="20px">
+          <FormLabel>First Name</FormLabel>
+          <Input type="text" placeholder="first name" name="firstName" value={userData.firstName} onChange={handleChange} />
+          <FormLabel>Last Name</FormLabel>
+          <Input type="text" placeholder="last name" name="lastName" value={userData.lastName} onChange={handleChange} />
+          <FormLabel>Mobile No.</FormLabel>
+          <Input type="number" placeholder="mobile no." name="mobile" value={userData.mobile} onChange={handleChange} />
+          <FormLabel>Email address</FormLabel>
+          <Input type="email" placeholder="email" name="email" value={userData.email} onChange={handleChange} />
+          <FormLabel m={2}>Password</FormLabel>
+          <Input type="email" placeholder="password" name="password" value={userData.password} onChange={handleChange} />
+          <Button
+            m="20px auto"
+            display={"block"}
+            p={"10px 50px"}
+            size="lg"
+            colorScheme="linkedin"
+            variant="ghost"
+            onClick={handleSubmit}
+          >
+            Register
+          </Button>
+        </FormControl>
+        <Flex justify="space-around">
+          <Link to='/login'>
+          <Button color='#22548A' variant='link' fontSize="lg">
+            Already have account!
+          </Button>
+          </Link>
+        </Flex>
+      </Box>
+    </>
+  );
+};

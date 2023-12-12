@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import "../Styles/navbar.css";
 import { Menu, X, ShoppingCart, UserRound, Search } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/AuthReducer/actions";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const dispatch = useDispatch()
+
+  const userName = useSelector((store)=>store.AuthReducer.name)
+  const isAuth = useSelector((store)=>store.AuthReducer.isAuth)
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
-  const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
-  };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    dispatch(logout())
   };
 
   return (
@@ -43,10 +46,10 @@ const Navbar = () => {
           <p onClick={() => setIsNavOpen(true)}>Self Assessment</p>
         </Link>
 
-        {isLoggedIn ? (
+        {isAuth ? (
           <div className="user-profile">
             <span className="log-in">
-              <UserRound color="#1f5c9d" /> Username
+              <UserRound color="#1f5c9d" /> {userName}
             </span>
             <div className="profile-dropdown">
               <p>Profile</p>
@@ -54,9 +57,9 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <div className="log-in" onClick={handleLogin}>
-            Log in
-          </div>
+          <Link to='/login'><div className="log-in" onClick={() => setIsNavOpen(true)} >
+            Login
+          </div></Link>
         )}
       </div>
 
