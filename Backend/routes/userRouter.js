@@ -41,7 +41,7 @@ userRoute.post("/login", async(req,res)=>{
             bcrypt.compare(password,user.password,(err,result)=>{
                 if(result){
                     const token = jwt.sign({userId:user._id,user:user.firstName},"jwt_secret_key",{expiresIn:"12h"})
-                    res.status(200).send({"msg":"login Successful",token})
+                    res.status(200).send({"msg":"login Successful",Name:user.firstName,token})
                 }
             })
         }
@@ -80,7 +80,7 @@ userRoute.post("/forgot-password",async(req, res)=>{
 
         await user.save();
 
-        const resetLink = `http://your-frontend-app/reset-password?token=${resetToken}`;
+        const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
         const mailOptions = {
         from: config.email,
         to: email,
@@ -116,8 +116,8 @@ userRoute.post("/reset-password", async (req, res) => {
         }
   
         bcrypt.hash(newPassword, 5, async(err,hash) => {
+            console.log(newPassword)
             if (err) {
-                console.log(user)
                 return res.status(500).send({ "msg": "error hashing password" });
             }
     

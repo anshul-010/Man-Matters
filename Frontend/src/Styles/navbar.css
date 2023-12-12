@@ -97,6 +97,7 @@
   .profile-dropdown p{
     font-size: 1.1rem;
     font-weight: 500;
+    margin: 10px;
   }
   .log-in{
     font-size: 1.1rem;
@@ -104,6 +105,9 @@
     display: flex;
     color: #1f5c9d;
     /* border: 1px solid; */
+  }
+  .log-in:hover{
+    cursor: pointer;
   }
   /*  */
   

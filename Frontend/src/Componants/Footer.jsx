@@ -18,6 +18,7 @@ import {
 export const Footer = () => {
   return (
     <Box bg="#FFFFFF" _dark={{ bg: "white" }} mt={"20px"}>
+      <hr />
     <Stack
       direction={{ base: "column", lg: "row" }}
       w="full"
