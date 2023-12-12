@@ -7,6 +7,7 @@ import { FaQuoteRight } from "react-icons/fa";
 import { Card, CardBody, Flex, Grid, Heading, Image, Stack, Text } from '@chakra-ui/react';
 
 export const Home2 = () => {
+  //hover
     const [people, setPeople] = useState(data);
     const [index, setIndex] = useState(0);
   
