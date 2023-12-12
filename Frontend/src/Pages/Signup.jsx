@@ -11,7 +11,6 @@ export const Signup=()=>{
         <>
             
                 <Button colorScheme="blue" onClick={onOpen}>Sign Up</Button>
-                
           
                 <Modal
                   initialFocusRef={initialRef}
@@ -28,12 +27,15 @@ export const Signup=()=>{
                         <FormLabel>First Name</FormLabel>
                         <Input ref={initialRef} placeholder='First Name' />
                       </FormControl>
-                      <FormControl>
+                      <FormControl mt={4}>
                         <FormLabel>Last Name</FormLabel>
                         <Input ref={initialRef} placeholder='Last Name' />
                       </FormControl>
-          
-                     
+
+                      <FormControl mt={4}>
+                        <FormLabel>Mobile No.</FormLabel>
+                        <Input ref={initialRef} placeholder='Mobile no.' />
+                      </FormControl>
                     
                       <FormControl mt={4}>
                         <FormLabel>Email</FormLabel>

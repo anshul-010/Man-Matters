@@ -17,14 +17,14 @@ import {
 
 export const Footer = () => {
   return (
-    <Box bg="#FFFFFF" _dark={{ bg: "white" }}>
+    <Box bg="#FFFFFF" _dark={{ bg: "white" }} mt={"20px"}>
     <Stack
       direction={{ base: "column", lg: "row" }}
       w="full"
       justify="space-between"
       
     >
-      <Flex justify="center">
+      {/* <Flex justify="center">
         <Image
           src="data:image/jpeg;base64,/9j/4AAQSk+8NnP5CjmO6UCqxX3c/a7MTxua3iIont2Ra+/"
           alt="Company Logo"
@@ -33,7 +33,7 @@ export const Footer = () => {
           height={{ base: "75px", lg: "100px" }}
           my={{ base: 2, lg: 0 }}
         />
-      </Flex>
+      </Flex> */}
       <HStack
         alignItems="start"
         flex={1}
@@ -42,43 +42,47 @@ export const Footer = () => {
         color="#336193"
         _dark={{ color: "white" }}
         textAlign={{ base: "center", md: "left" }}
+        spacing='24px'
+        // p={"20px"}
       >
-        <Flex justify="start" direction="column">
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Pre-Sale FAQS</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Submit a ticket</Link>
-          <Link fontSize="15px" fontWeight="bold"  textTransform="uppercase">Refer a Friend</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Partner Program</Link>
+        <Flex justify="start" direction="column" gap="12px" textAlign={"start"}>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Pre-Sale FAQS</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Submit a ticket</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold"  textTransform="uppercase">Refer a Friend</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Services</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">F&Q</Link>
         </Flex>
-        <Flex justify="start" direction="column">
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Services</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Products</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Recognition</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Blog</Link>
+        <Flex justify="start" direction="column" gap="12px" textAlign={"start"}>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Services</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Products</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Resources</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Contact Us</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Blog</Link>
         </Flex>
       </HStack>
       <HStack
         alignItems="start"
         flex={1}
         justify="space-around"
-        fontSize={{ base: "12px", md: "16px" }}
+        fontSize={{ base: "10px", md: "10px" }}
         color="#336193"
         _dark={{ color: "white" }}
         textAlign={{ base: "center", md: "left" }}
       >
-        <Flex justify="start" direction="column">
-          <Link fontSize="15px" fontWeight="bold"  textTransform="uppercase">Contact us</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">F&Q</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Support</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Main</Link>
+        <Flex justify="start" direction="column" gap="12px" textAlign={"start"}>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold"  textTransform="uppercase">Contact us</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Partner Program</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold"  textTransform="uppercase">Refer a Friend</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Support</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Main</Link>
         </Flex>
-        <Flex justify="start" direction="column">
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">About Us</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Contact Us</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Resources</Link>
-          <Link fontSize="15px" fontWeight="bold" textTransform="uppercase">Feedback</Link>
+        <Flex justify="start" direction="column" gap="12px" textAlign={"start"}>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">About Us</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Contact Us</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Resources</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Products</Link>
+          <Link fontSize={{lg:"13px",base:"10px"}} fontWeight="bold" textTransform="uppercase">Feedback</Link>
         </Flex>
-    
-        
       </HStack>
     </Stack>
     <Divider
@@ -89,7 +93,7 @@ export const Footer = () => {
       h="3.5px"
     />
     <VStack py={3}>
-    <Text  textAlign="center" color="#336193" fontSize="13px" fontWeight="bold" _dark={{ color: "white" }}>
+    <Text  textAlign="center" mt={"10px"} color="#336193" fontSize="13px" fontWeight="bold" _dark={{ color: "white" }}>
         &copy;Copyright. All rights reserved.
       </Text>
     
