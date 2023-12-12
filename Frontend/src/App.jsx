@@ -5,13 +5,14 @@ import './App.css'
 import { Login } from './Pages/Login'
 import { Signup } from './Pages/Signup'
 import { Footer } from './Componants/Footer'
+import { Home2 } from './Pages/Home2'
 
 function App() {
 
   return (
     <>
       
-      <Footer/>
+     <Home2/>
     </>
   )
 }
