@@ -1,365 +1,365 @@
 {
-    "Products":
-    [
+    "Products": [
         {
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-            "price":899,
-            "title":"Stage 1 Hairloss Kit for Genetics",
-            "for":"Stage 1 Hair Fall",
-            "stage":1,
-            "with":"Biotin, Redensyl, Anagain",
-            "category":"hair",
-            "rating":4
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+            "price": 899,
+            "title": "Stage 1 Hairloss Kit for Genetics",
+            "for": "Stage 1 Hair Fall",
+            "stage": 1,
+            "with": "Biotin, Redensyl, Anagain",
+            "category": "hair",
+            "rating": 4
         },
         {
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/141464/Gu%2B-Min_9du6c4.jpg?tr=w-800",
-            "price":899,
-            "title":"Stage 2 Hair Regrowth Kit",
-            "for":"Stage 2 Hair Loss",
-            "stage":2,
-            "with":"5% Minoxidil, Biotin",
-            "category":"hair",
-            "rating":5
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/141464/Gu%2B-Min_9du6c4.jpg?tr=w-800",
+            "price": 899,
+            "title": "Stage 2 Hair Regrowth Kit",
+            "for": "Stage 2 Hair Loss",
+            "stage": 2,
+            "with": "5% Minoxidil, Biotin",
+            "category": "hair",
+            "rating": 5
         },
         {
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/2861144/Gu%2B-Minf_fvukrk.jpg?tr=w-800",
-            "price":1099,
-            "title":"Stage 3 Hair Regrowth Kit",
-            "for":"Stage 3 & 4 Hair Fall",
-            "stage":3,
-            "with":"Minoxidil, Finasteride, Biotin",
-            "category":"hair",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166915/Gu%2B-Minf%2BDHTB%20%281%29_ghd9n0.jpg?tr=w-800",
-            "price":1199,
-            "title":"Stage 4 Hair Fall Solution",
-            "for":"Stage 4 Hair Fall",
-            "stage":4,
-            "with":"Minoxidil, FInasteride, Biotin",
-            "category":"hair",
-            "rating":2
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/1613/India%27s%20most%20trusted%20minoxidil_722rz5.png?tr=w-800",
-            "price":599,
-            "title":"Minoxidil 5% + Procapil (60ml)",
-            "for":"Stage 2 Hair Loss",
-            "stage":"Stage 2 Hair Loss",
-            "with":"5% Minoxidil, 2% Procapil",
-            "category":"hair",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/1144207/CR_2677_1000x1000---1_XeJWcsnOG.jpg?tr=w-800",
-            "price":299,
-            "title":"Anti-Dandruff Shampoo (100 ml) 1% Ketoconazole",
-            "for":"Dandruff Control",
-            "stage":2,
-            "with":"1% Ketoconazole",
-            "category":"hair",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/2007083/India%27s%20most%20trusted%20minoxidil%20%282%29_lfeozt.png?tr=w-800",
-            "price":699,
-            "title":"Minoxidil 5% + 0.1% Finasteride",
-            "for":"Stage 3-4 Hair Loss",
-            "stage":2,
-            "with":"5% Minoxidil,0.1% Finasteride",
-            "category":"hair",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166956/Front%20Image1_l6fw0d.jpg?tr=w-800",
-            "price":649,
-            "title":"Advanced Hair Regrowth Serum",
-            "for":"Stage 1 Hair Loss",
-            "stage":3,
-            "with":"DHT Blockers",
-            "category":"hair",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26167079/Slide-5%20copy%202_j876lr.png?tr=w-800",
-            "price":899,
-            "title":"Biotin Orange Hair Gummies (60 N) No Sugar",
-            "for":"Hair Nourishment",
-            "stage":4,
-            "with":"Biotin, Vit A, Vit C, Zinc",
-            "category":"hair",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/1596/1__4__qbBiC1_3G.jpg?tr=w-800",
-            "price":399,
-            "title":"Anti Hair Fall Shampoo (200ml)",
-            "for":"Stage 1 Hair Loss",
-            "stage":2,
-            "with":"DHT Blockers - 1% Saw Palmetto",
-            "category":"hair",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1643263446/Man%20Matters/Scalp%20Massager/Product%20images/Scalp-Massager-with-ingredients_600X600.png?tr=w-800",
-            "price":299,
-            "title":"Scalp Massager (1N)",
-            "for":"Circulation & Deep Cleansing",
-            "stage":2,
-            "with":"Medical grade silicone",
-            "category":"hair",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1648449966/Man%20Matters/Random/Advanced-Hair-Tonic-60-ml_600X600.png?tr=w-800",
-            "price":299,
-            "title":"Hair Growth Oil (100ml)",
-            "for":"Hair Nourishment",
-            "stage":3,
-            "with":"Onion Oil, Amla, Bhringraj",
-            "category":"hair",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/6923914/Slide-1_av5g1c.png?tr=w-800",
-            "price":999,
-            "title":"Plant Protein Powder (500 gm)",
-            "for":"Nutrition & Post workout",
-            "stage":3,
-            "with":"Nutrition & Post workout",
-            "category":"nutrition",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166918/Slide-1%20%282%29_a6b049.jpg?tr=w-800",
-            "price":1479,
-            "title":"Plant Protein Powder (1kg)",
-            "for":"Nutrition & Post workout",
-            "stage":2,
-            "with":"24g of Protein",
-            "category":"nutrition",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26167115/Slide-1_3ypwzi.png?tr=w-800",
-            "price":799,
-            "title":"Pre workout Gummies (90 N)",
-            "for":"Better energy and metabolism",
-            "stage":1,
-            "with":"Natural Caffeine, Citrulline",
-            "category":"nutrition",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26167058/CR%2044-Slide-1_j7hc06.jpg?tr=w-800",
-            "price":579,
-            "title":"Multivitamin Gummies (60 N) No Sugar",
-            "for":"Improved strength and energy",
-            "stage":4,
-            "with":"15 Essential multivitamins",
-            "category":"nutrition",
-            "rating":2
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166954/red-guava-5-2_c9cd96.png?tr=w-800",
-            "price":1190,
-            "title":"Red Guava Protein - Pack of 10",
-            "for":"Nutrition & Post workout",
-            "stage":3,
-            "with":"24g of Protein",
-            "category":"nutrition",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166953/red-guava-5-3_azgvf3.png?tr=w-800",
-            "price":1190,
-            "title":"Raw mango Protein - Pack of 10",
-            "for":"Nutrition & Post workout",
-            "stage":4,
-            "with":"24g of Protein",
-            "category":"nutrition",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166832/image__1__8Wter4KATI.png?tr=w-800",
-            "price":2299,
-            "title":"Whey Protein Powder (1 kg)",
-            "for":"Nutrition & Post workout",
-            "stage":1,
-            "with":"24g of Protein",
-            "category":"nutrition",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166798/Creatine-Monohydrate_600X600__FifOa6erR.png?tr=w-800",
-            "price":479,
-            "title":"Creatine Monohydrate (100 g)",
-            "for":"Better energy & Metabolism",
-            "stage":2,
-            "with":"100% Pure Creatine",
-            "category":"nutrition",
-            "rating":2
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26166889/Artboard_1_PQoltADE9.jpg?tr=w-800",
-            "price":679,
-            "title":"BCAA",
-            "for":"Better energy and metabolism",
-            "stage":3,
-            "with":"100% Pure BCAA",
-            "category":"nutrition",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp/26166737/Fish-Oil-Capsules-with-ingredients_600X600__XJEv2uEJb.png?tr=w-800",
-            "price":429,
-            "title":"Double Strength Omega 3 Fish Oil Softgel Capsules",
-            "for":"Better physical, brain health",
-            "stage":4,
-            "with":"Omega 3, DHA, EPA",
-            "category":"nutrition",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1648029011/Man%20Matters/Nutra%20hero%20images/Performance%20matters/Tostero-Capsules-60-pack_600X600.png?tr=w-800",
-            "price":549,
-            "title":"TOSTERO Capsules (60N)",
-            "for":"Pure shilajit, Gokshura",
-            "stage":1,
-            "with":"Better Testosterone Levels",
-            "category":"nutrition",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1622962826/Man%20Matters/Performance%20clean%20up/hero%20images/Vitality-Tablets_2_600X600.png?tr=w-800",
-            "price":529,
-            "title":"PERFORM Vitality Tablets (60N)",
-            "for":"Better Energy and Stamina",
-            "stage":2,
-            "with":"Ashwagandha, Safed Museli",
-            "category":"nutrition",
-            "rating":2
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/13738901/Beardmax_-_Mahesh_product_images__6__rV9rP5rkq.png?tr=w-800",
-            "price":999,
-            "title":"BeardMax (3 Month Pack)",
-            "for":"Beard Growth",
-            "stage":1,
-            "with":"Minoxidil",
-            "category":"beard",
-            "rating":2
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/26173983/60_1xkws0.png?tr=w-800",
-            "price":549,
-            "title":"Beardmax Growth Serum (50ml)",
-            "for":"Beard Growth",
-            "stage":2,
-            "with":"Minoxidil",
-            "category":"beard",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/25750445/55_5r7pfe.png?tr=w-800",
-            "price":799,
-            "title":"Beard Development Kit",
-            "for":"Thicker and stronger beard",
-            "stage":3,
-            "with":"Minoxidil & Biotin",
-            "category":"beard",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/21521699/61_5s4d6r.png?tr=w-800",
-            "price":599,
-            "title":"Beard Stimulator Kit",
-            "for":"Beard Growth",
-            "stage":4,
-            "with":"Minoxidil",
-            "category":"beard",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/22475345/Creative%283pack%29_1c9eeb.jpg?tr=w-800",
-            "price":1199,
-            "title":"Beard Gummies (90N)",
-            "for":"Improved Beard Health",
-            "stage":1,
-            "with":"Biotin, Creatine & D-aspartic",
-            "category":"beard",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/22189260/1_45fjts.jpg?tr=w-800",
-            "price":449,
-            "title":"Beard Gummies (30N)",
-            "for":"Improved Beard Health",
-            "stage":2,
-            "with":"Biotin, Creatine & D-aspartic",
-            "category":"beard",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/11954287/59_6p1rns.png?tr=w-800",
-            "price":449,
-            "title":"Beardmax Growth Serum (30 ml)",
-            "for":"Beard Growth",
-            "stage":3,
-            "with":"Minoxidil (alcohol-free)",
-            "category":"beard",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1642668773/New%20hero%20images/BeardGro.png?tr=w-800",
-            "price":449,
-            "title":"BeardGro Growth Tonic (30 ml)",
-            "for":"Dense and thick beard",
-            "stage":4,
-            "with":"1.5% Aminexil, 2% LashLD",
-            "category":"beard",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/media/misc/pdp_rcl/22474844/Creative%282pack%29_cqn24j.jpg?tr=w-800",
-            "price":849,
-            "title":"Beard Gummies (60N)",
-            "for":"Improved Beard Health",
-            "stage":1,
-            "with":"Biotin, Creatine & D-aspartic",
-            "category":"beard",
-            "rating":4
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1634648996/Man%20Matters/Random/Beardmax-_-Activator-with-Ingredients_600X600.png?tr=w-800",
-            "price":749,
-            "title":"Beard Activator Kit",
-            "for":"Beard Growth",
-            "stage":2,
-            "with":"Minoxidil",
-            "category":"beard",
-            "rating":5
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1604048017/Man%20Matters/Hero%20image%20change/Hair/Activator-_600X600.png?tr=w-800",
-            "price":299,
-            "title":"Beard Activator (Derma Roller)",
-            "for":"Hair growth stimulation",
-            "stage":3,
-            "with":".5mm 540 micro needles",
-            "category":"beard",
-            "rating":3
-        }
-        ,{
-            "image":"https://i.mscwlns.co/mosaic-wellness/image/upload/v1623737386/Man%20Matters/Activator%2B/Activator/Activator_1200X1600.jpg?tr=w-500",
-            "price":449,
-            "title":"Beard Activator+ (Derma Roller)",
-            "for":"Hair growth stimulation",
-            "stage":4,
-            "with":".5mm 540 micro needles",
-            "category":"beard",
-            "rating":5
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/2861144/Gu%2B-Minf_fvukrk.jpg?tr=w-800",
+            "price": 1099,
+            "title": "Stage 3 Hair Regrowth Kit",
+            "for": "Stage 3 & 4 Hair Fall",
+            "stage": 3,
+            "with": "Minoxidil, Finasteride, Biotin",
+            "category": "hair",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166915/Gu%2B-Minf%2BDHTB%20%281%29_ghd9n0.jpg?tr=w-800",
+            "price": 1199,
+            "title": "Stage 4 Hair Fall Solution",
+            "for": "Stage 4 Hair Fall",
+            "stage": 4,
+            "with": "Minoxidil, FInasteride, Biotin",
+            "category": "hair",
+            "rating": 2
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/1613/India%27s%20most%20trusted%20minoxidil_722rz5.png?tr=w-800",
+            "price": 599,
+            "title": "Minoxidil 5% + Procapil (60ml)",
+            "for": "Stage 2 Hair Loss",
+            "stage": "Stage 2 Hair Loss",
+            "with": "5% Minoxidil, 2% Procapil",
+            "category": "hair",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/1144207/CR_2677_1000x1000---1_XeJWcsnOG.jpg?tr=w-800",
+            "price": 299,
+            "title": "Anti-Dandruff Shampoo (100 ml) 1% Ketoconazole",
+            "for": "Dandruff Control",
+            "stage": 2,
+            "with": "1% Ketoconazole",
+            "category": "hair",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/2007083/India%27s%20most%20trusted%20minoxidil%20%282%29_lfeozt.png?tr=w-800",
+            "price": 699,
+            "title": "Minoxidil 5% + 0.1% Finasteride",
+            "for": "Stage 3-4 Hair Loss",
+            "stage": 2,
+            "with": "5% Minoxidil,0.1% Finasteride",
+            "category": "hair",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166956/Front%20Image1_l6fw0d.jpg?tr=w-800",
+            "price": 649,
+            "title": "Advanced Hair Regrowth Serum",
+            "for": "Stage 1 Hair Loss",
+            "stage": 3,
+            "with": "DHT Blockers",
+            "category": "hair",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26167079/Slide-5%20copy%202_j876lr.png?tr=w-800",
+            "price": 899,
+            "title": "Biotin Orange Hair Gummies (60 N) No Sugar",
+            "for": "Hair Nourishment",
+            "stage": 4,
+            "with": "Biotin, Vit A, Vit C, Zinc",
+            "category": "hair",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/1596/1__4__qbBiC1_3G.jpg?tr=w-800",
+            "price": 399,
+            "title": "Anti Hair Fall Shampoo (200ml)",
+            "for": "Stage 1 Hair Loss",
+            "stage": 2,
+            "with": "DHT Blockers - 1% Saw Palmetto",
+            "category": "hair",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1643263446/Man%20Matters/Scalp%20Massager/Product%20images/Scalp-Massager-with-ingredients_600X600.png?tr=w-800",
+            "price": 299,
+            "title": "Scalp Massager (1N)",
+            "for": "Circulation & Deep Cleansing",
+            "stage": 2,
+            "with": "Medical grade silicone",
+            "category": "hair",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1648449966/Man%20Matters/Random/Advanced-Hair-Tonic-60-ml_600X600.png?tr=w-800",
+            "price": 299,
+            "title": "Hair Growth Oil (100ml)",
+            "for": "Hair Nourishment",
+            "stage": 3,
+            "with": "Onion Oil, Amla, Bhringraj",
+            "category": "hair",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/6923914/Slide-1_av5g1c.png?tr=w-800",
+            "price": 999,
+            "title": "Plant Protein Powder (500 gm)",
+            "for": "Nutrition & Post workout",
+            "stage": 3,
+            "with": "Nutrition & Post workout",
+            "category": "nutrition",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166918/Slide-1%20%282%29_a6b049.jpg?tr=w-800",
+            "price": 1479,
+            "title": "Plant Protein Powder (1kg)",
+            "for": "Nutrition & Post workout",
+            "stage": 2,
+            "with": "24g of Protein",
+            "category": "nutrition",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26167115/Slide-1_3ypwzi.png?tr=w-800",
+            "price": 799,
+            "title": "Pre workout Gummies (90 N)",
+            "for": "Better energy and metabolism",
+            "stage": 1,
+            "with": "Natural Caffeine, Citrulline",
+            "category": "nutrition",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26167058/CR%2044-Slide-1_j7hc06.jpg?tr=w-800",
+            "price": 579,
+            "title": "Multivitamin Gummies (60 N) No Sugar",
+            "for": "Improved strength and energy",
+            "stage": 4,
+            "with": "15 Essential multivitamins",
+            "category": "nutrition",
+            "rating": 2
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166954/red-guava-5-2_c9cd96.png?tr=w-800",
+            "price": 1190,
+            "title": "Red Guava Protein - Pack of 10",
+            "for": "Nutrition & Post workout",
+            "stage": 3,
+            "with": "24g of Protein",
+            "category": "nutrition",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166953/red-guava-5-3_azgvf3.png?tr=w-800",
+            "price": 1190,
+            "title": "Raw mango Protein - Pack of 10",
+            "for": "Nutrition & Post workout",
+            "stage": 4,
+            "with": "24g of Protein",
+            "category": "nutrition",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166832/image__1__8Wter4KATI.png?tr=w-800",
+            "price": 2299,
+            "title": "Whey Protein Powder (1 kg)",
+            "for": "Nutrition & Post workout",
+            "stage": 1,
+            "with": "24g of Protein",
+            "category": "nutrition",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166798/Creatine-Monohydrate_600X600__FifOa6erR.png?tr=w-800",
+            "price": 479,
+            "title": "Creatine Monohydrate (100 g)",
+            "for": "Better energy & Metabolism",
+            "stage": 2,
+            "with": "100% Pure Creatine",
+            "category": "nutrition",
+            "rating": 2
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26166889/Artboard_1_PQoltADE9.jpg?tr=w-800",
+            "price": 679,
+            "title": "BCAA",
+            "for": "Better energy and metabolism",
+            "stage": 3,
+            "with": "100% Pure BCAA",
+            "category": "nutrition",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp/26166737/Fish-Oil-Capsules-with-ingredients_600X600__XJEv2uEJb.png?tr=w-800",
+            "price": 429,
+            "title": "Double Strength Omega 3 Fish Oil Softgel Capsules",
+            "for": "Better physical, brain health",
+            "stage": 4,
+            "with": "Omega 3, DHA, EPA",
+            "category": "nutrition",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1648029011/Man%20Matters/Nutra%20hero%20images/Performance%20matters/Tostero-Capsules-60-pack_600X600.png?tr=w-800",
+            "price": 549,
+            "title": "TOSTERO Capsules (60N)",
+            "for": "Pure shilajit, Gokshura",
+            "stage": 1,
+            "with": "Better Testosterone Levels",
+            "category": "nutrition",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1622962826/Man%20Matters/Performance%20clean%20up/hero%20images/Vitality-Tablets_2_600X600.png?tr=w-800",
+            "price": 529,
+            "title": "PERFORM Vitality Tablets (60N)",
+            "for": "Better Energy and Stamina",
+            "stage": 2,
+            "with": "Ashwagandha, Safed Museli",
+            "category": "nutrition",
+            "rating": 2
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/13738901/Beardmax_-_Mahesh_product_images__6__rV9rP5rkq.png?tr=w-800",
+            "price": 999,
+            "title": "BeardMax (3 Month Pack)",
+            "for": "Beard Growth",
+            "stage": 1,
+            "with": "Minoxidil",
+            "category": "beard",
+            "rating": 2
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/26173983/60_1xkws0.png?tr=w-800",
+            "price": 549,
+            "title": "Beardmax Growth Serum (50ml)",
+            "for": "Beard Growth",
+            "stage": 2,
+            "with": "Minoxidil",
+            "category": "beard",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/25750445/55_5r7pfe.png?tr=w-800",
+            "price": 799,
+            "title": "Beard Development Kit",
+            "for": "Thicker and stronger beard",
+            "stage": 3,
+            "with": "Minoxidil & Biotin",
+            "category": "beard",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/21521699/61_5s4d6r.png?tr=w-800",
+            "price": 599,
+            "title": "Beard Stimulator Kit",
+            "for": "Beard Growth",
+            "stage": 4,
+            "with": "Minoxidil",
+            "category": "beard",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/22475345/Creative%283pack%29_1c9eeb.jpg?tr=w-800",
+            "price": 1199,
+            "title": "Beard Gummies (90N)",
+            "for": "Improved Beard Health",
+            "stage": 1,
+            "with": "Biotin, Creatine & D-aspartic",
+            "category": "beard",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/22189260/1_45fjts.jpg?tr=w-800",
+            "price": 449,
+            "title": "Beard Gummies (30N)",
+            "for": "Improved Beard Health",
+            "stage": 2,
+            "with": "Biotin, Creatine & D-aspartic",
+            "category": "beard",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/11954287/59_6p1rns.png?tr=w-800",
+            "price": 449,
+            "title": "Beardmax Growth Serum (30 ml)",
+            "for": "Beard Growth",
+            "stage": 3,
+            "with": "Minoxidil (alcohol-free)",
+            "category": "beard",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1642668773/New%20hero%20images/BeardGro.png?tr=w-800",
+            "price": 449,
+            "title": "BeardGro Growth Tonic (30 ml)",
+            "for": "Dense and thick beard",
+            "stage": 4,
+            "with": "1.5% Aminexil, 2% LashLD",
+            "category": "beard",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/media/misc/pdp_rcl/22474844/Creative%282pack%29_cqn24j.jpg?tr=w-800",
+            "price": 849,
+            "title": "Beard Gummies (60N)",
+            "for": "Improved Beard Health",
+            "stage": 1,
+            "with": "Biotin, Creatine & D-aspartic",
+            "category": "beard",
+            "rating": 4
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1634648996/Man%20Matters/Random/Beardmax-_-Activator-with-Ingredients_600X600.png?tr=w-800",
+            "price": 749,
+            "title": "Beard Activator Kit",
+            "for": "Beard Growth",
+            "stage": 2,
+            "with": "Minoxidil",
+            "category": "beard",
+            "rating": 5
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1604048017/Man%20Matters/Hero%20image%20change/Hair/Activator-_600X600.png?tr=w-800",
+            "price": 299,
+            "title": "Beard Activator (Derma Roller)",
+            "for": "Hair growth stimulation",
+            "stage": 3,
+            "with": ".5mm 540 micro needles",
+            "category": "beard",
+            "rating": 3
+        },
+        {
+            "image": "https://i.mscwlns.co/mosaic-wellness/image/upload/v1623737386/Man%20Matters/Activator%2B/Activator/Activator_1200X1600.jpg?tr=w-500",
+            "price": 449,
+            "title": "Beard Activator+ (Derma Roller)",
+            "for": "Hair growth stimulation",
+            "stage": 4,
+            "with": ".5mm 540 micro needles",
+            "category": "beard",
+            "rating": 5
         }
     ]
 }
+
