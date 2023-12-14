@@ -12,12 +12,13 @@ import { AllProduct } from './Pages/AllProduct'
 
 
 
+
 function App() {
 
   return (
     <>
       <Navbar/>
-      <AllRoutes/>
+      <Home/>
       <Footer/>
     </>
   )
