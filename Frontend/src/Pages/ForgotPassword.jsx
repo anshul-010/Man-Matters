@@ -23,7 +23,7 @@ export const ForgotPassword = () => {
   return (
     <div>
       <Box
-        width={{ lg: "30vw", base: "90vw" }}
+        width={{ lg: "30vw", base: "80vw" }}
         boxShadow="base"
         m="20px auto"
         mb="8vh"

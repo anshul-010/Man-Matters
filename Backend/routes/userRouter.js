@@ -40,7 +40,7 @@ userRoute.post("/login", async(req,res)=>{
         if(user){
             bcrypt.compare(password,user.password,(err,result)=>{
                 if(result){
-                    const token = jwt.sign({userId:user._id,user:user.firstName},"jwt_secret_key",{expiresIn:"12h"})
+                    const token = jwt.sign({userId:user._id,user:user},"jwt_secret_key",{expiresIn:"12h"})
                     res.status(200).send({"msg":"login Successful",Name:user.firstName,token})
                 }
             })
@@ -116,7 +116,6 @@ userRoute.post("/reset-password", async (req, res) => {
         }
   
         bcrypt.hash(newPassword, 5, async(err,hash) => {
-            console.log(newPassword)
             if (err) {
                 return res.status(500).send({ "msg": "error hashing password" });
             }
