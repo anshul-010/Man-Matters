@@ -8,15 +8,35 @@ import {
   Input,
   Select,
   Button,
+  FormControl,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { Languages, Calendar, Clock3, Phone } from "lucide-react";
 import { useParams } from "react-router-dom";
 
+
+let initialData = {
+  language:"",
+  date:"",
+  time:""
+}
+
 export const Appoinment = () => {
   const { title } = useParams();
+  const [appoinmentData, setAppoinmentData] = useState(initialData)
 
-  console.log(title);
+
+  function handleChange(e){
+    const {name,value} = e.target
+    setAppoinmentData((pre)=>{
+      return {...pre, [name]: value}
+    })
+  }
+
+  function addAppoinment(){
+    console.log(appoinmentData)
+  }
+
   return (
     <div>
       <Box
@@ -24,11 +44,11 @@ export const Appoinment = () => {
         boxShadow='xl'
         borderRadius="20px"
         borderColor="#a4c9f099"
-        width={{ base: "80vw", lg: "35vw" }}
+        width={{ base: "80vw", lg: "33vw" }}
         m="15px auto"
       >
         <Center>
-          <Heading size={{ lg: "lg" }}>Book Your Doctor</Heading>
+          <Heading m="10px" size={{ lg: "lg" }} color="#404040ed"> {title}</Heading>
         </Center>
         <Center>
           <Text mb="30px" color="#09c8a8" fontSize={{ lg: "xl" }}>
@@ -77,6 +97,7 @@ export const Appoinment = () => {
         >
           Select Language
         </Text>
+        <FormControl>
         <Flex alignItems="center" m="10px 15px">
           <Languages color="#356395" />
           <Select
@@ -84,12 +105,16 @@ export const Appoinment = () => {
             color="#063e7b"
             width={{ base: "50vw", lg: "15vw" }}
             focusBorderColor="transparent"
+            name="language"
+            onChange={handleChange}
+            // isRequired={true}
           >
-            <option>Select Your Language</option>
-            <option>English</option>
-            <option>Hindi</option>
+            <option value="">Select Your Language</option>
+            <option value='English'>English</option>
+            <option value='Hindi'>Hindi</option>
           </Select>
         </Flex>
+        </FormControl>
         <hr width="250vw" />
         <Text
           fontSize={{ base: "md", lg: "lg" }}
@@ -105,6 +130,8 @@ export const Appoinment = () => {
             type="date"
             width={{ base: "55vw", lg: "14vw" }}
             color="#063e7b"
+            name='date'
+            onChange={handleChange}
           />
         </Flex>
         <Text
@@ -121,6 +148,8 @@ export const Appoinment = () => {
             type="time"
             width={{ base: "55vw", lg: "14vw" }}
             color="#063e7b"
+            name='time'
+            onChange={handleChange}
           />
         </Flex>
         {/* <Flex alignItems="center"> */}
@@ -135,9 +164,10 @@ export const Appoinment = () => {
           backgroundColor="#0f56a2"
           color="white"
           _hover={{cursor: "pointer",backgroundColor:"#083f7a"}}
+          onClick={addAppoinment}
         >
           <Phone />
-          <Heading size={{ base: "", lg: "md" }}>Book Free Consult</Heading>
+          <Heading size={{ base: "", lg: "md" }} >Book Free Consult</Heading>
         </Box>
         {/* </Flex> */}
       </Box>

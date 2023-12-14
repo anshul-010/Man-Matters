@@ -40,7 +40,7 @@ export const ResetPassword = () => {
   return (
     <div>
       <Box
-        width={{ lg: "30vw", base: "90vw" }}
+        width={{ lg: "30vw", base: "80vw" }}
         boxShadow="base"
         m="20px auto"
         mb="8vh"
@@ -53,14 +53,14 @@ export const ResetPassword = () => {
           <FormLabel m={2}>Password</FormLabel>
 
           <Input
-            type="number"
+            type="text"
             placeholder="new password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <FormLabel m={2}>Confirm Password</FormLabel>
 
           <Input
-            type="number"
+            type="text"
             placeholder="confirm new password"
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
