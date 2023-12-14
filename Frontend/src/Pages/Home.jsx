@@ -1,13 +1,982 @@
 import React from 'react'
-import Navbar from '../Componants/Navebar'
+import "../data/styles.css";
+import data from "../data/data";
+
+import { useState, useEffect } from "react";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { FaQuoteRight } from "react-icons/fa";
+import { Box, Button, Card, CardBody, Center, Flex, Grid, Heading, Image, Stack, Text } from '@chakra-ui/react';
+import { Card2 } from '../Componants/Card';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 
 export const Home = () => {
+  //hover
+    const [people, setPeople] = useState(data);
+    const [index, setIndex] = useState(0);
+  const daata=[ 
+    {
+    image:"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+    price:899,
+    title:"Stage 1 Hairloss Kit for Genetics",
+    for:"Stage 1 Hair Fall",
+    stage:1,
+    with:"Biotin, Redensyl, Anagain",
+    category:"hair",
+    rating:4
+},
+    {
+    image:"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+    price:899,
+    title:"Stage 1 Hairloss Kit for Genetics",
+    for:"Stage 1 Hair Fall",
+    stage:1,
+    with:"Biotin, Redensyl, Anagain",
+    category:"hair",
+    rating:4
+},
+    {
+    image:"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+    price:899,
+    title:"Stage 1 Hairloss Kit for Genetics",
+    for:"Stage 1 Hair Fall",
+    stage:1,
+    with:"Biotin, Redensyl, Anagain",
+    category:"hair",
+    rating:4
+},
+    {
+    image:"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+    price:899,
+    title:"Stage 1 Hairloss Kit for Genetics",
+    for:"Stage 1 Hair Fall",
+    stage:1,
+    with:"Biotin, Redensyl, Anagain",
+    category:"hair",
+    rating:4
+},
+]
+    useEffect(() => {
+      const lastIndext = people.length - 1;
+      if (index < 0) {
+        setIndex(lastIndext);
+      }
+      if (index > lastIndext) {
+        setIndex(0);
+      }
+    }, [index, people]);
+      useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1);
+    }, 3000);
+    return () => {
+      clearInterval(slider);
+    };
+  }, [index]);
   return (
     <div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit rerum dicta tempora, nemo quam, nesciunt natus impedit necessitatibus maxime, laborum eos cumque voluptates repellendus aliquid vero sequi modi libero molestiae similique cum ipsum. Obcaecati voluptatum cum corrupti consequuntur, delectus, nemo veniam beatae rerum doloribus mollitia amet distinctio sed quos quisquam nesciunt? Nisi ratione cumque, neque perspiciatis laborum odit ab sequi maxime, modi ut error atque deleniti dolorum culpa amet assumenda illum eius incidunt labore aliquam! Doloribus expedita vero voluptas possimus pariatur dignissimos ducimus cum rerum veritatis at, quasi placeat ab officia praesentium quisquam perferendis eligendi doloremque corporis repellendus! Nisi nobis, voluptatum reprehenderit aspernatur harum, voluptatibus possimus sint eligendi ab adipisci, facere fugit officia. Autem, fuga similique distinctio hic esse ut, eveniet magni reprehenderit dolor repellat quae laboriosam sapiente dolores! Error quisquam exercitationem quae nesciunt voluptatibus! Sed a laboriosam amet odit tenetur aliquam, aspernatur suscipit iste molestias recusandae neque sint, nihil quibusdam esse voluptatem maxime. Possimus magni molestias ipsam voluptatem explicabo tempore eius deleniti delectus excepturi molestiae, amet impedit numquam maiores. Accusantium eum fugit, sed ipsum iste cupiditate eligendi explicabo laboriosam illum dicta obcaecati, fuga deserunt molestiae commodi esse quidem ducimus vitae aspernatur pariatur laborum dolores. Hic sint qui iure ipsum tempore officiis neque architecto! Libero, natus reprehenderit! Autem quos ullam, neque laboriosam ea et quaerat iusto soluta vitae qui tempora sint libero eligendi voluptate porro necessitatibus ratione dolore, perspiciatis eaque. Iusto placeat facere neque numquam voluptate beatae repudiandae! Soluta iusto itaque ipsa dolores corporis ad blanditiis quia suscipit quo. Sit architecto eligendi quas excepturi iusto vero aperiam, soluta impedit. Commodi officiis, esse odio maxime numquam dolorum ipsum rem dicta qui asperiores exercitationem non, vitae hic in cumque illo repudiandae sed repellendus quos explicabo iure ullam natus eum. Voluptas praesentium veniam commodi nemo error. Ad in laudantium expedita cumque qui dolorum possimus quod nesciunt sunt, facilis iusto error sint, aspernatur quidem eius debitis, ratione repellendus cupiditate repellat praesentium ab quia minima. Odio aliquam dolor impedit! Eveniet est tempore labore eaque ipsa incidunt ducimus blanditiis quaerat dolore, natus tempora assumenda architecto placeat explicabo iure sapiente quisquam, qui aut fugiat rerum dolores inventore? Vero quam accusamus ad ex modi nam officiis iste doloribus pariatur! Ipsam non dolore aperiam at? Veritatis accusantium culpa est expedita aliquam laudantium, provident natus blanditiis. Illo pariatur reprehenderit non modi nesciunt a perferendis nobis odio iusto dolores recusandae, laborum repudiandae, omnis sequi obcaecati cum commodi. Officiis officia recusandae assumenda aut autem ducimus tempora, voluptatem ipsam natus dicta aperiam velit, reiciendis perspiciatis amet quam ex qui quos exercitationem id? Dolore excepturi, illo hic, consequuntur delectus voluptate iure modi minima non, molestiae perferendis suscipit minus quidem nemo impedit possimus adipisci vel doloribus rem provident! Placeat, reiciendis rem officia fugit suscipit excepturi provident harum consectetur non doloremque hic est temporibus voluptatum inventore eveniet mollitia quod praesentium earum deleniti. Iusto nobis ut qui similique soluta. Magni recusandae id a ab quod esse aut ex harum non et, doloribus, necessitatibus saepe asperiores? Culpa ipsum voluptatem quod architecto suscipit numquam, similique ipsa voluptate praesentium magnam officiis amet? Tempore culpa accusamus animi quae rerum illum earum recusandae, ipsam quam, possimus dolorum, ea iste tenetur! Tempore, quas repellat dignissimos quisquam sit animi reiciendis, facilis velit, reprehenderit dolore accusantium dolor iusto magni! Nihil suscipit, illum voluptatem cumque repellat hic accusantium maiores, officiis voluptatibus explicabo animi facilis, quasi quas aperiam possimus nam odio alias culpa unde? Veritatis minus doloremque unde incidunt praesentium similique velit inventore temporibus beatae omnis quibusdam, magnam nulla debitis repellendus quo amet exercitationem cum reiciendis architecto laudantium. Facilis vel officiis labore quae. Quidem eos similique placeat, itaque accusamus hic sed molestiae sit atque minus natus labore molestias provident facilis neque ipsum maxime, nesciunt cum velit recusandae expedita aperiam ducimus animi. Repellat eius nulla in dolorum consectetur alias quisquam qui earum exercitationem officiis, laboriosam deleniti! Quis ipsam quod unde nesciunt, aliquam quae error minus, doloribus officiis autem modi veniam laborum aut? Facilis mollitia animi iste, fugit est officia quos blanditiis nesciunt ipsum voluptatem natus explicabo tenetur possimus magnam repellendus quidem aliquam quod perferendis deserunt repudiandae, quaerat aspernatur. Atque temporibus optio sequi vero nemo sapiente eius voluptatum, minima molestias ea omnis? Necessitatibus ab officia ullam magni soluta aperiam. Assumenda consequuntur, exercitationem, soluta amet ipsum fuga, voluptatum quae tenetur quisquam voluptas repellat hic? Pariatur ipsum voluptate deleniti quis fugiat illum expedita ut, eius repudiandae commodi facilis, error aliquam quae quibusdam magni a alias. Perspiciatis voluptatibus sit dicta pariatur voluptatem ea aperiam, ullam eaque. Odit illo sint minima amet pariatur inventore consectetur optio libero impedit quas? Accusantium quibusdam quos aperiam impedit. Corrupti obcaecati exercitationem ipsam hic incidunt recusandae ut veritatis alias iure asperiores. Necessitatibus error reprehenderit at libero voluptatibus atque? Quibusdam totam sed natus? Aliquam ratione in exercitationem, obcaecati reprehenderit quam. Enim consequuntur ipsum optio perspiciatis. Aut optio, consectetur saepe fugiat ipsa culpa dolor neque odit laudantium accusamus aliquid qui sed velit eaque nisi cum error, adipisci magni deleniti maiores voluptas tempora! Doloremque nulla, dolor eos eaque dolorum corporis odit quia. Nam assumenda voluptatem itaque aspernatur, unde, inventore quidem ducimus mollitia dicta excepturi dignissimos quas maxime libero, saepe sapiente recusandae quam repellendus! Autem delectus expedita dolorum optio assumenda placeat commodi accusantium molestiae nemo deleniti odit aspernatur inventore hic repellendus, laudantium officia quae quod ratione harum doloribus consectetur sequi velit. At nulla dolores quo libero in vero possimus, rerum facilis iure neque. Ratione optio alias, odio quia ipsa quod similique, doloremque cumque magnam, excepturi aliquam pariatur maiores maxime doloribus neque ex autem sit tempore. Numquam rerum voluptate inventore molestias libero, facilis porro dicta voluptas assumenda in atque, laborum incidunt facere. Necessitatibus, totam quia. Necessitatibus dolores eius, optio suscipit officia illo, vel expedita libero illum ab fuga similique nihil eveniet eos odit voluptas sint, explicabo obcaecati dolorum voluptates quos sed veniam? Omnis consequatur repellendus aliquid adipisci! Quos porro facilis ut inventore officia delectus odio similique dolor nesciunt nisi, vitae assumenda deserunt placeat minima earum quidem exercitationem dolorum molestiae necessitatibus velit consequatur recusandae? Adipisci, quae soluta magni debitis vel praesentium eveniet saepe quo nam rerum dicta, neque rem, ullam possimus quas dolorem optio.
-      </p>
+
+<section className="section">
       
+      <div className="section-center">
+        {people.map((person, personIndex) => {
+          const { id, image, name, title, quote } = person;
+          let position = "nextSlide";
+          if (personIndex === index) {
+            position = "activeSlide";
+          }
+          if (
+            personIndex === index - 1 ||
+            (index === 0 && personIndex === people.length - 1)
+          ) {
+            position = "lastSlide";
+          }
+          return (
+            <article className={position} key={id}>
+              <img className='person-img' src={image} alt={name}/>
+             
+             
+            </article>
+          );
+        })}
+        <button className="prev" onClick={() => setIndex(index - 1)}>
+          <FiChevronLeft />
+        </button>
+        <button className="next" onClick={() => setIndex(index + 1)}>
+          <FiChevronRight />
+        </button>
+      </div>
+    </section>
+    <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(2, 1fr)",
+            xl: "repeat(2, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+        w={"80%"}
+       
+          m="auto"
+          alignItems={"center"}
+        >
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            className="card"
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          
+          >
+            
+              <Box bg={"#E1EFF8"}  >
+                <Flex align="center" alignItems="center">
+                <Image h={"250px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/doc%202_6ku9ii.png?tr=w-500"} alt="article_1" borderRadius="lg" />
+              
+              <Heading   color={"#5194D1"} size="lg" fontWeight={"bold"}>
+              Consult on App
+              </Heading>
+              <Image m={"5px"} mt={"18px"} h={"50px"}   src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"} alt="article_1" borderRadius="lg" />
+                </Flex>
+             
+               
+              
+              </Box>
+             
+           
+          </Card>
+          
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            className="card"
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          
+          >
+            
+              <Box bg={"#E1EFF8"} >
+                <Flex align="center" alignItems="center">
+                <Image h={"250px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/sub_category_pages/general-hair-health/Image-4.2---Assessment-nudge_v6J8A_G8z.png?tr=w-500"} alt="article_1" borderRadius="lg" />
+              
+              <Heading   color={"#5194D1"} size="lg" fontWeight={"bold"}>
+              Assess nyself
+              </Heading>
+              <Image m={"5px"} mt={"18px"} h={"50px"}   src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"} alt="article_1" borderRadius="lg" />
+                </Flex>
+             
+               
+              
+              </Box>
+             
+           
+          </Card>
+          
+
+        </Grid>
+    <Flex
+        
+          justifyContent="center"
+          gap="30px"
+        w={"70%"}
+       
+          m="auto"
+          alignItems={"center"}
+          mt={"15px"}
+          mb={"10px"}
+        >
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+ 
+          >
+            <CardBody   align="center" p={"0px"}>
+              <Image  bg={"#E1EFF8"}  w={"30vh"} p={"10%"} src={"https://i.mscwlns.co/media/bebodywise/tmarkers/trust/1_Bw82nMjZZ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675664231347"} alt="article_1" />
+              <Stack textAlign={"left"}>
+                <Text  mt={"10px"} textAlign={"center"}  >
+                3L+ Consults
+                </Text>
+               
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+ 
+          >
+            <CardBody   align="center" p={"0px"}>
+              <Image bg={"#E1EFF8"}  w={"30vh"} p={"10%"} src={"https://i.mscwlns.co/media/bebodywise/tmarkers/trust/2_athIadUPU.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675664231703"} alt="article_1" />
+              <Stack textAlign={"left"}>
+              <Text  mt={"10px"} textAlign={"center"}  >
+                150+ Doctors
+                </Text>
+               
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+ 
+          >
+            <CardBody   align="center" p={"0px"}>
+              <Image bg={"#E1EFF8"}  w={"30vh"} p={"10%"} src={"https://i.mscwlns.co/media/bebodywise/tmarkers/trust/3_lmdAT-6cE.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675664231687"} alt="article_1" />
+              <Stack textAlign={"left"}>
+              <Text  mt={"10px"} textAlign={"center"}  >
+               10L+ Customers
+                </Text>
+               
+              </Stack>
+            </CardBody>
+          </Card>
+          
+
+        </Flex>
+        <Grid
+          templateColumns={{
+            base: "repeat(2, 1fr)",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(4, 1fr)",
+            lg: "repeat(6, 1fr)",
+            xl: "repeat(6, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+          w="80%"
+          m="auto"
+          
+          alignItems={"center"}
+        >
+         
+          <Card
+          bg={"#E1EFF8"}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+               
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            <CardBody p={"0"} align="center">
+              <Image  src={"https://i.mscwlns.co/media/misc/other/home-rcl/3_Jk-73vm_j.png?tr=w-500"} alt="article_1"  />
+              <Stack  _hover={{
+              bg:"black",
+              textColor:"white",
+              borderRadius:"7px"
+            }} textAlign={"left"}>
+                <Heading ml={"10px"} textAlign={"left"}  size="sm">
+                 Beared <ChevronRightIcon/>
+                </Heading>
+                <Text ml={"10px"} >Patchy Beard | Beard Growth | Healthy Beard</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          bg={"#E1EFF8"}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+               
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            <CardBody p={"0"} align="center">
+              <Image  src={"https://i.mscwlns.co/media/misc/other/home-rcl/2_eC69YoDSw.png?tr=w-500"} alt="article_1"  />
+              <Stack  _hover={{
+              bg:"black",
+              textColor:"white",
+              borderRadius:"7px"
+            }} textAlign={"left"}>
+                <Heading ml={"10px"} textAlign={"left"}  size="sm">
+                 Nutrition <ChevronRightIcon/>
+                </Heading>
+                <Text ml={"10px"} >Nutrition | Metabolism | Immunity</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          bg={"#E1EFF8"}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+               
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            <CardBody p={"0"} align="center">
+              <Image  src={"https://i.mscwlns.co/media/misc/other/home-rcl/4_EHvSVJQ1c.png?tr=w-500"} alt="article_1"  />
+              <Stack  _hover={{
+              bg:"black",
+              textColor:"white",
+              borderRadius:"7px"
+            }} textAlign={"left"}>
+                <Heading ml={"10px"} textAlign={"left"}  size="sm">
+                 Performance <ChevronRightIcon/>
+                </Heading>
+                <Text ml={"10px"} >Sexual Health | Vitality | Stamina</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          bg={"#E1EFF8"}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+               
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            <CardBody p={"0"} align="center">
+              <Image  src={"https://i.mscwlns.co/media/misc/other/home-rcl/5_3fhACuk5-.png?tr=w-500"} alt="article_1"  />
+              <Stack  _hover={{
+              bg:"black",
+              textColor:"white",
+              borderRadius:"7px"
+            }} textAlign={"left"}>
+                <Heading ml={"10px"} textAlign={"left"}  size="sm">
+                 Skin <ChevronRightIcon/>
+                </Heading>
+                <Text ml={"10px"} >Acne | Pigmentation | Anti-Aging</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          bg={"#E1EFF8"}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+               
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            <CardBody p={"0"} align="center">
+              <Image  src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/Untitled-1_jha49v.png?tr=w-500"} alt="article_1"  />
+              <Stack  _hover={{
+              bg:"black",
+              textColor:"white",
+              borderRadius:"7px"
+            }} textAlign={"left"}>
+                <Heading ml={"10px"} textAlign={"left"}  size="sm">
+                 Quit Smoking <ChevronRightIcon/>
+                </Heading>
+                <Text ml={"10px"} >Quitting Smoking | Quitting Vaping</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+          <Card
+          bg={"#E1EFF8"}
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+               
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            <CardBody p={"0"} align="center">
+              <Image  src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/Homepage_hair_category_card_I-4woJERa.png?tr=w-500"} alt="article_1"  />
+              <Stack  _hover={{
+              bg:"black",
+              textColor:"white",
+              borderRadius:"7px"
+            }} textAlign={"left"}>
+                <Heading ml={"10px"} textAlign={"left"}  size="sm">
+                 Hair <ChevronRightIcon/>
+                </Heading>
+                <Text ml={"10px"} >Hair Fall | Hair Growth | Dandruff</Text>
+              </Stack>
+            </CardBody>
+          </Card>
+          
+
+
+        </Grid>
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(2, 1fr)",
+            xl: "repeat(2, 1fr)",
+          }}
+          justifyContent="center"
+          
+        w={"100%"}
+      
+      mt={"10px"}
+      mb={"10px"}
+          alignItems={"center"}
+        >
+          <Card
+           p={"10px"}
+           pb={"0px"}
+          bg={"#E1EFF8"}
+         
+            data-aos="fade-right"
+            data-aos-duration="1500"
+         
+            borderRadius={"0px"}
+          
+          
+          >
+            
+              <Box  border={"2px solid #E1EFF8"} >
+                
+                <Center>
+                <Heading textAlign={"center"}   color={"#5194D1"} size="lg" fontWeight={"bold"}>
+                30% Cashback Awaits 🤯
+              </Heading>
+                </Center>
+                <Center>
+                <Heading textAlign={"center"}   color={"#5194D1"} size="sl" >
+                Rewards for building habits 💸
+              </Heading>
+                </Center>
+                <Center>
+                <Heading textAlign={"center"}   color={"#5194D1"} size="sl" >
+                Text doctors & fellow users 💬
+              </Heading>
+                </Center>
+                <Center>
+                <Heading textAlign={"center"}   color={"#5194D1"} size="sl" >
+                Unlimited Doctor Consultations 🩺
+                
+              </Heading>
+                </Center>
+
+                <Center>
+                <Heading textAlign={"center"}   color={"#5194D1"} size="lg" >
+                What are you waiting for? Download Now!!
+              </Heading>
+                </Center>
+              
+             <Center>
+              <Flex>
+              <Image h={"45px"}    src={"https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"} alt="article_1"  />
+              <Image h={"45px"}    src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/Untitled_design__88__hPcMy7SlL.png?tr=w-600"} alt="article_1"  />
+             
+              </Flex>
+             </Center>
+               
+             
+               
+              
+              </Box>
+             
+           
+          </Card>
+          <Card
+         
+          bg={"#E1EFF8"}
+        p={"10px"}
+        pb={"0px"}
+        borderRadius={"0px"}
+        >
+          
+            <Box   borderRadius={"200px"} border={"2px solid #E1EFF8"}  >
+              <Center>
+              <Image h={"33vh"} w={"60vh"}    src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1654071511/Man%20Matters/Random/App%20download%20cards/Group-Of-Men_1.png?tr=w-800"} alt="article_1"  />
+              </Center>
+
+            </Box>
+           
+         
+        </Card>
+          
+          
+
+        </Grid>
+        <Text ml={"10%"} fontWeight="bold" fontSize='3xl'>Best Sellers</Text>
+        <Text  ml={"10%"} fontSize='xl'>Browse our best sellers by type of your concerns</Text>
+        <Grid
+          templateColumns={{
+            base: "repeat(3, 1fr)",
+            sm: "repeat(3, 1fr)",
+            md: "repeat(4, 1fr)",
+            lg: "repeat(7, 1fr)",
+            xl: "repeat(7, 1fr)",
+          }}
+          justifyContent="center"
+          gap="40px"
+          w="80%"
+          m="auto"
+          alignItems={"center"}
+        >
+         
+        
+            
+              <Button bg={"#5194D1"} p="20px" pl={"50px"} pr={"50px"} m={"10px"} >Hair</Button>
+              <Button bg={"#F2ECEC"} p="20px" pl={"50px"} pr={"50px"} m={"10px"} >Beared</Button>
+              <Button bg={"#E4F5ED"} p="20px" pl={"50px"} pr={"50px"} m={"10px"} >Nutrition</Button>
+              <Button bg={"#FAE9E9"} p="20px" pl={"50px"} pr={"50px"} m={"10px"} >Performance</Button>
+              <Button bg={"#DDEFEC"} p="20px" pl={"50px"} pr={"50px"} m={"10px"} >Body</Button>
+              <Button bg={"#FEF3EA"} p="20px" pl={"50px"} pr={"50px"} m={"10px"} >Skin</Button>
+             
+              
+           
+         
+         
+          
+          
+
+
+        </Grid>
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(4, 1fr)",
+            xl: "repeat(4, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+          w="80%"
+          m="auto"
+          alignItems={"center"}
+        >
+ {daata?.map((property)=>(
+          <Card2 property={property}/>
+        ))}
+        </Grid>
+        
+       <Flex     justifyContent="center"
+          gap="20%"
+        w={"80%"}
+       
+          m="auto"
+          alignItems={"center"}
+          mt={"15px"}>
+            
+           <Box w={"20%"} >
+           <Image borderRadius={"50%"}  src="https://i.mscwlns.co/media/misc/other/home-rcl/Untitled_design_-_2023-02-14T161116.978_baDXsxoof.png?tr=w-500" />
+       <Center>
+       <Text  mt={"10px"} >Assess Yourself</Text>
+       </Center>
+      
+            </Box> 
+           <Box w={"20%"} >
+           <Image borderRadius={"50%"}  src="https://i.mscwlns.co/media/misc/other/home-rcl/Untitled_design_-_2023-02-14T160453.970_Zf7K80ASa.png?tr=w-500" />
+       <Center>
+       <Text  mt={"10px"} >Consult Free</Text>
+       </Center>
+      
+            </Box> 
+           <Box w={"20%"} >
+           <Image borderRadius={"50%"}  src="https://i.mscwlns.co/media/misc/other/home-rcl/Untitled_design_-_2023-02-14T161558.401_sH3WhAYSE.png?tr=w-500" />
+       <Center>
+       <Text  mt={"10px"} >Be Consistent</Text>
+       </Center>
+      
+            </Box> 
+       
+       
+       </Flex>
+       <Text ml={"10%"} fontWeight="bold" fontSize='3xl'>Meet Our Experts</Text>
+    
+       <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(2, 1fr)",
+            xl: "repeat(2, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+        w={"80%"}
+       
+          m="auto"
+          alignItems={"center"}
+        >
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            className="card"
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          
+          >
+            
+              <Box bg={"#E1EFF8"}  >
+                <Flex  >
+                <Image h={"350px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/category_pages/hair/1_WYkaxrs4J.png?tr=w-600"} alt="article_1" borderRadius="lg" />
+              
+              <Heading ml={"40px"} mt={"20px"}  color={"#49729F"} size="md" fontWeight={"bold"}>
+              Dr. Sujit  Shanshanwal
+              <Heading   color={"#49729F"} size="sm">
+              MBBS, MD
+              </Heading>
+              <Heading  p={"30px"} pl={"0px"} color={"black"} size="sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
+              </Heading>
+              </Heading>
+             
+                </Flex>
+             
+               
+              
+              </Box>
+             
+           
+          </Card>
+          <Card
+          
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            className="card"
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          
+          >
+            
+              <Box bg={"#E1EFF8"}  >
+                <Flex  >
+                <Image h={"350px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/category_pages/hair/4_uFxS6aANb.png?tr=w-600"} alt="article_1" borderRadius="lg" />
+              
+              <Heading ml={"40px"} mt={"20px"}  color={"#49729F"} size="md" fontWeight={"bold"}>
+              Dr. Rohit Singh
+              <Heading   color={"#49729F"} size="sm">
+              MBBS, DPM
+              </Heading>
+              <Heading  p={"30px"} pl={"0px"} color={"black"} size="sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
+              </Heading>
+              </Heading>
+             
+                </Flex>
+             
+               
+              
+              </Box>
+             
+           
+          </Card>
+         
+          
+          
+          
+
+        </Grid>
+
+        <Text fontWeight="bold" ml={"10%"} fontSize='3xl'>Info Matters</Text>
+   
+     
+  <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+            xl: "repeat(3, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+          w="80%"
+          m="auto"
+          alignItems={"center"}
+        >
+    <Box maxW="sm" borderWidth="2px" borderRadius="lg" overflow="hidden">
+    <Image src={"https://manmatters.com/blog/content/images/size/w1000/2022/10/guava-leaes-for-hair--3-.jpg"}  />
+    <Box  pt="0">
+      
+      <Box
+        fontWeight="semibold"
+        lineHeight="tight"
+        as="h4"
+        mt="1"
+        isTruncated
+        m={"7px"}
+      >
+        5Proven Tips For Growing Hair Faster
+      </Box>
+      
+      <Box
+        
+        m={"7px"}
+        as="h6"
+        mt="1"
+        
+      >
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quos deserunt facere at, libero recusandae quod veritatis excepturi et, quam exercitationem dolorum ducimus amet saepe quibusdam, commodi alias harum temporibus. 
+      </Box>
+     
+
+
+
+      <Box
+        as="button"
+       w={"100%"}
+        bg="teal.500"
+        color="white"
+        
+        py={2}
+        mt="2"
+      >
+      Learn More
+      </Box>
+    </Box>
+  </Box>
+    <Box maxW="sm" borderWidth="2px" borderRadius="lg" overflow="hidden">
+    <Image src={"https://manmatters.com/blog/content/images/size/w1000/2022/08/Untitled-design--27-_11zon.jpeg"}  />
+    <Box  pt="0">
+      
+      <Box
+        fontWeight="semibold"
+        lineHeight="tight"
+        as="h4"
+        mt="1"
+        m={"7px"}
+      >
+       Research Backed Fish Oil Benefits for Men
+      </Box>
+      
+      <Box
+        m={"7px"}
+        lineHeight="tight"
+        as="h6"
+        mt="1"
+       
+      >
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quos deserunt facere at, libero recusandae quod veritatis excepturi et, quam exercitationem dolorum ducimus amet saepe quibusdam, commodi alias harum temporibus. 
+      </Box>
+     
+
+
+
+      <Box
+        as="button"
+       w={"100%"}
+        bg="teal.500"
+        color="white"
+        
+        py={2}
+        mt="2"
+      >
+      Learn More
+      </Box>
+    </Box>
+  </Box>
+    <Box maxW="sm" borderWidth="2px" borderRadius="lg" overflow="hidden">
+    <Image src={"https://manmatters.com/blog/content/images/size/w1000/2021/04/Gym_Rules_Every_Guy_Should_Know_unsaid_gym_rules2-1.jpg"}  />
+    <Box  pt="0">
+      
+      <Box
+        fontWeight="semibold"
+        lineHeight="tight"
+        as="h4"
+        mt="1"
+        m={"7px"}
+        isTruncated
+      >
+        5 Gym Rules Every Guy Should Know
+      </Box>
+      
+      <Box
+        
+        lineHeight="tight"
+        as="h6"
+        mt="1"
+        m={"7px"}
+      >
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis quos deserunt facere at, libero recusandae quod veritatis excepturi et, quam exercitationem dolorum ducimus amet saepe quibusdam, commodi alias harum temporibus. 
+      </Box>
+     
+
+
+
+      <Box
+        as="button"
+       w={"100%"}
+        bg="teal.500"
+        color="white"
+        
+        py={2}
+        mt="2"
+      >
+      Learn More
+      </Box>
+    </Box>
+  </Box>
+        </Grid>
+        <Center>Complete your payment using any of these payment options</Center>
+        <Grid
+          templateColumns={{
+            base: "repeat(3, 1fr)",
+            sm: "repeat(3, 1fr)",
+            md: "repeat(4, 1fr)",
+            lg: "repeat(7, 1fr)",
+            xl: "repeat(7, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+          w="80%"
+          m="auto"
+          mt={"20px"}
+          alignItems={"center"}
+        >
+         
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/amex-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/master-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/visa-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/bhim-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/gpay-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/netbanking-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          <Card
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            _hover={{
+              boxShadow:
+                "rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px",
+            }}
+            
+            boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+         
+          >
+            
+              <Image src={"https://i.mscwlns.co/mosaic-wellness/image/upload/v1603435295/staging/Home/Images/cash-icn.png?tr=w-200"} alt="article_1"  />
+              
+           
+          </Card>
+          
+          
+
+
+        </Grid>
     </div>
+    
   )
 }
