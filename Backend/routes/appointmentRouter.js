@@ -22,12 +22,13 @@ const transporter = nodemailer.createTransport({
 
 
 appointmentRoute.post("/", auth, async (req, res) => {
-  const { language, date, time } = req.body;
+  const { title, language, date, time } = req.body;
   const { _id,email } = req.user; 
   try {
     
     // Create a new appointment with user information
     const newAppointment = new AppointmentModel({
+      title,
       language,
       date,
       time,
@@ -40,7 +41,7 @@ appointmentRoute.post("/", auth, async (req, res) => {
       from: config.email,
       to: email,
       subject: 'Appoinment Scheduled',
-      html: `Your Appoinment Scheduled with Doctor on ${date} at ${time} in ${language} Language`,
+      html: `Your Appoinment Scheduled with Doctor on ${date} at ${time} issue related with ${title}`,
       };
 
       transporter.sendMail(mailOptions, (error, info) => {
