@@ -21,7 +21,7 @@ export const reducer = (state = initialState, { type, payload }) => {
         case LOGIN_NAME:
             return {...state,isLoading:false,isAuth: true,name : payload}
         case LOGOUT:
-            return {...state,isLoading:false,isAuth: false,name : ""}
+            return {...state,isLoading:false,isAuth: false,name : "",token:""}
         default :
            return state
         }
