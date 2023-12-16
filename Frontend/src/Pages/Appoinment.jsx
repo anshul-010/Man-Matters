@@ -121,7 +121,7 @@ export const Appoinment = () => {
             boxShadow="xl"
             borderRadius="20px"
             borderColor="#a4c9f099"
-            width={{ base: "75vw", lg: "33vw" }}
+            width={{ base: "75vw", lg: "32vw" }}
             m="15px auto"
           >
             <Center>
@@ -174,7 +174,7 @@ export const Appoinment = () => {
             <Text
               fontSize={{ base: "md", lg: "lg" }}
               color="gray.500"
-              m="10px 15px"
+              m="5px 15px"
             >
               Select Language
             </Text>
@@ -196,7 +196,7 @@ export const Appoinment = () => {
                 </Select>
               </Flex>
             </FormControl>
-            <hr width="250vw" />
+            <hr width="230vw" />
             <Text
               fontSize={{ base: "md", lg: "lg" }}
               color="gray.500"
@@ -218,7 +218,7 @@ export const Appoinment = () => {
             <Text
               fontSize={{ base: "md", lg: "lg" }}
               color="gray.500"
-              m="10px 15px"
+              m="0px 15px"
             >
               Select Time
             </Text>
@@ -238,7 +238,7 @@ export const Appoinment = () => {
               display="flex"
               p="15px"
               borderRadius="15px"
-              m="50px auto"
+              m="20px auto"
               width={{ base: "60vw", lg: "30vw" }}
               justifyContent="center"
               border="1px solid"
