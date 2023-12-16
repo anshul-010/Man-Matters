@@ -48,14 +48,20 @@ export const ScheduleAppoinment = () => {
   const swipeAnimationLeft = {
     initial: { x: "-100%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { duration: 1, delay: 0.5 },
+    transition: { duration: 0.7, delay: 0.3 },
   };
 
   const swipeAnimationRight = {
     initial: { x: "+100%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { duration: 1, delay: 0.5 },
+    transition: { duration: 0.7, delay: 0.3 },
   };
+
+  const swipeAnimationFromBottom = {
+    initial: { y: "100%", opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.7, delay: 0.3 },
+  };  
 
   return (
     <div>
@@ -77,7 +83,9 @@ export const ScheduleAppoinment = () => {
           </Center>
           {data?.map((ele, i) => {
             return (
+              
               <Link to={`/appoinment/${ele.title}`}>
+                <motion.div {...swipeAnimationFromBottom}>
                 <Flex
                   key={i}
                   _hover={{
@@ -117,6 +125,7 @@ export const ScheduleAppoinment = () => {
                   </Box>
                   <ChevronRight color={ele.color} size="2.5vw" />
                 </Flex>
+                </motion.div>
               </Link>
             );
           })}
