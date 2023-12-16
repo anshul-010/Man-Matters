@@ -56,7 +56,7 @@ export const Appoinment = () => {
           description: "Please check your mail",
           position: "top",
           status: "success",
-          duration: 5000,
+          duration: 4000,
           isClosable: true,
         });
       })
@@ -68,23 +68,36 @@ export const Appoinment = () => {
   const swipeAnimationLeft = {
     initial: { x: "-100%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { duration: 1, delay: 0.5 },
+    transition: { duration: 0.7, delay: 0.3 },
   };
 
   const swipeAnimationRight = {
     initial: { x: "+100%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
-    transition: { duration: 1, delay: 0.5 },
+    transition: { duration: 0.7, delay: 0.3 },
   };
 
   const swipeAnimationFromBottom = {
     initial: { y: "100%", opacity: 0 },
     animate: { y: 0, opacity: 1 },
-    transition: { duration: 1, delay: 0.5 },
+    transition: { duration: 0.7, delay: 0.3 },
   };
 
   return (
     <div>
+      {spin && (
+                  <Spinner
+                    thickness="10px"
+                    speed=".8s"
+                    emptyColor="white"
+                    color="blue.400"
+                    size="xl"
+                    zIndex="100"
+                    pos='relative'
+                    left="47vw"
+                    top='40vh'
+                  />
+              )}
       {spin && (
         <Box
           position="fixed"
@@ -93,7 +106,7 @@ export const Appoinment = () => {
           width="100vw"
           height="100vh"
           bg="rgba(0, 0, 0, 0.5)"
-          zIndex="1"
+          zIndex='1'
         ></Box>
       )}
       <Flex justify="space-between">
@@ -108,20 +121,11 @@ export const Appoinment = () => {
             boxShadow="xl"
             borderRadius="20px"
             borderColor="#a4c9f099"
-            width={{ base: "80vw", lg: "33vw" }}
+            width={{ base: "75vw", lg: "33vw" }}
             m="15px auto"
           >
             <Center>
-              {spin && (
-                <Spinner
-                  thickness="30px"
-                  speed=".8s"
-                  emptyColor="white"
-                  color="blue.400"
-                  size="xl"
-                  zIndex="10"
-                />
-              )}
+              
               <Heading m="10px" size={{ lg: "lg" }} color="#404040ed">
                 {" "}
                 {title}
