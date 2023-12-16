@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar/>
-      <Home/>
+     <AllRoutes/>
       <Footer/>
     </>
   )
