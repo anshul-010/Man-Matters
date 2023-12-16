@@ -5,9 +5,9 @@ export const Card2 = ({property}) => {
   return (
     <Box maxW="sm" borderWidth="2px" borderRadius="lg" overflow="hidden">
     <Image src={property.image} alt={property.image} />
-    <Box  pt="0">
-      <Box d="flex" alignItems="baseline">
-      <Box d="flex" alignItems="center">
+    <Box   pt="0">
+      <Box  ml="8px" d="flex" alignItems="baseline">
+      <Box  d="flex" alignItems="center">
         {Array(5)
           .fill("")
           .map((_, i) => (
@@ -24,16 +24,6 @@ export const Card2 = ({property}) => {
         </Badge>
       </Box>
        
-        {/* <Box
-          color="gray.500"
-          fontWeight="semibold"
-          letterSpacing="wide"
-          fontSize="xs"
-          textTransform="upperCase"
-          ml="2"
-        >
-          {property.rating} beds &bull; {property.rating} baths
-        </Box> */}
       </Box>
       <Box
         fontWeight="semibold"
@@ -41,21 +31,30 @@ export const Card2 = ({property}) => {
         as="h4"
         mt="1"
         isTruncated
+        ml="8px"
       >
         {property.title}
       </Box>
-      <Box>
-       Rs. {property.price}
-        
+      <Box
+        fontWeight="semibold"
+        lineHeight="tight"
+        as="h4"
+        mt="1"
+        ml="8px"
+        isTruncated
+      >
+        ₹{property.price} <span style={{color:"gray",textDecorationLine:"line-through"}}>{property.price+195}</span>
       </Box>
+      
       <Box
         
         lineHeight="tight"
         as="h6"
         mt="1"
         isTruncated
+        ml="8px"
       >
-       <Badge bg={"none"}   colorScheme="blue">
+       <Badge bg={"none"}   color="#5194D1">
           For
         </Badge> {property.for}
       </Box>
@@ -65,8 +64,9 @@ export const Card2 = ({property}) => {
         as="h6"
         mt="1"
         isTruncated
+        ml="8px"
       >
-       <Badge bg={"none"}   colorScheme="blue">
+       <Badge bg={"none"}   color="#5194D1">
           With
         </Badge> {property.with}
       </Box>
@@ -76,13 +76,13 @@ export const Card2 = ({property}) => {
       <Box
         as="button"
        w={"100%"}
-        bg="teal.500"
+        bg="#5194D1"
         color="white"
         
         py={2}
         mt="2"
       >
-        Book Now
+        Add To Cart
       </Box>
     </Box>
   </Box>

@@ -32,7 +32,7 @@ export const Home = () => {
     stage:1,
     with:"Biotin, Redensyl, Anagain",
     category:"hair",
-    rating:4
+    rating:5
 },
     {
     image:"https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
@@ -76,7 +76,7 @@ export const Home = () => {
     <div>
 
 <section className="section">
-      
+      {/* Slider Started */}
       <div className="section-center">
         {people.map((person, personIndex) => {
           const { id, image, name, title, quote } = person;
@@ -106,6 +106,7 @@ export const Home = () => {
         </button>
       </div>
     </section>
+    {/* Consult On App */}
     <Grid
           templateColumns={{
             base: "repeat(1, 1fr)",
@@ -145,7 +146,7 @@ export const Home = () => {
                 </Flex>
              
                
-              
+              <div style={{backgroundColor:"#5194D1",borderRadius:"0 0 10px 10px",width:"100%",height:"30px"}}></div>
               </Box>
              
            
@@ -169,13 +170,13 @@ export const Home = () => {
                 <Image h={"250px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/sub_category_pages/general-hair-health/Image-4.2---Assessment-nudge_v6J8A_G8z.png?tr=w-500"} alt="article_1" borderRadius="lg" />
               
               <Heading   color={"#5194D1"} size="lg" fontWeight={"bold"}>
-              Assess nyself
+              Assess Myself
               </Heading>
               <Image m={"5px"} mt={"18px"} h={"50px"}   src={"https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"} alt="article_1" borderRadius="lg" />
                 </Flex>
              
                
-              
+                <div style={{backgroundColor:"#5194D1",borderRadius:"0 0 10px 10px",width:"100%",height:"30px"}}></div>
               </Box>
              
            
@@ -183,6 +184,7 @@ export const Home = () => {
           
 
         </Grid>
+        {/* 3L+ Consults */}
     <Flex
         
           justifyContent="center"
@@ -200,7 +202,7 @@ export const Home = () => {
             data-aos-duration="1500"
  
           >
-            <CardBody   align="center" p={"0px"}>
+            <CardBody    align="center" p={"0px"}>
               <Image  bg={"#E1EFF8"}  w={"30vh"} p={"10%"} src={"https://i.mscwlns.co/media/bebodywise/tmarkers/trust/1_Bw82nMjZZ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675664231347"} alt="article_1" />
               <Stack textAlign={"left"}>
                 <Text  mt={"10px"} textAlign={"center"}  >
@@ -245,6 +247,7 @@ export const Home = () => {
           
 
         </Flex>
+        {/* Beared Nutriton Performance */}
         <Grid
           templateColumns={{
             base: "repeat(2, 1fr)",
@@ -338,7 +341,7 @@ export const Home = () => {
                 <Heading ml={"10px"} textAlign={"left"}  size="sm">
                  Performance <ChevronRightIcon/>
                 </Heading>
-                <Text ml={"10px"} >Sexual Health | Vitality | Stamina</Text>
+                <Text ml={"10px"} >Sexual Health | Vitality | Stamina | Quitting Vaping</Text>
               </Stack>
             </CardBody>
           </Card>
@@ -427,6 +430,7 @@ export const Home = () => {
 
 
         </Grid>
+        {/* 30%CashBack Awaits */}
         <Grid
           templateColumns={{
             base: "repeat(1, 1fr)",
@@ -524,6 +528,8 @@ export const Home = () => {
         </Grid>
         <Text ml={"10%"} fontWeight="bold" fontSize='3xl'>Best Sellers</Text>
         <Text  ml={"10%"} fontSize='xl'>Browse our best sellers by type of your concerns</Text>
+        
+        {/* Product Card ANd Filter */}
         <Grid
           templateColumns={{
             base: "repeat(3, 1fr)",
@@ -576,6 +582,11 @@ export const Home = () => {
         ))}
         </Grid>
         
+        {/* Asses Yourself Consult Free */}
+        <Center>
+          
+        <Text fontWeight="bold" mt={"25px"} mb={"15px"}  fontSize='3xl'>How it works</Text>
+        </Center>
        <Flex     justifyContent="center"
           gap="20%"
         w={"80%"}
@@ -608,6 +619,7 @@ export const Home = () => {
        
        
        </Flex>
+       {/* Meet Our Experts */}
        <Text ml={"10%"} fontWeight="bold" fontSize='3xl'>Meet Our Experts</Text>
     
        <Grid
@@ -620,7 +632,7 @@ export const Home = () => {
           }}
           justifyContent="center"
           gap="30px"
-        w={"80%"}
+        w={"90%"}
        
           m="auto"
           alignItems={"center"}
@@ -639,20 +651,29 @@ export const Home = () => {
           >
             
               <Box bg={"#E1EFF8"}  >
-                <Flex  >
-                <Image h={"350px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/category_pages/hair/1_WYkaxrs4J.png?tr=w-600"} alt="article_1" borderRadius="lg" />
+                <Grid templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(2, 1fr)",
+            xl: "repeat(2, 1fr)",
+          }} >
+                <Image w={"100%"} pos="relative"  src={"https://i.mscwlns.co/media/misc/category_pages/hair/1_WYkaxrs4J.png?tr=w-600"} alt="article_1" borderRadius="lg" />
               
               <Heading ml={"40px"} mt={"20px"}  color={"#49729F"} size="md" fontWeight={"bold"}>
               Dr. Sujit  Shanshanwal
               <Heading   color={"#49729F"} size="sm">
               MBBS, MD
               </Heading>
-              <Heading  p={"30px"} pl={"0px"} color={"black"} size="sm">
+              </Heading>
+              <Text  p={"10px"} pl={"0px"} color={"black"} size="sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
-              </Heading>
-              </Heading>
+              Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
+              Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
+              </Text>
              
-                </Flex>
+             
+                </Grid>
              
                
               
@@ -674,8 +695,14 @@ export const Home = () => {
           >
             
               <Box bg={"#E1EFF8"}  >
-                <Flex  >
-                <Image h={"350px"} pos="relative"  src={"https://i.mscwlns.co/media/misc/category_pages/hair/4_uFxS6aANb.png?tr=w-600"} alt="article_1" borderRadius="lg" />
+                <Grid templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(2, 1fr)",
+            xl: "repeat(2, 1fr)",
+          }} >
+                <Image h={"100%"} pos="relative"  src={"https://i.mscwlns.co/media/misc/category_pages/hair/4_uFxS6aANb.png?tr=w-600"} alt="article_1" borderRadius="lg" />
               
               <Heading ml={"40px"} mt={"20px"}  color={"#49729F"} size="md" fontWeight={"bold"}>
               Dr. Rohit Singh
@@ -684,10 +711,12 @@ export const Home = () => {
               </Heading>
               <Heading  p={"30px"} pl={"0px"} color={"black"} size="sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
+              Totam maiores, dolores laudantium natus voluptate odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
+               odit iure maxime ducimus obcaecati culpa magnam sequi ipsum magni voluptatum cupiditate modi dolorum error. Repellendus, assumenda facere.
               </Heading>
               </Heading>
              
-                </Flex>
+                </Grid>
              
                
               
@@ -701,10 +730,9 @@ export const Home = () => {
           
 
         </Grid>
-
+{/* Info Matters */}
         <Text fontWeight="bold" ml={"10%"} fontSize='3xl'>Info Matters</Text>
-   
-     
+ 
   <Grid
           templateColumns={{
             base: "repeat(1, 1fr)",
@@ -750,7 +778,7 @@ export const Home = () => {
       <Box
         as="button"
        w={"100%"}
-        bg="teal.500"
+        bg="#22548A"
         color="white"
         
         py={2}
@@ -790,7 +818,7 @@ export const Home = () => {
       <Box
         as="button"
        w={"100%"}
-        bg="teal.500"
+        bg="#22548A"
         color="white"
         
         py={2}
@@ -831,7 +859,7 @@ export const Home = () => {
       <Box
         as="button"
        w={"100%"}
-        bg="teal.500"
+        bg="#22548A"
         color="white"
         
         py={2}
@@ -842,6 +870,7 @@ export const Home = () => {
     </Box>
   </Box>
         </Grid>
+
         <Center>Complete your payment using any of these payment options</Center>
         <Grid
           templateColumns={{
