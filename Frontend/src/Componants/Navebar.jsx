@@ -29,10 +29,12 @@ const Navbar = () => {
       </Link>
 
       <div id="search">
-        <span>
-          <Search color="#22548A" />
-        </span>
-        <input type="text" placeholder="search" />
+          <span>
+            <Search color="#22548A" />
+          </span>
+        <form>
+          <input type="text" placeholder="search" />
+        </form>
       </div>
 
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
