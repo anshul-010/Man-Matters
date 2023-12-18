@@ -62,7 +62,7 @@
     border-radius: 20px;
   }
 
-  #search>input{
+  #search input{
     /* border: 1px solid #22548A; */
     outline: none;
     border-radius: 20px;
@@ -141,7 +141,7 @@
     .logo{
         font-size: 1rem;
     }
-    #search>input{
+    #search input{
       /* border: 1px solid #22548A; */
       width: 40vw;
       outline: none;
