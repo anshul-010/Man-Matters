@@ -8,18 +8,17 @@ import { logout } from "../Redux/AuthReducer/actions";
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const userName = useSelector((store)=>store.AuthReducer.name)
-  const isAuth = useSelector((store)=>store.AuthReducer.isAuth)
+  const userName = useSelector((store) => store.AuthReducer.name);
+  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
 
-
   const handleLogout = () => {
-    dispatch(logout())
+    dispatch(logout());
   };
 
   return (
@@ -29,9 +28,9 @@ const Navbar = () => {
       </Link>
 
       <div id="search">
-          <span>
-            <Search color="#22548A" />
-          </span>
+        <span>
+          <Search color="#22548A" />
+        </span>
         <form>
           <input type="text" placeholder="search" />
         </form>
@@ -59,15 +58,19 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <Link to='/login'><div className="log-in" onClick={() => setIsNavOpen(true)} >
-            Login
-          </div></Link>
+          <Link to="/login">
+            <div className="log-in" onClick={() => setIsNavOpen(true)}>
+              Login
+            </div>
+          </Link>
         )}
       </div>
 
-      <div className="shoping-cart">
-        <ShoppingCart />
-      </div>
+      <Link to="checkout">
+        <div className="shoping-cart">
+          <ShoppingCart />
+        </div>
+      </Link>
       <div className="burger-menu" onClick={toggleNav}>
         {isNavOpen ? <Menu /> : <X />}
       </div>
