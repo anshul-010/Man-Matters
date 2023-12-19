@@ -10,11 +10,11 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ChakraProvider theme={Theme}>
-    <BrowserRouter>
-      <Provider store={store}>
+  <BrowserRouter>
+    <Provider store={store}>
+      <ChakraProvider theme={Theme}>
         <App />
-      </Provider>
-    </BrowserRouter>
-  </ChakraProvider>
+      </ChakraProvider>
+    </Provider>
+  </BrowserRouter>
 );

@@ -7,11 +7,10 @@ const Theme = extendTheme({
     yellowA: "#ffc820", // Dark Yellow
     yellowB: "#ffed6c", // Light Yellow
     greenA: "#00af93", // Light Green
+    greenB: "#00AF93", // Green Teal - rgba(0,175,147,1)
     blackA: "#000000", // Pure Black
     whiteA: "#ffffff", // Pure White
     greyWhiteA: "#bdbdbd", // Greyish White
-
-    bgA: "#dce2f0",
   },
 
   shadows: {
@@ -19,5 +18,7 @@ const Theme = extendTheme({
     shadowB: "rgba(0, 0, 0, 0.1) 0px 5px 30px",
   },
 });
+
+// Sizes:- xs | sm | md | lg | xl | 2xl | 3xl | 4xl | full
 
 export default Theme;
