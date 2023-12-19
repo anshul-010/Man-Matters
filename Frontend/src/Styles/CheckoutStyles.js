@@ -46,6 +46,69 @@ export const LeftOptionsCont = css`
   }
 `;
 
+// ********** Middle Part *************
+export const MiddleOuter = css`
+  margin: auto;
+  width: 72%;
+
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+`;
+export const StepperBox = css`
+  margin: auto;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 30px;
+
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+`;
+export const EachStepBox = css`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  p {
+    font-size: 14px;
+  }
+
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+`;
+export const NumBoxStepper = css`
+  display: flex;
+  place-items: center;
+  place-content: center;
+  border: 1px solid;
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 10px;
+
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+`;
+
 /* 
 
 export const TechStack = css`
