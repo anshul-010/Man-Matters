@@ -12,18 +12,15 @@ import { useSelector,useDispatch  } from "react-redux";
 import { Link,useLocation, useNavigate  } from "react-router-dom";
 import axios from "axios";
 import { login } from "../Redux/AuthReducer/actions";
-
 let initialData = {
   email: "",
   password: "",
 };
-
 export const Login = () => {
   const [userData, setUserData] = useState(initialData);
   const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
   const { isAuth, name, token } = useSelector((store) => {
     return {
       isAuth: store.AuthReducer.isAuth,
@@ -31,25 +28,19 @@ export const Login = () => {
       token: store.AuthReducer.token,
     };
   });
-
-
   function handleChange(event) {
     const { name, value } = event.target;
     setUserData((pre) => {
       return { ...pre, [name]: name == "mobile" ? +value : value };
     });
-
   }
   function handleLogin(event) {
     event.preventDefault();
     dispatch(login(userData)).then(()=>{
       navigate(location.state,{replace:true})
     })
-
     setUserData(initialData);
   }
-
-
   return (
     <>
       <Box

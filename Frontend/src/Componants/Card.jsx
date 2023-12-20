@@ -25,7 +25,6 @@ export const Card2 = ({property}) => {
           New
         </Badge>
       </Box>
-       
       </Box>
       <Box
         fontWeight="semibold"
@@ -47,9 +46,7 @@ export const Card2 = ({property}) => {
       >
         ₹{property.price} <span style={{color:"gray",textDecorationLine:"line-through"}}>{property.price+195}</span>
       </Box>
-      
       <Box
-        
         lineHeight="tight"
         as="h6"
         mt="1"
@@ -61,7 +58,6 @@ export const Card2 = ({property}) => {
         </Badge> {property.for}
       </Box>
       <Box
-        
         lineHeight="tight"
         as="h6"
         mt="1"
@@ -72,15 +68,11 @@ export const Card2 = ({property}) => {
           With
         </Badge> {property.with}
       </Box>
-
-
-
       <Box
         as="button"
        w={"100%"}
         bg="#5194D1"
         color="white"
-        
         py={2}
         mt="2"
       >

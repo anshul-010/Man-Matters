@@ -1,7 +1,6 @@
 import React from "react";
 import "../data/styles.css";
 import data from "../data/data";
-
 import { useState, useEffect } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { FaQuoteRight } from "react-icons/fa";
@@ -20,7 +19,6 @@ import {
 } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-
 export const Home = () => {
   //hover
   const [people, setPeople] = useState(data);
@@ -139,7 +137,6 @@ export const Home = () => {
       <Heading m="3% 10% 3% 11%" size="lg">
         Expert Advice that Works
       </Heading>
-
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -183,7 +180,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Heading
                 color={"#5194D1"}
                 ml={{ base: "40%", lg: "39%" }}
@@ -203,7 +199,6 @@ export const Home = () => {
                 borderRadius="lg"
               />
             </Flex>
-
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -214,7 +209,6 @@ export const Home = () => {
             ></div>
           </Box>
         </Card>
-
         <Card
           data-aos="fade-right"
           data-aos-duration="1500"
@@ -245,7 +239,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Heading
                 color={"#5194D1"}
                 ml={{ base: "42%", lg: "44%" }}
@@ -265,7 +258,6 @@ export const Home = () => {
                 borderRadius="lg"
               />
             </Flex>
-
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -417,7 +409,6 @@ export const Home = () => {
             </Stack>
           </CardBody>
         </Card>
-
         <Card
           data-aos="fade-right"
           data-aos-duration="1500"
@@ -588,7 +579,6 @@ export const Home = () => {
           </CardBody>
         </Card>
       </Grid>
-
       {/* 30%CashBack Awaits */}
       <Grid
         templateColumns={{
@@ -613,7 +603,6 @@ export const Home = () => {
           //  heigth="100%"
           data-aos="fade-right"
           data-aos-duration="1500"
-
           // borderRadius={"80px"}
         >
           <Box borderColor={"#E1EFF8"} bgColor="#E1EFF8">
@@ -644,7 +633,6 @@ export const Home = () => {
                 Unlimited Doctor Consultations 🩺
               </Heading>
             </Center>
-
             <Center>
               <Heading
                 textAlign={"center"}
@@ -656,7 +644,6 @@ export const Home = () => {
                 What are you waiting for? Download Now!!
               </Heading>
             </Center>
-
             <Center>
               <Flex>
                 <Image
@@ -703,7 +690,6 @@ export const Home = () => {
       <Text ml={"10%"} mt="8" mb="8" fontSize="xl">
         Browse our best sellers by type of your concerns
       </Text>
-
       {/* Product Card ANd Filter */}
       <Grid
         templateColumns={{
@@ -740,7 +726,6 @@ export const Home = () => {
           borderRadius="15px"
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#F2ECEC", boxShadow: "5px 5px 8px #b09999" }}
-
         >
           Beared
         </Button>
@@ -752,7 +737,6 @@ export const Home = () => {
           borderRadius="15px"
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#E4F5ED", boxShadow: "5px 5px 8px #70bd99" }}
-
         >
           Nutrition
         </Button>
@@ -764,7 +748,6 @@ export const Home = () => {
           borderRadius="15px"
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#FAE9E9", boxShadow: "5px 5px 8px #bc8888" }}
-
         >
           Performance
         </Button>
@@ -776,7 +759,6 @@ export const Home = () => {
           borderRadius="15px"
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#DDEFEC", boxShadow: "5px 5px 8px #69afa3" }}
-
         >
           Body
         </Button>
@@ -788,7 +770,6 @@ export const Home = () => {
           borderRadius="15px"
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#FEF3EA", boxShadow: "5px 5px 8px #b88052" }}
-
         >
           Skin
         </Button>
@@ -811,7 +792,6 @@ export const Home = () => {
           <Card2 property={property} />
         ))}
       </Grid>
-
       {/* Asses Yourself Consult Free */}
       <Center>
         <Text fontWeight="bold" mt={"25px"} mb={"15px"} fontSize="3xl">
@@ -858,7 +838,6 @@ export const Home = () => {
       <Text ml={"10%"} fontWeight="bold" fontSize="3xl">
         Meet Our Experts
       </Text>
-
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -902,7 +881,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Box
                 ml={"40px"}
                 mt={"20px"}
@@ -959,7 +937,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Box
                 ml={"40px"}
                 mt={"20px"}
@@ -992,7 +969,6 @@ export const Home = () => {
       <Text fontWeight="bold" ml={"10%"} fontSize="3xl">
         Info Matters
       </Text>
-
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -1025,14 +1001,12 @@ export const Home = () => {
             >
               5Proven Tips For Growing Hair Faster
             </Box>
-
             <Box m={"7px"} as="h6" mt="1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
               quos deserunt facere at, libero recusandae quod veritatis
               excepturi et, quam exercitationem dolorum ducimus amet saepe
               quibusdam, commodi alias harum temporibus.
             </Box>
-
             <Box
               as="button"
               w={"100%"}
@@ -1062,14 +1036,12 @@ export const Home = () => {
             >
               Research Backed Fish Oil Benefits for Men
             </Box>
-
             <Box m={"7px"} lineHeight="tight" as="h6" mt="1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
               quos deserunt facere at, libero recusandae quod veritatis
               excepturi et, quam exercitationem dolorum ducimus amet saepe
               quibusdam, commodi alias harum temporibus.
             </Box>
-
             <Box
               as="button"
               w={"100%"}
@@ -1102,14 +1074,12 @@ export const Home = () => {
             >
               5 Gym Rules Every Guy Should Know
             </Box>
-
             <Box lineHeight="tight" as="h6" mt="1" m={"7px"}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
               quos deserunt facere at, libero recusandae quod veritatis
               excepturi et, quam exercitationem dolorum ducimus amet saepe
               quibusdam, commodi alias harum temporibus.
             </Box>
-
             <Box
               as="button"
               w={"100%"}
@@ -1123,7 +1093,6 @@ export const Home = () => {
           </Box>
         </Box>
       </Grid>
-
       <Center>
         <Text
           width={"80%"}
