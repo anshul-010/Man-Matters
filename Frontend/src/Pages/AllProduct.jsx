@@ -122,7 +122,7 @@ export const AllProduct = () => {
           // border="2px solid"
           height="15vh"
         >
-          <Heading color="#565656" size={{ base: "sm", lg: "lg" }}>{cetagoryName}</Heading>
+          <Heading color="#565656" width={{base:"",lg:"14vw"}} size={{ base: "sm", lg: "lg" }}>{cetagoryName}</Heading>
           <Box>
             <Select
               fontSize={{ base: "sm", lg: "lg" }}
