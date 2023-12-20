@@ -2,7 +2,8 @@ import * as css from "../Styles/CheckoutStyles";
 
 import { useState, useEffect } from "react";
 import { IoIosArrowBack as LeftArrow } from "react-icons/io";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { FaPen as PenIcon } from "react-icons/fa6";
+import { Box, Text, Image, Highlight } from "@chakra-ui/react";
 
 const Checkout = () => {
   const [currStepper, setCurrStepper] = useState(1);
@@ -83,6 +84,50 @@ const Checkout = () => {
               Payment
             </Text>
           </Box>
+        </Box>
+
+        {/* Content Container */}
+        <Box css={css.ContentOuter}>
+          {/* Left Side Box */}
+          <Box css={css.LeftSideCont}>
+            <Box bg="blueA" color="whiteA" css={css.BlueBoxLeftSide}>
+              <Box css={css.TalkToDoctorCont}>
+                <Text fontFamily="font1" css={css.TextTalkToDoctor}>
+                  Talk to Doctor Now for FREE
+                </Text>
+                <Box bg="blueC" css={css.PenBtnCont}>
+                  <Image as={PenIcon} />
+                </Box>
+              </Box>
+              <Box css={css.TypeLanguageCont}>
+                <Box>
+                  <Text color="yellowB" css={css.TypeLanguageHeadingTexts}>
+                    Type
+                  </Text>
+                  <Text css={css.TypeLanguageValueTexts}>Audio Call</Text>
+                </Box>
+                <Box>
+                  <Text color="yellowB" css={css.TypeLanguageHeadingTexts}>
+                    Language
+                  </Text>
+                  <Text css={css.TypeLanguageValueTexts}>English</Text>
+                </Box>
+              </Box>
+              <Text css={css.BottomTextLeftBlueBox}>
+                Your consultation will start on placement of order
+              </Text>
+            </Box>
+
+            <Box css={css.BookAnotherSlotCont}>
+              <span>Not free right now?</span>
+              <Text fontFamily="font1" color="blueC">
+                Book Another Slot {`>`}
+              </Text>
+            </Box>
+          </Box>
+
+          {/* Right Side Box */}
+          <Box>Right</Box>
         </Box>
       </Box>
 
