@@ -4,7 +4,9 @@ import { StarIcon } from '@chakra-ui/icons';
 export const Card2 = ({property}) => {
   return (
     <Box maxW="sm" borderWidth="2px" borderRadius="lg" overflow="hidden">
-    <Image src={property.image} alt={property.image} />
+      <Box  m='auto' height="28vh">
+        <Image src={property.image[0]} height="100%" width="100%" alt={property.image} />
+      </Box>
     <Box   pt="0">
       <Box  ml="8px" d="flex" alignItems="baseline">
       <Box  d="flex" alignItems="center">

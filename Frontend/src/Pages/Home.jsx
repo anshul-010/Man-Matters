@@ -25,8 +25,12 @@ export const Home = () => {
   const [index, setIndex] = useState(0);
   const daata = [
     {
-      image:
-        "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+      "image": [
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
+            ],
       price: 899,
       title: "Stage 1 Hairloss Kit for Genetics",
       for: "Stage 1 Hair Fall",
@@ -36,8 +40,12 @@ export const Home = () => {
       rating: 4,
     },
     {
-      image:
-        "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+      "image": [
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
+            ],
       price: 899,
       title: "Stage 1 Hairloss Kit for Genetics",
       for: "Stage 1 Hair Fall",
@@ -47,8 +55,12 @@ export const Home = () => {
       rating: 5,
     },
     {
-      image:
-        "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+      "image": [
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
+            ],
       price: 899,
       title: "Stage 1 Hairloss Kit for Genetics",
       for: "Stage 1 Hair Fall",
@@ -58,8 +70,12 @@ export const Home = () => {
       rating: 4,
     },
     {
-      image:
-        "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+      "image": [
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
+                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
+            ],
       price: 899,
       title: "Stage 1 Hairloss Kit for Genetics",
       for: "Stage 1 Hair Fall",

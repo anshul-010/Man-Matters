@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Navbar/>
-    <ProductCard/>
+  <AllRoutes/>
     
       <Footer/>
       
