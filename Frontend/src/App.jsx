@@ -9,6 +9,7 @@ import { Home } from './Pages/Home'
 import Navbar from './Componants/Navebar'
 import {Footer} from './Componants/Footer'
 import { AllProduct } from './Pages/AllProduct'
+import { ProductCard } from './Componants/ProductCard'
 
 
 
@@ -18,8 +19,10 @@ function App() {
   return (
     <>
       <Navbar/>
-     <AllRoutes/>
+    <ProductCard/>
+    
       <Footer/>
+      
     </>
   )
 }

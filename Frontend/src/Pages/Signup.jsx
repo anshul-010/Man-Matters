@@ -10,7 +10,6 @@ import {
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios"
-
 let initialData = {
   firstName:"",
   lastName:"",
@@ -18,17 +17,14 @@ let initialData = {
   email:"",
   password:""
 }
-
 export const Signup = () => {
   const [userData, setUserData] = useState(initialData)
-
   function handleChange(event) {
     const {name,value} = event.target
     setUserData((pre)=>{
       return {...pre, [name]:name=="mobile"?+value:value}
     })
   }
-
   function handleSubmit(event){
     event.preventDefault()
     console.log(userData)
@@ -36,11 +32,8 @@ export const Signup = () => {
     .then((res)=>{
       console.log(res.data)
     })
-
     setUserData(initialData)
   }
-
-
   return (
     <>
       <Box
