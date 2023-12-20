@@ -3,7 +3,9 @@ import { extendTheme } from "@chakra-ui/react";
 const Theme = extendTheme({
   colors: {
     primary: "#22548a", // Dark Blue
-    blueA: "#c4e3f8", // Light Blue
+    blueA: "rgb(28, 61, 116)", // Dark Blue
+    blueB: "#c4e3f8", // Light Blue
+    blueC: "rgb(104, 150, 219)", // Light Blue 2
     yellowA: "#ffc820", // Dark Yellow
     yellowB: "#ffed6c", // Light Yellow
     greenA: "#00af93", // Light Green
@@ -11,6 +13,11 @@ const Theme = extendTheme({
     blackA: "#000000", // Pure Black
     whiteA: "#ffffff", // Pure White
     greyWhiteA: "#bdbdbd", // Greyish White
+  },
+
+  fonts: {
+    font1:
+      "'Figtree',sans-serif,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif",
   },
 
   shadows: {
