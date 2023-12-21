@@ -126,10 +126,10 @@ export const Home = () => {
             );
           })}
           <button className="prev" onClick={() => setIndex(index - 1)}>
-            <FiChevronLeft />
+            <FiChevronLeft size={50} />
           </button>
           <button className="next" onClick={() => setIndex(index + 1)}>
-            <FiChevronRight />
+            <FiChevronRight size={50} />
           </button>
         </div>
       </section>
