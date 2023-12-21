@@ -117,7 +117,6 @@ const Checkout = () => {
                 Your consultation will start on placement of order
               </Text>
             </Box>
-
             <Box css={css.BookAnotherSlotCont}>
               <span>Not free right now?</span>
               <Text fontFamily="font1" color="blueC">
@@ -127,7 +126,7 @@ const Checkout = () => {
           </Box>
 
           {/* Right Side Box */}
-          <Box>Right</Box>
+          <Box css={css.RightSideCont}>Right</Box>
         </Box>
       </Box>
 
