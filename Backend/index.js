@@ -3,12 +3,14 @@ const { connection } = require('./db');
 const cors = require('cors');
 const { userRoute } = require('./routes/userRouter');
 const { appointmentRoute } = require('./routes/appointmentRouter');
+const { productRoute } = require('./routes/productRouter');
 
 const app = express();
 app.use(express.json());
 app.use(cors())
 app.use("/user",userRoute)
 app.use("/appointment",appointmentRoute)
+app.use("/product",productRoute)
 app.get("/", (req, res) => {
     res.send("Welcome to the page!");
 })

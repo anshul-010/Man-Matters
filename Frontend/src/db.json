@@ -1,21 +1,6 @@
 {
     "Products": [
-        {
-            
-            "image":    [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-500",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Whatsapp%20PD%20%283%29_i9n5jk.png?tr=w-500",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%203_4ejfgu.jpg?tr=w-500",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-500"
-            ],
-            "price": 899,
-            "title": "Stage 1 Hairloss Kit for Genetics",
-            "for": "Stage 1 Hair Fall",
-            "stage": 1,
-            "with": "Biotin, Redensyl, Anagain",
-            "category": "hair",
-            "rating": 4
-        },
+        
         {
             "image":  [
                 "https://i.mscwlns.co/media/misc/pdp_rcl/141464/Gu%2B-Min_9du6c4.jpg?tr=w-800",
@@ -29,7 +14,8 @@
             "stage": 2,
             "with": "5% Minoxidil, Biotin",
             "category": "hair",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -44,7 +30,8 @@
             "stage": 3,
             "with": "Minoxidil, Finasteride, Biotin",
             "category": "hair",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -59,7 +46,8 @@
             "stage": 4,
             "with": "Minoxidil, FInasteride, Biotin",
             "category": "hair",
-            "rating": 2
+            "rating": 2,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -74,7 +62,8 @@
             "stage": "Stage 2 Hair Loss",
             "with": "5% Minoxidil, 2% Procapil",
             "category": "hair",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -89,7 +78,8 @@
             "stage": 2,
             "with": "1% Ketoconazole",
             "category": "hair",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -104,7 +94,8 @@
             "stage": 2,
             "with": "5% Minoxidil,0.1% Finasteride",
             "category": "hair",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":true
         },
         {
             "image":  [
@@ -119,7 +110,8 @@
             "stage": 3,
             "with": "DHT Blockers",
             "category": "hair",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -134,7 +126,8 @@
             "stage": 4,
             "with": "Biotin, Vit A, Vit C, Zinc",
             "category": "hair",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -149,7 +142,8 @@
             "stage": 2,
             "with": "DHT Blockers - 1% Saw Palmetto",
             "category": "hair",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -164,7 +158,8 @@
             "stage": 2,
             "with": "Medical grade silicone",
             "category": "hair",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -179,7 +174,8 @@
             "stage": 3,
             "with": "Onion Oil, Amla, Bhringraj",
             "category": "hair",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -194,7 +190,8 @@
             "stage": 3,
             "with": "Nutrition & Post workout",
             "category": "nutrition",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":true
         },
         {
             "image":  [
@@ -209,7 +206,8 @@
             "stage": 2,
             "with": "24g of Protein",
             "category": "nutrition",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -224,7 +222,8 @@
             "stage": 1,
             "with": "Natural Caffeine, Citrulline",
             "category": "nutrition",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -239,7 +238,8 @@
             "stage": 4,
             "with": "15 Essential multivitamins",
             "category": "nutrition",
-            "rating": 2
+            "rating": 2,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -254,7 +254,8 @@
             "stage": 3,
             "with": "24g of Protein",
             "category": "nutrition",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -269,7 +270,8 @@
             "stage": 4,
             "with": "24g of Protein",
             "category": "nutrition",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -284,7 +286,8 @@
             "stage": 1,
             "with": "24g of Protein",
             "category": "nutrition",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -299,7 +302,8 @@
             "stage": 2,
             "with": "100% Pure Creatine",
             "category": "nutrition",
-            "rating": 2
+            "rating": 2,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -314,7 +318,8 @@
             "stage": 3,
             "with": "100% Pure BCAA",
             "category": "nutrition",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -329,7 +334,8 @@
             "stage": 4,
             "with": "Omega 3, DHA, EPA",
             "category": "nutrition",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -344,7 +350,8 @@
             "stage": 1,
             "with": "Better Testosterone Levels",
             "category": "nutrition",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -359,7 +366,8 @@
             "stage": 2,
             "with": "Ashwagandha, Safed Museli",
             "category": "nutrition",
-            "rating": 2
+            "rating": 2,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -374,7 +382,8 @@
             "stage": 1,
             "with": "Minoxidil",
             "category": "beard",
-            "rating": 2
+            "rating": 2,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -389,7 +398,8 @@
             "stage": 2,
             "with": "Minoxidil",
             "category": "beard",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -404,7 +414,8 @@
             "stage": 3,
             "with": "Minoxidil & Biotin",
             "category": "beard",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -419,7 +430,8 @@
             "stage": 4,
             "with": "Minoxidil",
             "category": "beard",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":  [
@@ -434,7 +446,8 @@
             "stage": 1,
             "with": "Biotin, Creatine & D-aspartic",
             "category": "beard",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -449,7 +462,8 @@
             "stage": 2,
             "with": "Biotin, Creatine & D-aspartic",
             "category": "beard",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -464,7 +478,8 @@
             "stage": 3,
             "with": "Minoxidil (alcohol-free)",
             "category": "beard",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":true
         },
         {
             "image":  [
@@ -479,7 +494,8 @@
             "stage": 4,
             "with": "1.5% Aminexil, 2% LashLD",
             "category": "beard",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -494,7 +510,8 @@
             "stage": 1,
             "with": "Biotin, Creatine & D-aspartic",
             "category": "beard",
-            "rating": 4
+            "rating": 4,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -509,7 +526,8 @@
             "stage": 2,
             "with": "Minoxidil",
             "category": "beard",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":false
         },
         {
             "image":   [
@@ -524,7 +542,8 @@
             "stage": 3,
             "with": ".5mm 540 micro needles",
             "category": "beard",
-            "rating": 3
+            "rating": 3,
+            "newlaunch":true
         },
         {
             "image":   [
@@ -539,7 +558,8 @@
             "stage": 4,
             "with": ".5mm 540 micro needles",
             "category": "beard",
-            "rating": 5
+            "rating": 5,
+            "newlaunch":true
         }
     ]
 }

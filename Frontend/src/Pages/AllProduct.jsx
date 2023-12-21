@@ -1,21 +1,90 @@
 import React, { useEffect, useState } from "react";
-import Products from "../db.json";
 import { Box, Grid, Button, Flex, Heading, Select } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
+import Data from "../data/doctors";
+import "../data/styles.css";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import {useDispatch, useSelector} from "react-redux"
+import { getProducts } from "../Redux/ProductReducer/action";
+
 
 export const AllProduct = () => {
-  const [data, setData] = useState([]);
+  const [people, setPeople] = useState(Data);
+  const [index, setIndex] = useState(0);
+
   const [cetagoryName, setCetagoryName] = useState("All Product");
+
+  const dispatch = useDispatch()
+  const data = useSelector((store)=>store.ProductReducer.products)
+  const totalCount = useSelector((store)=>store.ProductReducer.totalCount)
+
+  const totalButton = Math.ceil(totalCount/10)
+
   useEffect(() => {
-    setData(Products.Products);
+    dispatch(getProducts())
   }, []);
+
+  
+
+  useEffect(() => {
+    const lastIndext = people.length - 1;
+    if (index < 0) {
+      setIndex(lastIndext);
+    }
+    if (index > lastIndext) {
+      setIndex(0);
+    }
+  }, [index, people]);
+  useEffect(() => {
+    let slider = setInterval(() => {
+      setIndex(index + 1);
+    }, 3000);
+    return () => {
+      clearInterval(slider);
+    };
+  }, [index]);
 
 
   return (
     <div>
-      <Box id="top-bar"></Box>
-      <Box id="main-container">
-        <Box id="category">
+      <Box id="top-bar" >
+      <section className="section">
+        {/* Slider Started */}
+        <div className="section-center" >
+          {people.map((person, personIndex) => {
+            const { id, image, name, title, quote } = person;
+            let position = "nextSlide";
+            if (personIndex === index) {
+              position = "activeSlide";
+            }
+            if (
+              personIndex === index - 1 ||
+              (index === 0 && personIndex === people.length - 1)
+            ) {
+              position = "lastSlide";
+            }
+            return (
+              <article className={position} key={id}>
+                <img className="person-img" src={image}  alt={name} />
+              </article>
+            );
+          })}
+          <button className="prev" onClick={() => setIndex(index - 1)}>
+            <FiChevronLeft size={50} />
+          </button>
+          <button className="next" onClick={() => setIndex(index + 1)}>
+            <FiChevronRight size={50} />
+          </button>
+        </div>
+      </section>
+      </Box>
+      <Box
+        id="main-container" 
+        position="sticky"
+          top="14"
+          backgroundColor="white" 
+      >
+        <Box id="category"  >
           <Grid
             templateColumns={{
               base: "repeat(3, 1fr)",
@@ -30,7 +99,11 @@ export const AllProduct = () => {
             mt="10"
             mb="10"
             alignItems={"center"}
-            // border="2px solid"
+            position={{ base: "static", lg: "sticky" }}
+            top={{ base: "auto", lg: "14vh" }} // Adjust this value based on your navbar height
+            zIndex="1000" // Set a higher z-index to make it appear above other elements
+            backgroundColor="white" // Set the background color as needed
+            overflow="hidden" 
           >
             <Button
               bg={"#5194D1"}
@@ -114,22 +187,35 @@ export const AllProduct = () => {
             </Button>
           </Grid>
         </Box>
-        <Flex
+        
+        <hr />
+          
+        <Box display={{base:"",lg:"flex"}}  >
+          {/* <Sidebar/> */}
+          <Box
           id="categary-name"
-          justify={{ base: "space-between", lg: "space-evenly" }}
-          width={{ base: "100%", lg: "74%" }}
+          display={{base:"flex",lg:"block",}}
+          justifyContent={{ base: "space-between", lg: "none" }}
+          width={{ base: "100%", lg: "20vw" }}
           alignItems="center"
-          // border="2px solid"
-          height="15vh"
+          height={{base:"15vh",lg:"90vh"}}
+          position="sticky"
+          top={{base:"4vh", lg: "8vh"}}
+          backgroundColor="white" // Set the background color as needed
+          zIndex="1000"
+          // border="5px solid red"
+          borderRight="1px solid lightgray"
         >
-          <Heading color="#565656" width={{base:"",lg:"14vw"}} size={{ base: "sm", lg: "lg" }}>{cetagoryName}</Heading>
-          <Box>
+          <Heading color="#565656"  textAlign="center" width={{base:"",lg:"14vw"}} m="auto" size={{ base: "sm", lg: "lg" }}>{cetagoryName}</Heading>
+          <Box  >
             <Select
               fontSize={{ base: "sm", lg: "lg" }}
               width={{ base: "130px", lg: "174px" }}
               focusBorderColor="transparent"
               fontWeight="500"
               color="gray.700"
+              m={{base:"0",lg:" 20px auto"}}
+              
             >
               <option value="">Sort by Price</option>
               <option value="asc">Asc</option>
@@ -144,6 +230,9 @@ export const AllProduct = () => {
               focusBorderColor="transparent"
               fontWeight="500"
               color="gray.700"
+              m={{base:"0",lg:" 20px auto"}}
+
+
             >
               <option value="">Filter by Rating</option>
               <option value="">Above 4</option>
@@ -152,27 +241,35 @@ export const AllProduct = () => {
             </Select>
             <hr />
           </Box>
-        </Flex>
-        <hr />
-        <Box id="products" mt="10px" >
-          <Grid
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              sm: "repeat(1, 1fr)",
-              md: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
-              xl: "repeat(4, 1fr)",
-            }}
-            justifyContent="center"
-            gap="30px"
-            w="80%"
-            m="auto"
-            alignItems={"center"}
-          >
-            {data?.map((property) => (
-              <Card2 property={property} />
-            ))}
-          </Grid>
+        </Box>
+          <Box id="products"   p="10px"  >
+            <Grid
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+                lg: "repeat(3, 1fr)",
+                xl: "repeat(4, 1fr)",
+              }}
+              justifyContent="center"
+              gap="30px"
+              w="80vw"
+              m="auto"
+              alignItems={"center"}
+              // border="2px solid"
+            >
+              {data?.map((property,i) => (
+                <Card2 property={property} key={i} />
+              ))}
+            </Grid>
+            <Box border="1px solid">
+              {Array.from({ length: totalButton }, (_, index) => (
+                <Button key={index} colorScheme="teal" m="2">
+                  Button {index + 1}
+                </Button>
+              ))}
+            </Box>
+          </Box>
         </Box>
       </Box>
     </div>
