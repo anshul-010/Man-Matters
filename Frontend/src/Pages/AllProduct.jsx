@@ -4,27 +4,35 @@ import { Card2 } from "../Componants/Card";
 import Data from "../data/doctors";
 import "../data/styles.css";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import {useDispatch, useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
-
 
 export const AllProduct = () => {
   const [people, setPeople] = useState(Data);
   const [index, setIndex] = useState(0);
-
+  const [page, setPage] = useState(1);
   const [cetagoryName, setCetagoryName] = useState("All Product");
 
-  const dispatch = useDispatch()
-  const data = useSelector((store)=>store.ProductReducer.products)
-  const totalCount = useSelector((store)=>store.ProductReducer.totalCount)
+  const dispatch = useDispatch();
+  const data = useSelector((store) => store.ProductReducer.products);
+  const totalCount = useSelector((store) => store.ProductReducer.totalCount);
 
-  const totalButton = Math.ceil(totalCount/10)
+  const totalButton = Math.ceil(totalCount / 12);
+
+  let paramObj = {
+    params: {
+      limit: 12,
+      page: page,
+    },
+  };
+
+  function handlePage(p) {
+    setPage(p);
+  }
 
   useEffect(() => {
-    dispatch(getProducts())
-  }, []);
-
-  
+    dispatch(getProducts(paramObj));
+  }, [page]);
 
   useEffect(() => {
     const lastIndext = people.length - 1;
@@ -44,47 +52,46 @@ export const AllProduct = () => {
     };
   }, [index]);
 
-
   return (
     <div>
-      <Box id="top-bar" >
-      <section className="section">
-        {/* Slider Started */}
-        <div className="section-center" >
-          {people.map((person, personIndex) => {
-            const { id, image, name, title, quote } = person;
-            let position = "nextSlide";
-            if (personIndex === index) {
-              position = "activeSlide";
-            }
-            if (
-              personIndex === index - 1 ||
-              (index === 0 && personIndex === people.length - 1)
-            ) {
-              position = "lastSlide";
-            }
-            return (
-              <article className={position} key={id}>
-                <img className="person-img" src={image}  alt={name} />
-              </article>
-            );
-          })}
-          <button className="prev" onClick={() => setIndex(index - 1)}>
-            <FiChevronLeft size={50} />
-          </button>
-          <button className="next" onClick={() => setIndex(index + 1)}>
-            <FiChevronRight size={50} />
-          </button>
-        </div>
-      </section>
+      <Box id="top-bar">
+        <section className="section">
+          {/* Slider Started */}
+          <div className="section-center">
+            {people.map((person, personIndex) => {
+              const { id, image, name, title, quote } = person;
+              let position = "nextSlide";
+              if (personIndex === index) {
+                position = "activeSlide";
+              }
+              if (
+                personIndex === index - 1 ||
+                (index === 0 && personIndex === people.length - 1)
+              ) {
+                position = "lastSlide";
+              }
+              return (
+                <article className={position} key={id}>
+                  <img className="person-img" src={image} alt={name} />
+                </article>
+              );
+            })}
+            <button className="prev" onClick={() => setIndex(index - 1)}>
+              <FiChevronLeft size={50} />
+            </button>
+            <button className="next" onClick={() => setIndex(index + 1)}>
+              <FiChevronRight size={50} />
+            </button>
+          </div>
+        </section>
       </Box>
       <Box
-        id="main-container" 
+        id="main-container"
         position="sticky"
-          top="14"
-          backgroundColor="white" 
+        top="14"
+        backgroundColor="white"
       >
-        <Box id="category"  >
+        <Box id="category">
           <Grid
             templateColumns={{
               base: "repeat(3, 1fr)",
@@ -103,7 +110,7 @@ export const AllProduct = () => {
             top={{ base: "auto", lg: "14vh" }} // Adjust this value based on your navbar height
             zIndex="1000" // Set a higher z-index to make it appear above other elements
             backgroundColor="white" // Set the background color as needed
-            overflow="hidden" 
+            overflow="hidden"
           >
             <Button
               bg={"#5194D1"}
@@ -187,62 +194,67 @@ export const AllProduct = () => {
             </Button>
           </Grid>
         </Box>
-        
+
         <hr />
-          
-        <Box display={{base:"",lg:"flex"}}  >
+
+        <Box display={{ base: "", lg: "flex" }}>
           {/* <Sidebar/> */}
           <Box
-          id="categary-name"
-          display={{base:"flex",lg:"block",}}
-          justifyContent={{ base: "space-between", lg: "none" }}
-          width={{ base: "100%", lg: "20vw" }}
-          alignItems="center"
-          height={{base:"15vh",lg:"90vh"}}
-          position="sticky"
-          top={{base:"4vh", lg: "8vh"}}
-          backgroundColor="white" // Set the background color as needed
-          zIndex="1000"
-          // border="5px solid red"
-          borderRight="1px solid lightgray"
-        >
-          <Heading color="#565656"  textAlign="center" width={{base:"",lg:"14vw"}} m="auto" size={{ base: "sm", lg: "lg" }}>{cetagoryName}</Heading>
-          <Box  >
-            <Select
-              fontSize={{ base: "sm", lg: "lg" }}
-              width={{ base: "130px", lg: "174px" }}
-              focusBorderColor="transparent"
-              fontWeight="500"
-              color="gray.700"
-              m={{base:"0",lg:" 20px auto"}}
-              
+            id="categary-name"
+            display={{ base: "flex", lg: "block" }}
+            justifyContent={{ base: "space-between", lg: "none" }}
+            width={{ base: "100%", lg: "20vw" }}
+            alignItems="center"
+            height={{ base: "15vh", lg: "90vh" }}
+            position="sticky"
+            top={{ base: "4vh", lg: "8vh" }}
+            backgroundColor="white" // Set the background color as needed
+            zIndex="1000"
+            // border="5px solid red"
+            borderRight="1px solid lightgray"
+          >
+            <Heading
+              color="#565656"
+              textAlign="center"
+              width={{ base: "", lg: "14vw" }}
+              m="auto"
+              size={{ base: "sm", lg: "lg" }}
             >
-              <option value="">Sort by Price</option>
-              <option value="asc">Asc</option>
-              <option value="decs">Desc</option>
-            </Select>
-            <hr />
+              {cetagoryName}
+            </Heading>
+            <Box>
+              <Select
+                fontSize={{ base: "sm", lg: "lg" }}
+                width={{ base: "130px", lg: "174px" }}
+                focusBorderColor="transparent"
+                fontWeight="500"
+                color="gray.700"
+                m={{ base: "0", lg: " 20px auto" }}
+              >
+                <option value="">Sort by Price</option>
+                <option value="asc">Asc</option>
+                <option value="decs">Desc</option>
+              </Select>
+              <hr />
+            </Box>
+            <Box>
+              <Select
+                fontSize={{ base: "sm", lg: "lg" }}
+                width={{ base: "145px", lg: "174px" }}
+                focusBorderColor="transparent"
+                fontWeight="500"
+                color="gray.700"
+                m={{ base: "0", lg: " 20px auto" }}
+              >
+                <option value="">Filter by Rating</option>
+                <option value="">Above 4</option>
+                <option value="">Above 3</option>
+                <option value="">Above 2</option>
+              </Select>
+              <hr />
+            </Box>
           </Box>
-          <Box>
-            <Select
-              fontSize={{ base: "sm", lg: "lg" }}
-              width={{ base: "145px", lg: "174px" }}
-              focusBorderColor="transparent"
-              fontWeight="500"
-              color="gray.700"
-              m={{base:"0",lg:" 20px auto"}}
-
-
-            >
-              <option value="">Filter by Rating</option>
-              <option value="">Above 4</option>
-              <option value="">Above 3</option>
-              <option value="">Above 2</option>
-            </Select>
-            <hr />
-          </Box>
-        </Box>
-          <Box id="products"   p="10px"  >
+          <Box id="products" p="10px">
             <Grid
               templateColumns={{
                 base: "repeat(1, 1fr)",
@@ -258,14 +270,30 @@ export const AllProduct = () => {
               alignItems={"center"}
               // border="2px solid"
             >
-              {data?.map((property,i) => (
+              {data?.map((property, i) => (
                 <Card2 property={property} key={i} />
               ))}
             </Grid>
-            <Box border="1px solid">
+            <Box
+              display="flex"
+              width={{ base: "80vw", lg: "20vw" }}
+              justifyContent="center"
+              m="25px auto"
+            >
               {Array.from({ length: totalButton }, (_, index) => (
-                <Button key={index} colorScheme="teal" m="2">
-                  Button {index + 1}
+                <Button
+                  borderRadius={"50%"}
+                  key={index}
+                  colorScheme="teal"
+                  m="2"
+                  onClick={() => handlePage(index + 1)}
+                  _hover={{
+                    cursor: "pointer",
+                    // backgroundColor: "#E4F5ED",
+                    boxShadow: "0px 0px 20px 0px #6dd5a4"
+                  }}
+                >
+                  {index + 1}
                 </Button>
               ))}
             </Box>

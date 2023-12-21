@@ -13,9 +13,9 @@ const productError = ()=>{
     return  {type : GET_PRODUCT_ERROR}
 }
 
-export const getProducts =()=> (dispatch)=>{
+export const getProducts =(paramObj)=> (dispatch)=>{
     dispatch(productRequest())
-    return (axios.get(`http://localhost:8080/product/products/`)
+    return (axios.get(`http://localhost:8080/product/products/`,paramObj)
     .then((res)=>{
         dispatch(productSuccess(res.data))
         console.log(res.data)
