@@ -12,6 +12,9 @@ export const AllProduct = () => {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(1);
   const [cetagoryName, setCetagoryName] = useState("All Product");
+  const [category,setCategory] = useState("")
+  const [order,setOrder] = useState("")
+  const [rating,setRating] = useState("")
 
   const dispatch = useDispatch();
   const data = useSelector((store) => store.ProductReducer.products);
@@ -23,6 +26,10 @@ export const AllProduct = () => {
     params: {
       limit: 12,
       page: page,
+      category: category,
+      sort:"price",
+      order: order,
+      rating: rating
     },
   };
 
@@ -30,9 +37,32 @@ export const AllProduct = () => {
     setPage(p);
   }
 
+  function handleAllCategory(name){
+    setCetagoryName(name)
+    setCategory("")
+
+  }
+  function handleNewLaunch(name){
+    setCetagoryName(name)
+    setCategory("")
+  }
+  function handleNutrition(name){
+    setCetagoryName(name)
+    setCategory(name)
+  }
+  function handleHair(name){
+    setCetagoryName(name)
+    setCategory(name)
+  }
+  function handleBeard(name){
+    setCetagoryName(name)
+    setCategory(name)
+  }
+
+
   useEffect(() => {
     dispatch(getProducts(paramObj));
-  }, [page]);
+  }, [page,category,order,rating]);
 
   useEffect(() => {
     const lastIndext = people.length - 1;
@@ -119,7 +149,8 @@ export const AllProduct = () => {
               color="#ffffff"
               borderRadius="15px"
               m={"10px"}
-              onClick={() => setCetagoryName("All Products")}
+              value="All Products"
+              onClick={(e)=>{handleAllCategory(e.target.value)}}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#5194D1",
@@ -135,7 +166,8 @@ export const AllProduct = () => {
               color="#b09999"
               borderRadius="15px"
               m={"10px"}
-              onClick={() => setCetagoryName("New Launches")}
+              value="New Launch"
+              onClick={(e)=>{handleNewLaunch(e.target.value)}}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#F2ECEC",
@@ -151,7 +183,8 @@ export const AllProduct = () => {
               color="#70bd99"
               borderRadius="15px"
               m={"10px"}
-              onClick={() => setCetagoryName("Nutrition")}
+              value="Nutrition"
+              onClick={(e)=>{handleNutrition(e.target.value)}}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#E4F5ED",
@@ -167,7 +200,8 @@ export const AllProduct = () => {
               color="#bc8888"
               borderRadius="15px"
               m={"10px"}
-              onClick={() => setCetagoryName("Hair")}
+              value="Hair"
+              onClick={(e)=>{handleHair(e.target.value)}}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#FAE9E9",
@@ -183,7 +217,8 @@ export const AllProduct = () => {
               color="#69afa3"
               borderRadius="15px"
               m={"10px"}
-              onClick={() => setCetagoryName("Beard")}
+              value="Beard"
+              onClick={(e)=>{handleBeard(e.target.value)}}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#DDEFEC",
@@ -230,10 +265,11 @@ export const AllProduct = () => {
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
+                onChange={(e)=>setOrder(e.target.value)}
               >
                 <option value="">Sort by Price</option>
                 <option value="asc">Asc</option>
-                <option value="decs">Desc</option>
+                <option value="desc">Desc</option>
               </Select>
               <hr />
             </Box>
@@ -245,11 +281,12 @@ export const AllProduct = () => {
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
+                onChange={(e)=>setRating(+e.target.value+1)}
               >
                 <option value="">Filter by Rating</option>
-                <option value="">Above 4</option>
-                <option value="">Above 3</option>
-                <option value="">Above 2</option>
+                <option value="4">Above 4</option>
+                <option value="3">Above 3</option>
+                <option value="2">Above 2</option>
               </Select>
               <hr />
             </Box>

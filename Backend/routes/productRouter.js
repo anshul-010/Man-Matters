@@ -23,13 +23,13 @@ productRoute.post("/add-products", async (req, res) => {
 
 productRoute.get('/products', async (req, res) => {
   try {
-    const { title, category, price, sort, order, page = 1, limit = 10 } = req.query;
+    const { title, category, rating, sort, order, page = 1, limit = 10 } = req.query;
 
     // Build the query object based on the provided parameters
     const query = {};
     if (title) query.title = new RegExp(title, 'i'); // Case-insensitive title search
-    if (category) query.category = category;
-    if (price) query.price = { $lte: price }; // Filter products with price less than or equal to the specified value
+    if (category) query.category = new RegExp(category, 'i');
+    if (rating) query.rating = { $gte: rating }; // Filter products with rating less than or equal to the specified value
 
     // Sort based on the provided sort and order parameters
     const sortOptions = {};
