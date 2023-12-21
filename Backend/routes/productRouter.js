@@ -5,7 +5,7 @@ const querystring = require('querystring');
 const productRoute = express.Router();
 
 // post data
-productRoute.post("/products", async (req, res) => {
+productRoute.post("/add-products", async (req, res) => {
   try {
     // for an array of objects
     const allProducts = req.body;

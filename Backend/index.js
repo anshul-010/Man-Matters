@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors())
 app.use("/user",userRoute)
 app.use("/appointment",appointmentRoute)
-app.use("/add-product",productRoute)
+app.use("/product",productRoute)
 app.get("/", (req, res) => {
     res.send("Welcome to the page!");
 })

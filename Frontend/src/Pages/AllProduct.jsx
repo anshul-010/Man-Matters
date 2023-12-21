@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
-import Products from "../db.json";
 import { Box, Grid, Button, Flex, Heading, Select } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import Data from "../data/doctors";
 import "../data/styles.css";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import { Sidebar } from "../Componants/Sidebar";
+import {useDispatch, useSelector} from "react-redux"
+import { getProducts } from "../Redux/ProductReducer/action";
 
 
 export const AllProduct = () => {
   const [people, setPeople] = useState(Data);
   const [index, setIndex] = useState(0);
 
-  const [data, setData] = useState([]);
   const [cetagoryName, setCetagoryName] = useState("All Product");
+
+  const dispatch = useDispatch()
+  const data = useSelector((store)=>store.ProductReducer.products)
+  const totalCount = useSelector((store)=>store.ProductReducer.totalCount)
+
+  const totalButton = Math.ceil(totalCount/10)
+
   useEffect(() => {
-    setData(Products.Products);
+    dispatch(getProducts())
   }, []);
 
+  
 
   useEffect(() => {
     const lastIndext = people.length - 1;
@@ -251,10 +258,17 @@ export const AllProduct = () => {
               alignItems={"center"}
               // border="2px solid"
             >
-              {data?.map((property) => (
-                <Card2 property={property} />
+              {data?.map((property,i) => (
+                <Card2 property={property} key={i} />
               ))}
             </Grid>
+            <Box border="1px solid">
+              {Array.from({ length: totalButton }, (_, index) => (
+                <Button key={index} colorScheme="teal" m="2">
+                  Button {index + 1}
+                </Button>
+              ))}
+            </Box>
           </Box>
         </Box>
       </Box>
