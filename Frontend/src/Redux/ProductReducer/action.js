@@ -18,7 +18,6 @@ export const getProducts =(paramObj)=> (dispatch)=>{
     return (axios.get(`http://localhost:8080/product/products/`,paramObj)
     .then((res)=>{
         dispatch(productSuccess(res.data))
-        console.log(res.data)
     })
     .catch((err)=>{
         dispatch(productError(err))

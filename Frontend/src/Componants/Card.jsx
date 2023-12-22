@@ -3,8 +3,8 @@ import { Badge, Box, Card, CardBody, Center, Flex, Grid, Heading, Image, Stack, 
 import { StarIcon } from '@chakra-ui/icons';
 export const Card2 = ({property}) => {
   return (
-    <Box maxW="sm" borderWidth="2px" borderRadius="lg" overflow="hidden">
-      <Box  m='auto' height="28vh">
+    <Box width={{base:"",lg:"18vw"}} borderWidth="2px"  borderRadius="lg" overflow="hidden">
+      <Box  m='auto' height="28vh" width={{base:"",lg:"18vw"}}  >
         <Image src={property.image[0]} height="100%" width="100%" alt={property.image} />
       </Box>
     <Box   pt="0">

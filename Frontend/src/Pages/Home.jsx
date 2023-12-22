@@ -16,75 +16,36 @@ import {
   Image,
   Stack,
   Text,
+  Skeleton,
 } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../Redux/ProductReducer/action";
 export const Home = () => {
   //hover
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
-  const daata = [
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 4,
-    },
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 5,
-    },
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 4,
-    },
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 4,
-    },
-  ];
+  const [category, setCategory] = useState("");
+
+  const dispatch = useDispatch()
+  const daata = useSelector((store)=>store.ProductReducer.products)
+  const loading = useSelector((store) => store.ProductReducer.isLoading);
+
+  
+  let paramObj = {
+    params:{
+      limit:4,
+      page:1,
+      category: category,
+
+    }
+  }
+
+  useEffect(()=>{
+    dispatch(getProducts(paramObj))
+  },[category])
+  
   useEffect(() => {
     const lastIndext = people.length - 1;
     if (index < 0) {
@@ -713,6 +674,10 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#ffffff"
           borderRadius="15px"
+          value="Hair"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#5194D1", boxShadow: "5px 5px 8px #82b8eb" }}
         >
@@ -724,10 +689,14 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#b09999"
           borderRadius="15px"
+          value="Beard"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#F2ECEC", boxShadow: "5px 5px 8px #b09999" }}
         >
-          Beared
+          Beard
         </Button>
         <Button
           bg={"#E4F5ED"}
@@ -735,6 +704,10 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#70bd99"
           borderRadius="15px"
+          value="Nutrition"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#E4F5ED", boxShadow: "5px 5px 8px #70bd99" }}
         >
@@ -746,6 +719,10 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#bc8888"
           borderRadius="15px"
+          value="Beard"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#FAE9E9", boxShadow: "5px 5px 8px #bc8888" }}
         >
@@ -757,6 +734,10 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#69afa3"
           borderRadius="15px"
+          value="Hair"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#DDEFEC", boxShadow: "5px 5px 8px #69afa3" }}
         >
@@ -768,13 +749,36 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#b88052"
           borderRadius="15px"
+          value="Nutrition"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#FEF3EA", boxShadow: "5px 5px 8px #b88052" }}
         >
           Skin
         </Button>
       </Grid>
-      <Grid
+      {loading && <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          sm: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(4, 1fr)",
+          xl: "repeat(4, 1fr)",
+        }}
+        justifyContent="center"
+        gap="30px"
+        w="80%"
+        m="auto"
+        alignItems={"center"}
+      >
+        <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+      </Grid>}
+      { !loading && <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
           sm: "repeat(1, 1fr)",
@@ -791,7 +795,7 @@ export const Home = () => {
         {daata?.map((property) => (
           <Card2 property={property} />
         ))}
-      </Grid>
+      </Grid>}
       {/* Asses Yourself Consult Free */}
       <Center>
         <Text fontWeight="bold" mt={"25px"} mb={"15px"} fontSize="3xl">
