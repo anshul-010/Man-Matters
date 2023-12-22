@@ -15,25 +15,30 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 export const ProductCard = () => {
   const [details, setDetails] = useState(true);
   const [image, setImage] = useState(0);
-  const el = {
-    image: [
-      "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-      "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-      "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-      "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800",
-    ],
-    price: 899,
-    title: "Stage 1 Hairloss Kit for Genetics",
-    for: "Stage 1 Hair Fall",
-    stage: 1,
-    with: "Biotin, Redensyl, Anagain",
-    category: "hair",
-    rating: 4,
-  };
+  const [el, setEl] = useState("");
+  const data = useSelector((store)=>store.ProductReducer.products) 
+  const {id} = useParams()
+  console.log(id)
+  function getProduct(){
+    axios.get(`http://localhost:8080/product/products/${id}`)
+    .then((res)=>{
+      console.log(res.data)
+      setEl(res.data)
+    })
+  }
+
+  useEffect(()=>{
+    getProduct()
+  },[])
+
+   
   return (
     <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
       <div>
@@ -71,48 +76,48 @@ export const ProductCard = () => {
           >
             <Grid>
               <Grid>
-                <Image
+                {el && <Image
                   onClick={() => setImage(0)}
                   border={image == 0 ? "2px solid #5194D1" : ""}
                   bg={"#E1EAF7"}
                   borderRadius={"5px"}
                   src={el.image[0]}
-                />
+                />}
               </Grid>
               <Grid>
-                <Image
+                {el && <Image
                   onClick={() => setImage(1)}
                   border={image == 1 ? "2px solid #5194D1" : ""}
                   bg={"#E1EAF7"}
                   borderRadius={"5px"}
                   src={el.image[1]}
-                />
+                />}
               </Grid>
               <Grid>
-                <Image
+                {el && <Image
                   onClick={() => setImage(2)}
                   border={image == 2 ? "2px solid #5194D1" : ""}
                   bg={"#E1EAF7"}
                   borderRadius={"5px"}
                   src={el.image[2]}
-                />
+                />}
               </Grid>
               <Grid>
-                <Image
+               {el && <Image
                   onClick={() => setImage(3)}
                   border={image == 3 ? "2px solid #5194D1" : ""}
                   bg={"#E1EAF7"}
                   borderRadius={"5px"}
                   src={el.image[3]}
-                />
+                />}
               </Grid>
             </Grid>
-            <Image
+            {el && <Image
               w={"85%"}
               ml={"10px"}
               objectFit={"fill"}
               src={el.image[image]}
-            />
+            />}
           </Flex>
           <Grid className="body" w={"100%"} pb={"0px"} ml={"5%"}>
             <Text color={"gray"} mt="15px" mb="15px">
@@ -606,7 +611,7 @@ export const ProductCard = () => {
         <Heading m={"10px"} ml={"5%"}>
           Key Ingredients
         </Heading>
-        <div class="scrollmenu" style={{ display: "flex" }}>
+        <div className="scrollmenu" style={{ display: "flex" }}>
           <Box
             m={"10px"}
             color={"white"}
@@ -942,12 +947,12 @@ export const ProductCard = () => {
         </Grid>
       </div>
       {/* add to cart */}
-      <div class="navbar2">
+      <div className="navbar2">
         <div style={{ position: "relative", display: "flex" }}>
           <Show above="sm">
             <Box>
               <Flex ml={"50px"} p={"3px"} gap={"10px"}>
-                <Image borderRadius={"5px"} w={"90px"} src={el.image[0]} />
+                {el && <Image borderRadius={"5px"} w={"90px"} src={el.image[0]} />}
                 <div style={{ margin: "auto" }}>
                   <Text>{el.with}</Text>
                   <Text color={"#042663"}>{el.title}</Text>

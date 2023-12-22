@@ -1,35 +1,36 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Button, Flex, Heading, Select } from "@chakra-ui/react";
+import { Box, Grid, Button, Flex, Heading, Select, Skeleton } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import Data from "../data/doctors";
 import "../data/styles.css";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
+import { Link } from "react-router-dom";
 
 export const AllProduct = () => {
   const [people, setPeople] = useState(Data);
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(1);
   const [cetagoryName, setCetagoryName] = useState("All Product");
-  const [category,setCategory] = useState("")
-  const [order,setOrder] = useState("")
-  const [rating,setRating] = useState("")
+  const [category, setCategory] = useState("");
+  const [order, setOrder] = useState("");
+  const [rating, setRating] = useState("");
 
   const dispatch = useDispatch();
   const data = useSelector((store) => store.ProductReducer.products);
   const totalCount = useSelector((store) => store.ProductReducer.totalCount);
+  const loading = useSelector((store) => store.ProductReducer.isLoading);
 
   const totalButton = Math.ceil(totalCount / 12);
-
   let paramObj = {
     params: {
       limit: 12,
       page: page,
       category: category,
-      sort:"price",
+      sort: "price",
       order: order,
-      rating: rating
+      rating: rating,
     },
   };
 
@@ -37,32 +38,30 @@ export const AllProduct = () => {
     setPage(p);
   }
 
-  function handleAllCategory(name){
-    setCetagoryName(name)
-    setCategory("")
-
+  function handleAllCategory(name) {
+    setCetagoryName(name);
+    setCategory("");
   }
-  function handleNewLaunch(name){
-    setCetagoryName(name)
-    setCategory("")
+  function handleNewLaunch(name) {
+    setCetagoryName(name);
+    setCategory("");
   }
-  function handleNutrition(name){
-    setCetagoryName(name)
-    setCategory(name)
+  function handleNutrition(name) {
+    setCetagoryName(name);
+    setCategory(name);
   }
-  function handleHair(name){
-    setCetagoryName(name)
-    setCategory(name)
+  function handleHair(name) {
+    setCetagoryName(name);
+    setCategory(name);
   }
-  function handleBeard(name){
-    setCetagoryName(name)
-    setCategory(name)
+  function handleBeard(name) {
+    setCetagoryName(name);
+    setCategory(name);
   }
-
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
-  }, [page,category,order,rating]);
+  }, [page, category, order, rating]);
 
   useEffect(() => {
     const lastIndext = people.length - 1;
@@ -150,7 +149,9 @@ export const AllProduct = () => {
               borderRadius="15px"
               m={"10px"}
               value="All Products"
-              onClick={(e)=>{handleAllCategory(e.target.value)}}
+              onClick={(e) => {
+                handleAllCategory(e.target.value);
+              }}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#5194D1",
@@ -159,23 +160,7 @@ export const AllProduct = () => {
             >
               All Products
             </Button>
-            <Button
-              bg={"#F2ECEC"}
-              p={{ base: "10px 30px", lg: "27px 80px" }}
-              fontSize={{ base: "xs", lg: "md" }}
-              color="#b09999"
-              borderRadius="15px"
-              m={"10px"}
-              value="New Launch"
-              onClick={(e)=>{handleNewLaunch(e.target.value)}}
-              _hover={{
-                cursor: "pointer",
-                backgroundColor: "#F2ECEC",
-                boxShadow: "5px 5px 8px #b09999",
-              }}
-            >
-              New Launches
-            </Button>
+
             <Button
               bg={"#E4F5ED"}
               p={{ base: "10px 30px", lg: "27px 80px" }}
@@ -184,7 +169,9 @@ export const AllProduct = () => {
               borderRadius="15px"
               m={"10px"}
               value="Nutrition"
-              onClick={(e)=>{handleNutrition(e.target.value)}}
+              onClick={(e) => {
+                handleNutrition(e.target.value);
+              }}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#E4F5ED",
@@ -201,7 +188,9 @@ export const AllProduct = () => {
               borderRadius="15px"
               m={"10px"}
               value="Hair"
-              onClick={(e)=>{handleHair(e.target.value)}}
+              onClick={(e) => {
+                handleHair(e.target.value);
+              }}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#FAE9E9",
@@ -218,7 +207,9 @@ export const AllProduct = () => {
               borderRadius="15px"
               m={"10px"}
               value="Beard"
-              onClick={(e)=>{handleBeard(e.target.value)}}
+              onClick={(e) => {
+                handleBeard(e.target.value);
+              }}
               _hover={{
                 cursor: "pointer",
                 backgroundColor: "#DDEFEC",
@@ -226,6 +217,25 @@ export const AllProduct = () => {
               }}
             >
               Beard
+            </Button>
+            <Button
+              bg={"#F2ECEC"}
+              p={{ base: "10px 30px", lg: "27px 80px" }}
+              fontSize={{ base: "xs", lg: "md" }}
+              color="#b09999"
+              borderRadius="15px"
+              m={"10px"}
+              value="New Launch"
+              onClick={(e) => {
+                handleNewLaunch(e.target.value);
+              }}
+              _hover={{
+                cursor: "pointer",
+                backgroundColor: "#F2ECEC",
+                boxShadow: "5px 5px 8px #b09999",
+              }}
+            >
+              New Launches
             </Button>
           </Grid>
         </Box>
@@ -265,7 +275,7 @@ export const AllProduct = () => {
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
-                onChange={(e)=>setOrder(e.target.value)}
+                onChange={(e) => setOrder(e.target.value)}
               >
                 <option value="">Sort by Price</option>
                 <option value="asc">Asc</option>
@@ -281,7 +291,7 @@ export const AllProduct = () => {
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
-                onChange={(e)=>setRating(+e.target.value+1)}
+                onChange={(e) => setRating(+e.target.value + 1)}
               >
                 <option value="">Filter by Rating</option>
                 <option value="4">Above 4</option>
@@ -292,7 +302,30 @@ export const AllProduct = () => {
             </Box>
           </Box>
           <Box id="products" p="10px">
-            <Grid
+            {loading && <Grid 
+              templateColumns={{
+                base: "repeat(1, 1fr)",
+                sm: "repeat(1, 1fr)",
+                md: "repeat(2, 1fr)",
+                lg: "repeat(3, 1fr)",
+                xl: "repeat(4, 1fr)",
+              }}
+              justifyContent="center"
+              gap="30px"
+              w={{base:"75vw",lg:"80vw"}}
+              m="auto"
+              alignItems={"center"}
+            >
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
+            </Grid>}
+            {!loading && <Grid
               templateColumns={{
                 base: "repeat(1, 1fr)",
                 sm: "repeat(1, 1fr)",
@@ -308,10 +341,11 @@ export const AllProduct = () => {
               // border="2px solid"
             >
               {data?.map((property, i) => (
-                <Card2 property={property} key={i} />
+                <Link to={`/product-detail/${property._id}`}><Card2 property={property} key={i} /></Link>
               ))}
-            </Grid>
+            </Grid>}
             <Box
+              id="pagination-btn"
               display="flex"
               width={{ base: "80vw", lg: "20vw" }}
               justifyContent="center"
@@ -327,7 +361,7 @@ export const AllProduct = () => {
                   _hover={{
                     cursor: "pointer",
                     // backgroundColor: "#E4F5ED",
-                    boxShadow: "0px 0px 20px 0px #6dd5a4"
+                    boxShadow: "0px 0px 20px 0px #6dd5a4",
                   }}
                 >
                   {index + 1}
