@@ -116,7 +116,7 @@ export const ProductCard = () => {
                 />}
               </Grid>
             </Box>
-            <Box w={{base:"100vw",lg:"42vw"}} h={"65vh"}>
+            <Box mb={1} w={{base:"100vw",lg:"42vw"}} h={{base:"45vh",lg:"65vh"}}>
             {el && <Image
               
               w={"100%"}
