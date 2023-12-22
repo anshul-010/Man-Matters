@@ -63,7 +63,11 @@ export const ProductCard = () => {
           mb={"10px"}
           alignItems={"center"}
         >
-          <Flex
+          <Box
+            display={{base:"flex",lg:"flex"}}
+            // border="2px solid blue"
+            // flexDirection="column-reverse"
+            flexDirection={{base:"column-reverse",lg:"row"}}
             templateColumns={{
               base: "repeat(1, 1fr)",
               sm: "repeat(1, 1fr)",
@@ -74,8 +78,8 @@ export const ProductCard = () => {
             w={"100%"}
             ml={"5px"}
           >
-            <Grid>
-              <Grid>
+            <Box display={{base:"flex",lg:"block"}}  width={{base:"99",lg:"9vw"}} height={{base:"",lg:"80vh"}}>
+              <Grid  width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}} >
                 {el && <Image
                   onClick={() => setImage(0)}
                   border={image == 0 ? "2px solid #5194D1" : ""}
@@ -84,7 +88,7 @@ export const ProductCard = () => {
                   src={el.image[0]}
                 />}
               </Grid>
-              <Grid>
+              <Grid width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}}>
                 {el && <Image
                   onClick={() => setImage(1)}
                   border={image == 1 ? "2px solid #5194D1" : ""}
@@ -93,7 +97,7 @@ export const ProductCard = () => {
                   src={el.image[1]}
                 />}
               </Grid>
-              <Grid>
+              <Grid width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}}>
                 {el && <Image
                   onClick={() => setImage(2)}
                   border={image == 2 ? "2px solid #5194D1" : ""}
@@ -102,7 +106,7 @@ export const ProductCard = () => {
                   src={el.image[2]}
                 />}
               </Grid>
-              <Grid>
+              <Grid width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}}>
                {el && <Image
                   onClick={() => setImage(3)}
                   border={image == 3 ? "2px solid #5194D1" : ""}
@@ -111,14 +115,17 @@ export const ProductCard = () => {
                   src={el.image[3]}
                 />}
               </Grid>
-            </Grid>
+            </Box>
+            <Box w={{base:"100vw",lg:"42vw"}} h={"65vh"}>
             {el && <Image
-              w={"85%"}
-              ml={"10px"}
+              
+              w={"100%"}
+              ml={1}
               objectFit={"fill"}
               src={el.image[image]}
-            />}
-          </Flex>
+            />}</Box>
+          </Box>
+
           <Grid className="body" w={"100%"} pb={"0px"} ml={"5%"}>
             <Text color={"gray"} mt="15px" mb="15px">
               {el.with}
