@@ -27,9 +27,7 @@ export const Signup = () => {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(userData);
     axios.post(`http://localhost:8080/user/register`, userData).then((res) => {
-      console.log(res.data);
     });
     setUserData(initialData);
   }

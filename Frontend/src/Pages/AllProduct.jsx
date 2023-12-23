@@ -341,7 +341,7 @@ export const AllProduct = () => {
               // border="2px solid"
             >
               {data?.map((property, i) => (
-                <Link to={`/product-detail/${property._id}`}><Card2 property={property} key={i} /></Link>
+                <Card2 property={property} key={i} />
               ))}
             </Grid>}
             <Box

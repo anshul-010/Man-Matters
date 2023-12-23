@@ -20,7 +20,7 @@ export const ResetPassword = () => {
           newPassword,
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
         });
     } else {
       console.log("password is not matching");

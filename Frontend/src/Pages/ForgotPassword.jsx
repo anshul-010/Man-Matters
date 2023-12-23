@@ -13,10 +13,9 @@ export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
 
   function handleReset() {
-    console.log(email);
     axios.post(`http://localhost:8080/user/forgot-password`,{email})
     .then((res)=>{
-        console.log(res.data)
+        // console.log(res.data)
     })
   }
 
