@@ -6,7 +6,6 @@ import "../data/styles.css";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
-import { Link } from "react-router-dom";
 
 export const AllProduct = () => {
   const [people, setPeople] = useState(Data);

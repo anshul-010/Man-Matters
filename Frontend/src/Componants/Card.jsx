@@ -2,8 +2,9 @@ import React from 'react'
 import { Badge, Box, Card, CardBody, Center, Flex, Grid, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react'
 export const Card2 = ({property}) => {
-
+  const toast = useToast()
   const cartData = JSON.parse(localStorage.getItem('ManMatterCart')) || [];
 
   function handleAddToCart(obj){
@@ -11,9 +12,26 @@ export const Card2 = ({property}) => {
     if(!checkItem){
       cartData.push(obj)
       localStorage.setItem('ManMatterCart', JSON.stringify(cartData));
-      alert('item added to cart')
+      toast({
+        position: 'top',
+        duration: 2500,
+
+        render: () => (
+          <Box borderRadius="" color='white' p={3} bg='#619ed8'>
+            <b>item added to cart 👍</b>
+          </Box>
+        ),
+      })
     }else{
-      alert('item is already in cart')
+      toast({
+        position: 'top',
+        duration: 2500,
+        render: () => (
+          <Box borderRadius="" color='white' p={3} bg='#619ed8'>
+            <b>item already in cart ✋</b>
+          </Box>
+        ),
+      })
     }
   }
 
