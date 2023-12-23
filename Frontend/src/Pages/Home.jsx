@@ -3,7 +3,6 @@ import "../data/styles.css";
 import data from "../data/data";
 import { useState, useEffect } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import { FaQuoteRight } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -22,7 +21,8 @@ import { Card2 } from "../Componants/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 export const Home = () => {
   //hover
   const [people, setPeople] = useState(data);
@@ -64,6 +64,21 @@ export const Home = () => {
       clearInterval(slider);
     };
   }, [index]);
+
+// frame animation
+  const swipeAnimationLeft = {
+    initial: { x: "-100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    transition: { duration: 0.7, delay: 0.3 },
+  };
+
+  const swipeAnimationRight = {
+    initial: { x: "+100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    transition: { duration: 0.7, delay: 0.3 },
+  };
+
+
   return (
     <div>
       <section className="section">

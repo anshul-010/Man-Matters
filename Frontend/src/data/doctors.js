@@ -8,11 +8,7 @@ import d6 from "../Images/d6.jpg";
 
 
 const doctor = [
-    {
-      id: 1,
-      image:d1
-        
-    },
+    
     {
       id: 2,
       image:
@@ -23,11 +19,7 @@ const doctor = [
       image:
         d3
     }
-    ,{
-      id: 4,
-      image:
-        d4,
-    }
+    
     ,{
       id: 5,
       image:

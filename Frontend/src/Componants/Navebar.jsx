@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Styles/navbar.css";
 import { Menu, X, ShoppingCart, UserRound, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/AuthReducer/actions";
+import { getProducts } from "../Redux/ProductReducer/action";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
-
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
   const userName = useSelector((store) => store.AuthReducer.name);
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+
+
+  let paramObj = {
+    params: {
+      // title: searchTerm,
+      category: searchTerm,
+    },
+  };
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -20,6 +29,14 @@ const Navbar = () => {
   const handleLogout = () => {
     dispatch(logout());
   };
+
+  function handleSearch(e){
+    setSearchTerm(e.target.value);
+  }
+  
+  useEffect(()=>{
+    dispatch(getProducts(paramObj))
+  },[searchTerm])
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
@@ -32,7 +49,7 @@ const Navbar = () => {
           <Search color="#22548A" />
         </span>
         <form>
-          <input type="text" placeholder="search" />
+          <input type="text" placeholder="search" value={searchTerm} onChange={handleSearch} />
         </form>
       </div>
 
