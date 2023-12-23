@@ -7,3 +7,9 @@
 - Lucide React : https://lucide.dev/
 
 - React Icons : https://react-icons.github.io/react-icons/
+
+# ManMatterCart : LocalStorage Data Storage
+
+# npm run server : for start backend server
+
+# npm run dev : for start dev("frontend") server

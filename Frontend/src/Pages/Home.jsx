@@ -22,6 +22,7 @@ import { Card2 } from "../Componants/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
+import { Link } from "react-router-dom";
 export const Home = () => {
   //hover
   const [people, setPeople] = useState(data);

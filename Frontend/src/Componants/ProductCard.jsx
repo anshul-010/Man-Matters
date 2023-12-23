@@ -25,11 +25,9 @@ export const ProductCard = () => {
   const [el, setEl] = useState("");
   const data = useSelector((store)=>store.ProductReducer.products) 
   const {id} = useParams()
-  console.log(id)
   function getProduct(){
     axios.get(`http://localhost:8080/product/products/${id}`)
     .then((res)=>{
-      console.log(res.data)
       setEl(res.data)
     })
   }
@@ -116,11 +114,12 @@ export const ProductCard = () => {
                 />}
               </Grid>
             </Box>
-            <Box mb={1} w={{base:"100vw",lg:"42vw"}} h={{base:"45vh",lg:"65vh"}}>
+            <Box mb={1} w={{base:"100vw",lg:"42vw"}} h={{base:"45vh",lg:"68vh"}} >
             {el && <Image
               
               w={"100%"}
-              ml={1}
+              h={"100%"}
+              ml={{base:{},lg:"3px"}}
               objectFit={"fill"}
               src={el.image[image]}
             />}</Box>

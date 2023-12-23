@@ -1,10 +1,26 @@
 import React from 'react'
 import { Badge, Box, Card, CardBody, Center, Flex, Grid, Heading, Image, Stack, Text } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 export const Card2 = ({property}) => {
+
+  const cartData = JSON.parse(localStorage.getItem('ManMatterCart')) || [];
+
+  function handleAddToCart(obj){
+    let checkItem = cartData.some((item)=>item._id === obj._id)
+    if(!checkItem){
+      cartData.push(obj)
+      localStorage.setItem('ManMatterCart', JSON.stringify(cartData));
+      alert('item added to cart')
+    }else{
+      alert('item is already in cart')
+    }
+  }
+
   return (
     <Box width={{base:"",lg:"18vw"}} borderWidth="2px"  borderRadius="lg" overflow="hidden">
-      <Box  m='auto' height="28vh" width={{base:"",lg:"18vw"}}  >
+      <Link to={`/product-detail/${property._id}`}><Box>
+        <Box  m='auto' height="28vh" width={{base:"",lg:"18vw"}}  >
         <Image src={property.image[0]} height="100%" width="100%" alt={property.image} />
       </Box>
     <Box   pt="0">
@@ -68,17 +84,19 @@ export const Card2 = ({property}) => {
           With
         </Badge> {property.with}
       </Box>
+      </Box>
+      </Box></Link>
       <Box
         as="button"
-       w={"100%"}
+        w={"100%"}
         bg="#5194D1"
         color="white"
         py={2}
         mt="2"
+        onClick={()=>handleAddToCart(property)}
       >
         Add To Cart
       </Box>
-    </Box>
   </Box>
   )
 }
