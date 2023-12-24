@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/AuthReducer/actions";
 import { getProducts } from "../Redux/ProductReducer/action";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const userName = useSelector((store) => store.AuthReducer.name);
@@ -33,6 +36,10 @@ const Navbar = () => {
   function handleSearch(e){
     setSearchTerm(e.target.value);
   }
+
+  function handleRelocate(){
+     navigate("/all-products");
+  }
   
   useEffect(()=>{
     dispatch(getProducts(paramObj))
@@ -49,7 +56,7 @@ const Navbar = () => {
           <Search color="#22548A" />
         </span>
         <form>
-          <input type="text" placeholder="search" value={searchTerm} onChange={handleSearch} />
+          <input type="text" placeholder="search" value={searchTerm} onClick={handleRelocate} onChange={handleSearch} />
         </form>
       </div>
 
