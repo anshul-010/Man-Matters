@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/AuthReducer/actions";
 import { getProducts } from "../Redux/ProductReducer/action";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, } from "react-router-dom";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -16,7 +16,9 @@ const Navbar = () => {
 
   const userName = useSelector((store) => store.AuthReducer.name);
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+  // const items = JSON.parse(localStorage.getItem('ManMatterCart')) || [];
 
+  // const totalItm = items.length
 
   let paramObj = {
     params: {
@@ -77,7 +79,7 @@ const Navbar = () => {
               <UserRound color="#1f5c9d" /> {userName}
             </span>
             <div className="profile-dropdown">
-              <p>Profile</p>
+              <Link to="/profile"><p>Profile</p></Link>
               <p onClick={handleLogout}>Logout</p>
             </div>
           </div>
@@ -90,10 +92,13 @@ const Navbar = () => {
         )}
       </div>
 
-      <Link to="checkout">
-        <div className="shoping-cart">
-          <ShoppingCart />
+      <Link to="/checkout">
+      <div className="shoping-cart">
+        {/* <span className="item-count">{totalItm}</span> */}
+        <div className="icon-container">
+          <ShoppingCart className="cart-icon" />
         </div>
+      </div>
       </Link>
       <div className="burger-menu" onClick={toggleNav}>
         {isNavOpen ? <Menu /> : <X />}

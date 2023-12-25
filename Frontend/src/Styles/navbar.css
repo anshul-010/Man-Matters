@@ -22,8 +22,22 @@
   }
   
   .shoping-cart{
+    position: relative;
     color: #22548A;
   }
+
+  .item-count{
+    position: absolute;
+    top:-12px;
+    right:27%;
+    color: #22548A;
+    font-weight: 500;
+  }
+  .icon-container{
+    display: flex;
+    align-items: center;
+  }
+
   .nav-links {
     display: flex;
     gap: 30px;
