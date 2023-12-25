@@ -1,6 +1,8 @@
 import { LOGIN_FAILURE, LOGIN_NAME, LOGIN_REQUEST, LOGIN_SUCCESS,LOGOUT,REGISTER_REQUEST, REGISTER_SUCCESS } from "../actionType"
 import axios from "axios";
 
+
+
 const loginRequest=()=>{
     return {type : LOGIN_REQUEST}
   }

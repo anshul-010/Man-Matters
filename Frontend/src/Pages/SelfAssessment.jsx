@@ -1,5 +1,11 @@
 import React from "react";
+import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
+import Test from "./Test";
 
 export const SelfAssessment = () => {
-  return <div>SelfAssessment</div>;
+  return(
+  <Box textAlign="center"mr="2%">
+    <Test />
+  </Box>
+  );
 };
