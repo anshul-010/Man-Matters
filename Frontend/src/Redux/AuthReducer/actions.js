@@ -33,8 +33,9 @@ export const login =(userData)=> (dispatch)=>{
       return {auth:false}
     }
     else{
-      dispatch(loginSuccess(res.data.token))
-      dispatch(loginName(res.data.Name))
+      console.log(res.data)
+      dispatch(loginSuccess(res.data))
+      // dispatch(loginName(res.data.Name))
       return {auth:true}
     }
   })
