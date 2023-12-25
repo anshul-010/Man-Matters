@@ -8,21 +8,25 @@ import {
   Box,
   Image,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../data/styles.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../Redux/AuthReducer/actions";
 import Rangoli from "../Images/Rangoli.jpg";
+import { useToast } from '@chakra-ui/react'
+
 let initialData = {
   email: "",
   password: "",
 };
 export const Login = () => {
+  
   const [userData, setUserData] = useState(initialData);
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toast = useToast()
   const { isAuth, name, token } = useSelector((store) => {
     return {
       isAuth: store.AuthReducer.isAuth,
@@ -30,18 +34,44 @@ export const Login = () => {
       token: store.AuthReducer.token,
     };
   });
+  // console.log(isAuth);
   function handleChange(event) {
     const { name, value } = event.target;
     setUserData((pre) => {
       return { ...pre, [name]: name == "mobile" ? +value : value };
     });
   }
-  function handleLogin(event) {
+  function handleLogin (event) {
     event.preventDefault();
-    dispatch(login(userData)).then(() => {
+     dispatch(login(userData)).then((auth) => { 
+      if(auth.auth){
+        toast({
+          position: 'top',
+          duration: 2500,
+          render: () => (
+            <Box color='white' p={3} bg='#69d729'>
+              <b>Login Successfull 👍</b>
+            </Box>
+          ),
+        })
+      }
+      else{
+        toast({
+          position: 'top',
+          duration: 2500,
+          render: () => (
+            <Box color='white' p={3} bg='#ea3838'>
+              <b>Wrong Credential 👎</b>
+            </Box>
+          ),
+        })
+      }
+      setUserData(initialData);
       navigate(location.state, { replace: true });
-    });
-    setUserData(initialData);
+  })
+
+    
+
   }
   return (
     <>

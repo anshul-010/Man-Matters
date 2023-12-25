@@ -12,6 +12,7 @@ import { ResetPassword } from "../Pages/ResetPassword";
 import { ProductCard } from "../Componants/ProductCard";
 import PageNotFound from "../Pages/PageNotFound";
 import Checkout from "../Pages/Checkout";
+import { Profile } from "../Pages/Profile";
 
 export const AllRoutes = () => {
   return (
@@ -26,8 +27,9 @@ export const AllRoutes = () => {
       <Route path="/schedule-appoinment" element={<ScheduleAppoinment />} />
       <Route path="/appoinment/:title" element={<Appoinment />} />
       <Route path="/self-assessment" element={<SelfAssessment />} />
+      <Route path="/profile" element={<Profile/>} />
       <Route path="/checkout" element={<Checkout />} />
-
+      
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
