@@ -83,7 +83,8 @@ function Test() {
                 wordBreak="break-word"
               >
                 <Text>
-                  Bot 🤖 : Welcome to the AI SelfCare, How can I Help You Today!!!
+                  Bot 🤖 : Welcome to the AI SelfCare, How can I Help You
+                  Today!!!
                 </Text>
               </Box>
             ) : (

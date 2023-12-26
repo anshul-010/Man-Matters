@@ -2,6 +2,7 @@ import {
   GET_PRODUCT_ERROR,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
+  TOGGLECART,
 } from "../actionType";
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
   isError: false,
   products: [],
   totalCount: 0,
+  toggleCart: false,
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -26,6 +28,12 @@ export const reducer = (state = initialState, { type, payload }) => {
     }
     case GET_PRODUCT_ERROR: {
       return { ...state, isLoading: false, isError: true };
+    }
+    case TOGGLECART: {
+      return {
+        ...state,
+        toggleCart: !state.toggleCart,
+      };
     }
     default:
       return state;

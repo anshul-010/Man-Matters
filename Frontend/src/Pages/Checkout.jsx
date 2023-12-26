@@ -3,7 +3,7 @@ import * as css from "../Styles/CheckoutStyles";
 import { useState, useEffect } from "react";
 import { IoIosArrowBack as LeftArrow } from "react-icons/io";
 import { FaPen as PenIcon } from "react-icons/fa6";
-import { Box, Text, Image, Highlight } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 
 const Checkout = () => {
   const [currStepper, setCurrStepper] = useState(1);

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/AuthReducer/actions";
 import { getProducts } from "../Redux/ProductReducer/action";
-import { useNavigate, } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
@@ -16,9 +16,17 @@ const Navbar = () => {
 
   const userName = useSelector((store) => store.AuthReducer.name);
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  // const items = JSON.parse(localStorage.getItem('ManMatterCart')) || [];
+  const toggleCart = useSelector((store) => store.ProductReducer.toggleCart);
+  const [items, setCartitems] = useState(
+    JSON.parse(localStorage.getItem("ManMatterCart")) || []
+  );
+  const [totalItm, setTotalItm] = useState(0);
 
-  // const totalItm = items.length
+  useEffect(() => {
+    setCartitems(items);
+    setTotalItm(items.length);
+    console.log(toggleCart);
+  }, [items, toggleCart]);
 
   let paramObj = {
     params: {
@@ -35,17 +43,17 @@ const Navbar = () => {
     dispatch(logout());
   };
 
-  function handleSearch(e){
+  function handleSearch(e) {
     setSearchTerm(e.target.value);
   }
 
-  function handleRelocate(){
-     navigate("/all-products");
+  function handleRelocate() {
+    navigate("/all-products");
   }
-  
-  useEffect(()=>{
-    dispatch(getProducts(paramObj))
-  },[searchTerm])
+
+  useEffect(() => {
+    dispatch(getProducts(paramObj));
+  }, [searchTerm]);
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
@@ -58,7 +66,13 @@ const Navbar = () => {
           <Search color="#22548A" />
         </span>
         <form>
-          <input type="text" placeholder="search" value={searchTerm} onClick={handleRelocate} onChange={handleSearch} />
+          <input
+            type="text"
+            placeholder="search"
+            value={searchTerm}
+            onClick={handleRelocate}
+            onChange={handleSearch}
+          />
         </form>
       </div>
 
@@ -79,7 +93,9 @@ const Navbar = () => {
               <UserRound color="#1f5c9d" /> {userName}
             </span>
             <div className="profile-dropdown">
-              <Link to="/profile"><p>Profile</p></Link>
+              <Link to="/profile">
+                <p>Profile</p>
+              </Link>
               <p onClick={handleLogout}>Logout</p>
             </div>
           </div>
@@ -93,12 +109,12 @@ const Navbar = () => {
       </div>
 
       <Link to="/checkout">
-      <div className="shoping-cart">
-        {/* <span className="item-count">{totalItm}</span> */}
-        <div className="icon-container">
-          <ShoppingCart className="cart-icon" />
+        <div className="shoping-cart">
+          <span className="item-count">{totalItm}</span>
+          <div className="icon-container">
+            <ShoppingCart className="cart-icon" />
+          </div>
         </div>
-      </div>
       </Link>
       <div className="burger-menu" onClick={toggleNav}>
         {isNavOpen ? <Menu /> : <X />}

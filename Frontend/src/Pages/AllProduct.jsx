@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Button, Flex, Heading, Select, Skeleton } from "@chakra-ui/react";
+import {
+  Box,
+  Grid,
+  Button,
+  Flex,
+  Heading,
+  Select,
+  Skeleton,
+} from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import Data from "../data/doctors";
 import "../data/styles.css";
@@ -301,48 +309,76 @@ export const AllProduct = () => {
             </Box>
           </Box>
           <Box id="products" p="10px">
-            {loading && <Grid 
-              templateColumns={{
-                base: "repeat(1, 1fr)",
-                sm: "repeat(1, 1fr)",
-                md: "repeat(2, 1fr)",
-                lg: "repeat(3, 1fr)",
-                xl: "repeat(4, 1fr)",
-              }}
-              justifyContent="center"
-              gap="30px"
-              w={{base:"75vw",lg:"80vw"}}
-              m="auto"
-              alignItems={"center"}
-            >
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "20vw" }}></Skeleton>
-            </Grid>}
-            {!loading && <Grid
-              templateColumns={{
-                base: "repeat(1, 1fr)",
-                sm: "repeat(1, 1fr)",
-                md: "repeat(2, 1fr)",
-                lg: "repeat(3, 1fr)",
-                xl: "repeat(4, 1fr)",
-              }}
-              justifyContent="center"
-              gap="30px"
-              w="80vw"
-              m="auto"
-              alignItems={"center"}
-              // border="2px solid"
-            >
-              {data?.map((property, i) => (
-                <Card2 property={property} key={i} />
-              ))}
-            </Grid>}
+            {loading && (
+              <Grid
+                templateColumns={{
+                  base: "repeat(1, 1fr)",
+                  sm: "repeat(1, 1fr)",
+                  md: "repeat(2, 1fr)",
+                  lg: "repeat(3, 1fr)",
+                  xl: "repeat(4, 1fr)",
+                }}
+                justifyContent="center"
+                gap="30px"
+                w={{ base: "75vw", lg: "80vw" }}
+                m="auto"
+                alignItems={"center"}
+              >
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+                <Skeleton
+                  height="80"
+                  width={{ base: "75vw", lg: "20vw" }}
+                ></Skeleton>
+              </Grid>
+            )}
+            {!loading && (
+              <Grid
+                templateColumns={{
+                  base: "repeat(1, 1fr)",
+                  sm: "repeat(1, 1fr)",
+                  md: "repeat(2, 1fr)",
+                  lg: "repeat(3, 1fr)",
+                  xl: "repeat(4, 1fr)",
+                }}
+                justifyContent="center"
+                gap="30px"
+                w="80vw"
+                m="auto"
+                alignItems={"center"}
+                // border="2px solid"
+              >
+                {data?.map((property, i) => (
+                  <Card2 property={property} key={i} />
+                ))}
+              </Grid>
+            )}
             <Box
               id="pagination-btn"
               display="flex"

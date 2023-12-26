@@ -1,10 +1,9 @@
 import { Box, Center, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 export const Profile = () => {
-
-  const {name,email,mobile} = useSelector((store)=>store.AuthReducer)
+  const { name, email, mobile } = useSelector((store) => store.AuthReducer);
 
   return (
     <div>
@@ -14,16 +13,21 @@ export const Profile = () => {
         alignItems="center"
         height={{ base: "", lg: "25vh" }}
         backgroundColor="#E1EFF8"
-        display={{base:"block",lg:"flex"}}
+        display={{ base: "block", lg: "flex" }}
       >
-          
-
-        <Box  width={{base:"80vw",lg:"30%"}} m={{base:"auto",lg:"0"}} >
-          <Heading mb="20px" letterSpacing="1px">{name}</Heading>
-          <Text p="0px 5px 0px 0px" color="#6C6C99" display="inline" borderRight="1px solid">
+        <Box width={{ base: "80vw", lg: "30%" }} m={{ base: "auto", lg: "0" }}>
+          <Heading mb="20px" letterSpacing="1px">
+            {name}
+          </Heading>
+          <Text
+            p="0px 5px 0px 0px"
+            color="#6C6C99"
+            display="inline"
+            borderRight="1px solid"
+          >
             {mobile}
           </Text>
-          <Text m="5px" display="inline"  color="#6C6C99">
+          <Text m="5px" display="inline" color="#6C6C99">
             {email}
           </Text>
         </Box>
@@ -33,10 +37,10 @@ export const Profile = () => {
           color="white"
           fontWeight="500"
           p="10px 70px"
-          width={{base:"80vw",lg:"15vw"}}
-          m={{base:"auto",lg:"0px"}}
+          width={{ base: "80vw", lg: "15vw" }}
+          m={{ base: "auto", lg: "0px" }}
           _hover={{
-            cursor: "pointer"
+            cursor: "pointer",
           }}
         >
           <Center>Logout</Center>
