@@ -3,7 +3,6 @@ import {
   GET_PRODUCT_ERROR,
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_SUCCESS,
-  TOGGLECART,
 } from "../actionType";
 
 const productRequest = () => {
@@ -16,10 +15,6 @@ const productSuccess = (payload) => {
 
 const productError = () => {
   return { type: GET_PRODUCT_ERROR };
-};
-
-export const ToggleCart = () => {
-  return { type: TOGGLECART };
 };
 
 export const getProducts = (paramObj) => (dispatch) => {

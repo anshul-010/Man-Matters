@@ -4,9 +4,15 @@ import { useState, useEffect } from "react";
 import { IoIosArrowBack as LeftArrow } from "react-icons/io";
 import { FaPen as PenIcon } from "react-icons/fa6";
 import { Box, Text, Image } from "@chakra-ui/react";
+import { GetCartItems } from "../Redux/CartReducer/actions";
 
 const Checkout = () => {
   const [currStepper, setCurrStepper] = useState(1);
+  const [cartitem, setCartItem] = useState(GetCartItems());
+
+  useEffect(() => {
+    console.log(cartitem);
+  }, [cartitem]);
 
   useEffect(() => {
     const previousTitle = document.title;

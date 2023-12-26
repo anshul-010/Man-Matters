@@ -6,27 +6,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/AuthReducer/actions";
 import { getProducts } from "../Redux/ProductReducer/action";
 import { useNavigate } from "react-router-dom";
+import { GetCartItems } from "../Redux/CartReducer/actions";
 
 const Navbar = () => {
-  const [isNavOpen, setIsNavOpen] = useState(true);
-  const [searchTerm, setSearchTerm] = useState("");
-
+  const cartLocalStorageKey = "ManWellCart";
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [isNavOpen, setIsNavOpen] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+
   const userName = useSelector((store) => store.AuthReducer.name);
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  const toggleCart = useSelector((store) => store.ProductReducer.toggleCart);
-  const [items, setCartitems] = useState(
-    JSON.parse(localStorage.getItem("ManMatterCart")) || []
+
+  const toggleCart = useSelector((store) => store.CartReducer.toggleCart);
+  const [cartItemsLength, setCartItemsLength] = useState(
+    GetCartItems().length || 0
   );
-  const [totalItm, setTotalItm] = useState(0);
 
   useEffect(() => {
-    setCartitems(items);
-    setTotalItm(items.length);
-    console.log(toggleCart);
-  }, [items, toggleCart]);
+    setCartItemsLength(GetCartItems().length || 0);
+  }, [toggleCart]);
 
   let paramObj = {
     params: {
@@ -110,7 +110,7 @@ const Navbar = () => {
 
       <Link to="/checkout">
         <div className="shoping-cart">
-          <span className="item-count">{totalItm}</span>
+          <span className="item-count">{cartItemsLength}</span>
           <div className="icon-container">
             <ShoppingCart className="cart-icon" />
           </div>

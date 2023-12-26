@@ -27,9 +27,9 @@ export const AllRoutes = () => {
       <Route path="/schedule-appoinment" element={<ScheduleAppoinment />} />
       <Route path="/appoinment/:title" element={<Appoinment />} />
       <Route path="/self-assessment" element={<SelfAssessment />} />
-      <Route path="/profile" element={<Profile/>} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="/checkout" element={<Checkout />} />
-      
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
