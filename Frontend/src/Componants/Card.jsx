@@ -17,25 +17,29 @@ import { Link } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToggleCart } from "../Redux/ProductReducer/action";
+import { GetCartItems, SetCartItems } from "../Redux/CartReducer/actions";
+import { TOGGLECART } from "../Redux/actionType";
+
 export const Card2 = ({ property }) => {
   const toast = useToast();
-  const cartData = JSON.parse(localStorage.getItem("ManMatterCart")) || [];
-  const toggleCart = useSelector((state) => state.ProductReducer.toggleCart);
   const dispatch = useDispatch();
+  const cartData = GetCartItems();
 
   function handleAddToCart(obj) {
     let checkItem = cartData.some((item) => item._id === obj._id);
     if (!checkItem) {
       cartData.push(obj);
-      localStorage.setItem("ManMatterCart", JSON.stringify(cartData));
-      dispatch(ToggleCart());
+
+      SetCartItems(cartData);
+      dispatch({ type: TOGGLECART });
+
       toast({
         position: "top",
         duration: 2500,
 
         render: () => (
           <Box borderRadius="" color="white" p={3} bg="#619ed8">
-            <b>item added to cart 👍</b>
+            <b>Item added to cart 👍</b>
           </Box>
         ),
       });
@@ -44,8 +48,8 @@ export const Card2 = ({ property }) => {
         position: "top",
         duration: 2500,
         render: () => (
-          <Box borderRadius="" color="white" p={3} bg="#619ed8">
-            <b>item already in cart ✋</b>
+          <Box borderRadius="" color="white" p={3} bg="#d86161">
+            <b>Item already in cart ✋</b>
           </Box>
         ),
       });

@@ -10,7 +10,7 @@
 
 - React Icons : https://react-icons.github.io/react-icons/
 
-# ManMatterCart : LocalStorage Data Storage
+# Cart localStorage key : "ManWellCart"
 
 # npm run server : for start backend server
 
