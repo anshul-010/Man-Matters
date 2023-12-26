@@ -1,18 +1,21 @@
 import * as css from "../Styles/CheckoutStyles";
+import { GetCartItems } from "../Redux/CartReducer/actions";
 
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { IoIosArrowBack as LeftArrow } from "react-icons/io";
 import { FaPen as PenIcon } from "react-icons/fa6";
 import { Box, Text, Image } from "@chakra-ui/react";
-import { GetCartItems } from "../Redux/CartReducer/actions";
+import CartItemCard from "../Componants/CartItemCard";
 
 const Checkout = () => {
+  const dispatch = useDispatch();
   const [currStepper, setCurrStepper] = useState(1);
-  const [cartitem, setCartItem] = useState(GetCartItems());
+  const [cartItemsArr, setCartItemsArr] = useState(GetCartItems());
 
   useEffect(() => {
-    console.log(cartitem);
-  }, [cartitem]);
+    console.log(cartItemsArr);
+  }, []);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -123,11 +126,18 @@ const Checkout = () => {
                 Your consultation will start on placement of order
               </Text>
             </Box>
+
             <Box css={css.BookAnotherSlotCont}>
               <span>Not free right now?</span>
               <Text fontFamily="font1" color="blueC">
                 Book Another Slot {`>`}
               </Text>
+            </Box>
+
+            <Box css={css.ItemsContainerDiv}>
+              {cartItemsArr?.map((item, ind) => (
+                <CartItemCard {...item} key={ind} />
+              ))}
             </Box>
           </Box>
 
