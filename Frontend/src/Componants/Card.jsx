@@ -16,7 +16,6 @@ import { StarIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { ToggleCart } from "../Redux/ProductReducer/action";
 import { GetCartItems, SetCartItems } from "../Redux/CartReducer/actions";
 import { TOGGLECART } from "../Redux/actionType";
 

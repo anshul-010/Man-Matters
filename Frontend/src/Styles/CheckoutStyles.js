@@ -255,6 +255,14 @@ export const BookAnotherSlotCont = css`
   @media (max-width: 480px) {
   }
 `;
+export const ItemsContainerDiv = css`
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+`;
 
 export const RightSideCont = css`
   width: 35%;
