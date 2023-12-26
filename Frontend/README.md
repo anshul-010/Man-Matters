@@ -1,3 +1,5 @@
+# ManWell
+
 - Man Matters : https://manmatters.com/
 
 - Github Repo : https://github.com/anshul-010/Man-Matters
@@ -13,3 +15,5 @@
 # npm run server : for start backend server
 
 # npm run dev : for start dev("frontend") server
+
+mongourl : mongodb+srv://anshul-010:anshul@cluster0.ui9hsmm.mongodb.net/Man-Matters?retryWrites=true&w=majority

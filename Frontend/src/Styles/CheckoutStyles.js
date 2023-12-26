@@ -112,7 +112,7 @@ export const NumBoxStepper = css`
 // ******** Middle Content Css ********
 export const ContentOuter = css`
   display: flex;
-  gap: 10px;
+  gap: 28px;
 
   @media (max-width: 992px) {
   }
@@ -122,6 +122,8 @@ export const ContentOuter = css`
   }
 `;
 export const LeftSideCont = css`
+  width: 65%;
+
   @media (max-width: 992px) {
   }
   @media (max-width: 768px) {
@@ -232,12 +234,30 @@ export const BottomTextLeftBlueBox = css`
   }
 `;
 export const BookAnotherSlotCont = css`
-  span {
-  }
+  display: flex;
+  align-items: center;
+  padding: 5px 20px 0px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  width: 100%;
+  gap: 3px;
 
   p {
     cursor: pointer;
+    font-weight: bold;
   }
+
+  @media (max-width: 992px) {
+  }
+  @media (max-width: 768px) {
+  }
+  @media (max-width: 480px) {
+  }
+`;
+
+export const RightSideCont = css`
+  width: 35%;
 
   @media (max-width: 992px) {
   }

@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -6,70 +5,59 @@
 
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (min-width: 692px) {
-    .body {
-        /* height:450px,
+  .body {
+    /* height:450px,
             overflowX:hidden,overflowY:"auto" */
-            height: 450px;
-            overflow-x: hidden;
-            overflow-y: auto;
-           
-    }
-   
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
+}
 @media screen and (max-width: 692px) {
-    .buyimage{
-      visibility: hidden;
-      
-      display: none;
-    }
-    
+  .buyimage {
+    visibility: hidden;
+
+    display: none;
   }
+}
 
-  div.scrollmenu {
- overflow: auto;
-    white-space: nowrap;
-    width: 90%;
-    margin: auto;
-  }
-  
-  .body3 {
-    display: inline-block;
- text-align: center;
-    padding: 14px;
-    text-decoration: none;
-    
-  }
+div.scrollmenu {
+  overflow: auto;
+  white-space: nowrap;
+  width: 90%;
+  margin: auto;
+}
 
+.body3 {
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
 
+.btn {
+  position: absolute;
+  top: 80%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: #5194d1;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-  .btn {
-    position: absolute;
-    top: 80%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: white;
-    color: #5194D1;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  .navbar2 {
-    overflow: hidden;
-    background-color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    margin: auto;
-    align-items: center;
-    text-align: center;
-  }
-  
- 
-
-
-
+.navbar2 {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+}

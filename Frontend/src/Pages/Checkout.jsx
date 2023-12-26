@@ -3,7 +3,7 @@ import * as css from "../Styles/CheckoutStyles";
 import { useState, useEffect } from "react";
 import { IoIosArrowBack as LeftArrow } from "react-icons/io";
 import { FaPen as PenIcon } from "react-icons/fa6";
-import { Box, Text, Image, Highlight } from "@chakra-ui/react";
+import { Box, Text, Image } from "@chakra-ui/react";
 
 const Checkout = () => {
   const [currStepper, setCurrStepper] = useState(1);
@@ -117,7 +117,6 @@ const Checkout = () => {
                 Your consultation will start on placement of order
               </Text>
             </Box>
-
             <Box css={css.BookAnotherSlotCont}>
               <span>Not free right now?</span>
               <Text fontFamily="font1" color="blueC">
@@ -127,7 +126,7 @@ const Checkout = () => {
           </Box>
 
           {/* Right Side Box */}
-          <Box>Right</Box>
+          <Box css={css.RightSideCont}>Right</Box>
         </Box>
       </Box>
 
