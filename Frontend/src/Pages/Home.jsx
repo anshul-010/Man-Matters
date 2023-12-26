@@ -1,10 +1,8 @@
 import React from "react";
 import "../data/styles.css";
 import data from "../data/data";
-
 import { useState, useEffect } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import { FaQuoteRight } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -17,76 +15,38 @@ import {
   Image,
   Stack,
   Text,
+  Skeleton,
 } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../Redux/ProductReducer/action";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   //hover
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
-  const daata = [
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 4,
-    },
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 5,
-    },
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 4,
-    },
-    {
-      "image": [
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/HG%2030_Hair%20Serum%2030_hgt8xk.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%204__kc3kgt.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Creative-4%20%283%29_cmqavq.jpg?tr=w-800",
-                "https://i.mscwlns.co/media/misc/pdp_rcl/26166961/Artboard%206__8m9xzh.jpg?tr=w-800"
-            ],
-      price: 899,
-      title: "Stage 1 Hairloss Kit for Genetics",
-      for: "Stage 1 Hair Fall",
-      stage: 1,
-      with: "Biotin, Redensyl, Anagain",
-      category: "hair",
-      rating: 4,
-    },
-  ];
+  const [category, setCategory] = useState("");
+
+  const dispatch = useDispatch()
+  const daata = useSelector((store)=>store.ProductReducer.products)
+  const loading = useSelector((store) => store.ProductReducer.isLoading);
+
+  
+  let paramObj = {
+    params:{
+      limit:4,
+      page:1,
+      category: category,
+
+    }
+  }
+
+  useEffect(()=>{
+    dispatch(getProducts(paramObj))
+  },[category])
+  
   useEffect(() => {
     const lastIndext = people.length - 1;
     if (index < 0) {
@@ -104,6 +64,21 @@ export const Home = () => {
       clearInterval(slider);
     };
   }, [index]);
+
+// frame animation
+  const swipeAnimationLeft = {
+    initial: { x: "-100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    transition: { duration: 0.7, delay: 0.3 },
+  };
+
+  const swipeAnimationRight = {
+    initial: { x: "+100%", opacity: 0 },
+    animate: { x: 0, opacity: 1 },
+    transition: { duration: 0.7, delay: 0.3 },
+  };
+
+
   return (
     <div>
       <section className="section">
@@ -128,10 +103,10 @@ export const Home = () => {
             );
           })}
           <button className="prev" onClick={() => setIndex(index - 1)}>
-            <FiChevronLeft />
+            <FiChevronLeft size={50} />
           </button>
           <button className="next" onClick={() => setIndex(index + 1)}>
-            <FiChevronRight />
+            <FiChevronRight size={50} />
           </button>
         </div>
       </section>
@@ -139,7 +114,6 @@ export const Home = () => {
       <Heading m="3% 10% 3% 11%" size="lg">
         Expert Advice that Works
       </Heading>
-
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -183,7 +157,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Heading
                 color={"#5194D1"}
                 ml={{ base: "40%", lg: "39%" }}
@@ -203,7 +176,6 @@ export const Home = () => {
                 borderRadius="lg"
               />
             </Flex>
-
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -214,7 +186,6 @@ export const Home = () => {
             ></div>
           </Box>
         </Card>
-
         <Card
           data-aos="fade-right"
           data-aos-duration="1500"
@@ -245,7 +216,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Heading
                 color={"#5194D1"}
                 ml={{ base: "42%", lg: "44%" }}
@@ -265,7 +235,6 @@ export const Home = () => {
                 borderRadius="lg"
               />
             </Flex>
-
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -417,7 +386,6 @@ export const Home = () => {
             </Stack>
           </CardBody>
         </Card>
-
         <Card
           data-aos="fade-right"
           data-aos-duration="1500"
@@ -588,7 +556,6 @@ export const Home = () => {
           </CardBody>
         </Card>
       </Grid>
-
       {/* 30%CashBack Awaits */}
       <Grid
         templateColumns={{
@@ -613,7 +580,6 @@ export const Home = () => {
           //  heigth="100%"
           data-aos="fade-right"
           data-aos-duration="1500"
-
           // borderRadius={"80px"}
         >
           <Box borderColor={"#E1EFF8"} bgColor="#E1EFF8">
@@ -644,7 +610,6 @@ export const Home = () => {
                 Unlimited Doctor Consultations 🩺
               </Heading>
             </Center>
-
             <Center>
               <Heading
                 textAlign={"center"}
@@ -656,7 +621,6 @@ export const Home = () => {
                 What are you waiting for? Download Now!!
               </Heading>
             </Center>
-
             <Center>
               <Flex>
                 <Image
@@ -703,7 +667,6 @@ export const Home = () => {
       <Text ml={"10%"} mt="8" mb="8" fontSize="xl">
         Browse our best sellers by type of your concerns
       </Text>
-
       {/* Product Card ANd Filter */}
       <Grid
         templateColumns={{
@@ -727,6 +690,10 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#ffffff"
           borderRadius="15px"
+          value="Hair"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#5194D1", boxShadow: "5px 5px 8px #82b8eb" }}
         >
@@ -738,11 +705,14 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#b09999"
           borderRadius="15px"
+          value="Beard"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#F2ECEC", boxShadow: "5px 5px 8px #b09999" }}
-
         >
-          Beared
+          Beard
         </Button>
         <Button
           bg={"#E4F5ED"}
@@ -750,9 +720,12 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#70bd99"
           borderRadius="15px"
+          value="Nutrition"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#E4F5ED", boxShadow: "5px 5px 8px #70bd99" }}
-
         >
           Nutrition
         </Button>
@@ -762,9 +735,12 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#bc8888"
           borderRadius="15px"
+          value="Beard"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#FAE9E9", boxShadow: "5px 5px 8px #bc8888" }}
-
         >
           Performance
         </Button>
@@ -774,9 +750,12 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#69afa3"
           borderRadius="15px"
+          value="Hair"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#DDEFEC", boxShadow: "5px 5px 8px #69afa3" }}
-
         >
           Body
         </Button>
@@ -786,14 +765,36 @@ export const Home = () => {
           fontSize={{ base: "xs", lg: "md" }}
           color="#b88052"
           borderRadius="15px"
+          value="Nutrition"
+              onClick={(e) => {
+                setCategory(e.target.value);
+              }}
           m={"10px"}
           _hover={{ cursor: "pointer", backgroundColor: "#FEF3EA", boxShadow: "5px 5px 8px #b88052" }}
-
         >
           Skin
         </Button>
       </Grid>
-      <Grid
+      {loading && <Grid
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          sm: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(4, 1fr)",
+          xl: "repeat(4, 1fr)",
+        }}
+        justifyContent="center"
+        gap="30px"
+        w="80%"
+        m="auto"
+        alignItems={"center"}
+      >
+        <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+      </Grid>}
+      { !loading && <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
           sm: "repeat(1, 1fr)",
@@ -810,8 +811,7 @@ export const Home = () => {
         {daata?.map((property) => (
           <Card2 property={property} />
         ))}
-      </Grid>
-
+      </Grid>}
       {/* Asses Yourself Consult Free */}
       <Center>
         <Text fontWeight="bold" mt={"25px"} mb={"15px"} fontSize="3xl">
@@ -858,7 +858,6 @@ export const Home = () => {
       <Text ml={"10%"} fontWeight="bold" fontSize="3xl">
         Meet Our Experts
       </Text>
-
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -902,7 +901,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Box
                 ml={"40px"}
                 mt={"20px"}
@@ -959,7 +957,6 @@ export const Home = () => {
                 alt="article_1"
                 borderRadius="lg"
               />
-
               <Box
                 ml={"40px"}
                 mt={"20px"}
@@ -992,7 +989,6 @@ export const Home = () => {
       <Text fontWeight="bold" ml={"10%"} fontSize="3xl">
         Info Matters
       </Text>
-
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -1025,14 +1021,12 @@ export const Home = () => {
             >
               5Proven Tips For Growing Hair Faster
             </Box>
-
             <Box m={"7px"} as="h6" mt="1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
               quos deserunt facere at, libero recusandae quod veritatis
               excepturi et, quam exercitationem dolorum ducimus amet saepe
               quibusdam, commodi alias harum temporibus.
             </Box>
-
             <Box
               as="button"
               w={"100%"}
@@ -1062,14 +1056,12 @@ export const Home = () => {
             >
               Research Backed Fish Oil Benefits for Men
             </Box>
-
             <Box m={"7px"} lineHeight="tight" as="h6" mt="1">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
               quos deserunt facere at, libero recusandae quod veritatis
               excepturi et, quam exercitationem dolorum ducimus amet saepe
               quibusdam, commodi alias harum temporibus.
             </Box>
-
             <Box
               as="button"
               w={"100%"}
@@ -1102,14 +1094,12 @@ export const Home = () => {
             >
               5 Gym Rules Every Guy Should Know
             </Box>
-
             <Box lineHeight="tight" as="h6" mt="1" m={"7px"}>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
               quos deserunt facere at, libero recusandae quod veritatis
               excepturi et, quam exercitationem dolorum ducimus amet saepe
               quibusdam, commodi alias harum temporibus.
             </Box>
-
             <Box
               as="button"
               w={"100%"}
@@ -1123,7 +1113,6 @@ export const Home = () => {
           </Box>
         </Box>
       </Grid>
-
       <Center>
         <Text
           width={"80%"}

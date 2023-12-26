@@ -11,10 +11,8 @@ import {
     Divider,Center,
     Icon,
   } from "@chakra-ui/react";
-  
   import { BsFacebook, BsTwitter, BsPinterest } from "react-icons/bs";
   import { GrLinkedinOption } from "react-icons/gr";
-
 export const Footer = () => {
   return (
     <Box bg="#FFFFFF" _dark={{ bg: "white" }} mt={"20px"}>
@@ -97,18 +95,12 @@ export const Footer = () => {
     <Text  textAlign="center" mt={"10px"} color="#336193" fontSize="13px" fontWeight="bold" _dark={{ color: "white" }}>
         &copy;Copyright. All rights reserved.
       </Text>
-    
-   
-   
     </VStack>
     <Center >
-        
           <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/fb_3x.png?tr=w-200'/>
           <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/insta_3x.png?tr=w-200'/>
           <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/twitter_3x.png?tr=w-200'/>
           <Image w={"30px"} m={"20px"} src='https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618166/Man%20Matters/misc/yt_3x.png?tr=w-200'/>
-         
-        
       </Center>
   </Box>
   )
