@@ -46,7 +46,9 @@ export const Profile = () => {
           <Center>Logout</Center>
         </Box>
       </Box>
-      <Box></Box>
+      <Box border="1px solid red" width={{base:"",lg:"90vw"}} m="auto">
+        <Heading size="md" color="#3b3b3b">Your Previous Schedule Appoinment</Heading>
+      </Box>
     </div>
   );
 };
