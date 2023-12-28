@@ -27,7 +27,7 @@ function Test() {
     try {
       setloading(false);
       setintro(false);
-      const response = await axios.post("http://localhost:5000/chat", {
+      const response = await axios.post("https://gen-chat-app.onrender.com/chat", {
         userInput,
         chatHistory,
       });
