@@ -102,7 +102,7 @@ function Test() {
                   wordBreak="break-word"
                 >
                   <Text>{`${
-                    role === "user" ? "You: " : "Bot: "
+                    role === "user" ? "You: " : "Bot 🤖: "
                   }${content}`}</Text>
                 </Box>
               ))
