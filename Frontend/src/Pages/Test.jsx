@@ -50,7 +50,6 @@ function Test() {
     }
   };
 
-  console.log(chatHistory);
   return (
     <ChakraProvider>
       <VStack

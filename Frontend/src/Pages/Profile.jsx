@@ -9,10 +9,12 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Redux/AuthReducer/actions";
 
 export const Profile = () => {
   const [userData, setUserData] = useState([]);
+  const dispatch = useDispatch()
   const { name, email, mobile } = useSelector((store) => store.AuthReducer);
   const { token } = useSelector((store) => store.AuthReducer);
 
@@ -31,6 +33,11 @@ export const Profile = () => {
   useEffect(() => {
     getUserData();
   }, []);
+
+
+  function handleLogout(){
+    dispatch(logout());
+  }
 
   return (
     <div>
@@ -69,7 +76,7 @@ export const Profile = () => {
             cursor: "pointer",
           }}
         >
-          <Center>Logout</Center>
+          <Center onClick={handleLogout}>Logout</Center>
         </Box>
       </Box>
       <Box width={{ base: "", lg: "90vw" }} m="auto">
