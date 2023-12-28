@@ -517,7 +517,7 @@ export const Home = () => {
                 Quit Smoking <ChevronRightIcon />
               </Heading>
               <Text ml={"10px"}>
-                Quitting Smoking | Quitting Vaping | Quit Smoking
+                Quitting Smoking | No Vaping | Quitting
               </Text>
             </Stack>
           </CardBody>
@@ -551,7 +551,7 @@ export const Home = () => {
               <Heading ml={"10px"} textAlign={"left"} size="sm">
                 Hair <ChevronRightIcon />
               </Heading>
-              <Text ml={"10px"}>Hair Fall | Hair Growth | Dandruff</Text>
+              <Text ml={"10px"}>Hair Fall | Hair Growth | Dandruff | Fall</Text>
             </Stack>
           </CardBody>
         </Card>
