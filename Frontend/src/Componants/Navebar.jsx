@@ -149,7 +149,6 @@ import {
   Home,
   CalendarCheck,
   User,
-  FolderCheck,
   PanelBottomClose 
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
@@ -216,8 +215,8 @@ const Navbar = () => {
           <img
             src="https://i.mscwlns.co/media/misc/others/mm%20logo%20gif%202%20%281%29_2cf9r9.gif?tr=w-400"
             alt="logo"
-            width="150"
-            height="200"
+            width="100%"
+            height="100%"
           />
         </div>
       </Link>
@@ -238,48 +237,48 @@ const Navbar = () => {
       </div>
 
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
-        <NavLink to={"/all-products"} activeStyle={{ color: "#ff6347" }}>
+        <NavLink to={"/all-products"} >
           <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"2px"}}>
-            <Home />
-            <span>All Products</span>
+            <Home size={22} strokeWidth={1.1} />
+            <span className="nav-link">All Products</span>
           </div>
         </NavLink>
         <NavLink to="/schedule-appoinment" activeStyle={{ color: "#ff6347" }}>
           <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"2px"}} >
-            <CalendarCheck />
+            <CalendarCheck size={22} strokeWidth={1.1} />
             <span>Schedule Appointment</span>
           </div>
         </NavLink>
         <NavLink to="/self-assessment" activeStyle={{ color: "#ff6347" }}>
           <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"2px"}}>
           
-          <PanelBottomClose />  <span>Self Assessment</span>
+          <PanelBottomClose size={22} strokeWidth={1.1} />  <span>Self Assessment</span>
          </div>
         </NavLink>
 
         {isAuth ? (
           <div className="user-profile">
             <span className="log-in">
-              <UserRound color="#1f5c9d" /> {userName}
+              <UserRound color="#1f5c9d" size={22} /> {userName}
             </span>
             <div className="profile-dropdown">
               <NavLink to="/profile" activeStyle={activeStyle}>
-                <span>Profile</span>
+                <p>Profile</p>
               </NavLink>
-              <span onClick={handleLogout}>Logout</span>
+              <p onClick={handleLogout}>Logout</p>
             </div>
           </div>
         ) : (
-          // <NavLink to="/login" activeStyle={activeStyle}>
-          //   <div className="log-in" onClick={() => setIsNavOpen(true)}>
-          //   <User /> Login
-          //   </div>
-          // </NavLink>
-          <NavLink to="/login" activeStyle={{ color: "#ff6347" }}>
-          <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"5px"}}>
-            <User />  <span>Login</span>
-         </div>
-        </NavLink>
+          <NavLink to="/login" activeStyle={activeStyle}>
+            <div className="log-in" onClick={() => setIsNavOpen(true)}>
+            <User  /> Login
+            </div>
+          </NavLink>
+        //   <NavLink to="/login" activeStyle={{ color: "#ff6347" }}>
+        //   <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"5px"}}>
+        //     <User />  <span>Login</span>
+        //  </div>
+        // </NavLink>
         )}
       </div>
 
