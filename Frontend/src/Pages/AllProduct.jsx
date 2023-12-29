@@ -21,10 +21,15 @@ export const AllProduct = () => {
   const [index, setIndex] = useState(0);
   const [page, setPage] = useState(1);
   const [cetagoryName, setCetagoryName] = useState("All Product");
-  const [category, setCategory] = useState("");
-  const [order, setOrder] = useState("");
-  const [rating, setRating] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+  
+  const initialCategory = searchParams.get("category")
+  const initialOrder = searchParams.get("order")
+  const initialRating = searchParams.get("rating")
+  const [category, setCategory] = useState(initialCategory || "");
+  const [order, setOrder] = useState(initialOrder || "");
+  const [rating, setRating] = useState(initialRating || "");
+
   const dispatch = useDispatch();
   const data = useSelector((store) => store.ProductReducer.products);
   const totalCount = useSelector((store) => store.ProductReducer.totalCount);
@@ -35,9 +40,9 @@ export const AllProduct = () => {
     params: {
       limit: 12,
       page: page,
-      category: category,
-      sort: "price",
-      order: order,
+      category: searchParams.get("category"),
+      sort: searchParams.get("order") && "price",
+      order: searchParams.get("order"),
       rating: rating,
     },
   };
@@ -86,7 +91,7 @@ export const AllProduct = () => {
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
-  }, [page, category, order, rating]);
+  }, [searchParams,page]);
 
   useEffect(() => {
     const lastIndext = people.length - 1;
