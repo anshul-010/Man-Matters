@@ -14,6 +14,7 @@ import "../data/styles.css";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
+import { useSearchParams } from "react-router-dom";
 
 export const AllProduct = () => {
   const [people, setPeople] = useState(Data);
@@ -23,7 +24,7 @@ export const AllProduct = () => {
   const [category, setCategory] = useState("");
   const [order, setOrder] = useState("");
   const [rating, setRating] = useState("");
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
   const data = useSelector((store) => store.ProductReducer.products);
   const totalCount = useSelector((store) => store.ProductReducer.totalCount);
@@ -40,6 +41,23 @@ export const AllProduct = () => {
       rating: rating,
     },
   };
+
+  useEffect(()=>{
+    const params = {
+
+    }
+    category && (params.category = category)
+    order && (params.order = order)
+    rating && (params.rating = rating)
+    setSearchParams(params);
+
+
+  },[order, category, rating])
+
+  function handleSort(e){
+    setOrder(e.target.value)
+  }
+
 
   function handlePage(p) {
     setPage(p);
@@ -282,7 +300,7 @@ export const AllProduct = () => {
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
-                onChange={(e) => setOrder(e.target.value)}
+                onChange={handleSort}
               >
                 <option value="">Sort by Price</option>
                 <option value="asc">Asc</option>
