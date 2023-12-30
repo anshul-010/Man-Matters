@@ -86,18 +86,18 @@ export const Appoinment = () => {
   return (
     <div>
       {spin && (
-                  <Spinner
-                    thickness="10px"
-                    speed=".8s"
-                    emptyColor="white"
-                    color="blue.400"
-                    size="xl"
-                    zIndex="100"
-                    pos='relative'
-                    left="47vw"
-                    top='40vh'
-                  />
-              )}
+        <Spinner
+          thickness="10px"
+          speed=".8s"
+          emptyColor="white"
+          color="blue.400"
+          size="xl"
+          zIndex="100"
+          pos="relative"
+          left="47vw"
+          top="40vh"
+        />
+      )}
       {spin && (
         <Box
           position="fixed"
@@ -106,7 +106,7 @@ export const Appoinment = () => {
           width="100vw"
           height="100vh"
           bg="rgba(0, 0, 0, 0.5)"
-          zIndex='1'
+          zIndex="1"
         ></Box>
       )}
       <Flex justify="space-between">
@@ -125,7 +125,6 @@ export const Appoinment = () => {
             m="15px auto"
           >
             <Center>
-              
               <Heading m="10px" size={{ lg: "lg" }} color="#404040ed">
                 {" "}
                 {title}
