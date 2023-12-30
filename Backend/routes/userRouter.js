@@ -3,7 +3,6 @@ const { UserModel } = require('../Model/UserModel');
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken")
 const nodemailer = require("nodemailer");
-const config = require('../config/config');
 const randomString = require('randomstring');
 
 
@@ -61,8 +60,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-      user: config.email,
-      pass: config.password,
+      user: process.env.email,
+      pass: process.env.password,
     },
   });
 
@@ -82,7 +81,7 @@ userRoute.post("/forgot-password",async(req, res)=>{
 
         const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
         const mailOptions = {
-        from: config.email,
+        from: process.env.email,
         to: email,
         subject: 'Password Reset Request',
         html: `Click the following link to reset your password: <a href="${resetLink}">${resetLink}</a>`,

@@ -14,19 +14,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { login } from "../Redux/AuthReducer/actions";
 import Rangoli from "../Images/Rangoli.jpg";
-import { useToast } from '@chakra-ui/react'
+import { useToast, Spinner } from "@chakra-ui/react";
 
 let initialData = {
   email: "",
   password: "",
 };
 export const Login = () => {
-  
   const [userData, setUserData] = useState(initialData);
+  const [spin, setSpin] = useState(false);
+
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const toast = useToast()
+  const toast = useToast();
   const { isAuth, name, token } = useSelector((store) => {
     return {
       isAuth: store.AuthReducer.isAuth,
@@ -41,40 +42,62 @@ export const Login = () => {
       return { ...pre, [name]: name == "mobile" ? +value : value };
     });
   }
-  function handleLogin (event) {
+  function handleLogin(event) {
     event.preventDefault();
-     dispatch(login(userData)).then((auth) => { 
-      if(auth.auth){
+    setSpin(true);
+    dispatch(login(userData)).then((auth) => {
+      setSpin(false);
+      if (auth.auth) {
         toast({
-          position: 'top',
+          position: "top",
           duration: 2500,
           render: () => (
-            <Box color='white' p={3} bg='#69d729'>
+            <Box color="white" p={3} bg="#69d729">
               <b>Login Successfull 👍</b>
             </Box>
           ),
-        })
-      }
-      else{
+        });
+      } else {
         toast({
-          position: 'top',
+          position: "top",
           duration: 2500,
           render: () => (
-            <Box color='white' p={3} bg='#ea3838'>
+            <Box color="white" p={3} bg="#ea3838">
               <b>Wrong Credential 👎</b>
             </Box>
           ),
-        })
+        });
       }
       setUserData(initialData);
       navigate(location.state, { replace: true });
-  })
-
-    
-
+    });
   }
   return (
     <>
+      {spin && (
+        <Spinner
+          thickness="10px"
+          speed=".8s"
+          emptyColor="white"
+          color="blue.400"
+          size="xl"
+          zIndex="100"
+          pos="relative"
+          left="47vw"
+          top="35vh"
+        />
+      )}
+      {spin && (
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          width="100vw"
+          height="100vh"
+          bg="rgba(0, 0, 0, 0.5)"
+          zIndex="1"
+        ></Box>
+      )}
       <Box display="flex" m="auto" width="98vw" justifyContent="space-evenly">
         <Box width="24%" height="40%" mt="20px" className="rotating-image">
           <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />

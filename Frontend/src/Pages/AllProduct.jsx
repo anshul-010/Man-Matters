@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Box,
-  Grid,
-  Button,
-  Flex,
-  Heading,
-  Select,
-  Skeleton,
-} from "@chakra-ui/react";
+import { Box, Grid, Button, Heading, Select, Skeleton } from "@chakra-ui/react";
 import { Card2 } from "../Componants/Card";
 import Data from "../data/doctors";
 import "../data/styles.css";
@@ -22,10 +14,10 @@ export const AllProduct = () => {
   const [page, setPage] = useState(1);
   const [cetagoryName, setCetagoryName] = useState("All Product");
   const [searchParams, setSearchParams] = useSearchParams();
-  
-  const initialCategory = searchParams.get("category")
-  const initialOrder = searchParams.get("order")
-  const initialRating = searchParams.get("rating")
+
+  const initialCategory = searchParams.get("category");
+  const initialOrder = searchParams.get("order");
+  const initialRating = searchParams.get("rating");
   const [category, setCategory] = useState(initialCategory || "");
   const [order, setOrder] = useState(initialOrder || "");
   const [rating, setRating] = useState(initialRating || "");
@@ -47,22 +39,17 @@ export const AllProduct = () => {
     },
   };
 
-  useEffect(()=>{
-    const params = {
-
-    }
-    category && (params.category = category)
-    order && (params.order = order)
-    rating && (params.rating = rating)
+  useEffect(() => {
+    const params = {};
+    category && (params.category = category);
+    order && (params.order = order);
+    rating && (params.rating = rating);
     setSearchParams(params);
+  }, [order, category, rating]);
 
-
-  },[order, category, rating])
-
-  function handleSort(e){
-    setOrder(e.target.value)
+  function handleSort(e) {
+    setOrder(e.target.value);
   }
-
 
   function handlePage(p) {
     setPage(p);
@@ -91,7 +78,7 @@ export const AllProduct = () => {
 
   useEffect(() => {
     dispatch(getProducts(paramObj));
-  }, [searchParams,page]);
+  }, [searchParams, page]);
 
   useEffect(() => {
     const lastIndext = people.length - 1;
@@ -166,9 +153,9 @@ export const AllProduct = () => {
             mb="10"
             alignItems={"center"}
             position={{ base: "static", lg: "sticky" }}
-            top={{ base: "auto", lg: "14vh" }} // Adjust this value based on your navbar height
-            zIndex="1000" // Set a higher z-index to make it appear above other elements
-            backgroundColor="white" // Set the background color as needed
+            top={{ base: "auto", lg: "14vh" }}
+            zIndex="1000"
+            backgroundColor="white"
             overflow="hidden"
           >
             <Button
@@ -282,10 +269,9 @@ export const AllProduct = () => {
             alignItems="center"
             height={{ base: "15vh", lg: "90vh" }}
             position="sticky"
-            top={{ base: "4vh", lg: "8vh" }}
-            backgroundColor="white" // Set the background color as needed
+            top={{ base: "4vh", lg: "10vh" }}
+            backgroundColor="white"
             zIndex="1000"
-            // border="5px solid red"
             borderRight="1px solid lightgray"
           >
             <Heading

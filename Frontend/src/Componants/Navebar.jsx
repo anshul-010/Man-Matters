@@ -127,17 +127,6 @@
 
 // export default Navbar;
 
-
-
-
-
-
-
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import "../Styles/navbar.css";
 import {
@@ -149,7 +138,7 @@ import {
   Home,
   CalendarCheck,
   User,
-  PanelBottomClose 
+  PanelBottomClose,
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -205,7 +194,7 @@ const Navbar = () => {
   }, [searchTerm]);
 
   const activeStyle = {
-    color: "#ff6347", 
+    color: "#ff6347",
   };
 
   return (
@@ -237,23 +226,35 @@ const Navbar = () => {
       </div>
 
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
-        <NavLink to={"/all-products"} >
-          <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"2px"}}>
-            <Home size={22} strokeWidth={1.1} />
-            <span className="nav-link">All Products</span>
+        <NavLink to={"/all-products"}>
+          <div
+            className="nav-link"
+            onClick={() => setIsNavOpen(true)}
+            style={{ display: "flex", gap: "2px" }}
+          >
+            <Home size={22} color={"black"} strokeWidth={1.1} />
+            <span className="nav-link" style={{color:""}}>All Products</span>
           </div>
         </NavLink>
         <NavLink to="/schedule-appoinment" activeStyle={{ color: "#ff6347" }}>
-          <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"2px"}} >
+          <div
+            className="nav-link"
+            onClick={() => setIsNavOpen(true)}
+            style={{ display: "flex", gap: "2px" }}
+          >
             <CalendarCheck size={22} strokeWidth={1.1} />
             <span>Schedule Appointment</span>
           </div>
         </NavLink>
         <NavLink to="/self-assessment" activeStyle={{ color: "#ff6347" }}>
-          <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"2px"}}>
-          
-          <PanelBottomClose size={22} strokeWidth={1.1} />  <span>Self Assessment</span>
-         </div>
+          <div
+            className="nav-link"
+            onClick={() => setIsNavOpen(true)}
+            style={{ display: "flex", gap: "2px" }}
+          >
+            <PanelBottomClose size={22} strokeWidth={1.1} />{" "}
+            <span>Self Assessment</span>
+          </div>
         </NavLink>
 
         {isAuth ? (
@@ -271,14 +272,14 @@ const Navbar = () => {
         ) : (
           <NavLink to="/login" activeStyle={activeStyle}>
             <div className="log-in" onClick={() => setIsNavOpen(true)}>
-            <User  /> Login
+              <User /> Login
             </div>
           </NavLink>
-        //   <NavLink to="/login" activeStyle={{ color: "#ff6347" }}>
-        //   <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"5px"}}>
-        //     <User />  <span>Login</span>
-        //  </div>
-        // </NavLink>
+          //   <NavLink to="/login" activeStyle={{ color: "#ff6347" }}>
+          //   <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"5px"}}>
+          //     <User />  <span>Login</span>
+          //  </div>
+          // </NavLink>
         )}
       </div>
 

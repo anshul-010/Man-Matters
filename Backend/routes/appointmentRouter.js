@@ -2,7 +2,7 @@ const express = require("express");
 const { AppointmentModel } = require("../Model/AppointmentModel");
 const { auth } = require("../middleWare/authMiddleware");
 const { UserModel } = require("../Model/UserModel");
-const config = require('../config/config');
+// const config = require('../config/config');
 const nodemailer = require("nodemailer");
 
 
@@ -14,8 +14,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: config.email,
-    pass: config.password,
+    user: process.env.email,
+    pass: process.env.password,
   },
   debug: true
 });
@@ -38,7 +38,7 @@ appointmentRoute.post("/", auth, async (req, res) => {
     await newAppointment.save();
 
     const mailOptions = {
-      from: config.email,
+      from: process.env.email,
       to: email,
       subject: 'Appoinment Scheduled',
       html: `Your Appoinment Scheduled with Doctor on ${date} at ${time} issue related with ${title}`,
