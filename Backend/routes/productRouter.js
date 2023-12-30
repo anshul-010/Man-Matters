@@ -96,6 +96,8 @@ productRoute.get("/products/:id", async (req, res) => {
   }
 });
 
+
+
 // Sending mail to user for purchasing the product
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
