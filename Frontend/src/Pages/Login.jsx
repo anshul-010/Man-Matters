@@ -17,8 +17,8 @@ import Rangoli from "../Images/Rangoli.jpg";
 import { useToast, Spinner } from "@chakra-ui/react";
 
 let initialData = {
-  email: "",
-  password: "",
+  email: "anshkush532@gmail.com",
+  password: "ansh",
 };
 export const Login = () => {
   const [userData, setUserData] = useState(initialData);

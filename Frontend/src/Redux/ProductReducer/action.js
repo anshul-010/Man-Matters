@@ -20,7 +20,7 @@ const productError = () => {
 export const getProducts = (paramObj) => (dispatch) => {
   dispatch(productRequest());
   return axios
-    .get(`http://localhost:8080/product/products/`, paramObj)
+    .get(`https://man-matters.onrender.com/product/products/`, paramObj)
     .then((res) => {
       dispatch(productSuccess(res.data));
     })
