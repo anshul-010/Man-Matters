@@ -7,6 +7,8 @@ import {
   Heading,
   Box,
   Image,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -23,6 +25,10 @@ let initialData = {
 };
 export const Signup = () => {
   const [userData, setUserData] = useState(initialData);
+  const [spin, setSpin] = useState(false);
+  const toast = useToast();
+
+
   function handleChange(event) {
     const { name, value } = event.target;
     setUserData((pre) => {
@@ -31,20 +37,50 @@ export const Signup = () => {
   }
   function handleSubmit(event) {
     event.preventDefault();
-    axios
-      .post(`http://localhost:8080/user/register`, userData)
-      .then((res) => {});
+    setSpin(true);
+
+    axios.post(`http://localhost:8080/user/register`, userData).then((res) => {
+      setSpin(false);
+      toast({
+        position: "top",
+        duration: 2500,
+        render: () => (
+          <Box color="white" p={3} bg="#69d729">
+            <b>Register Successfully 👍</b>
+          </Box>
+        ),
+      });
+    });
     setUserData(initialData);
   }
   return (
     <>
-      <Box
-        display="flex"
-        m="auto"
-        width="98vw"
-        justifyContent="space-evenly"
-      >
-        <Box width="24%" height="40%" mt="20px"  className="rotating-image">
+      {spin && (
+        <Spinner
+          thickness="10px"
+          speed=".8s"
+          emptyColor="white"
+          color="blue.400"
+          size="xl"
+          zIndex="100"
+          pos="relative"
+          left="47vw"
+          top="35vh"
+        />
+      )}
+      {spin && (
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          width="100vw"
+          height="100vh"
+          bg="rgba(0, 0, 0, 0.5)"
+          zIndex="1"
+        ></Box>
+      )}
+      <Box display="flex" m="auto" width="98vw" justifyContent="space-evenly">
+        <Box width="24%" height="40%" mt="20px" className="rotating-image">
           <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
         </Box>
         <Box
@@ -118,7 +154,7 @@ export const Signup = () => {
             </Link>
           </Flex>
         </Box>
-        <Box width="24%" height="40%" mt="20px"  className="rotating-image">
+        <Box width="24%" height="40%" mt="20px" className="rotating-image">
           <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
         </Box>
       </Box>

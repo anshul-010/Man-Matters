@@ -99,7 +99,7 @@ export const Profile = () => {
               <Box
                 position="relative"
                 p="10px"
-                backgroundColor="#f28d09d2"
+                backgroundColor="#b84440d8"
                 color="white"
                 borderRadius="10px"
                 height={{ base: "", lg: "30vh" }}

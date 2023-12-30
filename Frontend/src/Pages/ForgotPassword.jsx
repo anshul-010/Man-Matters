@@ -13,20 +13,73 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../data/styles.css";
 import Rangoli from "../Images/Rangoli.jpg";
+import { useToast, Spinner } from "@chakra-ui/react";
+
 
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
+  const [spin, setSpin] = useState(false);
+  const toast = useToast();
 
   function handleReset() {
+    setSpin(true);
+
     axios
       .post(`http://localhost:8080/user/forgot-password`, { email })
       .then((res) => {
-        // console.log(res.data)
+      setSpin(false);
+      if(res.data.msg==="User not found"){
+        toast({
+          position: "top",
+          duration: 2500,
+          render: () => (
+            <Box color="white" p={3} bg="#ea3838">
+              <b>User Not Found 🙅‍♂️</b>
+            </Box>
+          ),
+        });
+      }
+      else{
+        toast({
+          position: "top",
+          duration: 2500,
+          render: () => (
+            <Box color="white" p={3} bg="#69d729">
+              <b>Please Check Your Mail ✉</b>
+            </Box>
+          ),
+        });
+      }
+        console.log(res.data)
       });
   }
 
   return (
     <div>
+      {spin && (
+        <Spinner
+          thickness="10px"
+          speed=".8s"
+          emptyColor="white"
+          color="blue.400"
+          size="xl"
+          zIndex="100"
+          pos="relative"
+          left="47vw"
+          top="35vh"
+        />
+      )}
+      {spin && (
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          width="100vw"
+          height="100vh"
+          bg="rgba(0, 0, 0, 0.5)"
+          zIndex="1"
+        ></Box>
+      )}
       <Box display="flex" m="auto" width="98vw" justifyContent="space-evenly">
         <Box width="20%" height="30%" mt="20px" className="rotating-image">
           <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />

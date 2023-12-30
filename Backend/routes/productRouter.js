@@ -1,6 +1,8 @@
 const express = require("express");
 const { ProductModel } = require("../Model/ProductModel");
 const querystring = require("querystring");
+const nodemailer = require("nodemailer");
+const { auth } = require("../middleWare/authMiddleware");
 
 const productRoute = express.Router();
 
@@ -93,5 +95,47 @@ productRoute.get("/products/:id", async (req, res) => {
     res.status(500).send({ msg: "Internal Server Error" });
   }
 });
+
+// Sending mail to user for purchasing the product
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.email,
+    pass: process.env.password,
+  },
+  debug: true
+});
+
+productRoute.post("/products/email", auth, (req, res) => {
+  const { _id, email } = req.user;
+
+  try {
+    console.log("email: " + email);
+
+    // Calculate the date 4 days ahead
+    const futureDate = new Date();
+    futureDate.setDate(futureDate.getDate() + 4);
+
+    const mailOptions = {
+      from: process.env.email,
+      to: email,
+      subject: 'Order Succeddful',
+      html: `Your Order Will be delivered on ${futureDate.toDateString()}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.status(500).send({ "msg": error });
+      }
+      res.status(200).send({ "msg": "Your Order Will be delivered" });
+    });
+  } catch (error) {
+    res.status(500).send({ msg: "Internal Server Error" });
+  }
+});
+
+
 
 module.exports = { productRoute };

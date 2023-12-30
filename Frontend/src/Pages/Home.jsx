@@ -22,6 +22,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   //hover
@@ -111,7 +112,7 @@ export const Home = () => {
         </div>
       </section>
       {/* Consult On App */}
-      <Heading m="3% 10% 3% 11%" size="lg">
+      <Heading m={{base:"5% 10% 10% 11%",lg:"3% 10% 5% 11%"}} size={{base:"md",lg:"lg"}}>
         Expert Advice that Works
       </Heading>
       <Grid
@@ -141,7 +142,7 @@ export const Home = () => {
           m={{ base: "20px" }}
         >
           <Box bg={"#E1EFF8"} pos="relative" borderRadius="0 0 20px 20px">
-            <Flex
+          <Link to="/schedule-appoinment"><Flex
               align="center"
               alignItems="center"
               height={{ base: "13vh", lg: "25vh" }}
@@ -149,7 +150,7 @@ export const Home = () => {
               <Image
                 h={{ base: "200px", lg: "300px" }}
                 pos="absolute"
-                left={{ base: "", lg: "" }}
+                left={{ base: "-2", lg: "" }}
                 bottom={{ base: "0", lg: "0px" }}
                 src={
                   "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/doc%202_6ku9ii.png?tr=w-500"
@@ -159,23 +160,22 @@ export const Home = () => {
               />
               <Heading
                 color={"#5194D1"}
-                ml={{ base: "40%", lg: "39%" }}
+                ml={{ base: "50%", lg: "39%" }}
                 size={{ base: "sm", lg: "lg" }}
                 fontWeight={"bold"}
               >
-                Consult on App
+                Free Consult
               </Heading>
               <Image
-                m={"15px"}
-                mt={"18px"}
-                h={{ base: "30px", lg: "45px" }}
+                m={"10px"}
+                h={{ base: "25px", lg: "45px" }}
                 src={
                   "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"
                 }
                 alt="article_1"
                 borderRadius="lg"
               />
-            </Flex>
+            </Flex></Link>
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -200,7 +200,7 @@ export const Home = () => {
           m={{ base: "20px" }}
         >
           <Box pos="relative" bg={"#E1EFF8"} borderRadius="0 0 20px 20px">
-            <Flex
+          <Link to="/self-assessment"><Flex
               align="center"
               alignItems="center"
               height={{ base: "13vh", lg: "25vh" }}
@@ -218,23 +218,22 @@ export const Home = () => {
               />
               <Heading
                 color={"#5194D1"}
-                ml={{ base: "42%", lg: "44%" }}
+                ml={{ base: "55%", lg: "50%" }}
                 size={{ base: "sm", lg: "lg" }}
                 fontWeight={"bold"}
               >
-                Assess Myself
+                Self Care
               </Heading>
               <Image
-                m={"15px"}
-                mt={"18px"}
-                h={{ base: "30px", lg: "45px" }}
+                m={"10px"}
+                h={{ base: "25px", lg: "45px" }}
                 src={
                   "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"
                 }
                 alt="article_1"
                 borderRadius="lg"
               />
-            </Flex>
+            </Flex></Link>
             <div
               style={{
                 backgroundColor: "#5194D1",
