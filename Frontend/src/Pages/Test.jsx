@@ -27,10 +27,13 @@ function Test() {
     try {
       setloading(false);
       setintro(false);
-      const response = await axios.post("https://gen-chat-app.onrender.com/chat", {
-        userInput,
-        chatHistory,
-      });
+      const response = await axios.post(
+        "https://gen-chat-app.onrender.com/chat",
+        {
+          userInput,
+          chatHistory,
+        }
+      );
 
       const { botResponse, chatHistory: newChatHistory } = response.data;
 

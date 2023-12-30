@@ -28,7 +28,6 @@ export const Signup = () => {
   const [spin, setSpin] = useState(false);
   const toast = useToast();
 
-
   function handleChange(event) {
     const { name, value } = event.target;
     setUserData((pre) => {

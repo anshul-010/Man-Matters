@@ -15,7 +15,6 @@ import "../data/styles.css";
 import Rangoli from "../Images/Rangoli.jpg";
 import { useToast, Spinner } from "@chakra-ui/react";
 
-
 export const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [spin, setSpin] = useState(false);
@@ -27,30 +26,29 @@ export const ForgotPassword = () => {
     axios
       .post(`http://localhost:8080/user/forgot-password`, { email })
       .then((res) => {
-      setSpin(false);
-      if(res.data.msg==="User not found"){
-        toast({
-          position: "top",
-          duration: 2500,
-          render: () => (
-            <Box color="white" p={3} bg="#ea3838">
-              <b>User Not Found 🙅‍♂️</b>
-            </Box>
-          ),
-        });
-      }
-      else{
-        toast({
-          position: "top",
-          duration: 2500,
-          render: () => (
-            <Box color="white" p={3} bg="#69d729">
-              <b>Please Check Your Mail ✉</b>
-            </Box>
-          ),
-        });
-      }
-        console.log(res.data)
+        setSpin(false);
+        if (res.data.msg === "User not found") {
+          toast({
+            position: "top",
+            duration: 2500,
+            render: () => (
+              <Box color="white" p={3} bg="#ea3838">
+                <b>User Not Found 🙅‍♂️</b>
+              </Box>
+            ),
+          });
+        } else {
+          toast({
+            position: "top",
+            duration: 2500,
+            render: () => (
+              <Box color="white" p={3} bg="#69d729">
+                <b>Please Check Your Mail ✉</b>
+              </Box>
+            ),
+          });
+        }
+        console.log(res.data);
       });
   }
 

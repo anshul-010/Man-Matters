@@ -14,7 +14,7 @@ import { logout } from "../Redux/AuthReducer/actions";
 
 export const Profile = () => {
   const [userData, setUserData] = useState([]);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { name, email, mobile } = useSelector((store) => store.AuthReducer);
   const { token } = useSelector((store) => store.AuthReducer);
 
@@ -34,8 +34,7 @@ export const Profile = () => {
     getUserData();
   }, []);
 
-
-  function handleLogout(){
+  function handleLogout() {
     dispatch(logout());
   }
 
@@ -107,7 +106,19 @@ export const Profile = () => {
                 <Text>Issue Related: {ele.title}</Text>
                 <Text>Date: {ele.date}</Text>
                 <Text>Time: {ele.time}</Text>
-                <Center> <Box mt="60px" fontWeight="500" p="5px 20px" backgroundColor={"white"} borderRadius="20px" color="#22548A">You talked with Dr.</Box></Center>
+                <Center>
+                  {" "}
+                  <Box
+                    mt="60px"
+                    fontWeight="500"
+                    p="5px 20px"
+                    backgroundColor={"white"}
+                    borderRadius="20px"
+                    color="#22548A"
+                  >
+                    You talked with Dr.
+                  </Box>
+                </Center>
                 <Box
                   position="absolute"
                   zIndex="10"
@@ -116,7 +127,11 @@ export const Profile = () => {
                   left="290px"
                   bottom="65px"
                 >
-                  <Image width="100%" height="100%" src="https://i.mscwlns.co/media/man-matters/Consult/DA/ConsultCardDoctorImageDesktop_HRCEiaVDF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666844428607" />
+                  <Image
+                    width="100%"
+                    height="100%"
+                    src="https://i.mscwlns.co/media/man-matters/Consult/DA/ConsultCardDoctorImageDesktop_HRCEiaVDF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666844428607"
+                  />
                 </Box>
               </Box>
             );

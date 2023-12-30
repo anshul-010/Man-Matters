@@ -287,11 +287,12 @@ export const AllProduct = () => {
               <Select
                 fontSize={{ base: "sm", lg: "lg" }}
                 width={{ base: "130px", lg: "174px" }}
-                focusBorderColor="transparent"
+                // focusBorderColor="transparent"
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
                 onChange={handleSort}
+                defaultValue={order}
               >
                 <option value="">Sort by Price</option>
                 <option value="asc">Asc</option>
@@ -303,16 +304,17 @@ export const AllProduct = () => {
               <Select
                 fontSize={{ base: "sm", lg: "lg" }}
                 width={{ base: "145px", lg: "174px" }}
-                focusBorderColor="transparent"
+                // focusBorderColor="transparent"
                 fontWeight="500"
                 color="gray.700"
                 m={{ base: "0", lg: " 20px auto" }}
-                onChange={(e) => setRating(+e.target.value + 1)}
+                onChange={(e) => setRating(+e.target.value)}
+                defaultValue={rating}
               >
                 <option value="">Filter by Rating</option>
-                <option value="4">Above 4</option>
-                <option value="3">Above 3</option>
-                <option value="2">Above 2</option>
+                <option value="4">4 & Above</option>
+                <option value="3">3 & Above</option>
+                <option value="2">2 & Above</option>
               </Select>
               <hr />
             </Box>
@@ -399,7 +401,7 @@ export const AllProduct = () => {
                 <Button
                   borderRadius={"50%"}
                   key={index}
-                  colorScheme="teal"
+                  colorScheme={index + 1 === page ? "teal" : "blue"}
                   m="2"
                   onClick={() => handlePage(index + 1)}
                   _hover={{

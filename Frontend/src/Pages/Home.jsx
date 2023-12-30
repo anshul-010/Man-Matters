@@ -30,24 +30,22 @@ export const Home = () => {
   const [index, setIndex] = useState(0);
   const [category, setCategory] = useState("");
 
-  const dispatch = useDispatch()
-  const daata = useSelector((store)=>store.ProductReducer.products)
+  const dispatch = useDispatch();
+  const daata = useSelector((store) => store.ProductReducer.products);
   const loading = useSelector((store) => store.ProductReducer.isLoading);
 
-  
   let paramObj = {
-    params:{
-      limit:4,
-      page:1,
+    params: {
+      limit: 4,
+      page: 1,
       category: category,
+    },
+  };
 
-    }
-  }
+  useEffect(() => {
+    dispatch(getProducts(paramObj));
+  }, [category]);
 
-  useEffect(()=>{
-    dispatch(getProducts(paramObj))
-  },[category])
-  
   useEffect(() => {
     const lastIndext = people.length - 1;
     if (index < 0) {
@@ -66,7 +64,7 @@ export const Home = () => {
     };
   }, [index]);
 
-// frame animation
+  // frame animation
   const swipeAnimationLeft = {
     initial: { x: "-100%", opacity: 0 },
     animate: { x: 0, opacity: 1 },
@@ -78,7 +76,6 @@ export const Home = () => {
     animate: { x: 0, opacity: 1 },
     transition: { duration: 0.7, delay: 0.3 },
   };
-
 
   return (
     <div>
@@ -112,7 +109,10 @@ export const Home = () => {
         </div>
       </section>
       {/* Consult On App */}
-      <Heading m={{base:"5% 10% 10% 11%",lg:"3% 10% 5% 11%"}} size={{base:"md",lg:"lg"}}>
+      <Heading
+        m={{ base: "5% 10% 10% 11%", lg: "3% 10% 5% 11%" }}
+        size={{ base: "md", lg: "lg" }}
+      >
         Expert Advice that Works
       </Heading>
       <Grid
@@ -142,40 +142,42 @@ export const Home = () => {
           m={{ base: "20px" }}
         >
           <Box bg={"#E1EFF8"} pos="relative" borderRadius="0 0 20px 20px">
-          <Link to="/schedule-appoinment"><Flex
-              align="center"
-              alignItems="center"
-              height={{ base: "13vh", lg: "25vh" }}
-            >
-              <Image
-                h={{ base: "200px", lg: "300px" }}
-                pos="absolute"
-                left={{ base: "-2", lg: "" }}
-                bottom={{ base: "0", lg: "0px" }}
-                src={
-                  "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/doc%202_6ku9ii.png?tr=w-500"
-                }
-                alt="article_1"
-                borderRadius="lg"
-              />
-              <Heading
-                color={"#5194D1"}
-                ml={{ base: "50%", lg: "39%" }}
-                size={{ base: "sm", lg: "lg" }}
-                fontWeight={"bold"}
+            <Link to="/schedule-appoinment">
+              <Flex
+                align="center"
+                alignItems="center"
+                height={{ base: "13vh", lg: "25vh" }}
               >
-                Free Consult
-              </Heading>
-              <Image
-                m={"10px"}
-                h={{ base: "25px", lg: "45px" }}
-                src={
-                  "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"
-                }
-                alt="article_1"
-                borderRadius="lg"
-              />
-            </Flex></Link>
+                <Image
+                  h={{ base: "200px", lg: "300px" }}
+                  pos="absolute"
+                  left={{ base: "-2", lg: "" }}
+                  bottom={{ base: "0", lg: "0px" }}
+                  src={
+                    "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/doc%202_6ku9ii.png?tr=w-500"
+                  }
+                  alt="article_1"
+                  borderRadius="lg"
+                />
+                <Heading
+                  color={"#5194D1"}
+                  ml={{ base: "50%", lg: "39%" }}
+                  size={{ base: "sm", lg: "lg" }}
+                  fontWeight={"bold"}
+                >
+                  Free Consult
+                </Heading>
+                <Image
+                  m={"10px"}
+                  h={{ base: "25px", lg: "45px" }}
+                  src={
+                    "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"
+                  }
+                  alt="article_1"
+                  borderRadius="lg"
+                />
+              </Flex>
+            </Link>
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -200,40 +202,42 @@ export const Home = () => {
           m={{ base: "20px" }}
         >
           <Box pos="relative" bg={"#E1EFF8"} borderRadius="0 0 20px 20px">
-          <Link to="/self-assessment"><Flex
-              align="center"
-              alignItems="center"
-              height={{ base: "13vh", lg: "25vh" }}
-            >
-              <Image
-                h={{ base: "200px", lg: "300px" }}
-                pos="absolute"
-                bottom={{ base: "0vh", lg: "0px" }}
-                left={{ base: "", lg: "" }}
-                src={
-                  "https://i.mscwlns.co/media/misc/sub_category_pages/general-hair-health/Image-4.2---Assessment-nudge_v6J8A_G8z.png?tr=w-500"
-                }
-                alt="article_1"
-                borderRadius="lg"
-              />
-              <Heading
-                color={"#5194D1"}
-                ml={{ base: "55%", lg: "50%" }}
-                size={{ base: "sm", lg: "lg" }}
-                fontWeight={"bold"}
+            <Link to="/self-assessment">
+              <Flex
+                align="center"
+                alignItems="center"
+                height={{ base: "13vh", lg: "25vh" }}
               >
-                Self Care
-              </Heading>
-              <Image
-                m={"10px"}
-                h={{ base: "25px", lg: "45px" }}
-                src={
-                  "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"
-                }
-                alt="article_1"
-                borderRadius="lg"
-              />
-            </Flex></Link>
+                <Image
+                  h={{ base: "200px", lg: "300px" }}
+                  pos="absolute"
+                  bottom={{ base: "0vh", lg: "0px" }}
+                  left={{ base: "", lg: "" }}
+                  src={
+                    "https://i.mscwlns.co/media/misc/sub_category_pages/general-hair-health/Image-4.2---Assessment-nudge_v6J8A_G8z.png?tr=w-500"
+                  }
+                  alt="article_1"
+                  borderRadius="lg"
+                />
+                <Heading
+                  color={"#5194D1"}
+                  ml={{ base: "55%", lg: "50%" }}
+                  size={{ base: "sm", lg: "lg" }}
+                  fontWeight={"bold"}
+                >
+                  Self Care
+                </Heading>
+                <Image
+                  m={"10px"}
+                  h={{ base: "25px", lg: "45px" }}
+                  src={
+                    "https://i.mscwlns.co/media/misc/landing_pages/home-rcl/blarr_PfFHZtvMd.png"
+                  }
+                  alt="article_1"
+                  borderRadius="lg"
+                />
+              </Flex>
+            </Link>
             <div
               style={{
                 backgroundColor: "#5194D1",
@@ -515,9 +519,7 @@ export const Home = () => {
               <Heading ml={"10px"} textAlign={"left"} size="sm">
                 Quit Smoking <ChevronRightIcon />
               </Heading>
-              <Text ml={"10px"}>
-                Quitting Smoking | No Vaping | Quitting
-              </Text>
+              <Text ml={"10px"}>Quitting Smoking | No Vaping | Quitting</Text>
             </Stack>
           </CardBody>
         </Card>
@@ -690,11 +692,15 @@ export const Home = () => {
           color="#ffffff"
           borderRadius="15px"
           value="Hair"
-              onClick={(e) => {
-                setCategory(e.target.value);
-              }}
+          onClick={(e) => {
+            setCategory(e.target.value);
+          }}
           m={"10px"}
-          _hover={{ cursor: "pointer", backgroundColor: "#5194D1", boxShadow: "5px 5px 8px #82b8eb" }}
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "#5194D1",
+            boxShadow: "5px 5px 8px #82b8eb",
+          }}
         >
           Hair
         </Button>
@@ -705,11 +711,15 @@ export const Home = () => {
           color="#b09999"
           borderRadius="15px"
           value="Beard"
-              onClick={(e) => {
-                setCategory(e.target.value);
-              }}
+          onClick={(e) => {
+            setCategory(e.target.value);
+          }}
           m={"10px"}
-          _hover={{ cursor: "pointer", backgroundColor: "#F2ECEC", boxShadow: "5px 5px 8px #b09999" }}
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "#F2ECEC",
+            boxShadow: "5px 5px 8px #b09999",
+          }}
         >
           Beard
         </Button>
@@ -720,11 +730,15 @@ export const Home = () => {
           color="#70bd99"
           borderRadius="15px"
           value="Nutrition"
-              onClick={(e) => {
-                setCategory(e.target.value);
-              }}
+          onClick={(e) => {
+            setCategory(e.target.value);
+          }}
           m={"10px"}
-          _hover={{ cursor: "pointer", backgroundColor: "#E4F5ED", boxShadow: "5px 5px 8px #70bd99" }}
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "#E4F5ED",
+            boxShadow: "5px 5px 8px #70bd99",
+          }}
         >
           Nutrition
         </Button>
@@ -735,11 +749,15 @@ export const Home = () => {
           color="#bc8888"
           borderRadius="15px"
           value="Beard"
-              onClick={(e) => {
-                setCategory(e.target.value);
-              }}
+          onClick={(e) => {
+            setCategory(e.target.value);
+          }}
           m={"10px"}
-          _hover={{ cursor: "pointer", backgroundColor: "#FAE9E9", boxShadow: "5px 5px 8px #bc8888" }}
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "#FAE9E9",
+            boxShadow: "5px 5px 8px #bc8888",
+          }}
         >
           Performance
         </Button>
@@ -750,11 +768,15 @@ export const Home = () => {
           color="#69afa3"
           borderRadius="15px"
           value="Hair"
-              onClick={(e) => {
-                setCategory(e.target.value);
-              }}
+          onClick={(e) => {
+            setCategory(e.target.value);
+          }}
           m={"10px"}
-          _hover={{ cursor: "pointer", backgroundColor: "#DDEFEC", boxShadow: "5px 5px 8px #69afa3" }}
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "#DDEFEC",
+            boxShadow: "5px 5px 8px #69afa3",
+          }}
         >
           Body
         </Button>
@@ -765,52 +787,60 @@ export const Home = () => {
           color="#b88052"
           borderRadius="15px"
           value="Nutrition"
-              onClick={(e) => {
-                setCategory(e.target.value);
-              }}
+          onClick={(e) => {
+            setCategory(e.target.value);
+          }}
           m={"10px"}
-          _hover={{ cursor: "pointer", backgroundColor: "#FEF3EA", boxShadow: "5px 5px 8px #b88052" }}
+          _hover={{
+            cursor: "pointer",
+            backgroundColor: "#FEF3EA",
+            boxShadow: "5px 5px 8px #b88052",
+          }}
         >
           Skin
         </Button>
       </Grid>
-      {loading && <Grid
-        templateColumns={{
-          base: "repeat(1, 1fr)",
-          sm: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(4, 1fr)",
-          xl: "repeat(4, 1fr)",
-        }}
-        justifyContent="center"
-        gap="30px"
-        w="80%"
-        m="auto"
-        alignItems={"center"}
-      >
-        <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
-              <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
-      </Grid>}
-      { !loading && <Grid
-        templateColumns={{
-          base: "repeat(1, 1fr)",
-          sm: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)",
-          lg: "repeat(4, 1fr)",
-          xl: "repeat(4, 1fr)",
-        }}
-        justifyContent="center"
-        gap="30px"
-        w="80%"
-        m="auto"
-        alignItems={"center"}
-      >
-        {daata?.map((property) => (
-          <Card2 property={property} />
-        ))}
-      </Grid>}
+      {loading && (
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(4, 1fr)",
+            xl: "repeat(4, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+          w="80%"
+          m="auto"
+          alignItems={"center"}
+        >
+          <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+          <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+          <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+          <Skeleton height="80" width={{ base: "75vw", lg: "18vw" }}></Skeleton>
+        </Grid>
+      )}
+      {!loading && (
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(4, 1fr)",
+            xl: "repeat(4, 1fr)",
+          }}
+          justifyContent="center"
+          gap="30px"
+          w="80%"
+          m="auto"
+          alignItems={"center"}
+        >
+          {daata?.map((property) => (
+            <Card2 property={property} />
+          ))}
+        </Grid>
+      )}
       {/* Asses Yourself Consult Free */}
       <Center>
         <Text fontWeight="bold" mt={"25px"} mb={"15px"} fontSize="3xl">

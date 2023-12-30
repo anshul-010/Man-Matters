@@ -45,7 +45,7 @@ export const ResetPassword = () => {
           // console.log(res.data);
         });
     } else {
-    setSpin(false);
+      setSpin(false);
 
       toast({
         position: "top",
