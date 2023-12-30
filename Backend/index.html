@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man-Matters</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            /* text-align: left ; */
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header img {
+            
+            max-width: 20%;
+            height: auto;
+            transform: scale(1.2);
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        p {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            /* display: flex;
+            justify-content: space-between; */
+            align-items: center;
+        }
+
+        li:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ol {
+            margin-bottom: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        div {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://i.mscwlns.co/media/misc/others/mm%20logo%20gif%202%20%281%29_2cf9r9.gif?tr=w-400" alt="Recipe Swap" />
+        <h1>Man-Matters Backend</h1>
+    </header>
+    <hr>
+
+    <p>All the links containing the API EndPoints</p>
+
+    <div>
+        <h2>Endpoints</h2>
+        <ul>
+            <li>get all users: <a href="https://man-matters.onrender.com/users/register">/users/register</a></li>
+            <li>post user Register: <a href="https://man-matters.onrender.com/users/register">/users/register</a></li>
+            <li>post user Login: <a href="https://man-matters.onrender.com/users/login">/users/login</a></li>
+            <li>post user forgot: <a href="https://man-matters.onrender.com/users/forgot">/users/forgot</a></li>
+            <li>post user reset (email link): <a href="https://man-matters.onrender.com/users/resetpassword/{token required}">/users/resetpassword/{token required}</a></li>
+            <li>get user Logout: <a href="https://man-matters.onrender.com/users/logout">/users/logout</a></li>
+            <li>delete user and his/her recipes: <a href="https://man-matters.onrender.com/user/delete">/user/delete</a></li>
+    
+            <li>get All products: <a href="https://man-matters.onrender.com/product/products/">/products</a></li>
+            <h3>Protected Routes</h3>
+            <li>get user interactions: <a href="https://man-matters.onrender.com/user/interactions">/user/interactions</a></li>
+            <li>post new product: <a href="https://man-matters.onrender.com/product/add">/product/add</a></li>
+            <li>Update product: <a href="https://man-matters.onrender.com/product/update/{productId required}">/product/update/{productId required}</a></li>
+            <li>Delete product: <a href="https://man-matters.onrender.com/product/delete/{productId required}">/product/delete/{productId required}</a></li>
+        </ul>
+    </div>  
+
+    <div>
+        <h2>Developers</h2>
+        <ul>
+            <li><a href="https://github.com/shashi310">Shashikant Yadav</a></li>
+            <li><a href="https://github.com/anshul-010">Anshul Kushwah</a></li>
+            <li><a href="https://github.com/prateekshuklaps0">Prateek Shukla</a></li>
+            <li><a href="https://github.com/niteshchandrakar">Nitesh Chandrakar</a></li>
+        </ul>
+    </div>
+</body>
+</html>
