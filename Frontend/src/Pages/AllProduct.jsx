@@ -401,13 +401,15 @@ export const AllProduct = () => {
                 <Button
                   borderRadius={"50%"}
                   key={index}
-                  colorScheme={index + 1 === page ? "teal" : "blue"}
+                  backgroundColor={index + 1 === page ? "#d50c5d" : "#5194D1"}
+                  color="white"
                   m="2"
                   onClick={() => handlePage(index + 1)}
                   _hover={{
                     cursor: "pointer",
                     // backgroundColor: "#E4F5ED",
-                    boxShadow: "0px 0px 20px 0px #6dd5a4",
+                    boxShadow: index + 1 === page ? "0px 0px 10px 0px #d50c5d" : "0px 0px 10px 0px #0c81ef"
+                    
                   }}
                 >
                   {index + 1}
