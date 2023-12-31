@@ -8,6 +8,8 @@ import {
   VStack,
   Text,
   useColorModeValue,
+  Center,
+  FormControl,
 } from "@chakra-ui/react";
 import axios from "axios";
 
@@ -22,7 +24,8 @@ function Test() {
   const [loading, setloading] = useState(true);
   const [intro, setintro] = useState(true);
 
-  const sendMessage = async () => {
+  const sendMessage = async (e) => {
+    e.preventDefault();
     if (userInput.trim() === "") return;
     try {
       setloading(false);
@@ -115,15 +118,33 @@ function Test() {
             </Box>
           )}
         </Box>
-        <Input
-          value={userInput}
-          onChange={(e) => setUserInput(e.target.value)}
-          placeholder="Type a message..."
-          maxWidth="70%"
-        />
-        <Button onClick={sendMessage} colorScheme="blue" variant="solid">
-          Send
-        </Button>
+        <form onSubmit={sendMessage} >
+          <FormControl  width="95vw">
+            <Input
+              autoFocus
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              placeholder="Type a message..."
+              maxWidth="90%"
+            />
+            <Box mt={4} width="100%">
+              <Button
+                type="submit"
+                color="white"
+                backgroundColor="#22548A"
+                variant="solid"
+                p="5px 100px"
+                _hover={{
+                  backgroundColor: "#22548A",
+                  WebkitBoxReflect:"below 1px linear-gradient(transparent )",
+                  boxShadow: "0 0 5px #ffffff,0 0 8px #22548A,0 0 5px #22548A,0 0 5px #22548A"
+                }}
+              >
+                Send
+              </Button>
+            </Box>
+          </FormControl>
+        </form>
       </VStack>
     </ChakraProvider>
   );
