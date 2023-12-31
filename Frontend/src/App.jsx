@@ -1,7 +1,8 @@
 import "./App.css";
-
-import { AllRoutes } from "./AllRoutes/AllRoutes";
+import CheckoutNavbar from "./Componants/CheckoutNavbar";
 import Navbar from "./Componants/Navebar";
+import { AllRoutes } from "./AllRoutes/AllRoutes";
+
 import { Footer } from "./Componants/Footer";
 import { useLocation } from "react-router-dom";
 
@@ -10,7 +11,7 @@ function App() {
 
   return (
     <>
-      {location.pathname != "/checkout" && <Navbar />}
+      {location.pathname == "/checkout" ? <CheckoutNavbar /> : <Navbar />}
       <AllRoutes />
       {location.pathname != "/checkout" && <Footer />}
     </>

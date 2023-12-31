@@ -1,50 +1,54 @@
 import { AlertDescription } from "@chakra-ui/react";
-import { LOGIN_FAILURE, LOGIN_NAME, LOGIN_REQUEST, LOGIN_SUCCESS,LOGOUT,REGISTER_REQUEST, REGISTER_SUCCESS } from "../actionType"
+import {
+  LOGIN_FAILURE,
+  LOGIN_NAME,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGOUT,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
+} from "../actionType";
 import axios from "axios";
 
+const loginRequest = () => {
+  return { type: LOGIN_REQUEST };
+};
 
+const loginSuccess = (payload) => {
+  return { type: LOGIN_SUCCESS, payload };
+};
+const loginName = (payload) => {
+  return { type: LOGIN_NAME, payload };
+};
 
-const loginRequest=()=>{
-    return {type : LOGIN_REQUEST}
-  }
+const loginFailed = () => {
+  return { type: LOGIN_FAILURE };
+};
 
-const loginSuccess=(payload)=>{
-    return {type : LOGIN_SUCCESS,payload}
+const userLogout = () => {
+  return { type: LOGOUT };
+};
 
-  }  
-const loginName=(payload)=>{
-    return {type : LOGIN_NAME,payload}
-}  
+export const login = (userData) => (dispatch) => {
+  dispatch(loginRequest());
+  return axios
+    .post(`https://man-matters.onrender.com/user/login`, userData)
+    .then((res) => {
+      if (res.data.msg === "wrong credential") {
+        return { auth: false };
+      } else {
+        console.log(res.data);
+        dispatch(loginSuccess(res.data));
+        // dispatch(loginName(res.data.Name))
+        return { auth: true };
+      }
+    })
+    .catch((err) => {
+      dispatch(loginFailed());
+      // return false
+    });
+};
 
-const loginFailed =()=>{
-    return {type : LOGIN_FAILURE}
-}
-
-const userLogout=()=>{
-  return{type :LOGOUT}
-}
-
-
-export const login =(userData)=> (dispatch)=>{
-    dispatch(loginRequest())
-    return (axios.post(`https://man-matters.onrender.com/user/login`, userData)
-    .then((res)=>{
-    if(res.data.msg==="wrong credential"){
-      return {auth:false}
-    }
-    else{
-      console.log(res.data)
-      dispatch(loginSuccess(res.data))
-      // dispatch(loginName(res.data.Name))
-      return {auth:true}
-    }
-  })
-  .catch((err)=>{
-    dispatch(loginFailed())
-    // return false
-  }))
-}
-
-export const logout=()=>(dispatch)=>{
-  dispatch(userLogout())
-}
+export const logout = () => (dispatch) => {
+  dispatch(userLogout());
+};

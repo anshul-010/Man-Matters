@@ -6,8 +6,9 @@
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (min-width: 692px) {
   .body {
-    /* height:450px,
-            overflowX:hidden,overflowY:"auto" */
+    /* height: 450px;
+    overflow-x: hidden;
+    overflow-y: hidden; */
     height: 450px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -16,7 +17,6 @@
 @media screen and (max-width: 692px) {
   .buyimage {
     visibility: hidden;
-
     display: none;
   }
 }
