@@ -1,7 +1,7 @@
 import * as css from "../Styles/CheckoutStyles";
 import CartItemCard from "../Componants/CartItemCard";
 import EmptyCart from "../Componants/EmptyCart";
-import { GetCartItems } from "../Redux/CartReducer/actions";
+import { GetCartItems, CalculateCartTotal } from "../Redux/CartReducer/actions";
 import { PaymentModes } from "../data/PaymentModes";
 import { StateNames } from "../data/StateNames";
 import TickImg from "../Images/CheckoutImgs/TickIcon.png";
@@ -23,11 +23,20 @@ const Checkout = () => {
   const [currStepper, setCurrStepper] = useState(1);
   const [activePayMode, setActivePayMode] = useState(PaymentModes[0].title);
   const [cartItemsArr, setCartItemsArr] = useState(GetCartItems());
+  const [cartTotal, setCartTotal] = useState({
+    itemTotal: 0,
+    itemDiscount: 0,
+    subTotal: 0,
+  });
   const toggleCart = useSelector((state) => state.CartReducer.toggleCart);
 
   useEffect(() => {
     setCartItemsArr(GetCartItems());
   }, [toggleCart]);
+
+  useEffect(() => {
+    setCartTotal(CalculateCartTotal(cartItemsArr));
+  }, [cartItemsArr, toggleCart]);
 
   useEffect(() => {
     const previousTitle = document.title;
@@ -175,15 +184,15 @@ const Checkout = () => {
                 <Box borderColor="whiteC" css={css.SummaryValuesContainer}>
                   <Box color="greyWhiteB" css={css.SummaryItemsValues(false)}>
                     <Text>Item total</Text>
-                    <Text>₹10815</Text>
+                    <Text>₹{`${cartTotal.itemTotal}`}</Text>
                   </Box>
                   <Box css={css.SummaryItemsValues(false)}>
                     <Text color="greyWhiteB">Item Discount</Text>
-                    <Text color="greenB">₹1896</Text>
+                    <Text color="greenB">-₹{`${cartTotal.itemDiscount}`}</Text>
                   </Box>
                   <Box color="blackB" css={css.SummaryItemsValues(false)}>
                     <Text>Subtotal</Text>
-                    <Text>₹8919</Text>
+                    <Text>₹{`${cartTotal.subTotal}`}</Text>
                   </Box>
                   <Box
                     color="greyWhiteB"
@@ -195,7 +204,7 @@ const Checkout = () => {
                   </Box>
                   <Box color="blackB" css={css.SummaryItemsValues(true)}>
                     <Text>Order total</Text>
-                    <Text>₹8919</Text>
+                    <Text>₹{`${cartTotal.subTotal}`}</Text>
                   </Box>
                 </Box>
                 <Box
@@ -206,7 +215,8 @@ const Checkout = () => {
                 >
                   <Image as={CircledTickIcon} />
                   <Text>
-                    Saved ₹1896 <span>on your order</span>
+                    Saved ₹{`${cartTotal.itemDiscount} `}
+                    <span>on your order</span>
                   </Text>
                 </Box>
               </Box>
@@ -333,7 +343,7 @@ const Checkout = () => {
                         }}
                         type="submit"
                       >
-                        Pay ₹8919.00
+                        Pay ₹{`${cartTotal.subTotal}`}
                       </Button>
                     )}
                   </Box>
@@ -363,8 +373,8 @@ const Checkout = () => {
         >
           <Box css={css.InnerFooter}>
             <Box>
-              <Text color="blackB">Total ₹8919</Text>
-              <Text color="greenA">Saved ₹1879</Text>
+              <Text color="blackB">Total ₹{`${cartTotal.subTotal}`}</Text>
+              <Text color="greenA">Saved ₹{`${cartTotal.itemDiscount}`}</Text>
             </Box>
             <Button
               bg="primary"

@@ -14,5 +14,28 @@ export const GetCartItems = () => {
 // This function calculates & returns 10% discount of the price passed as value.
 export const CalculateDiscount = (price) => {
   const discount = Math.round(price * 0.1);
-  return price - discount;
+  return parseFloat(price - discount.toFixed(2));
+};
+
+// This function takes an array as argument and returns itemTotal, discount, and subtotal
+export const CalculateCartTotal = (cartItems) => {
+  let itemTotal = 0;
+  let itemDiscount = 0;
+
+  cartItems.forEach((item) => {
+    const totalForItem = item.price * item.itemQty;
+    itemTotal += totalForItem;
+    const discountForItem = totalForItem * 0.1; // 10% discount
+    itemDiscount += discountForItem;
+  });
+
+  itemDiscount = parseFloat(itemDiscount.toFixed(2));
+
+  const subTotal = itemTotal - itemDiscount;
+
+  return {
+    itemTotal,
+    itemDiscount,
+    subTotal,
+  };
 };
