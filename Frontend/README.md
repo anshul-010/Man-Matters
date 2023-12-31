@@ -18,4 +18,4 @@
 
 mongourl : mongodb+srv://anshul-010:anshul@cluster0.ui9hsmm.mongodb.net/Man-Matters?retryWrites=true&w=majority
 
-# backend server: https://man-matters.onrender.com/
+# backend server: https://man-matters.onrender.com

@@ -1,42 +1,38 @@
-import { StarIcon } from "@chakra-ui/icons";
-import { Show, Hide } from "@chakra-ui/react";
 import "../App.css";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import {
   Badge,
   Box,
   Button,
   Card,
-  CardBody,
+  Show,
   Center,
   Flex,
   Grid,
   Heading,
   Image,
-  Stack,
   Text,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { StarIcon } from "@chakra-ui/icons";
+
 export const ProductCard = () => {
   const [details, setDetails] = useState(true);
   const [image, setImage] = useState(0);
   const [el, setEl] = useState("");
-  const data = useSelector((store)=>store.ProductReducer.products) 
-  const {id} = useParams()
-  function getProduct(){
-    axios.get(`http://localhost:8080/product/products/${id}`)
-    .then((res)=>{
-      setEl(res.data)
-    })
+  const { id } = useParams();
+  function getProduct() {
+    axios.get(`http://localhost:8080/product/products/${id}`).then((res) => {
+      setEl(res.data);
+    });
   }
 
-  useEffect(()=>{
-    getProduct()
-  },[])
+  useEffect(() => {
+    getProduct();
+  }, []);
 
-   
   return (
     <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
       <div>
@@ -62,10 +58,8 @@ export const ProductCard = () => {
           alignItems={"center"}
         >
           <Box
-            display={{base:"flex",lg:"flex"}}
-            // border="2px solid blue"
-            // flexDirection="column-reverse"
-            flexDirection={{base:"column-reverse",lg:"row"}}
+            display={{ base: "flex", lg: "flex" }}
+            flexDirection={{ base: "column-reverse", lg: "row" }}
             templateColumns={{
               base: "repeat(1, 1fr)",
               sm: "repeat(1, 1fr)",
@@ -76,53 +70,83 @@ export const ProductCard = () => {
             w={"100%"}
             ml={"5px"}
           >
-            <Box display={{base:"flex",lg:"block"}}  width={{base:"99",lg:"9vw"}} height={{base:"",lg:"80vh"}}>
-              <Grid  width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}} >
-                {el && <Image
-                  onClick={() => setImage(0)}
-                  border={image == 0 ? "2px solid #5194D1" : ""}
-                  bg={"#E1EAF7"}
-                  borderRadius={"5px"}
-                  src={el.image[0]}
-                />}
+            <Box
+              display={{ base: "flex", lg: "block" }}
+              width={{ base: "99", lg: "9vw" }}
+              height={{ base: "", lg: "80vh" }}
+            >
+              <Grid
+                width={{ base: "25vw", lg: "9vw" }}
+                height={{ base: "", lg: "18vh" }}
+              >
+                {el && (
+                  <Image
+                    onClick={() => setImage(0)}
+                    border={image == 0 ? "2px solid #5194D1" : ""}
+                    bg={"#E1EAF7"}
+                    borderRadius={"5px"}
+                    src={el.image[0]}
+                  />
+                )}
               </Grid>
-              <Grid width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}}>
-                {el && <Image
-                  onClick={() => setImage(1)}
-                  border={image == 1 ? "2px solid #5194D1" : ""}
-                  bg={"#E1EAF7"}
-                  borderRadius={"5px"}
-                  src={el.image[1]}
-                />}
+              <Grid
+                width={{ base: "25vw", lg: "9vw" }}
+                height={{ base: "", lg: "18vh" }}
+              >
+                {el && (
+                  <Image
+                    onClick={() => setImage(1)}
+                    border={image == 1 ? "2px solid #5194D1" : ""}
+                    bg={"#E1EAF7"}
+                    borderRadius={"5px"}
+                    src={el.image[1]}
+                  />
+                )}
               </Grid>
-              <Grid width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}}>
-                {el && <Image
-                  onClick={() => setImage(2)}
-                  border={image == 2 ? "2px solid #5194D1" : ""}
-                  bg={"#E1EAF7"}
-                  borderRadius={"5px"}
-                  src={el.image[2]}
-                />}
+              <Grid
+                width={{ base: "25vw", lg: "9vw" }}
+                height={{ base: "", lg: "18vh" }}
+              >
+                {el && (
+                  <Image
+                    onClick={() => setImage(2)}
+                    border={image == 2 ? "2px solid #5194D1" : ""}
+                    bg={"#E1EAF7"}
+                    borderRadius={"5px"}
+                    src={el.image[2]}
+                  />
+                )}
               </Grid>
-              <Grid width={{base:"25vw",lg:"9vw"}} height={{base:"",lg:"18vh"}}>
-               {el && <Image
-                  onClick={() => setImage(3)}
-                  border={image == 3 ? "2px solid #5194D1" : ""}
-                  bg={"#E1EAF7"}
-                  borderRadius={"5px"}
-                  src={el.image[3]}
-                />}
+              <Grid
+                width={{ base: "25vw", lg: "9vw" }}
+                height={{ base: "", lg: "18vh" }}
+              >
+                {el && (
+                  <Image
+                    onClick={() => setImage(3)}
+                    border={image == 3 ? "2px solid #5194D1" : ""}
+                    bg={"#E1EAF7"}
+                    borderRadius={"5px"}
+                    src={el.image[3]}
+                  />
+                )}
               </Grid>
             </Box>
-            <Box mb={1} w={{base:"100vw",lg:"42vw"}} h={{base:"45vh",lg:"68vh"}} >
-            {el && <Image
-              
-              w={"100%"}
-              h={"100%"}
-              ml={{base:{},lg:"3px"}}
-              objectFit={"fill"}
-              src={el.image[image]}
-            />}</Box>
+            <Box
+              mb={1}
+              w={{ base: "100vw", lg: "42vw" }}
+              h={{ base: "45vh", lg: "68vh" }}
+            >
+              {el && (
+                <Image
+                  w={"100%"}
+                  h={"100%"}
+                  ml={{ base: {}, lg: "3px" }}
+                  objectFit={"fill"}
+                  src={el.image[image]}
+                />
+              )}
+            </Box>
           </Box>
 
           <Grid className="body" w={"100%"} pb={"0px"} ml={"5%"}>
@@ -337,7 +361,6 @@ export const ProductCard = () => {
             </Flex>
             <div style={{ border: "1px solid black", margin: "3px" }}></div>
             <Heading size={"md"} mb={"20px"}>
-              {" "}
               <span
                 style={{
                   marginRight: "30px",
@@ -347,7 +370,7 @@ export const ProductCard = () => {
                 onClick={() => setDetails(true)}
               >
                 Details
-              </span>{" "}
+              </span>
               <span
                 style={{
                   color: !details ? "Black" : "gray",
@@ -958,7 +981,9 @@ export const ProductCard = () => {
           <Show above="sm">
             <Box>
               <Flex ml={"50px"} p={"3px"} gap={"10px"}>
-                {el && <Image borderRadius={"5px"} w={"90px"} src={el.image[0]} />}
+                {el && (
+                  <Image borderRadius={"5px"} w={"90px"} src={el.image[0]} />
+                )}
                 <div style={{ margin: "auto" }}>
                   <Text>{el.with}</Text>
                   <Text color={"#042663"}>{el.title}</Text>

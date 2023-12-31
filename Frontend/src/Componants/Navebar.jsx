@@ -1,7 +1,11 @@
-
-
-import React, { useEffect, useState } from "react";
 import "../Styles/navbar.css";
+import { logout } from "../Redux/AuthReducer/actions";
+import { getProducts } from "../Redux/ProductReducer/action";
+import { GetCartItems } from "../Redux/CartReducer/actions";
+
+import { useEffect, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Menu,
   X,
@@ -13,17 +17,10 @@ import {
   User,
   PanelBottomClose,
 } from "lucide-react";
-import { Link, NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../Redux/AuthReducer/actions";
-import { getProducts } from "../Redux/ProductReducer/action";
-import { useNavigate } from "react-router-dom";
-import { GetCartItems } from "../Redux/CartReducer/actions";
 
 const Navbar = () => {
-  const cartLocalStorageKey = "ManWellCart";
-  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -106,7 +103,9 @@ const Navbar = () => {
             style={{ display: "flex", gap: "2px" }}
           >
             <Home size={22} color={"black"} strokeWidth={1.1} />
-            <span className="nav-link" style={{color:""}}>All Products</span>
+            <span className="nav-link" style={{ color: "" }}>
+              All Products
+            </span>
           </div>
         </NavLink>
         <NavLink to="/schedule-appoinment" activeStyle={{ color: "#ff6347" }}>
@@ -148,11 +147,6 @@ const Navbar = () => {
               <User /> Login
             </div>
           </NavLink>
-          //   <NavLink to="/login" activeStyle={{ color: "#ff6347" }}>
-          //   <div className="nav-link" onClick={() => setIsNavOpen(true)} style={{display:"flex",gap:"5px"}}>
-          //     <User />  <span>Login</span>
-          //  </div>
-          // </NavLink>
         )}
       </div>
 

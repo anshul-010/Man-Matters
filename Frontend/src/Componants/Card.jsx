@@ -1,23 +1,9 @@
-import React from "react";
-import {
-  Badge,
-  Box,
-  Card,
-  CardBody,
-  Center,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
 import { GetCartItems, SetCartItems } from "../Redux/CartReducer/actions";
-import { TOGGLECART } from "../Redux/actionType";
+
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Badge, Box, Image, useToast } from "@chakra-ui/react";
+import { StarIcon } from "@chakra-ui/icons";
 
 export const Card2 = ({ property }) => {
   const toast = useToast();
@@ -27,15 +13,12 @@ export const Card2 = ({ property }) => {
   function handleAddToCart(obj) {
     let checkItem = cartData.some((item) => item._id === obj._id);
     if (!checkItem) {
-      cartData.push(obj);
-
-      SetCartItems(cartData);
-      dispatch({ type: TOGGLECART });
+      cartData.push({ ...obj, itemQty: 1 });
+      dispatch(SetCartItems(cartData));
 
       toast({
         position: "top",
         duration: 2500,
-
         render: () => (
           <Box borderRadius="" color="white" p={3} bg="#619ed8">
             <b>Item added to cart 👍</b>
