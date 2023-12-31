@@ -42,7 +42,6 @@ export const EachStepBox = css`
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
 
   > div {
     display: flex;
@@ -100,18 +99,16 @@ export const BlueBoxLeftSide = css`
   border-radius: 20px;
   margin-bottom: 24px;
 
-  > div:first-child {
+  > div:first-of-type {
     display: flex;
     justify-content: space-between;
   }
-
-  > div:first-child > p {
+  > div:first-of-type > p {
     font-weight: 500;
     font-size: 16px;
     margin: 0px 0px 6px;
   }
-
-  > div:first-child > div {
+  > div:first-of-type > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,8 +117,7 @@ export const BlueBoxLeftSide = css`
     border-radius: 10px;
     cursor: pointer;
   }
-
-  > div:first-child > div svg {
+  > div:first-of-type > div svg {
     width: 13px;
     height: 14px;
   }
@@ -131,7 +127,7 @@ export const BlueBoxLeftSide = css`
     border-radius: 18px;
     margin-bottom: 22px;
 
-    > div:first-child > div {
+    > div:first-of-type > div {
       height: 28px;
       width: 28px;
       border-radius: 9px;
@@ -142,18 +138,16 @@ export const BlueBoxLeftSide = css`
     border-radius: 14px;
     margin-bottom: 20px;
 
-    > div:first-child > p {
+    > div:first-of-type > p {
       font-size: 15px;
       margin: 0px 0px 5px;
     }
-
-    > div:first-child > div {
+    > div:first-of-type > div {
       height: 26px;
       width: 26px;
       border-radius: 8px;
     }
-
-    > div:first-child > div svg {
+    > div:first-of-type > div svg {
       width: 14px;
       height: 14px;
     }
@@ -163,18 +157,16 @@ export const BlueBoxLeftSide = css`
     border-radius: 12px;
     margin-bottom: 16px;
 
-    > div:first-child > p {
+    > div:first-of-type > p {
       font-size: 14.5px;
       margin: 0px 0px 3px;
     }
-
-    > div:first-child > div {
+    > div:first-of-type > div {
       height: 24px;
       width: 24px;
       border-radius: 6px;
     }
-
-    > div:first-child > div svg {
+    > div:first-of-type > div svg {
       width: 11px;
       height: 12px;
     }
@@ -189,7 +181,6 @@ export const TypeLanguageCont = css`
     font-size: 12px;
     font-weight: 400;
   }
-
   > div p:nth-of-type(2) {
     font-weight: 400;
     font-size: 14px;
@@ -273,12 +264,12 @@ export const CardOuter = css`
   margin-top: 30px;
 
   @media (max-width: 768px) {
-    margin-top: 48px;
+    margin-top: 64px;
     gap: 15px;
   }
   @media (max-width: 480px) {
     min-width: 260px;
-    margin-top: 36px;
+    margin-top: 42px;
     gap: 12px;
   }
 `;
@@ -318,7 +309,6 @@ export const TitleAndPriceDiv = css`
     align-items: center;
     gap: 3px;
   }
-
   > i svg {
     font-size: 10px;
     height: 14px;
@@ -336,23 +326,22 @@ export const TitleAndPriceDiv = css`
   }
 
   @media (max-width: 992px) {
-    margin-left: 20px;
+    margin-left: 14px;
 
     > i {
       font-size: 15px;
-      position: absolute;
-      left: 20px;
-      margin-top: 0px;
     }
   }
   @media (max-width: 768px) {
-    margin-left: 20px;
+    margin-left: 16px;
 
     > i {
       font-size: 15px;
       gap: 2px;
+      position: absolute;
+      left: 15px;
+      margin-top: 12px;
     }
-
     > i svg {
       font-size: 10px;
       height: 14px;
@@ -363,13 +352,15 @@ export const TitleAndPriceDiv = css`
     }
   }
   @media (max-width: 480px) {
-    margin-left: 12px;
+    margin-left: 10px;
 
     > i {
       font-size: 13px;
       gap: 1px;
+      position: absolute;
+      left: 15px;
+      margin-top: 14px;
     }
-
     > i svg {
       line-height: 16px;
       border-radius: 2px;
@@ -385,9 +376,9 @@ export const TitleDiv = css`
 
   // Title Css
   a {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 20px;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 10px;
     max-width: 300px;
     text-overflow: clip;
@@ -418,14 +409,14 @@ export const TitleDiv = css`
   @media (max-width: 992px) {
     // Title Css
     a {
-      font-size: 17.5px;
+      font-size: 18.5px;
       line-height: 20px;
       margin-bottom: 8px;
     }
     // Price Css
     p {
       max-width: 120px;
-      font-size: 18.5px;
+      font-size: 17.5px;
       font-weight: 600;
     }
     p s {
@@ -440,37 +431,38 @@ export const TitleDiv = css`
 
     // Title Css
     a {
-      font-size: 17px;
-      font-weight: 400;
+      font-size: 18px;
+      font-weight: 600;
       margin-bottom: 7px;
     }
     // Price Css
     p {
-      gap: 4px;
-      font-size: 18px;
+      gap: 2px;
+      font-size: 17px;
       font-weight: 900;
     }
     p span {
       font-size: 16px;
-      bottom: 2px;
+      bottom: 1px;
     }
   }
   @media (max-width: 480px) {
     // Title Css
     a {
-      font-size: 14px;
-      font-weight: 200;
+      font-size: 14.5px;
+      font-weight: 600;
       margin-bottom: 2px;
     }
     // Price Css
     p {
       gap: 1px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 500;
     }
     p span {
       font-size: 14px;
       bottom: 1px;
+      font-weight: 400;
     }
   }
 `;
@@ -488,14 +480,13 @@ export const QtyContolDiv = css`
     height: 24px;
     border-radius: 6px;
   }
-
   p {
     font-size: 16px;
     font-weight: 400;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
+    min-width: 24px;
     height: 24px;
     text-overflow: clip;
   }
@@ -509,10 +500,9 @@ export const QtyContolDiv = css`
       height: 23px;
       border-radius: 6px;
     }
-
     p {
       font-size: 15px;
-      width: 23px;
+      min-width: 23px;
       height: 23px;
     }
   }
@@ -525,9 +515,8 @@ export const QtyContolDiv = css`
       height: 22px;
       border-radius: 6px;
     }
-
     p {
-      width: 22px;
+      min-width: 22px;
       height: 22px;
     }
   }
@@ -540,11 +529,10 @@ export const QtyContolDiv = css`
       height: 20px;
       border-radius: 5px;
     }
-
     p {
       font-size: 14px;
       font-weight: 300;
-      width: 20px;
+      min-width: 20px;
       height: 20px;
     }
   }
@@ -585,14 +573,12 @@ export const CirlceAndTextContainerDiv = css`
     height: 14px;
     width: 14px;
   }
-
   > div p:nth-of-type(1) {
     font-weight: 600;
     font-size: 18px;
     line-height: 18px;
     margin-bottom: 4px;
   }
-
   > div p:nth-of-type(2) {
     font-weight: 300;
     font-size: 16px;
@@ -608,7 +594,6 @@ export const CirlceAndTextContainerDiv = css`
       line-height: 16px;
       margin-bottom: 6px;
     }
-
     > div p:nth-of-type(2) {
       font-weight: 300;
       font-size: 14.5px;
@@ -754,12 +739,10 @@ export const SavedContDiv = css`
     font-size: 14px;
     margin-right: 8px;
   }
-
   p {
     font-weight: 600;
     margin-right: 4px;
   }
-
   p span {
     font-size: 17px;
     font-weight: 500;
@@ -773,7 +756,6 @@ export const SavedContDiv = css`
       font-weight: 600;
       margin-right: 3px;
     }
-
     p span {
       font-size: 16px;
     }
@@ -786,7 +768,6 @@ export const SavedContDiv = css`
       font-size: 14px;
       margin-right: 8px;
     }
-
     p span {
       font-size: 16px;
     }
@@ -798,7 +779,6 @@ export const SavedContDiv = css`
     svg {
       margin-right: 6px;
     }
-
     p span {
       font-size: 15px;
     }
@@ -843,7 +823,6 @@ export const ChildDivReasonsToBuy = css`
     letter-spacing: 0.25px;
     opacity: 0.7;
   }
-
   img {
     width: 28px;
     height: 28px;
@@ -955,7 +934,6 @@ export const CityAndStateDivsContainer = css`
     font-weight: 100;
     color: rgb(33, 33, 33);
   }
-
   input {
     width: 100%;
     border-bottom: 1px solid rgb(0, 0, 0, 0.1);
@@ -968,7 +946,6 @@ export const CityAndStateDivsContainer = css`
   input::placeholder {
     color: #bdbdbd;
   }
-
   select {
     width: 100%;
     border-bottom: 1px solid rgb(0, 0, 0, 0.1);
@@ -1004,11 +981,9 @@ export const CityAndStateDivsContainer = css`
     input {
       font-size: 20px;
     }
-
     select {
       font-size: 20px;
     }
-
     option {
       width: 150px;
       font-size: 16px;
@@ -1022,7 +997,6 @@ export const CityAndStateDivsContainer = css`
     > div:nth-of-type(2) {
       width: 54%;
     }
-
     span {
       font-size: 13.5px;
     }
@@ -1156,7 +1130,6 @@ export const PayOnlineContDiv = css`
     aspect-ratio: auto 24 / 24;
     width: 24px;
   }
-
   p {
     font-size: 16px;
     font-weight: 400;
@@ -1173,7 +1146,6 @@ export const PayOnlineContDiv = css`
       aspect-ratio: auto 22 / 22;
       width: 22px;
     }
-
     p {
       font-size: 15px;
       font-weight: 300;
@@ -1190,7 +1162,6 @@ export const PayOnlineContDiv = css`
       aspect-ratio: auto 20 / 20;
       width: 20px;
     }
-
     p {
       font-size: 14px;
       font-weight: 300;
@@ -1270,34 +1241,28 @@ export const InnerDivPaymentChilds = css`
     align-items: center;
     gap: 16px;
   }
-
   > div > img {
     width: 48px;
     height: 48px;
     border-radius: 8px;
   }
-
   > div > div {
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
-
   > div > div p:nth-of-type(1) {
     font-size: 18px;
     font-weight: 400;
   }
-
   > div > div p:nth-of-type(2) {
     font-size: 16px;
     font-weight: 400;
   }
-
   svg {
     font-size: 18px;
     cursor: pointer;
   }
-
   input[type="radio"] {
     width: 20px;
     height: 20px;
@@ -1316,19 +1281,15 @@ export const InnerDivPaymentChilds = css`
     > div > div {
       gap: 2px;
     }
-
     > div > div p:nth-of-type(1) {
       font-size: 16.5px;
     }
-
     > div > div p:nth-of-type(2) {
       font-size: 14.5px;
     }
-
     svg {
       font-size: 16.5px;
     }
-
     input[type="radio"] {
       width: 18px;
       height: 18px;
@@ -1377,13 +1338,11 @@ export const SafeAndSecureOuterDiv = css`
     width: 48px;
     height: 48px;
   }
-
   div p:nth-of-type(1) {
     font-size: 18px;
     font-size: 300;
     margin-bottom: 4px;
   }
-
   div p:nth-of-type(2) {
     font-size: 16px;
     font-size: 300;
@@ -1400,12 +1359,10 @@ export const SafeAndSecureOuterDiv = css`
       width: 46px;
       height: 46px;
     }
-
     div p:nth-of-type(1) {
       font-size: 16.5px;
       margin-bottom: 2px;
     }
-
     div p:nth-of-type(2) {
       font-size: 14.5px;
     }
@@ -1420,12 +1377,10 @@ export const SafeAndSecureOuterDiv = css`
       width: 44px;
       height: 44px;
     }
-
     div p:nth-of-type(1) {
       font-size: 16px;
       margin-bottom: 0px;
     }
-
     div p:nth-of-type(2) {
       font-size: 14px;
     }
@@ -1464,14 +1419,12 @@ export const InnerFooter = css`
     display: flex;
     flex-direction: column;
   }
-
   > div p:nth-of-type(1) {
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
     line-height: 16px;
   }
-
   > div p:nth-of-type(2) {
     margin-top: 12px;
     font-size: 18px;
@@ -1479,7 +1432,6 @@ export const InnerFooter = css`
     font-weight: 400;
     line-height: 12px;
   }
-
   button {
     width: 300px;
     border-radius: 20px;
@@ -1497,19 +1449,16 @@ export const InnerFooter = css`
     > div {
       margin-left: 10px;
     }
-
     > div p:nth-of-type(1) {
       font-size: 16px;
       font-weight: 600;
       line-height: 12px;
     }
-
     > div p:nth-of-type(2) {
       margin-top: 8px;
       font-size: 14px;
       line-height: 10px;
     }
-
     button {
       width: 220px;
       border-radius: 14px;
@@ -1523,19 +1472,16 @@ export const InnerFooter = css`
     > div {
       margin-left: 8px;
     }
-
     > div p:nth-of-type(1) {
       font-size: 15px;
       font-weight: 600;
       line-height: 12px;
     }
-
     > div p:nth-of-type(2) {
       margin-top: 7px;
       font-size: 12.5px;
       line-height: 8px;
     }
-
     button {
       width: 180px;
       border-radius: 12px;
@@ -1549,7 +1495,7 @@ export const InnerFooter = css`
 
 /* 
 
-export const TechStack = css`
+export const Temp = css`
 
 @media (max-width: 992px) {
 }

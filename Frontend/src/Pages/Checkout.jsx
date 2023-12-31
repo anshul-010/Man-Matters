@@ -37,13 +37,21 @@ const Checkout = () => {
     };
   }, []);
 
+  // Function for changing checkout stepper
   const handleStepperChange = (val) => {
-    if (val <= 0) {
+    if (val == 1) {
       setCurrStepper(1);
-    } else if (val >= 4) {
+    } else if (val == 2 && currStepper == 3) {
+      setCurrStepper(2);
+    }
+  };
+
+  // Function for Footer button click
+  const FooterBtnClick = () => {
+    if (currStepper == 1) {
+      setCurrStepper(2);
+    } else if (currStepper == 2) {
       setCurrStepper(3);
-    } else {
-      setCurrStepper(val);
     }
   };
 
@@ -54,14 +62,22 @@ const Checkout = () => {
       <Box css={css.MiddleOuter}>
         {/* Stepper */}
         <Box css={css.StepperBox}>
-          <Box onClick={() => handleStepperChange(1)} css={css.EachStepBox}>
+          <Box
+            cursor={currStepper > 1 ? "pointer" : "default"}
+            onClick={() => handleStepperChange(1)}
+            css={css.EachStepBox}
+          >
             <Box bg="greenA" color="whiteA">
               1
             </Box>
             <Text color="greenA">Cart</Text>
           </Box>
           <StepperDivider currStepper={currStepper} />
-          <Box onClick={() => handleStepperChange(2)} css={css.EachStepBox}>
+          <Box
+            cursor={currStepper > 2 ? "pointer" : "default"}
+            onClick={() => handleStepperChange(2)}
+            css={css.EachStepBox}
+          >
             <Box
               bg={currStepper >= 2 ? "greenA" : "whiteA"}
               color={currStepper >= 2 ? "whiteA" : "greyWhiteA"}
@@ -74,7 +90,11 @@ const Checkout = () => {
             </Text>
           </Box>
           <StepperDivider currStepper={currStepper} />
-          <Box onClick={() => handleStepperChange(3)} css={css.EachStepBox}>
+          <Box
+            cursor="default"
+            onClick={() => handleStepperChange(3)}
+            css={css.EachStepBox}
+          >
             <Box
               bg={currStepper == 3 ? "greenA" : "whiteA"}
               color={currStepper == 3 ? "whiteA" : "greyWhiteA"}
@@ -346,7 +366,12 @@ const Checkout = () => {
               <Text color="blackB">Total ₹8919</Text>
               <Text color="greenA">Saved ₹1879</Text>
             </Box>
-            <Button bg="primary" color="whiteA" _hover={{ bg: "primary" }}>
+            <Button
+              bg="primary"
+              color="whiteA"
+              _hover={{ bg: "primary" }}
+              onClick={FooterBtnClick}
+            >
               {currStepper == 1 ? "Checkout" : "Save Address"}
             </Button>
           </Box>
