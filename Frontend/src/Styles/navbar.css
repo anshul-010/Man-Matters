@@ -121,6 +121,13 @@
 .log-in:hover {
   cursor: pointer;
 }
+
+/*  */
+
+.active-link {
+  color: #ff6347;
+}
+
 /*  */
 
 /* Media query for responsiveness */
