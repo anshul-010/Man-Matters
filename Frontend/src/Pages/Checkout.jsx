@@ -1,6 +1,7 @@
 import * as css from "../Styles/CheckoutStyles";
 import CartItemCard from "../Componants/CartItemCard";
 import EmptyCart from "../Componants/EmptyCart";
+import { INPCHANGE } from "../Redux/actionType";
 import { GetCartItems, CalculateCartTotal } from "../Redux/CartReducer/actions";
 import { PaymentModes } from "../data/PaymentModes";
 import { StateNames } from "../data/StateNames";
@@ -16,10 +17,11 @@ import { FaPen as PenIcon } from "react-icons/fa6";
 import { FaRegCircle as CircleIcon } from "react-icons/fa";
 import { FaChevronRight as RightArrow } from "react-icons/fa";
 import { FaRegCircleCheck as CircledTickIcon } from "react-icons/fa6";
-import { Box, Text, Image, Button } from "@chakra-ui/react";
+import { Box, Text, Image, Button, useToast } from "@chakra-ui/react";
 
 const Checkout = () => {
-  // const dispatch = useDispatch();
+  const toast = useToast();
+  const dispatch = useDispatch();
   const [currStepper, setCurrStepper] = useState(1);
   const [activePayMode, setActivePayMode] = useState(PaymentModes[0].title);
   const [cartItemsArr, setCartItemsArr] = useState(GetCartItems());
@@ -29,6 +31,11 @@ const Checkout = () => {
     subTotal: 0,
   });
   const toggleCart = useSelector((state) => state.CartReducer.toggleCart);
+  const name = useSelector((state) => state.CartReducer.name);
+  const address = useSelector((state) => state.CartReducer.address);
+  const pincode = useSelector((state) => state.CartReducer.pincode);
+  const city = useSelector((state) => state.CartReducer.city);
+  const state = useSelector((state) => state.CartReducer.state);
 
   useEffect(() => {
     setCartItemsArr(GetCartItems());
@@ -46,6 +53,20 @@ const Checkout = () => {
     };
   }, []);
 
+  const SubmitAddress = (e) => {
+    e.preventDefault();
+    const addressObj = {
+      name,
+      address,
+      pincode,
+      city,
+      state,
+    };
+    console.log(addressObj);
+
+    setCurrStepper(3);
+  };
+
   // Function for changing checkout stepper
   const handleStepperChange = (val) => {
     if (val == 1) {
@@ -59,9 +80,13 @@ const Checkout = () => {
   const FooterBtnClick = () => {
     if (currStepper == 1) {
       setCurrStepper(2);
-    } else if (currStepper == 2) {
-      setCurrStepper(3);
+    } else if (currStepper == 3) {
     }
+  };
+
+  const handleInpChange = (e) => {
+    const { value, name } = e.target;
+    dispatch({ type: INPCHANGE, payload: value, name });
   };
 
   return cartItemsArr.length == 0 ? (
@@ -228,10 +253,12 @@ const Checkout = () => {
           // Address
           <Box fontFamily="font1" css={css.AddressOuter}>
             <Box css={css.AddressFormDiv}>
-              <form>
+              <form onSubmit={SubmitAddress} id="addressForm">
                 <Box css={css.InputOuterDivs}>
                   <span>Name*</span>
                   <input
+                    value={name}
+                    onChange={handleInpChange}
                     type="text"
                     placeholder="John Doe"
                     name="name"
@@ -241,6 +268,8 @@ const Checkout = () => {
                 <Box css={css.InputOuterDivs}>
                   <span>Address*</span>
                   <input
+                    value={address}
+                    onChange={handleInpChange}
                     type="text"
                     placeholder="207, First Floor, UG Imperial, 19th Main Road"
                     name="address"
@@ -250,20 +279,36 @@ const Checkout = () => {
                 <Box css={css.InputOuterDivs}>
                   <span>Pincode*</span>
                   <input
-                    type="number"
+                    value={pincode}
+                    onChange={handleInpChange}
+                    type="text"
                     placeholder="000000"
                     name="pincode"
+                    maxLength={6}
                     required
                   />
                 </Box>
                 <Box css={css.CityAndStateDivsContainer}>
                   <Box>
                     <span>City*</span>
-                    <input type="text" placeholder="-" name="city" required />
+                    <input
+                      value={city}
+                      onChange={handleInpChange}
+                      type="text"
+                      placeholder="-"
+                      name="city"
+                      required
+                    />
                   </Box>
                   <Box>
                     <span>State*</span>
-                    <select placeholder="-" name="state" required>
+                    <select
+                      value={state}
+                      onChange={handleInpChange}
+                      placeholder="-"
+                      name="state"
+                      required
+                    >
                       {StateNames?.map((item, ind) => (
                         <option key={item.name + ind}>{item.name}</option>
                       ))}
@@ -377,6 +422,8 @@ const Checkout = () => {
               <Text color="greenA">Saved ₹{`${cartTotal.itemDiscount}`}</Text>
             </Box>
             <Button
+              type={currStepper == 2 ? "submit" : "button"}
+              form={currStepper == 2 ? "addressForm" : ""}
               bg="primary"
               color="whiteA"
               _hover={{ bg: "primary" }}

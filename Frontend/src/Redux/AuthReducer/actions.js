@@ -10,6 +10,9 @@ import {
 } from "../actionType";
 import axios from "axios";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+// const API_URL = "https://man-matters.onrender.com";
+
 const loginRequest = () => {
   return { type: LOGIN_REQUEST };
 };
@@ -32,7 +35,7 @@ const userLogout = () => {
 export const login = (userData) => (dispatch) => {
   dispatch(loginRequest());
   return axios
-    .post(`http://localhost:8080/user/login`, userData)
+    .post(`${API_URL}/user/login`, userData)
     .then((res) => {
       if (res.data.msg === "wrong credential") {
         return { auth: false };
