@@ -1,3 +1,11 @@
+import doctor_image from "../Images/doctor-thums-up.jpg";
+import { GetUserDetails } from "../Redux/AuthReducer/actions";
+
+import axios from "axios";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   Box,
   Center,
@@ -7,20 +15,13 @@ import {
   Text,
   Input,
   Select,
-  Button,
   FormControl,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
 import { Languages, Calendar, Clock3, Phone } from "lucide-react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import { useToast, Spinner } from "@chakra-ui/react";
-import doctor_image from "../Images/doctor-thums-up.jpg";
-import { motion } from "framer-motion";
 
 export const Appoinment = () => {
-  const { title } = useParams();
   let initialData = {
     title,
     language: "",
@@ -28,9 +29,9 @@ export const Appoinment = () => {
     time: "",
   };
   const toast = useToast();
+  const { title } = useParams();
   const [spin, setSpin] = useState(false);
   const [appoinmentData, setAppoinmentData] = useState(initialData);
-  const token = useSelector((store) => store.AuthReducer.token);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -41,11 +42,10 @@ export const Appoinment = () => {
 
   function addAppoinment() {
     setSpin(true);
-
     axios
-      .post(`http://localhost:8080/appointment`, appoinmentData, {
+      .post(`${API_URL}/appointment`, appoinmentData, {
         headers: {
-          Authorization: `${token}`,
+          Authorization: GetUserDetails().token,
           "Content-Type": "application/json",
         },
       })

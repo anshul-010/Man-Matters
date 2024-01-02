@@ -1,10 +1,10 @@
-import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
-import React from "react";
-import { ChevronRight } from "lucide-react";
-import { Link } from "react-router-dom";
 import doctorLeftImg from "../Images/doctor-image.png";
 import doctorRightImg from "../Images/doctor-image2.png";
+
 import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
 
 let data = [
   {

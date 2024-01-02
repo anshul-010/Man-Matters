@@ -2,7 +2,6 @@ import {
   LOGIN_FAILURE,
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
-  LOGIN_NAME,
   LOGOUT,
 } from "../actionType";
 

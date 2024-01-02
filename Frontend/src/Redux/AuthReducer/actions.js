@@ -7,8 +7,7 @@ import {
   LOGOUT,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-  MANWELLTOKEN,
-  MANWELLUSERNAME,
+  MANWELLUSER,
 } from "../actionType";
 import axios from "axios";
 
@@ -41,14 +40,9 @@ export const DeleteLocalStorage = (keyName) => {
   return localStorage.removeItem(keyName);
 };
 
-// This function is for getting User Name from local storage
-export const GetUserName = () => {
-  return JSON.parse(localStorage.getItem(MANWELLUSERNAME)) || "";
-};
-
-// This function is for getting Token from local storage
-export const GetToken = () => {
-  return JSON.parse(localStorage.getItem(MANWELLTOKEN)) || "";
+// This function is for getting User details from local storage
+export const GetUserDetails = () => {
+  return JSON.parse(localStorage.getItem(MANWELLUSER));
 };
 
 export const login = (userData) => (dispatch) => {
@@ -59,21 +53,24 @@ export const login = (userData) => (dispatch) => {
       if (res.data.msg === "wrong credential") {
         return { auth: false };
       } else {
-        // console.log(res.data);
-        SetItemLocalStorage(MANWELLTOKEN, res.data.token);
-        SetItemLocalStorage(MANWELLUSERNAME, res.data.Name);
+        const { Name, email, mobile, token } = res.data;
+        const userData = {
+          userName: Name,
+          email: email,
+          mobile: mobile,
+          token: token,
+        };
+        SetItemLocalStorage(MANWELLUSER, userData);
         dispatch(loginSuccess(res.data));
         return { auth: true };
       }
     })
     .catch((err) => {
       dispatch(loginFailed());
-      // return false
     });
 };
 
 export const logout = () => (dispatch) => {
-  DeleteLocalStorage(MANWELLTOKEN);
-  DeleteLocalStorage(MANWELLUSERNAME);
+  DeleteLocalStorage(MANWELLUSER);
   dispatch(userLogout());
 };

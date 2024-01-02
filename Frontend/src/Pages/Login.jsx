@@ -1,3 +1,7 @@
+import "../data/styles.css";
+import Rangoli from "../Images/Rangoli.jpg";
+import { login } from "../Redux/AuthReducer/actions";
+
 import {
   Button,
   FormControl,
@@ -7,14 +11,12 @@ import {
   Heading,
   Box,
   Image,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import "../data/styles.css";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { login } from "../Redux/AuthReducer/actions";
-import Rangoli from "../Images/Rangoli.jpg";
-import { useToast, Spinner } from "@chakra-ui/react";
 
 let initialData = {
   email: "anshkush532@gmail.com",

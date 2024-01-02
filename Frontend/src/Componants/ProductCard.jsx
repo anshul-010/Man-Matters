@@ -19,12 +19,14 @@ import {
 import { StarIcon } from "@chakra-ui/icons";
 
 export const ProductCard = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const [details, setDetails] = useState(true);
   const [image, setImage] = useState(0);
   const [el, setEl] = useState("");
   const { id } = useParams();
+
   function getProduct() {
-    axios.get(`http://localhost:8080/product/products/${id}`).then((res) => {
+    axios.get(`${API_URL}/product/products/${id}`).then((res) => {
       setEl(res.data);
     });
   }

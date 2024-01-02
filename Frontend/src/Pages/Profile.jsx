@@ -1,37 +1,37 @@
-import {
-  Box,
-  Center,
-  Flex,
-  Grid,
-  Heading,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { GetUserDetails } from "../Redux/AuthReducer/actions";
 import { logout } from "../Redux/AuthReducer/actions";
 
-export const Profile = () => {
-  const [userData, setUserData] = useState([]);
-  const dispatch = useDispatch();
-  const { name, email, mobile } = useSelector((store) => store.AuthReducer);
-  const { token } = useSelector((store) => store.AuthReducer);
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Box, Center, Grid, Heading, Image, Text } from "@chakra-ui/react";
 
-  const config = {
-    headers: {
-      Authorization: token,
-    },
-  };
+export const Profile = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+  const dispatch = useDispatch();
+  const [userData, setUserData] = useState([]);
+  const [userLoginInfo, setUserLoginInfo] = useState({
+    userName: "",
+    email: "",
+    mobile: "",
+  });
 
   function getUserData() {
-    axios.get(`http://localhost:8080/appointment`, config).then((res) => {
-      setUserData(res.data.data);
-    });
+    axios
+      .get(`${API_URL}/appointment`, {
+        headers: {
+          Authorization: GetUserDetails().token,
+        },
+      })
+      .then((res) => {
+        setUserData(res.data.data);
+      });
   }
 
   useEffect(() => {
     getUserData();
+    const { userName, email, mobile } = GetUserDetails(); // This function gets user login details from LS
+    setUserLoginInfo({ userName, email, mobile });
   }, []);
 
   function handleLogout() {
@@ -49,7 +49,7 @@ export const Profile = () => {
       >
         <Box width={{ base: "80vw", lg: "30%" }} m={{ base: "auto", lg: "0" }}>
           <Heading mb="20px" letterSpacing="1px">
-            {name}
+            {userLoginInfo?.userName}
           </Heading>
           <Text
             p="0px 5px 0px 0px"
@@ -57,10 +57,10 @@ export const Profile = () => {
             display="inline"
             borderRight="1px solid"
           >
-            {mobile}
+            {userLoginInfo?.mobile}
           </Text>
           <Text m="5px" display="inline" color="#6C6C99">
-            {email}
+            {userLoginInfo?.email}
           </Text>
         </Box>
         <Box

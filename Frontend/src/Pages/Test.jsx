@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
 import { ProgressBar } from "react-loader-spinner";
 import {
   ChakraProvider,
@@ -8,10 +9,8 @@ import {
   VStack,
   Text,
   useColorModeValue,
-  Center,
   FormControl,
 } from "@chakra-ui/react";
-import axios from "axios";
 
 function Test() {
   const [userInput, setUserInput] = useState("");
@@ -118,8 +117,8 @@ function Test() {
             </Box>
           )}
         </Box>
-        <form onSubmit={sendMessage} >
-          <FormControl  width="95vw">
+        <form onSubmit={sendMessage}>
+          <FormControl width="95vw">
             <Input
               autoFocus
               value={userInput}
@@ -136,8 +135,9 @@ function Test() {
                 p="5px 100px"
                 _hover={{
                   backgroundColor: "#22548A",
-                  WebkitBoxReflect:"below 1px linear-gradient(transparent )",
-                  boxShadow: "0 0 5px #ffffff,0 0 8px #22548A,0 0 5px #22548A,0 0 5px #22548A"
+                  WebkitBoxReflect: "below 1px linear-gradient(transparent )",
+                  boxShadow:
+                    "0 0 5px #ffffff,0 0 8px #22548A,0 0 5px #22548A,0 0 5px #22548A",
                 }}
               >
                 Send

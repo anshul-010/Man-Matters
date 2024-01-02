@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Box, Grid, Button, Heading, Select, Skeleton } from "@chakra-ui/react";
-import { Card2 } from "../Componants/Card";
-import Data from "../data/doctors";
 import "../data/styles.css";
+import Data from "../data/doctors";
+import { Card2 } from "../Componants/Card";
+import { getProducts } from "../Redux/ProductReducer/action";
+
+import { useEffect, useState } from "react";
+import { Box, Grid, Button, Heading, Select, Skeleton } from "@chakra-ui/react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../Redux/ProductReducer/action";
 import { useSearchParams } from "react-router-dom";
 
 export const AllProduct = () => {
@@ -408,8 +409,10 @@ export const AllProduct = () => {
                   _hover={{
                     cursor: "pointer",
                     // backgroundColor: "#E4F5ED",
-                    boxShadow: index + 1 === page ? "0px 0px 10px 0px #d50c5d" : "0px 0px 10px 0px #0c81ef"
-                    
+                    boxShadow:
+                      index + 1 === page
+                        ? "0px 0px 10px 0px #d50c5d"
+                        : "0px 0px 10px 0px #0c81ef",
                   }}
                 >
                   {index + 1}

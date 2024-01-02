@@ -1,3 +1,9 @@
+import "../data/styles.css";
+import Rangoli from "../Images/Rangoli.jpg";
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   Box,
   Button,
@@ -6,15 +12,12 @@ import {
   Heading,
   Image,
   Input,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "../data/styles.css";
-import Rangoli from "../Images/Rangoli.jpg";
-import { useToast, Spinner } from "@chakra-ui/react";
-import { useLocation, useNavigate } from "react-router-dom";
 
 export const ResetPassword = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const location = useLocation();
   const [newPassword, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,10 +28,9 @@ export const ResetPassword = () => {
 
   function handleReset() {
     setSpin(true);
-
     if (newPassword == confirmPassword) {
       axios
-        .post(`http://localhost:8080/user/reset-password?token=${resetToken}`, {
+        .post(`${API_URL}/user/reset-password?token=${resetToken}`, {
           newPassword,
         })
         .then((res) => {
@@ -47,7 +49,6 @@ export const ResetPassword = () => {
         });
     } else {
       setSpin(false);
-
       toast({
         position: "top",
         duration: 2500,
