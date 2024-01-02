@@ -1,8 +1,13 @@
-import React from "react";
 import "../data/styles.css";
 import data from "../data/data";
+import { Card2 } from "../Componants/Card";
+import { getProducts } from "../Redux/ProductReducer/action";
+
 import { useState, useEffect } from "react";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import {
   Box,
   Button,
@@ -17,12 +22,6 @@ import {
   Text,
   Skeleton,
 } from "@chakra-ui/react";
-import { Card2 } from "../Componants/Card";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../Redux/ProductReducer/action";
-import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
 
 export const Home = () => {
   const location = useLocation();
@@ -55,6 +54,7 @@ export const Home = () => {
       setIndex(0);
     }
   }, [index, people]);
+
   useEffect(() => {
     let slider = setInterval(() => {
       setIndex(index + 1);

@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Test from "./Test";
 
 export const SelfAssessment = () => {

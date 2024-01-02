@@ -1,3 +1,9 @@
+import "../data/styles.css";
+import Rangoli from "../Images/Rangoli.jpg";
+
+import axios from "axios";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import {
   Box,
   Button,
@@ -7,15 +13,12 @@ import {
   Heading,
   Image,
   Input,
+  useToast,
+  Spinner,
 } from "@chakra-ui/react";
-import axios from "axios";
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "../data/styles.css";
-import Rangoli from "../Images/Rangoli.jpg";
-import { useToast, Spinner } from "@chakra-ui/react";
 
 export const ForgotPassword = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const location = useLocation();
   const [email, setEmail] = useState("");
   const [spin, setSpin] = useState(false);
@@ -23,34 +26,31 @@ export const ForgotPassword = () => {
 
   function handleReset() {
     setSpin(true);
-
-    axios
-      .post(`http://localhost:8080/user/forgot-password`, { email })
-      .then((res) => {
-        setSpin(false);
-        if (res.data.msg === "User not found") {
-          toast({
-            position: "top",
-            duration: 2500,
-            render: () => (
-              <Box color="white" p={3} bg="#ea3838">
-                <b>User Not Found 🙅‍♂️</b>
-              </Box>
-            ),
-          });
-        } else {
-          toast({
-            position: "top",
-            duration: 2500,
-            render: () => (
-              <Box color="white" p={3} bg="#69d729">
-                <b>Please Check Your Mail ✉</b>
-              </Box>
-            ),
-          });
-        }
-        // console.log(res.data);
-      });
+    axios.post(`${API_URL}/user/forgot-password`, { email }).then((res) => {
+      setSpin(false);
+      if (res.data.msg === "User not found") {
+        toast({
+          position: "top",
+          duration: 2500,
+          render: () => (
+            <Box color="white" p={3} bg="#ea3838">
+              <b>User Not Found 🙅‍♂️</b>
+            </Box>
+          ),
+        });
+      } else {
+        toast({
+          position: "top",
+          duration: 2500,
+          render: () => (
+            <Box color="white" p={3} bg="#69d729">
+              <b>Please Check Your Mail ✉</b>
+            </Box>
+          ),
+        });
+      }
+      // console.log(res.data);
+    });
   }
 
   return (

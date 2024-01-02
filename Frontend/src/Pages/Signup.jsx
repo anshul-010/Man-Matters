@@ -1,3 +1,9 @@
+import "../data/styles.css";
+import Rangoli from "../Images/Rangoli.jpg";
+
+import axios from "axios";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   FormControl,
@@ -10,12 +16,7 @@ import {
   useToast,
   Spinner,
 } from "@chakra-ui/react";
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import Rangoli from "../Images/Rangoli.jpg";
-import "../data/styles.css";
 
-import axios from "axios";
 let initialData = {
   firstName: "",
   lastName: "",
@@ -24,9 +25,10 @@ let initialData = {
   password: "",
 };
 export const Signup = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+  const toast = useToast();
   const [userData, setUserData] = useState(initialData);
   const [spin, setSpin] = useState(false);
-  const toast = useToast();
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -37,8 +39,7 @@ export const Signup = () => {
   function handleSubmit(event) {
     event.preventDefault();
     setSpin(true);
-
-    axios.post(`http://localhost:8080/user/register`, userData).then((res) => {
+    axios.post(`${API_URL}/user/register`, userData).then((res) => {
       setSpin(false);
       toast({
         position: "top",

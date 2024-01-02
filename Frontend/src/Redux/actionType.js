@@ -1,7 +1,6 @@
 // Local Storage Key Names
+export const MANWELLUSER = "ManWellUser";
 export const MANWELLCART = "ManWellCart";
-export const MANWELLTOKEN = "ManWellToken";
-export const MANWELLUSERNAME = "ManWellUserName";
 
 // Auth Action Types
 export const LOGIN_REQUEST = "LOGIN_REQUEST";

@@ -10,6 +10,7 @@ const init = {
   isLoading: false,
   isError: false,
   toggleCart: false,
+  showOrderPlaced: true,
   name: "",
   address: "",
   pincode: "",

@@ -1,5 +1,5 @@
 import "../Styles/navbar.css";
-import { GetToken, GetUserName, logout } from "../Redux/AuthReducer/actions";
+import { logout, GetUserDetails } from "../Redux/AuthReducer/actions";
 import { getProducts } from "../Redux/ProductReducer/action";
 import { GetCartItems } from "../Redux/CartReducer/actions";
 
@@ -25,8 +25,6 @@ const Navbar = () => {
 
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const userName = useSelector((store) => store.AuthReducer.name);
 
   const toggleCart = useSelector((store) => store.CartReducer.toggleCart);
   const [cartItemsLength, setCartItemsLength] = useState(
@@ -56,7 +54,10 @@ const Navbar = () => {
   }
 
   function handleRelocate() {
-    navigate("/all-products");
+    navigate("/all-products", {
+      state: { redirectTo: location.pathname },
+      replace: true,
+    });
   }
 
   useEffect(() => {
@@ -69,7 +70,7 @@ const Navbar = () => {
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
-      <Link to={"/"} replace state={{ redirectTo: location.pathname }}>
+      <Link to="/" replace state={{ redirectTo: location.pathname }}>
         <div className="logo">
           <img
             src="https://i.mscwlns.co/media/misc/others/mm%20logo%20gif%202%20%281%29_2cf9r9.gif?tr=w-400"
@@ -151,15 +152,16 @@ const Navbar = () => {
             onClick={() => setIsNavOpen(true)}
             style={{ display: "flex", gap: "2px" }}
           >
-            <PanelBottomClose size={22} strokeWidth={1.1} />{" "}
+            <PanelBottomClose size={22} strokeWidth={1.1} />
             <span>Self Assessment</span>
           </div>
         </NavLink>
 
-        {GetToken() ? (
+        {GetUserDetails()?.token ? (
           <div className="user-profile">
             <span className="log-in">
-              <UserRound color="#1f5c9d" size={22} /> {`Hi! ${GetUserName()}`}
+              <UserRound color="#1f5c9d" size={22} />
+              {`Hi! ${GetUserDetails()?.userName}`}
             </span>
             <div className="profile-dropdown">
               <NavLink
@@ -167,7 +169,6 @@ const Navbar = () => {
                 style={({ isActive }) => {
                   color: isActive && "#ff6347";
                 }}
-                // activeStyle={activeStyle}
               >
                 <p>Profile</p>
               </NavLink>
@@ -180,7 +181,6 @@ const Navbar = () => {
             style={({ isActive }) => {
               color: isActive && "#ff6347";
             }}
-            // activeStyle={activeStyle}
             replace
             state={{ redirectTo: location.pathname }}
           >

@@ -1,8 +1,9 @@
 import * as css from "../Styles/CheckoutStyles";
 import CartItemCard from "../Componants/CartItemCard";
 import EmptyCart from "../Componants/EmptyCart";
+import OrderPlaced from "../Componants/OrderPlaced";
 import { INPCHANGE } from "../Redux/actionType";
-import { GetToken, GetUserName } from "../Redux/AuthReducer/actions";
+import { GetUserDetails } from "../Redux/AuthReducer/actions";
 import {
   GetCartItems,
   CalculateCartTotal,
@@ -40,6 +41,9 @@ const Checkout = () => {
   });
   const isLoading = useSelector((state) => state.CartReducer.isLoading);
   const toggleCart = useSelector((state) => state.CartReducer.toggleCart);
+  const showOrderPlaced = useSelector(
+    (state) => state.CartReducer.showOrderPlaced
+  );
   const name = useSelector((state) => state.CartReducer.name);
   const address = useSelector((state) => state.CartReducer.address);
   const pincode = useSelector((state) => state.CartReducer.pincode);
@@ -73,9 +77,13 @@ const Checkout = () => {
 
   // Function for Footer button click
   const FooterBtnClick = () => {
-    const token = GetToken();
+    const token = userName().token;
     if (currStepper == 1 && token) {
-      dispatch({ type: INPCHANGE, name: "name", payload: GetUserName() });
+      dispatch({
+        type: INPCHANGE,
+        name: "name",
+        payload: GetUserDetails().userName,
+      });
       setCurrStepper(2);
     } else if (!token) {
       toast({
@@ -91,7 +99,6 @@ const Checkout = () => {
 
   const handlePayBtnClick = (e) => {
     e.stopPropagation();
-
     const cartData = cartItemsArr.map((item) => {
       let itemObj = {};
       itemObj.title = item.title;
@@ -103,14 +110,12 @@ const Checkout = () => {
       return itemObj;
     });
     const orderData = {
-      address: `${address}, ${city} - ${pincode}, ${state}`,
+      address: `${address}, ${city}, ${state}-${pincode}`,
       purchasedItems: cartData,
-      total: `₹${cartTotal.itemTotal}`,
-      discount: `-₹${cartTotal.itemDiscount}`,
-      subTotal: `₹${cartTotal.subTotal}`,
+      total: `₹ ${cartTotal.itemTotal}`,
+      discount: `- ₹ ${cartTotal.itemDiscount}`,
+      subTotal: `₹ ${cartTotal.subTotal}`,
     };
-    // console.log(orderData); ₹
-
     dispatch(DoPayment(toast, isLoading, orderData));
   };
 
@@ -124,7 +129,9 @@ const Checkout = () => {
     dispatch({ type: INPCHANGE, payload: value, name });
   };
 
-  return cartItemsArr.length == 0 ? (
+  return showOrderPlaced ? (
+    <OrderPlaced />
+  ) : cartItemsArr.length == 0 ? (
     <EmptyCart />
   ) : (
     <Box min-width="100%" bg={currStepper < 3 ? null : "whiteF"}>

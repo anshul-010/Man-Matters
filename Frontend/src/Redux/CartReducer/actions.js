@@ -1,7 +1,8 @@
-import { GetToken } from "../AuthReducer/actions";
+import { DeleteLocalStorage, GetUserDetails } from "../AuthReducer/actions";
 import {
   TOGGLECART,
   MANWELLCART,
+  MANWELLUSER,
   CARTSUCCESS,
   CARTERROR,
   CARTLOADING,
@@ -10,7 +11,6 @@ import {
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
-const CartLocalStorageKey = "ManWellCart";
 
 // Function for making payment checkout request to backend
 export const DoPayment = (toast, isLoading, data) => (dispatch) => {
@@ -22,7 +22,7 @@ export const DoPayment = (toast, isLoading, data) => (dispatch) => {
       url: "http://localhost:8080/product/checkout_payment",
       method: "post",
       headers: {
-        Authorization: GetToken(),
+        Authorization: GetUserDetails().token || "",
         "Content-Type": "application/json",
       },
       data,
@@ -30,6 +30,7 @@ export const DoPayment = (toast, isLoading, data) => (dispatch) => {
       .then((res) => {
         console.log(res.data);
         dispatch({ type: CARTSUCCESS });
+        DeleteLocalStorage(MANWELLCART);
       })
       .catch((err) => {
         console.log(err);
