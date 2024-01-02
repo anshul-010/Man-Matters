@@ -1207,6 +1207,7 @@ export const ModeParentDiv = css`
     font-size: 18px;
     font-weight: 300;
     cursor: pointer;
+    text-align: center;
   }
 
   @media (max-width: 768px) {
