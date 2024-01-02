@@ -59,7 +59,7 @@ export const login = (userData) => (dispatch) => {
       if (res.data.msg === "wrong credential") {
         return { auth: false };
       } else {
-        //console.log(res.data);
+        // console.log(res.data);
         SetItemLocalStorage(MANWELLTOKEN, res.data.token);
         SetItemLocalStorage(MANWELLUSERNAME, res.data.Name);
         dispatch(loginSuccess(res.data));

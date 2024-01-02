@@ -28,13 +28,10 @@ export const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const toast = useToast();
-  const { isAuth, name, token } = useSelector((store) => {
-    return {
-      isAuth: store.AuthReducer.isAuth,
-      name: store.AuthReducer.name,
-      token: store.AuthReducer.token,
-    };
-  });
+  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
+  const name = useSelector((store) => store.AuthReducer.name);
+  const token = useSelector((store) => store.AuthReducer.token);
+
   // console.log(isAuth);
   function handleChange(event) {
     const { name, value } = event.target;
@@ -70,7 +67,7 @@ export const Login = () => {
       }
       setUserData(initialData);
 
-      navigate(location.state.redirectTo || "/", { replace: true });
+      navigate(location?.state?.redirectTo || "/", { replace: true });
     });
   }
   return (

@@ -98,6 +98,11 @@ const Navbar = () => {
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
         <NavLink
           to={"/all-products"}
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "#ff6347" : "",
+            };
+          }}
           replace
           state={{ redirectTo: location.pathname }}
         >
@@ -106,7 +111,7 @@ const Navbar = () => {
             onClick={() => setIsNavOpen(true)}
             style={{ display: "flex", gap: "2px" }}
           >
-            <Home size={22} color={"black"} strokeWidth={1.1} />
+            <Home size={22} strokeWidth={1.1} />
             <span className="nav-link" style={{ color: "" }}>
               All Products
             </span>
@@ -114,7 +119,11 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/schedule-appoinment"
-          activeStyle={{ color: "#ff6347" }}
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "#ff6347" : "",
+            };
+          }}
           replace
           state={{ redirectTo: location.pathname }}
         >
@@ -129,7 +138,11 @@ const Navbar = () => {
         </NavLink>
         <NavLink
           to="/self-assessment"
-          activeStyle={{ color: "#ff6347" }}
+          style={({ isActive }) => {
+            return {
+              color: isActive ? "#ff6347" : "",
+            };
+          }}
           replace
           state={{ redirectTo: location.pathname }}
         >
@@ -149,7 +162,13 @@ const Navbar = () => {
               <UserRound color="#1f5c9d" size={22} /> {`Hi! ${GetUserName()}`}
             </span>
             <div className="profile-dropdown">
-              <NavLink to="/profile" activeStyle={activeStyle}>
+              <NavLink
+                to="/profile"
+                style={({ isActive }) => {
+                  color: isActive && "#ff6347";
+                }}
+                // activeStyle={activeStyle}
+              >
                 <p>Profile</p>
               </NavLink>
               <p onClick={handleLogout}>Logout</p>
@@ -158,7 +177,10 @@ const Navbar = () => {
         ) : (
           <NavLink
             to="/login"
-            activeStyle={activeStyle}
+            style={({ isActive }) => {
+              color: isActive && "#ff6347";
+            }}
+            // activeStyle={activeStyle}
             replace
             state={{ redirectTo: location.pathname }}
           >
@@ -171,7 +193,10 @@ const Navbar = () => {
 
       <NavLink
         to="/checkout"
-        activeStyle={activeStyle}
+        style={({ isActive }) => {
+          color: isActive ? "#ff6347" : "black";
+        }}
+        // activeStyle={activeStyle}
         replace
         state={{ redirectTo: location.pathname }}
       >

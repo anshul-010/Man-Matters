@@ -3,7 +3,11 @@ import CartItemCard from "../Componants/CartItemCard";
 import EmptyCart from "../Componants/EmptyCart";
 import { INPCHANGE } from "../Redux/actionType";
 import { GetToken, GetUserName } from "../Redux/AuthReducer/actions";
-import { GetCartItems, CalculateCartTotal } from "../Redux/CartReducer/actions";
+import {
+  GetCartItems,
+  CalculateCartTotal,
+  DoPayment,
+} from "../Redux/CartReducer/actions";
 import { PaymentModes } from "../data/PaymentModes";
 import { StateNames } from "../data/StateNames";
 import TickImg from "../Images/CheckoutImgs/TickIcon.png";
@@ -34,6 +38,7 @@ const Checkout = () => {
     itemDiscount: 0,
     subTotal: 0,
   });
+  const isLoading = useSelector((state) => state.CartReducer.isLoading);
   const toggleCart = useSelector((state) => state.CartReducer.toggleCart);
   const name = useSelector((state) => state.CartReducer.name);
   const address = useSelector((state) => state.CartReducer.address);
@@ -57,19 +62,6 @@ const Checkout = () => {
     };
   }, []);
 
-  const SubmitAddress = (e) => {
-    e.preventDefault();
-    const addressObj = {
-      name,
-      address,
-      pincode,
-      city,
-      state,
-    };
-
-    setCurrStepper(3);
-  };
-
   // Function for changing checkout stepper
   const handleStepperChange = (val) => {
     if (val == 1) {
@@ -81,19 +73,50 @@ const Checkout = () => {
 
   // Function for Footer button click
   const FooterBtnClick = () => {
-    if (currStepper == 1 && GetToken()) {
+    const token = GetToken();
+    if (currStepper == 1 && token) {
       dispatch({ type: INPCHANGE, name: "name", payload: GetUserName() });
       setCurrStepper(2);
-    } else if (currStepper == 3) {
-    } else {
+    } else if (!token) {
       toast({
         title: "Please Login first",
+        status: "warning",
       });
       navigate("/login", {
         state: { redirectTo: location.pathname },
         replace: true,
       });
     }
+  };
+
+  const handlePayBtnClick = (e) => {
+    e.stopPropagation();
+
+    const cartData = cartItemsArr.map((item) => {
+      let itemObj = {};
+      itemObj.title = item.title;
+      itemObj.itemQty = item.itemQty;
+      itemObj.image = item.image[0];
+      itemObj.price = `₹${item.price}`;
+      itemObj.link = `http://localhost:3000/product-detail/${item._id}`;
+
+      return itemObj;
+    });
+    const orderData = {
+      address: `${address}, ${city} - ${pincode}, ${state}`,
+      purchasedItems: cartData,
+      total: `₹${cartTotal.itemTotal}`,
+      discount: `-₹${cartTotal.itemDiscount}`,
+      subTotal: `₹${cartTotal.subTotal}`,
+    };
+    // console.log(orderData); ₹
+
+    dispatch(DoPayment(toast, isLoading, orderData));
+  };
+
+  const SubmitAddress = (e) => {
+    e.preventDefault();
+    setCurrStepper(3);
   };
 
   const handleInpChange = (e) => {
@@ -389,10 +412,7 @@ const Checkout = () => {
                     </Box>
                     {activePayMode == item.title && (
                       <Button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          console.log("btn clicked");
-                        }}
+                        onClick={handlePayBtnClick}
                         bg="primary"
                         color="whiteA"
                         _hover={{
@@ -400,7 +420,7 @@ const Checkout = () => {
                         }}
                         type="submit"
                       >
-                        Pay ₹{`${cartTotal.subTotal}`}
+                        {isLoading ? "Paying" : `Pay ₹${cartTotal.subTotal}`}
                       </Button>
                     )}
                   </Box>
