@@ -146,7 +146,7 @@ export const Signup = () => {
             </Button>
           </FormControl>
           <Flex justify="space-around">
-            <Link to="/login" replace state={{ redirectTo: location.pathname }}>
+            <Link to="/login">
               <Button color="#22548A" variant="link" fontSize="lg">
                 Already have account!
               </Button>

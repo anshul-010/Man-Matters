@@ -20,3 +20,6 @@ export const GET_PRODUCT_ERROR = "GET_PRODUCT_ERROR";
 // Cart Action Types
 export const TOGGLECART = "TOGGLECART";
 export const INPCHANGE = "INPCHANGE";
+export const CARTLOADING = "CARTLOADING";
+export const CARTERROR = "CARTERROR";
+export const CARTSUCCESS = "CARTSUCCESS";

@@ -95,7 +95,7 @@ export const Home = () => {
               position = "lastSlide";
             }
             return (
-              <article className={position} key={id + name}>
+              <article className={position} key={personIndex}>
                 <img className="person-img" src={image} alt={name} />
               </article>
             );

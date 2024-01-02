@@ -5,9 +5,7 @@ const { UserModel } = require("../Model/UserModel");
 // const config = require('../config/config');
 const nodemailer = require("nodemailer");
 
-
 const appointmentRoute = express.Router();
-
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -17,22 +15,20 @@ const transporter = nodemailer.createTransport({
     user: process.env.email,
     pass: process.env.password,
   },
-  debug: true
+  debug: true,
 });
-
 
 appointmentRoute.post("/", auth, async (req, res) => {
   const { title, language, date, time } = req.body;
-  const { _id,email } = req.user; 
+  const { _id, email } = req.user;
   try {
-    
     // Create a new appointment with user information
     const newAppointment = new AppointmentModel({
       title,
       language,
       date,
       time,
-      user: _id
+      user: _id,
     });
 
     await newAppointment.save();
@@ -40,29 +36,32 @@ appointmentRoute.post("/", auth, async (req, res) => {
     const mailOptions = {
       from: process.env.email,
       to: email,
-      subject: 'Appoinment Scheduled',
+      subject: "Appoinment Scheduled",
       html: `Your Appoinment Scheduled with Doctor on ${date} at ${time} issue related with ${title}`,
-      };
+    };
 
-      transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-            return res.status(500).send({ "msg": error });
-          }
-          res.status(200).send({ "msg": "Appoinment Scheduled email sent successfully" });
-      });
-
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return res.status(500).send({ msg: error });
+      }
+      res
+        .status(200)
+        .send({ msg: "Appoinment Scheduled email sent successfully" });
+    });
   } catch (error) {
     res.status(500).send({ msg: error.message });
   }
 });
 
-appointmentRoute.get("/",auth,async(req,res)=>{
-    try {
-        const data = await AppointmentModel.find({user:req.user._id}).populate("user")
-        res.status(200).json({"data":data})
-    } catch (error) {
-        res.status(400).json({"msg":error.message})
-    }
-})
+appointmentRoute.get("/", auth, async (req, res) => {
+  try {
+    const data = await AppointmentModel.find({ user: req.user._id }).populate(
+      "user"
+    );
+    res.status(200).json({ data: data });
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
+});
 
 module.exports = { appointmentRoute };

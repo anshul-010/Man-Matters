@@ -87,6 +87,7 @@ export const ScheduleAppoinment = () => {
                 to={`/appoinment/${ele.title}`}
                 replace
                 state={{ redirectTo: location.pathname }}
+                key={i}
               >
                 <motion.div {...swipeAnimationFromBottom}>
                   <Flex
