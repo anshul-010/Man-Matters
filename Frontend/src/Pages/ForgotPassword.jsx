@@ -10,12 +10,13 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../data/styles.css";
 import Rangoli from "../Images/Rangoli.jpg";
 import { useToast, Spinner } from "@chakra-ui/react";
 
 export const ForgotPassword = () => {
+  const location = useLocation();
   const [email, setEmail] = useState("");
   const [spin, setSpin] = useState(false);
   const toast = useToast();
@@ -48,7 +49,7 @@ export const ForgotPassword = () => {
             ),
           });
         }
-        console.log(res.data);
+        // console.log(res.data);
       });
   }
 
@@ -113,7 +114,7 @@ export const ForgotPassword = () => {
             </Button>
           </FormControl>
           <Flex justify="space-around">
-            <Link to="/login">
+            <Link to="/login" replace state={{ redirectTo: location.pathname }}>
               <Button color="#22548A" variant="link" fontSize="lg">
                 login
               </Button>

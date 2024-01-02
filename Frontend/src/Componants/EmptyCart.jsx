@@ -2,9 +2,12 @@ import { ReasonsToBuyComponent } from "../Pages/Checkout";
 import EmptyCartImg from "../Images/CheckoutImgs/EmptyCartImg.webp";
 
 import { css } from "@emotion/react";
-import { Box, Text, Image, Button, Link } from "@chakra-ui/react";
+import { Box, Text, Image, Button } from "@chakra-ui/react";
+import { Link, useLocation } from "react-router-dom";
 
 const EmptyCart = () => {
+  const location = useLocation();
+
   return (
     <Box fontFamily="font1" css={Outer}>
       <Box>
@@ -16,7 +19,9 @@ const EmptyCart = () => {
           color="whiteA"
           _hover={{ bg: "primary" }}
           as={Link}
-          href="/all-products"
+          to="/all-products"
+          replace
+          state={{ redirectTo: location.pathname }}
         >
           Add Products
         </Button>

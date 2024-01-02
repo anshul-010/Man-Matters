@@ -1,14 +1,18 @@
 import { css } from "@emotion/react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Box, Text, Image } from "@chakra-ui/react";
 import { IoIosArrowBack as LeftArrow } from "react-icons/io";
 
 const CheckoutNavbar = () => {
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleGoBack = (e) => {
     e.stopPropagation();
-    navigate(-1);
+    navigate(-1, {
+      state: { redirectTo: location.pathname },
+      replace: true,
+    });
   };
 
   return (

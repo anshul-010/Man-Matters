@@ -1,11 +1,12 @@
 import { GetCartItems, SetCartItems } from "../Redux/CartReducer/actions";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Badge, Box, Image, useToast } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
 export const Card2 = ({ property }) => {
+  const location = useLocation();
   const toast = useToast();
   const dispatch = useDispatch();
   const cartData = GetCartItems();
@@ -45,7 +46,11 @@ export const Card2 = ({ property }) => {
       borderRadius="lg"
       overflow="hidden"
     >
-      <Link to={`/product-detail/${property._id}`}>
+      <Link
+        to={`/product-detail/${property._id}`}
+        replace
+        state={{ redirectTo: location.pathname }}
+      >
         <Box>
           <Box m="auto" height="28vh" width={{ base: "", lg: "18vw" }}>
             <Image

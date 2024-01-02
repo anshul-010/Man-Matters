@@ -83,7 +83,11 @@ export const ScheduleAppoinment = () => {
           </Center>
           {data?.map((ele, i) => {
             return (
-              <Link to={`/appoinment/${ele.title}`}>
+              <Link
+                to={`/appoinment/${ele.title}`}
+                replace
+                state={{ redirectTo: location.pathname }}
+              >
                 <motion.div {...swipeAnimationFromBottom}>
                   <Flex
                     key={i}

@@ -2,11 +2,13 @@ import * as css from "../Styles/CheckoutStyles";
 import { CalculateDiscount, SetCartItems } from "../Redux/CartReducer/actions";
 
 import { useDispatch } from "react-redux";
-import { Box, Text, Image, Center, Link } from "@chakra-ui/react";
+import { Box, Text, Image, Center } from "@chakra-ui/react";
+import { Link, useLocation } from "react-router-dom";
 import { BsInfoSquareFill as InfoIcon } from "react-icons/bs";
 import { HiMinusSm as MinusIcon, HiPlus as PlusIcon } from "react-icons/hi";
 
 const CartItemCard = ({ _id, title, image, price, itemQty, cartItemsArr }) => {
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const handleQty = (val) => {
@@ -30,7 +32,13 @@ const CartItemCard = ({ _id, title, image, price, itemQty, cartItemsArr }) => {
         <Image css={css.ItemImg} src={image[0]} alt={title} />
         <Box css={css.TitleAndPriceDiv}>
           <Box css={css.TitleDiv}>
-            <Link href={`/product-detail/${_id}`}>{title}</Link>
+            <Link
+              to={`/product-detail/${_id}`}
+              replace
+              state={{ redirectTo: location.pathname }}
+            >
+              {title}
+            </Link>
             <Text>
               <span>₹</span>
               {CalculateDiscount(price)}

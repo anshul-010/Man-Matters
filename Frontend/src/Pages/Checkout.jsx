@@ -2,6 +2,7 @@ import * as css from "../Styles/CheckoutStyles";
 import CartItemCard from "../Componants/CartItemCard";
 import EmptyCart from "../Componants/EmptyCart";
 import { INPCHANGE } from "../Redux/actionType";
+import { GetToken, GetUserName } from "../Redux/AuthReducer/actions";
 import { GetCartItems, CalculateCartTotal } from "../Redux/CartReducer/actions";
 import { PaymentModes } from "../data/PaymentModes";
 import { StateNames } from "../data/StateNames";
@@ -18,9 +19,12 @@ import { FaRegCircle as CircleIcon } from "react-icons/fa";
 import { FaChevronRight as RightArrow } from "react-icons/fa";
 import { FaRegCircleCheck as CircledTickIcon } from "react-icons/fa6";
 import { Box, Text, Image, Button, useToast } from "@chakra-ui/react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const toast = useToast();
+  const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
   const [currStepper, setCurrStepper] = useState(1);
   const [activePayMode, setActivePayMode] = useState(PaymentModes[0].title);
@@ -62,7 +66,6 @@ const Checkout = () => {
       city,
       state,
     };
-    console.log(addressObj);
 
     setCurrStepper(3);
   };
@@ -78,9 +81,18 @@ const Checkout = () => {
 
   // Function for Footer button click
   const FooterBtnClick = () => {
-    if (currStepper == 1) {
+    if (currStepper == 1 && GetToken()) {
+      dispatch({ type: INPCHANGE, name: "name", payload: GetUserName() });
       setCurrStepper(2);
     } else if (currStepper == 3) {
+    } else {
+      toast({
+        title: "Please Login first",
+      });
+      navigate("/login", {
+        state: { redirectTo: location.pathname },
+        replace: true,
+      });
     }
   };
 

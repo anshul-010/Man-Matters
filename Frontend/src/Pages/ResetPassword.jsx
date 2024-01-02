@@ -12,9 +12,10 @@ import React, { useEffect, useState } from "react";
 import "../data/styles.css";
 import Rangoli from "../Images/Rangoli.jpg";
 import { useToast, Spinner } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export const ResetPassword = () => {
+  const location = useLocation();
   const [newPassword, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [resetToken, setResetToken] = useState("");
@@ -41,7 +42,7 @@ export const ResetPassword = () => {
               </Box>
             ),
           });
-          navigate("/");
+          navigate(location.state.redirectTo || "/", { replace: true });
           // console.log(res.data);
         });
     } else {
