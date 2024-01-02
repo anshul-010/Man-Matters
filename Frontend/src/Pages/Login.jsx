@@ -69,7 +69,8 @@ export const Login = () => {
         });
       }
       setUserData(initialData);
-      navigate(location.state, { replace: true });
+
+      navigate(location.state.redirectTo || "/", { replace: true });
     });
   }
   return (
@@ -142,12 +143,20 @@ export const Login = () => {
             </Button>
           </FormControl>
           <Flex justify="space-around">
-            <Link to="/forgot-password">
+            <Link
+              to="/forgot-password"
+              replace
+              state={{ redirectTo: location.pathname }}
+            >
               <Button color="#22548A" variant="link" fontSize="lg">
                 forgot password
               </Button>
             </Link>
-            <Link to="/signup">
+            <Link
+              to="/signup"
+              replace
+              state={{ redirectTo: location.pathname }}
+            >
               <Button fontSize="lg" color="#22548A" variant="link">
                 sign up
               </Button>

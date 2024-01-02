@@ -22,10 +22,10 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductReducer/action";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Home = () => {
-  //hover
+  const location = useLocation();
   const [people, setPeople] = useState(data);
   const [index, setIndex] = useState(0);
   const [category, setCategory] = useState("");
@@ -95,7 +95,7 @@ export const Home = () => {
               position = "lastSlide";
             }
             return (
-              <article className={position} key={id}>
+              <article className={position} key={id + name}>
                 <img className="person-img" src={image} alt={name} />
               </article>
             );
@@ -142,7 +142,11 @@ export const Home = () => {
           m={{ base: "20px" }}
         >
           <Box bg={"#E1EFF8"} pos="relative" borderRadius="0 0 20px 20px">
-            <Link to="/schedule-appoinment">
+            <Link
+              to="/schedule-appoinment"
+              replace
+              state={{ redirectTo: location.pathname }}
+            >
               <Flex
                 align="center"
                 alignItems="center"
@@ -202,7 +206,11 @@ export const Home = () => {
           m={{ base: "20px" }}
         >
           <Box pos="relative" bg={"#E1EFF8"} borderRadius="0 0 20px 20px">
-            <Link to="/self-assessment">
+            <Link
+              to="/self-assessment"
+              replace
+              state={{ redirectTo: location.pathname }}
+            >
               <Flex
                 align="center"
                 alignItems="center"
@@ -836,8 +844,8 @@ export const Home = () => {
           m="auto"
           alignItems={"center"}
         >
-          {daata?.map((property) => (
-            <Card2 property={property} />
+          {daata?.map((property, ind) => (
+            <Card2 property={property} key={ind} />
           ))}
         </Grid>
       )}

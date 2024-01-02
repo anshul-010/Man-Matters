@@ -1,22 +1,22 @@
-import { TOGGLECART } from "../actionType";
+import { TOGGLECART, MANWELLCART } from "../actionType";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 const CartLocalStorageKey = "ManWellCart";
 
 // To Set Cart Items in localStorage
 export const SetCartItems = (newCartData) => (dispatch) => {
-  localStorage.setItem(CartLocalStorageKey, JSON.stringify(newCartData));
+  localStorage.setItem(MANWELLCART, JSON.stringify(newCartData));
   dispatch({ type: TOGGLECART });
 };
 
 // To Get Cart Items in localStorage
 export const GetCartItems = () => {
-  return JSON.parse(localStorage.getItem(CartLocalStorageKey)) || [];
+  return JSON.parse(localStorage.getItem(MANWELLCART)) || [];
 };
 
 // This function calculates & returns 10% discount of the price passed as value.
 export const CalculateDiscount = (price) => {
-  const discount = Math.round(price * 0.1);
+  const discount = price * 0.1;
   return parseFloat(price - discount.toFixed(2));
 };
 

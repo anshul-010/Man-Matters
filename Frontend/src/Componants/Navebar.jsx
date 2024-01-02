@@ -1,10 +1,10 @@
 import "../Styles/navbar.css";
-import { logout } from "../Redux/AuthReducer/actions";
+import { GetToken, GetUserName, logout } from "../Redux/AuthReducer/actions";
 import { getProducts } from "../Redux/ProductReducer/action";
 import { GetCartItems } from "../Redux/CartReducer/actions";
 
 import { useEffect, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   Menu,
@@ -20,13 +20,13 @@ import {
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const navigate = useNavigate();
 
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
   const userName = useSelector((store) => store.AuthReducer.name);
-  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
 
   const toggleCart = useSelector((store) => store.CartReducer.toggleCart);
   const [cartItemsLength, setCartItemsLength] = useState(
@@ -69,7 +69,7 @@ const Navbar = () => {
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
-      <Link to={"/"}>
+      <Link to={"/"} replace state={{ redirectTo: location.pathname }}>
         <div className="logo">
           <img
             src="https://i.mscwlns.co/media/misc/others/mm%20logo%20gif%202%20%281%29_2cf9r9.gif?tr=w-400"
@@ -96,7 +96,11 @@ const Navbar = () => {
       </div>
 
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
-        <NavLink to={"/all-products"}>
+        <NavLink
+          to={"/all-products"}
+          replace
+          state={{ redirectTo: location.pathname }}
+        >
           <div
             className="nav-link"
             onClick={() => setIsNavOpen(true)}
@@ -108,7 +112,12 @@ const Navbar = () => {
             </span>
           </div>
         </NavLink>
-        <NavLink to="/schedule-appoinment" activeStyle={{ color: "#ff6347" }}>
+        <NavLink
+          to="/schedule-appoinment"
+          activeStyle={{ color: "#ff6347" }}
+          replace
+          state={{ redirectTo: location.pathname }}
+        >
           <div
             className="nav-link"
             onClick={() => setIsNavOpen(true)}
@@ -118,7 +127,12 @@ const Navbar = () => {
             <span>Schedule Appointment</span>
           </div>
         </NavLink>
-        <NavLink to="/self-assessment" activeStyle={{ color: "#ff6347" }}>
+        <NavLink
+          to="/self-assessment"
+          activeStyle={{ color: "#ff6347" }}
+          replace
+          state={{ redirectTo: location.pathname }}
+        >
           <div
             className="nav-link"
             onClick={() => setIsNavOpen(true)}
@@ -129,10 +143,10 @@ const Navbar = () => {
           </div>
         </NavLink>
 
-        {isAuth ? (
+        {GetToken() ? (
           <div className="user-profile">
             <span className="log-in">
-              <UserRound color="#1f5c9d" size={22} /> {userName}
+              <UserRound color="#1f5c9d" size={22} /> {`Hi! ${GetUserName()}`}
             </span>
             <div className="profile-dropdown">
               <NavLink to="/profile" activeStyle={activeStyle}>
@@ -142,7 +156,12 @@ const Navbar = () => {
             </div>
           </div>
         ) : (
-          <NavLink to="/login" activeStyle={activeStyle}>
+          <NavLink
+            to="/login"
+            activeStyle={activeStyle}
+            replace
+            state={{ redirectTo: location.pathname }}
+          >
             <div className="log-in" onClick={() => setIsNavOpen(true)}>
               <User /> Login
             </div>
@@ -150,7 +169,12 @@ const Navbar = () => {
         )}
       </div>
 
-      <NavLink to="/checkout" activeStyle={activeStyle}>
+      <NavLink
+        to="/checkout"
+        activeStyle={activeStyle}
+        replace
+        state={{ redirectTo: location.pathname }}
+      >
         <div className="shoping-cart">
           <span className="item-count">{cartItemsLength}</span>
           <div className="icon-container">
