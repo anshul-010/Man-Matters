@@ -19,21 +19,23 @@ import PercentageStarIcon from "../Images/CheckoutImgs/PercentageStarIcon.svg";
 
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { PulseLoader as LoadingSpinner } from "react-spinners";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Box, Text, Image, Button, useToast } from "@chakra-ui/react";
 import { FaPen as PenIcon } from "react-icons/fa6";
 import { FaRegCircle as CircleIcon } from "react-icons/fa";
 import { FaChevronRight as RightArrow } from "react-icons/fa";
 import { FaRegCircleCheck as CircledTickIcon } from "react-icons/fa6";
-import { Box, Text, Image, Button, useToast } from "@chakra-ui/react";
-import { useLocation, useNavigate } from "react-router-dom";
 
 const Checkout = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const toast = useToast();
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
   const [currStepper, setCurrStepper] = useState(1);
   const [activePayMode, setActivePayMode] = useState(PaymentModes[0].title);
-  const [cartItemsArr, setCartItemsArr] = useState(GetCartItems());
+  const [cartItemsArr, setCartItemsArr] = useState([]);
   const [cartTotal, setCartTotal] = useState({
     itemTotal: 0,
     itemDiscount: 0,
@@ -51,7 +53,8 @@ const Checkout = () => {
   const state = useSelector((state) => state.CartReducer.state);
 
   useEffect(() => {
-    setCartItemsArr(GetCartItems());
+    const newCartArr = GetCartItems() || [];
+    setCartItemsArr(newCartArr);
   }, [toggleCart]);
 
   useEffect(() => {
@@ -61,9 +64,6 @@ const Checkout = () => {
   useEffect(() => {
     const previousTitle = document.title;
     document.title = "Checkout is Easy with Us - Man Matters";
-    return () => {
-      document.title = previousTitle;
-    };
   }, []);
 
   // Function for changing checkout stepper
@@ -77,7 +77,7 @@ const Checkout = () => {
 
   // Function for Footer button click
   const FooterBtnClick = () => {
-    const token = userName().token;
+    const token = GetUserDetails()?.token;
     if (currStepper == 1 && token) {
       dispatch({
         type: INPCHANGE,
@@ -105,7 +105,7 @@ const Checkout = () => {
       itemObj.itemQty = item.itemQty;
       itemObj.image = item.image[0];
       itemObj.price = `₹${item.price}`;
-      itemObj.link = `http://localhost:3000/product-detail/${item._id}`;
+      itemObj.link = `${API_URL}/product-detail/${item._id}`;
 
       return itemObj;
     });
@@ -130,7 +130,7 @@ const Checkout = () => {
   };
 
   return showOrderPlaced ? (
-    <OrderPlaced />
+    <OrderPlaced userMail={GetUserDetails().email} />
   ) : cartItemsArr.length == 0 ? (
     <EmptyCart />
   ) : (
@@ -427,7 +427,11 @@ const Checkout = () => {
                         }}
                         type="submit"
                       >
-                        {isLoading ? "Paying" : `Pay ₹${cartTotal.subTotal}`}
+                        {isLoading ? (
+                          <LoadingSpinner color="#ffffff" />
+                        ) : (
+                          `Pay ₹${cartTotal.subTotal}`
+                        )}
                       </Button>
                     )}
                   </Box>

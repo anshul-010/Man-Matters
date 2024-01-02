@@ -23,58 +23,57 @@ let initialData = {
   password: "ansh",
 };
 export const Login = () => {
-  const [userData, setUserData] = useState(initialData);
-  const [spin, setSpin] = useState(false);
-
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+  const toast = useToast();
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const toast = useToast();
-  const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  const name = useSelector((store) => store.AuthReducer.name);
-  const token = useSelector((store) => store.AuthReducer.token);
 
-  // console.log(isAuth);
+  const [userData, setUserData] = useState(initialData);
+  const isLoading = useSelector((store) => store.AuthReducer.isLoading);
+
   function handleChange(event) {
     const { name, value } = event.target;
     setUserData((pre) => {
       return { ...pre, [name]: name == "mobile" ? +value : value };
     });
   }
+
   function handleLogin(event) {
     event.preventDefault();
-    setSpin(true);
-    dispatch(login(userData)).then((auth) => {
-      setSpin(false);
-      if (auth.auth) {
-        toast({
-          position: "top",
-          duration: 2500,
-          render: () => (
-            <Box color="white" p={3} bg="#69d729">
-              <b>Login Successfull 👍</b>
-            </Box>
-          ),
-        });
-      } else {
-        toast({
-          position: "top",
-          duration: 2500,
-          render: () => (
-            <Box color="white" p={3} bg="#ea3838">
-              <b>Wrong Credential 👎</b>
-            </Box>
-          ),
-        });
-      }
-      setUserData(initialData);
-
-      navigate(location?.state?.redirectTo || "/", { replace: true });
-    });
+    // To prevent sending request while one request is already pending
+    if (!isLoading) {
+      toast.closeAll();
+      dispatch(login(userData)).then((auth) => {
+        if (auth.auth) {
+          toast({
+            position: "top",
+            duration: 2500,
+            render: () => (
+              <Box color="white" p={3} bg="#69d729">
+                <b>Login Successfull 👍</b>
+              </Box>
+            ),
+          });
+        } else {
+          toast({
+            position: "top",
+            duration: 2500,
+            render: () => (
+              <Box color="white" p={3} bg="#ea3838">
+                <b>Wrong Credential 👎</b>
+              </Box>
+            ),
+          });
+        }
+        setUserData(initialData);
+        navigate(location?.state?.redirectTo || "/", { replace: true });
+      });
+    }
   }
   return (
     <>
-      {spin && (
+      {isLoading && (
         <Spinner
           thickness="10px"
           speed=".8s"
@@ -87,7 +86,7 @@ export const Login = () => {
           top="35vh"
         />
       )}
-      {spin && (
+      {isLoading && (
         <Box
           position="fixed"
           top="0"

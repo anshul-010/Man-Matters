@@ -9,7 +9,7 @@ export const Card2 = ({ property }) => {
   const location = useLocation();
   const toast = useToast();
   const dispatch = useDispatch();
-  const cartData = GetCartItems();
+  const cartData = GetCartItems() || [];
 
   function handleAddToCart(obj) {
     let checkItem = cartData.some((item) => item._id === obj._id);

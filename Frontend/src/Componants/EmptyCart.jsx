@@ -1,5 +1,5 @@
-import { ReasonsToBuyComponent } from "../Pages/Checkout";
 import EmptyCartImg from "../Images/CheckoutImgs/EmptyCartImg.webp";
+import { ReasonsToBuyComponent } from "../Pages/Checkout";
 
 import { css } from "@emotion/react";
 import { Box, Text, Image, Button } from "@chakra-ui/react";
@@ -35,19 +35,17 @@ export default EmptyCart;
 
 // Styles **************
 export const Outer = css`
-  margin: auto;
+  text-align: center;
   width: 70%;
   min-height: 100dvh;
   padding-bottom: 64px;
-  text-align: center;
-  margin-top: 100px;
-  margin-bottom: 30px;
+  margin: 100px auto 30px;
 
-  > div:first-child {
+  > div:first-of-type {
     margin-bottom: 120px;
   }
 
-  > div:first-child img {
+  > div:first-of-type img {
     margin: auto;
     display: block;
     width: 120px;
@@ -56,7 +54,7 @@ export const Outer = css`
     aspect-ratio: auto 120 / 120;
   }
 
-  > div:first-child p:nth-of-type(1) {
+  > div:first-of-type p:nth-of-type(1) {
     font-size: 22px;
     font-weight: 900;
     line-height: 38px;
@@ -64,7 +62,7 @@ export const Outer = css`
     margin: 0px 0px 16px;
   }
 
-  > div:first-child p:nth-of-type(2) {
+  > div:first-of-type p:nth-of-type(2) {
     margin: 0px 0px 16px;
     font-weight: 400;
     line-height: 27px;
@@ -72,7 +70,7 @@ export const Outer = css`
     font-size: 14px;
   }
 
-  > div:first-child a {
+  > div:first-of-type a {
     text-decoration: none;
     border-radius: 20px;
     width: 80%;
@@ -88,25 +86,25 @@ export const Outer = css`
     margin-top: 70px;
     margin-bottom: 20px;
 
-    > div:first-child {
+    > div:first-of-type {
       margin-bottom: 60px;
     }
 
-    > div:first-child img {
+    > div:first-of-type img {
       width: 80px;
       height: 80px;
       margin-bottom: 35px;
       aspect-ratio: auto 120 / 120;
     }
 
-    > div:first-child p:nth-of-type(1) {
+    > div:first-of-type p:nth-of-type(1) {
       font-size: 20px;
       line-height: 24px;
       text-align: center;
       margin: 0px 0px 10px;
     }
 
-    > div:first-child p:nth-of-type(2) {
+    > div:first-of-type p:nth-of-type(2) {
       margin: 0px 0px 10px;
       font-weight: 400;
       line-height: 22px;
@@ -114,7 +112,7 @@ export const Outer = css`
       font-size: 14px;
     }
 
-    > div:first-child a {
+    > div:first-of-type a {
       border-radius: 12px;
       max-width: 350px;
       height: 45px;

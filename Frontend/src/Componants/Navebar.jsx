@@ -26,14 +26,20 @@ const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const [token, setToken] = useState("");
+  const toggleNavbar = useSelector((store) => store.AuthReducer.toggleNavbar);
+
   const toggleCart = useSelector((store) => store.CartReducer.toggleCart);
-  const [cartItemsLength, setCartItemsLength] = useState(
-    GetCartItems().length || 0
-  );
+  const [cartItemsLength, setCartItemsLength] = useState(0);
 
   useEffect(() => {
-    setCartItemsLength(GetCartItems().length || 0);
+    const cartLength = GetCartItems()?.length || 0;
+    setCartItemsLength(cartLength);
   }, [toggleCart]);
+
+  useEffect(() => {
+    setToken(GetUserDetails()?.token);
+  }, [toggleNavbar]);
 
   let paramObj = {
     params: {
@@ -157,7 +163,7 @@ const Navbar = () => {
           </div>
         </NavLink>
 
-        {GetUserDetails()?.token ? (
+        {token ? (
           <div className="user-profile">
             <span className="log-in">
               <UserRound color="#1f5c9d" size={22} />

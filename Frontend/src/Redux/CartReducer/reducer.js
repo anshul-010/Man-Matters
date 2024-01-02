@@ -1,16 +1,17 @@
 import {
   TOGGLECART,
   INPCHANGE,
-  CARTLOADING,
-  CARTERROR,
-  CARTSUCCESS,
+  CHECKOUTLOADING,
+  CHECKOUTERROR,
+  CHECKOUTSUCCESS,
+  HIDECHECKOUTPAYMENT,
 } from "../actionType";
 
 const init = {
   isLoading: false,
   isError: false,
   toggleCart: false,
-  showOrderPlaced: true,
+  showOrderPlaced: false,
   name: "",
   address: "",
   pincode: "",
@@ -32,26 +33,35 @@ export const reducer = (state = init, { type, payload, name }) => {
         [name]: payload,
       };
     }
-    case CARTLOADING: {
+    case CHECKOUTLOADING: {
       return {
         ...state,
         isLoading: true,
         isError: false,
+        showOrderPlaced: false,
       };
     }
-    case CARTERROR: {
+    case CHECKOUTERROR: {
       return {
         ...state,
         isLoading: false,
         isError: true,
       };
     }
-    case CARTSUCCESS: {
+    case CHECKOUTSUCCESS: {
       return {
         ...state,
         isLoading: false,
+        showOrderPlaced: true,
       };
     }
+    case HIDECHECKOUTPAYMENT: {
+      return {
+        ...state,
+        showOrderPlaced: false,
+      };
+    }
+
     default:
       return state;
   }

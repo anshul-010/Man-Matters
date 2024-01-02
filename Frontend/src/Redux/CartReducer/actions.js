@@ -2,10 +2,9 @@ import { DeleteLocalStorage, GetUserDetails } from "../AuthReducer/actions";
 import {
   TOGGLECART,
   MANWELLCART,
-  MANWELLUSER,
-  CARTSUCCESS,
-  CARTERROR,
-  CARTLOADING,
+  CHECKOUTLOADING,
+  CHECKOUTERROR,
+  CHECKOUTSUCCESS,
 } from "../actionType";
 
 import axios from "axios";
@@ -15,7 +14,7 @@ const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 // Function for making payment checkout request to backend
 export const DoPayment = (toast, isLoading, data) => (dispatch) => {
   toast.closeAll();
-  dispatch({ type: CARTLOADING });
+  dispatch({ type: CHECKOUTLOADING });
   if (!isLoading) {
     axios({
       //  url: `${API_URL}/product/checkout_payment`,
@@ -28,13 +27,13 @@ export const DoPayment = (toast, isLoading, data) => (dispatch) => {
       data,
     })
       .then((res) => {
-        console.log(res.data);
-        dispatch({ type: CARTSUCCESS });
+        // console.log(res.data);
+        dispatch({ type: CHECKOUTSUCCESS });
         DeleteLocalStorage(MANWELLCART);
       })
       .catch((err) => {
-        console.log(err);
-        dispatch({ type: CARTERROR });
+        console.log("Checkout Payment Error:-", err);
+        dispatch({ type: CHECKOUTERROR });
       });
   }
 };
@@ -47,7 +46,7 @@ export const SetCartItems = (newCartData) => (dispatch) => {
 
 // To Get Cart Items in localStorage
 export const GetCartItems = () => {
-  return JSON.parse(localStorage.getItem(MANWELLCART)) || [];
+  return JSON.parse(localStorage.getItem(MANWELLCART));
 };
 
 // This function calculates & returns 10% discount of the price passed as value.
