@@ -22,6 +22,7 @@ import {
 import { Languages, Calendar, Clock3, Phone } from "lucide-react";
 
 export const Appoinment = () => {
+  const { title } = useParams();
   let initialData = {
     title,
     language: "",
@@ -29,9 +30,9 @@ export const Appoinment = () => {
     time: "",
   };
   const toast = useToast();
-  const { title } = useParams();
   const [spin, setSpin] = useState(false);
   const [appoinmentData, setAppoinmentData] = useState(initialData);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
   function handleChange(e) {
     const { name, value } = e.target;
