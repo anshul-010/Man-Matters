@@ -29,6 +29,7 @@ import { FaRegCircleCheck as CircledTickIcon } from "react-icons/fa6";
 
 const Checkout = () => {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+  // const API_URL =  "http://localhost:8080";
   const toast = useToast();
   const navigate = useNavigate();
   const location = useLocation();

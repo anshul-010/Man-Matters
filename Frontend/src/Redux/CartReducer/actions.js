@@ -17,8 +17,8 @@ export const DoPayment = (toast, isLoading, data) => (dispatch) => {
   dispatch({ type: CHECKOUTLOADING });
   if (!isLoading) {
     axios({
-      //  url: `${API_URL}/product/checkout_payment`,
-      url: "http://localhost:8080/product/checkout_payment",
+       url: `${API_URL}/product/checkout_payment`,
+      // url: "http://localhost:8080/product/checkout_payment",
       method: "post",
       headers: {
         Authorization: GetUserDetails().token || "",
