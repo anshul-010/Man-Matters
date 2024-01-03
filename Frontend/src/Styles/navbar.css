@@ -14,7 +14,6 @@
   transition: background-color 0.3s ease;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 2px;
 }
-
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -22,12 +21,10 @@
   height: 7vh;
   width: 10vw;
 }
-
 .shoping-cart {
   position: relative;
   color: #22548a;
 }
-
 .item-count {
   position: absolute;
   top: -12px;
@@ -39,19 +36,16 @@
   display: flex;
   align-items: center;
 }
-
 .nav-links {
   display: flex;
   gap: 30px;
   justify-content: space-evenly;
   width: 47vw;
 }
-
 .nav-links p {
   font-size: 1.1rem;
   font-weight: 500;
 }
-
 .nav-links p:hover {
   color: #0964c6ea;
   cursor: pointer;
@@ -62,21 +56,18 @@
   cursor: pointer;
   display: none;
 }
-
 .bar {
   height: 4px;
   width: 25px;
   background-color: white;
   transition: 0.3s;
 }
-
 #search {
   display: flex;
   border: 1px solid #22548a;
   align-items: center;
   border-radius: 20px;
 }
-
 #search input {
   outline: none;
   border-radius: 20px;
@@ -90,7 +81,6 @@
   position: relative;
   cursor: pointer;
 }
-
 .profile-dropdown {
   display: none;
   position: absolute;

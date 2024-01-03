@@ -1,4 +1,4 @@
-const people = [
+const Peoples = [
   {
     id: 1,
     image:

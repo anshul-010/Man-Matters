@@ -11,9 +11,6 @@ import {
 } from "../Redux/CartReducer/actions";
 import { PaymentModes } from "../data/PaymentModes";
 import { StateNames } from "../data/StateNames";
-import TickImg from "../Images/CheckoutImgs/TickIcon.png";
-import TruckImg from "../Images/CheckoutImgs/TruckIcon.png";
-import SafetyImg from "../Images/CheckoutImgs/SafetyIcon.png";
 import SafeAndSecureIcon from "../Images/CheckoutImgs/SafeAndSecureIcon.svg";
 import PercentageStarIcon from "../Images/CheckoutImgs/PercentageStarIcon.svg";
 
@@ -490,27 +487,5 @@ export const StepperDivider = ({ currStepper }) => {
       w={["25px", "55px", "68px", "70px"]}
       borderColor={currStepper == 3 ? "primary" : "greyWhiteA"}
     ></Text>
-  );
-};
-
-export const ReasonsToBuyComponent = () => {
-  return (
-    <Box color="blackB" css={css.ReasonsToBuyCont}>
-      <Box css={css.ChildDivReasonsToBuy}>
-        <Image src={TickImg} />
-        <Text>100% Genuine</Text>
-        <Text>Products</Text>
-      </Box>
-      <Box css={css.ChildDivReasonsToBuy}>
-        <Image src={TruckImg} />
-        <Text>Free & Fast</Text>
-        <Text>Delivery</Text>
-      </Box>
-      <Box css={css.ChildDivReasonsToBuy}>
-        <Image src={SafetyImg} />
-        <Text>Trusted by</Text>
-        <Text>1 Crore+ Men</Text>
-      </Box>
-    </Box>
   );
 };

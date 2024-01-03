@@ -15,7 +15,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@react-icons/all-files": "^4.1.0",
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "framer-motion": "^10.16.16",
     "lucide": "^0.294.0",
     "lucide-react": "^0.294.0",

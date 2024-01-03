@@ -6,10 +6,7 @@
 /* On screens that are 992px or less, set the background color to blue */
 @media screen and (min-width: 692px) {
   .body {
-    /* height: 450px;
-    overflow-x: hidden;
-    overflow-y: hidden; */
-    height: 450px;
+    min-height: 450px;
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -20,21 +17,18 @@
     display: none;
   }
 }
-
 div.scrollmenu {
   overflow: auto;
   white-space: nowrap;
   width: 90%;
   margin: auto;
 }
-
 .body3 {
   display: inline-block;
   text-align: center;
   padding: 14px;
   text-decoration: none;
 }
-
 .btn {
   position: absolute;
   top: 80%;
@@ -50,7 +44,6 @@ div.scrollmenu {
   cursor: pointer;
   border-radius: 5px;
 }
-
 .navbar2 {
   overflow: hidden;
   background-color: white;
