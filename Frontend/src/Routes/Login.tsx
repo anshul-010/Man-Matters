@@ -16,7 +16,7 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";  
 
 let initialData = {
   email: "anshkush532@gmail.com",

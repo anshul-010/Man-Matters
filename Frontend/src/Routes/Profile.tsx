@@ -12,6 +12,7 @@ import {
   Image,
   Text,
   useToast,
+  Skeleton
 } from "@chakra-ui/react";
 
 export const Profile = () => {
@@ -19,6 +20,7 @@ export const Profile = () => {
   const toast = useToast();
   const dispatch = useAppDispatch();
   const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [userLoginInfo, setUserLoginInfo] = useState({
     userName: "",
     email: "",
@@ -27,6 +29,7 @@ export const Profile = () => {
 
   // Get User Appointment Data Function
   function getUserData() {
+    setLoading(true)
     axios
       .get(`${API_URL}/appointment`, {
         headers: {
@@ -34,6 +37,7 @@ export const Profile = () => {
         },
       })
       .then((res) => {
+    setLoading(false)
         setUserData(res.data.data);
       })
       .catch((err: any) => {
@@ -98,11 +102,27 @@ export const Profile = () => {
           <Center onClick={handleLogout}>Logout</Center>
         </Box>
       </Box>
-      <Box width={{ base: "", lg: "90vw" }} m="auto">
+      <Box width={{ base: "", lg: "90vw" }} m="auto" >
         <Heading size="md" mt="20px" color="#3b3b3b">
           Your Previous Schedule Appoinment
         </Heading>
-        <Grid
+          {loading  && <Grid templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(1, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(3, 1fr)",
+            xl: "repeat(3, 1fr)",
+            
+          }}
+          width={{ base: "10vw", lg: "90vw" }}
+          // border="1px solid"
+          gap="15px"
+          mt="20px" >
+            <Skeleton height={{ base: "", lg: "30vh" }} borderRadius="10px"></Skeleton>
+            <Skeleton height={{ base: "", lg: "30vh" }} borderRadius="10px"></Skeleton>
+            <Skeleton height={{ base: "", lg: "30vh" }} borderRadius="10px"></Skeleton>
+          </Grid>}
+        {!loading && <Grid
           templateColumns={{
             base: "repeat(1, 1fr)",
             sm: "repeat(1, 1fr)",
@@ -141,10 +161,10 @@ export const Profile = () => {
                 <Box
                   position="absolute"
                   zIndex="10"
-                  height={{ base: "", lg: "20vh" }}
-                  width={{ base: "", lg: "8vw" }}
-                  left="290px"
-                  bottom="65px"
+                  height={{ base: "13vh", lg: "20vh" }}
+                  width={{ base: "25vw", lg: "8vw" }}
+                  left="73%"
+                  bottom="35%"
                 >
                   <Image
                     width="100%"
@@ -155,7 +175,7 @@ export const Profile = () => {
               </Box>
             );
           })}
-        </Grid>
+        </Grid>}
       </Box>
     </div>
   );

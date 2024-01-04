@@ -1117,6 +1117,8 @@ export const Home = () => {
               as="h4"
               mt="1"
               m={"7px"}
+              isTruncated
+
             >
               Research Backed Fish Oil Benefits for Men
             </Box>
@@ -1133,6 +1135,7 @@ export const Home = () => {
               color="white"
               py={2}
               mt="2"
+              
             >
               Learn More
             </Box>
