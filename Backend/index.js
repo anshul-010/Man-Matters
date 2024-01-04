@@ -1,5 +1,5 @@
 require("dotenv").config();
-const mongoURL = process.env.mongoURL;
+const MONGO_URL = process.env.MONGO_URL;
 const PORT = process.env.PORT || 8080;
 
 const express = require("express");
@@ -34,7 +34,7 @@ app.get("/", async (req, res) => {
 // Connection
 app.listen(8080, async () => {
   try {
-    await mongoose.connect(mongoURL);
+    await mongoose.connect(MONGO_URL);
     console.log(`Connection Successfull, Server running on Port: ${PORT}.`);
   } catch (error) {
     console.log("Connection Error:-", error);

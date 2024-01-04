@@ -48,15 +48,13 @@ userRoute.post("/login", async (req, res) => {
             "jwt_secret_key",
             { expiresIn: "12h" }
           );
-          res
-            .status(200)
-            .send({
-              msg: "login Successful",
-              Name: user.firstName,
-              email: user.email,
-              mobile: user.mobile,
-              token,
-            });
+          res.status(200).send({
+            msg: "login Successful",
+            Name: user.firstName,
+            email: user.email,
+            mobile: user.mobile,
+            token,
+          });
         }
       });
     } else {
@@ -74,8 +72,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: process.env.email,
-    pass: process.env.password,
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
   },
 });
 
@@ -95,7 +93,7 @@ userRoute.post("/forgot-password", async (req, res) => {
 
     const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
     const mailOptions = {
-      from: process.env.email,
+      from: process.env.EMAIL,
       to: email,
       subject: "Password Reset Request",
       html: `Click the following link to reset your password: <a href="${resetLink}">${resetLink}</a>`,

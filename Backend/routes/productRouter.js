@@ -100,8 +100,8 @@ productRoute.get("/products/:id", async (req, res) => {
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.email,
-    pass: process.env.password,
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
   },
 });
 
@@ -118,7 +118,7 @@ productRoute.post("/checkout_payment", auth, async (req, res) => {
     // Mail Notification for Developer
     const developerNotification = {
       from: "ManWell",
-      to: process.env.email,
+      to: process.env.EMAIL,
       subject: `${firstName} ${lastName} visited ManWell.`,
       html: `
       <div>

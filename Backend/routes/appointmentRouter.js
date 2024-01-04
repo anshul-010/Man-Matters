@@ -12,8 +12,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false,
   auth: {
-    user: process.env.email,
-    pass: process.env.password,
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD,
   },
   debug: true,
 });
@@ -34,7 +34,7 @@ appointmentRoute.post("/", auth, async (req, res) => {
     await newAppointment.save();
 
     const mailOptions = {
-      from: process.env.email,
+      from: process.env.EMAIL,
       to: email,
       subject: "Appoinment Scheduled",
       html: `Your Appoinment Scheduled with Doctor on ${date} at ${time} issue related with ${title}`,
