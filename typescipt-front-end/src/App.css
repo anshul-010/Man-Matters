@@ -1,8 +1,0 @@
-* {
-  box-sizing: border-box;
-  cursor: default;
-  -webkit-tap-highlight-color: transparent;
-}
-.App {
-  min-height: 100dvh;
-}
