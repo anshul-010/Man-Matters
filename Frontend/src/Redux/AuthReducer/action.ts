@@ -14,9 +14,10 @@ export const LogIn = async (dispatch: any, userData: any) => {
     data: userData,
   })
     .then((res) => {
+      console.log(res.data)
       if (res.data.msg === "wrong credential") {
         dispatch(AUTH_ERROR);
-        return { auth: false };
+        return { auth: false};
       } else {
         const { Name, email, mobile, token } = res.data;
         const userData = {
@@ -27,7 +28,7 @@ export const LogIn = async (dispatch: any, userData: any) => {
         };
         SetItemLocalStorage(USER_DETAILS_LS_KEY, userData);
         dispatch(AUTH_SUCCESS(res.data));
-        return { auth: true };
+        return { auth: true,admin:res.data.Name  };
       }
     })
     .catch((err: any) => {

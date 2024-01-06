@@ -18,13 +18,18 @@ import { Home } from "./Routes/Home";
 
 import { Box } from "@chakra-ui/react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import { AdminDashboard } from "./Routes/AdminDashboard";
+import { AdminNavbar } from "./Components/AdminNavbar";
 
 function App() {
   const location = useLocation();
-
+  const hideFooter = location.pathname === "/admin-dashboard" || location.pathname === "/checkout";
+  const useAdminNavbar = location.pathname === "/admin-dashboard";
+  const useCheckoutNavbar = location.pathname === "/checkout";
   return (
     <Box className="App">
-      {location.pathname == "/checkout" ? <CheckoutNavbar /> : <Navbar />}
+        {useCheckoutNavbar ? <CheckoutNavbar /> : (useAdminNavbar ? <AdminNavbar /> : <Navbar />)}
+
 
       {/* All Routes */}
       <Routes>
@@ -40,10 +45,11 @@ function App() {
         <Route path="/self-assessment" element={<SelfAssessment />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard/>} />
         <Route path="*" element={<PageNotFound />} />/
       </Routes>
 
-      {location.pathname != "/checkout" && <Footer />}
+      {!hideFooter && <Footer />}
     </Box>
   );
 }

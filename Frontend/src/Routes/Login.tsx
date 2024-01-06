@@ -46,6 +46,10 @@ export const Login = () => {
       toast.closeAll();
       LogIn(dispatch, userData).then((auth: any) => {
         if (auth.auth) {
+          if(auth.admin==="Admin"){
+            return navigate("/admin-dashboard");
+          }
+          else{
           toast({
             position: "top",
             duration: 2500,
@@ -57,6 +61,7 @@ export const Login = () => {
           });
           setUserData(initialData);
           navigate(location?.state?.redirectTo || "/", { replace: true });
+        }
         } else {
           toast({
             position: "top",
