@@ -18,13 +18,14 @@ import { Home } from "./Routes/Home";
 
 import { Box } from "@chakra-ui/react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { AdminDashboard } from "./Routes/AdminDashboard";
-import { AdminNavbar } from "./Components/AdminNavbar";
+import { AdminDashboard } from "./Admin/AdminDashboard";
+import { AdminNavbar } from "./Admin/AdminNavbar";
+import { Admin } from "./Admin/Admin";
 
 function App() {
   const location = useLocation();
-  const hideFooter = location.pathname === "/admin-dashboard" || location.pathname === "/checkout";
-  const useAdminNavbar = location.pathname === "/admin-dashboard";
+  const hideFooter = location.pathname === "/admin" || location.pathname === "/checkout";
+  const useAdminNavbar = location.pathname === "/admin";
   const useCheckoutNavbar = location.pathname === "/checkout";
   return (
     <Box className="App">
@@ -46,6 +47,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin-dashboard" element={<AdminDashboard/>} />
+        <Route path="/admin" element={<Admin/>} />
         <Route path="*" element={<PageNotFound />} />/
       </Routes>
 
