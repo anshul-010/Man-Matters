@@ -47,7 +47,7 @@ export const Login = () => {
       LogIn(dispatch, userData).then((auth: any) => {
         if (auth.auth) {
           if(auth.admin==="Admin"){
-            return navigate("/admin-dashboard");
+            return navigate("/admin");
           }
           else{
           toast({
