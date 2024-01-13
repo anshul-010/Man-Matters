@@ -1,0 +1,125 @@
+#Admin-dashboard{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 78%;
+    margin:auto;
+    margin-top: 6px;
+    border-radius: 20px;
+    text-align: center;
+    /* position: absolute; */
+    background-color: rgb(253, 253, 253);
+}
+
+#Admin-dashboard>h2{
+    position: relative;
+    color: rgb(73, 73, 73);
+    font-size: xx-large;
+    font-weight: 500;
+    top: 2%;
+}
+
+#detail{
+    display: flex;
+    margin-top: 3%;
+    justify-content: space-evenly;
+    height: 25%;
+
+}
+
+.detail-card{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 27%;
+    display: flex;
+    height: 170px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.detail-logo{
+    width: 40%;
+    height: 60%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top:12%;
+    margin-left: 10%;
+    border-radius: 20px;
+}
+
+.detail-text{
+    width: 50%;
+    height: 60%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-top:12%;
+    
+}
+.detail-text>p{
+    font-size: larger;
+    font-weight: 500;
+    color: rgb(73, 73, 73);
+}
+.detail-text>h3{
+    font-size: larger;
+    font-weight: bold;
+    color: rgb(73, 73, 73);
+}
+
+#admin-data-div{
+    margin-top: 2%;
+    width: 98%;
+}
+#admin-data{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 500;
+    color: rgb(73, 73, 73);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: 0px 15px 10px -19px #7b7b7b;
+    border-radius: 15px;
+}
+#admin-data:hover{
+    background-color: rgb(247, 247, 247);
+    cursor: pointer;
+}
+
+#admin-image{
+    width: 60px;
+}
+#admin-image>img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+
+.admin--name{
+    width: 200px;
+    padding: 0;
+}
+.admin--email{
+    width: 450px;
+}
+.admin--gender{
+    width: 100px;
+}
+
+
+
+@media screen and (max-width: 700px){
+    #detail{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .detail-card{
+        width:240px ;
+        margin: 3%;
+    }
+}

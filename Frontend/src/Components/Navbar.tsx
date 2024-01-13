@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../Redux/store";
 
 import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
-import { useToast } from "@chakra-ui/react";
+import {  useToast } from "@chakra-ui/react";
 import {
   Menu,
   X,
@@ -191,6 +191,7 @@ const Navbar = () => {
           </NavLink>
         )}
       </div>
+
 
       <NavLink
         to="/checkout"

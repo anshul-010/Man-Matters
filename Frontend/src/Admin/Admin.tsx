@@ -1,12 +1,10 @@
-import { Box } from '@chakra-ui/react'
-import { AdminSidebar } from "./AdminSidebar";
+import { Box, Heading } from '@chakra-ui/react'
 
 export const Admin = () => {
   return (
     <div>
         <Box>
-            <AdminSidebar/>
-
+          <Heading>Admin</Heading>
         </Box>
     </div>
   )
