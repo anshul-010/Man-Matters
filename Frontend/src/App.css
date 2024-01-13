@@ -66,3 +66,17 @@ div.scrollmenu {
   align-items: center;
   text-align: center;
 }
+.btn2 {
+  position: absolute;
+  top: 28%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #111E2C;
+  width: 80px;
+  text-align: center;
+  padding: 2px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
