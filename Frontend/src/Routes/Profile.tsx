@@ -12,7 +12,9 @@ import {
   Image,
   Text,
   useToast,
-  Skeleton
+  Skeleton,
+  Flex,
+  Button
 } from "@chakra-ui/react";
 
 export const Profile = () => {
@@ -26,7 +28,7 @@ export const Profile = () => {
     email: "",
     mobile: "",
   });
-
+console.log(userData)
   // Get User Appointment Data Function
   function getUserData() {
     setLoading(true)
@@ -135,44 +137,23 @@ export const Profile = () => {
         >
           {userData?.map((ele: any) => {
             return (
-              <Box
-                position="relative"
-                p="10px"
-                backgroundColor="#b84440d8"
-                color="white"
-                borderRadius="10px"
-                height={{ base: "", lg: "30vh" }}
-              >
-                <Text>Issue Related: {ele?.title}</Text>
-                <Text>Date: {ele?.date}</Text>
-                <Text>Time: {ele?.time}</Text>
-                <Center>
-                  <Box
-                    mt="60px"
-                    fontWeight="500"
-                    p="5px 20px"
-                    backgroundColor={"white"}
-                    borderRadius="20px"
-                    color="#22548A"
-                  >
-                    You talked with Dr.
-                  </Box>
-                </Center>
-                <Box
-                  position="absolute"
-                  zIndex="10"
-                  height={{ base: "13vh", lg: "20vh" }}
-                  width={{ base: "25vw", lg: "8vw" }}
-                  left="73%"
-                  bottom="35%"
-                >
-                  <Image
-                    width="100%"
-                    height="100%"
-                    src="https://i.mscwlns.co/media/man-matters/Consult/DA/ConsultCardDoctorImageDesktop_HRCEiaVDF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666844428607"
-                  />
-                </Box>
-              </Box>
+              
+              <Box bg={"#18222D"} position={"relative"} p={"7px"} maxW="sm" borderRadius="lg"  overflow="hidden">
+         <Text fontWeight={"bold"} color={"white"}>Issue Relate: {ele.title}</Text>
+         <Flex>
+          <Image w={"70px"} m={"5px"} borderRadius={"50%"} src="https://i.mscwlns.co/media/man-matters/Consult/DA/ConsultCardDoctorImageDesktop_HRCEiaVDF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666844428607" alt="" />
+        <Center>
+          <Text fontWeight={"bold"} color={"white"} >Dr. Nitesh </Text>
+        </Center>
+         </Flex>
+         <Text color={"white"} fontWeight={"small"}>Be on time <span >💙</span></Text>
+         <Button bg={"#5DADEC"} color={"white"} >Join</Button>
+         <Box  className="btn2">
+          <Text color={"#5DADEC"} fontWeight={"bold"} >Wed</Text>
+          <Text color={"white"} fontWeight={"bold"}>{ele.date}</Text>
+          <Text color={"white"} fontWeight={"bold"}>{ele.time} PM</Text>
+         </Box>
+          </Box>
             );
           })}
         </Grid>}
