@@ -21,16 +21,30 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AdminDashboard } from "./Admin/AdminDashboard";
 import { AdminNavbar } from "./Admin/AdminNavbar";
 import { Admin } from "./Admin/Admin";
+import { AdminUsers } from "./Admin/AdminUsers";
+import { AdminAddNewItem } from "./Admin/AdminAddNewItem";
+import { AdminManageItems } from "./Admin/AdminManageItems";
 
 function App() {
   const location = useLocation();
-  const hideFooter = location.pathname === "/admin" || location.pathname === "/checkout";
-  const useAdminNavbar = location.pathname === "/admin";
+  const hideFooter =
+  location.pathname === "/checkout";
+  const useAdminNavbar =
+    location.pathname === "/admin" ||
+    location.pathname === "/admin-dashboard" ||
+    location.pathname === "/admin-users" ||
+    location.pathname === "/admin-addnewitem" ||
+    location.pathname === "/admin-manageitems";
   const useCheckoutNavbar = location.pathname === "/checkout";
   return (
     <Box className="App">
-        {useCheckoutNavbar ? <CheckoutNavbar /> : (useAdminNavbar ? <AdminNavbar /> : <Navbar />)}
-
+      {useCheckoutNavbar ? (
+        <CheckoutNavbar />
+      ) : useAdminNavbar ? (
+        <AdminNavbar />
+      ) : (
+        <Navbar />
+      )}
 
       {/* All Routes */}
       <Routes>
@@ -46,8 +60,11 @@ function App() {
         <Route path="/self-assessment" element={<SelfAssessment />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard/>} />
-        <Route path="/admin" element={<Admin/>} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin-users" element={<AdminUsers/>} />
+        <Route path="/admin-addnewitem" element={<AdminAddNewItem/>} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/admin-manageitems" element={<AdminManageItems/>} />
         <Route path="*" element={<PageNotFound />} />/
       </Routes>
 
