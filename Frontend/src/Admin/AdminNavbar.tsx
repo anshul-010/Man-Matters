@@ -30,7 +30,7 @@ export const AdminNavbar = () => {
 
   return (
     <div className={`navbar ${isNavOpen ? "" : "open"}`}>
-      <Link to="/admin" replace state={{ redirectTo: location.pathname }}>
+      <Link to="/admin-dashboard" replace state={{ redirectTo: location.pathname }}>
         <div className="logo">
           <img
             src="https://i.mscwlns.co/media/misc/others/mm%20logo%20gif%202%20%281%29_2cf9r9.gif?tr=w-400"
@@ -45,7 +45,7 @@ export const AdminNavbar = () => {
 
       <div className={`nav-links ${isNavOpen ? "" : "open"}`}>
         <NavLink
-          to={"/admin-dashboard"}
+          to={"/admin"}
           style={({ isActive }) => (isActive ? activeStyle : {})}
           replace
           state={{ redirectTo: location.pathname }}
@@ -55,9 +55,9 @@ export const AdminNavbar = () => {
             onClick={() => setIsNavOpen(true)}
             style={{ display: "flex", gap: "2px",alignItems:"center" }}
           >
-            <Home size={20} strokeWidth={1.1}  />
+            <UserRound size={22} strokeWidth={1.1} />
             <span className="nav-link" style={{ color: "" }}>
-              Dashboard
+              Admins
             </span>
           </div>
         </NavLink>

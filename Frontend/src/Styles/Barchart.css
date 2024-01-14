@@ -1,0 +1,32 @@
+.chart-container {
+    max-width: 90%;
+    min-width: 1.8rem;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    margin: auto;
+    border-radius: 0.75rem;
+    border: 1px solid #EBEBEB;
+    background: #FFF;
+    box-shadow: 0px 0.599px 5.32px 0px rgba(0, 0, 0, 0.01), 0px 2.01px 17.869px 0px rgba(0, 0, 0, 0.01), 0px 9px 80px 0px rgba(0, 0, 0, 0.02);
+    padding: 0rem 1.44rem 0.63rem 1.25rem;
+}
+
+.chart-container>div {
+    display: flex;
+    height: 4rem;
+    padding: 1.25rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+
+@media (max-width: 1000px) {
+    .chart-container {
+        margin:auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+}
