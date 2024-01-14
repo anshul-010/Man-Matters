@@ -61,9 +61,9 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/admin-users" element={<AdminUsers/>} />
         <Route path="/admin-addnewitem" element={<AdminAddNewItem/>} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/admin-manageitems" element={<AdminManageItems/>} />
         <Route path="*" element={<PageNotFound />} />/
       </Routes>

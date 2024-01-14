@@ -1,0 +1,113 @@
+.card-container {
+    display: grid;
+    max-width: 85%;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    
+}
+
+.card-inner-div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.88rem 0.94rem 0.75rem 0.94rem;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.06rem;
+    align-self: stretch;
+    border-radius:8px;
+    border: 1px solid #f8cdca;
+    border-left: 6px solid #E03021;
+}
+.card-inner-div p:last-child{
+    color: #f38e1b;
+}
+
+
+
+.card-inner-div:nth-child(2){
+    border: 1px solid #fff1c2;
+    border-left: 6px solid #ffc400;
+}
+
+.card-inner-div:nth-child(3){
+    border: 1px solid #d0eed8;
+    border-left: 6px solid #37aa57;
+}
+.card-inner-div>p{
+    font-size: 0.9375rem;
+}
+
+.card-inner-div:nth-child(2) {
+    margin-top: 1.5rem;
+}
+
+.card-container>div {
+    border-radius: 0.75rem;
+    border: 1px solid #EBEBEB;
+    background: #FFF;
+    box-shadow: 0px 0.599px 5.32px 0px rgba(0, 0, 0, 0.01), 0px 2.01px 17.869px 0px rgba(0, 0, 0, 0.01), 0px 9px 80px 0px rgba(0, 0, 0, 0.02);
+    width: 16.7rem;
+    height: 8.8rem; 
+    padding: 1.2rem;
+}
+
+.card-container>div>div {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-weight: 500;
+}
+
+.card-container>div svg {
+    margin-top: 3px;
+}
+
+.card-container>div>p{
+    color: rgba(0, 0, 0, 0.67);
+    /* text-align: center; */
+    font-family: Poppins;
+    font-size: 0.7rem;
+    /* font-style: italic; */
+    color: gray;
+    font-weight: 275;
+    line-height: normal;
+}
+
+.card-container>div:last-child {
+    border-radius: 0.75rem;
+    border: 1px solid #EBEBEB;
+    background: rgba(2, 171, 108, 0.67);
+    box-shadow: 0px 0.599px 5.32px 0px rgba(0, 0, 0, 0.01), 0px 2.01px 17.869px 0px rgba(0, 0, 0, 0.01), 0px 9px 80px 0px rgba(0, 0, 0, 0.02);
+    width: 9.75rem;
+    height: 8.63rem;
+    display: none;
+}
+
+.card-container>div:last-child>h2 {
+    color: #FFF;
+    /* font-family: HelveticaNeue; */
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.125rem;
+    /* 128.571% */
+}
+
+.card-container>div:last-child>h1 {
+    color: rgba(255, 255, 255, 0.84);
+    text-align: center;
+    /* font-family: HelveticaNeue; */
+    font-size: 2.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+
+
+@media screen and (min-width: 600px) {
+    .card-container{
+        /* width: 90%; */
+        margin-left: 0rem;
+    }
+  }
