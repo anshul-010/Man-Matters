@@ -7,7 +7,6 @@ import {
   Menu,
   X,
   UserRound,
-  Home,
   PanelBottomClose,
 } from "lucide-react";
 

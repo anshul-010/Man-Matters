@@ -68,6 +68,7 @@ const Card2 = ({ property }: any) => {
               height="100%"
               width="100%"
               alt={property.image}
+              loading={"lazy"}
             />
           </Box>
           <Box pt="0">

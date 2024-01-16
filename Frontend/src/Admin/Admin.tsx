@@ -51,7 +51,7 @@ export const Admin = () => {
                 <div id="admin-image">
                     <img src="https://avatars.githubusercontent.com/u/93611786?v=4" alt="" />
                 </div>
-                <h2 className="admin--name">Anshul</h2>
+                <h2 className="admin--name">Anshul Kushwah</h2>
                 <h2 className="admin--email">kushwahasg4450@gmail.com</h2>
                 <h2 className="admin--gender">7906192050</h2>
             </div>
@@ -65,19 +65,19 @@ export const Admin = () => {
             </div>
             <div id="admin-data">
                 <div id="admin-image">
-                    <img src="https://avatars.githubusercontent.com/u/112534172?s=64&v=4" alt="" />
-                </div>
-                <h2 className="admin--name">Prateek Shukla</h2>
-                <h2 className="admin--email">prateekshuklaps0@gmail.com.</h2>
-                <h2 className="admin--gender">9990821422</h2>
-            </div>
-            <div id="admin-data">
-                <div id="admin-image">
                     <img src="https://avatars.githubusercontent.com/u/103162888?v=4" alt="" />
                 </div>
                 <h2 className="admin--name">Shashikant Yadav</h2>
                 <h2 className="admin--email">shashi31396s@gmail.com</h2>
                 <h2 className="admin--gender">9458707066</h2>
+            </div>
+            <div id="admin-data">
+                <div id="admin-image">
+                    <img src="https://avatars.githubusercontent.com/u/112534172?s=64&v=4" alt="" />
+                </div>
+                <h2 className="admin--name">Prateek Shukla</h2>
+                <h2 className="admin--email">prateekshuklaps0@gmail.com.</h2>
+                <h2 className="admin--gender">9990821422</h2>
             </div>
             <div id="admin-data">
                 
