@@ -1,0 +1,100 @@
+#main-box{
+    border: 1px solid ;
+    display: flex ;
+    justify-content: space-evenly;
+}
+#main-box img{
+    /* border: 1px solid; */
+    
+    margin-top: 20px;
+    position: sticky;
+    top: 10vh;
+}
+
+.img1{
+    transform: scaleX(-1)
+}
+
+#form-box{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 5px;
+    width: 30%;
+    margin: 20px auto;
+    padding: 20px;
+    
+}
+#heading{
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 700;
+    color: #295286;
+    margin: 10px 0 20px 0;
+
+}
+#form-box input{
+    border: 1px solid rgb(235, 235, 235);
+    outline: none;
+    width: 100%;
+    padding: 5px;
+    color: rgba(21, 60, 95, 0.757);
+    margin:5px 0;   
+    border-radius: 8px; 
+}
+
+#form-box select{
+    border: 1px solid gray;
+    outline: none;
+    width: 100%;
+    padding: 5px;
+    color: rgba(21, 60, 95, 0.757);
+    margin:5px 0;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+label{
+    font-size: medium;
+    font-weight: 500;
+    color: #295286;
+
+}
+option{
+    font-weight: 500;
+    color: rgba(21, 60, 95, 0.757);
+
+}
+option:hover{
+    background-color: aqua;
+}
+
+#form-box input:focus {
+    content: "";
+    border: 1px solid rgb(23, 55, 135);
+}
+#form-box select:focus {
+    content: "";
+    border: 1px solid rgb(23, 55, 135);
+
+}
+
+#form-box button{
+    border: 1px solid;
+    display: block;
+    margin: 30px auto;
+    padding: 10px 50px;
+    font-weight: 500;
+    color: white;
+    background-color: #295186db;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 800px){
+    #form-box{
+        width: 90%;
+        margin: 30px  auto;
+        padding: 20px;
+    }
+    #main-box img{
+        display: none;
+    }
+}

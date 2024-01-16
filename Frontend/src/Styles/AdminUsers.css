@@ -5,7 +5,9 @@
     margin-top: 6px;
     border-radius: 20px;
     text-align: center;
-    position: absolute;
+    /* position: absolute; */
+    padding-bottom: 40px;
+    margin: auto;
     background-color: rgb(253, 253, 253);
 }
 
@@ -73,4 +75,15 @@
 
 #delete-user-btn:hover{
     cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    #admin-user{
+        width: 100vw;
+    }
+
+    .admin-user-email{
+        display: none !important;
+        border: 1px solid;
+    }
 }

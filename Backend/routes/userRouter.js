@@ -35,6 +35,29 @@ userRoute.post("/register", async (req, res) => {
   }
 });
 
+// get users 
+
+userRoute.get("/getusers", async(req,res)=>{
+  try {
+    const allUsers = await UserModel.find()
+    res.status(200).json({"allUsers":allUsers})
+  } catch (error) {
+    res.status(500).json({error: error})
+  }
+})
+
+// delete user
+
+userRoute.delete("/delete-user/:id",  async (req, res) => {
+  try {
+    await UserModel.findByIdAndDelete(req.params.id);
+    res.status(200).send({ message: "Successfully deleted user." });
+  } catch (error) {
+      res.status(400).send({"mse":error.message});    
+  }
+});
+
+
 // login Route
 userRoute.post("/login", async (req, res) => {
   const { email, password } = req.body;
