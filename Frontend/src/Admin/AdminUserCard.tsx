@@ -17,7 +17,7 @@ export const AdminUserCard: React.FC<AdminUserCardProps> = ({ user, getUsers }) 
 
 
   function handleDelete(id: string) {
-    axios.delete(`http://localhost:8080/user/delete-user/${id}`)
+    axios.delete(`https://man-matters.onrender.com/user/delete-user/${id}`)
       .then(() => getUsers());
   }
 

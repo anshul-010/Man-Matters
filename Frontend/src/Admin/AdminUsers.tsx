@@ -10,7 +10,7 @@ export const AdminUsers = () => {
 
   function getUsers() {
     axios
-      .get(`http://localhost:8080/user/getusers`)
+      .get(`https://man-matters.onrender.com/user/getusers`)
       .then((res) => {
         setUserData(res.data.allUsers);
       });
