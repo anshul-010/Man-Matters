@@ -117,7 +117,7 @@ export const Appoinment = () => {
           zIndex="1"
         ></Box>
       )}
-      <Flex justify="space-between">
+      <Flex justify="space-between" >
         <Box width="20vw" height="70vh" ml="5%" mt="2%">
           <motion.div {...swipeAnimationLeft}>
             <Image src={DoctorImg} width="100%" />
@@ -129,8 +129,8 @@ export const Appoinment = () => {
             boxShadow="xl"
             borderRadius="20px"
             borderColor="#a4c9f099"
-            width={{ base: "75vw", lg: "32vw" }}
-            m="15px auto"
+            width={{ base: "80vw", lg: "32vw" }}
+            m="10px auto"
           >
             <Center>
               <Heading m="10px" size={{ lg: "lg" }} color="#404040ed">
@@ -203,7 +203,7 @@ export const Appoinment = () => {
                 </Select>
               </Flex>
             </FormControl>
-            <hr style={{ width: "230vw" }} />
+            <hr style={{ width: "17vw" }} />
             <Text
               fontSize={{ base: "md", lg: "lg" }}
               color="gray.500"
