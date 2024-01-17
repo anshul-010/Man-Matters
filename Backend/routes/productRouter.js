@@ -10,13 +10,13 @@ const productRoute = express.Router();
 productRoute.post("/add-products", async (req, res) => {
   try {
     // for an array of objects
-    const allProducts = req.body;
-    await ProductModel.insertMany(allProducts);
+    // const allProducts = req.body;
+    // await ProductModel.insertMany(allProducts);
 
     //// for a single data
-    // const newProduct = new Product(req.body);
-    // await newProduct.save();
-    res.status(200).send({ msg: "product saved successfully" });
+    const newProduct = new ProductModel(req.body);
+    await newProduct.save();
+    res.status(200).send({ msg: "product added successfully" });
   } catch (error) {
     console.log(error);
     res.status(400).send({ msg: error.message });

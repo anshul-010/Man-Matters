@@ -54,7 +54,7 @@ export const Signup = () => {
             duration: 2500,
             render: () => (
               <Box color="white" p={3} bg="#69d729">
-                <b>Signup Successfull 👍</b>
+                <b>Register Successfully 👍</b>
               </Box>
             ),
           });

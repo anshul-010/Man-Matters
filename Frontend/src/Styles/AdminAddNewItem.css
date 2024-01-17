@@ -1,12 +1,11 @@
 #main-box{
-    border: 1px solid ;
     display: flex ;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 #main-box img{
     /* border: 1px solid; */
-    
     margin-top: 20px;
+    width: 90%;
     position: sticky;
     top: 10vh;
 }
@@ -16,9 +15,9 @@
 }
 
 #form-box{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px;
-    width: 30%;
+    box-shadow: rgba(41, 41, 41, 0.24) 0px 3px 8px;
+    border-radius: 8px;
+    width: 32vw;
     margin: 20px auto;
     padding: 20px;
     
@@ -88,9 +87,17 @@ option:hover{
     border-radius: 8px;
 }
 
+@media screen and (max-width: 1000px){
+    #form-box{
+        width: 50vw;
+        margin: 30px  auto;
+        padding: 20px;
+    }
+    
+}
 @media screen and (max-width: 800px){
     #form-box{
-        width: 90%;
+        width: 90vw;
         margin: 30px  auto;
         padding: 20px;
     }
