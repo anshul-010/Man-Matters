@@ -96,6 +96,30 @@ productRoute.get("/products/:id", async (req, res) => {
   }
 });
 
+// Update product Route
+productRoute.patch("/update/:id",async(req,res)=>{
+  const {id} = req.params
+  try {
+    await ProductModel.findByIdAndUpdate({_id:id},req.body)
+    res.status(200).send({"msg":"item has been updated successfully"})
+  } catch (error) {
+    res.status(400).send({"msg":error.message})
+  }
+})
+
+
+
+// Delete product Route
+productRoute.delete("/delete/:id",async(req,res)=>{
+  const {id} = req.params
+  try {
+    await ProductModel.findByIdAndDelete({_id:id})
+    res.status(200).send({"msg":"item has been deleted"})
+  } catch (error) {
+    res.status(400).send({"msg":error.message})
+  }
+})
+
 // Sending mail to user for purchasing the product
 const transporter = nodemailer.createTransport({
   service: "gmail",
