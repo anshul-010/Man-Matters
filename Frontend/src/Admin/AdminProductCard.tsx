@@ -1,4 +1,3 @@
-import { Link, useLocation } from "react-router-dom";
 import { StarIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import {
@@ -28,7 +27,6 @@ const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useAppDispatch();
   const toast = useToast();
-  const location = useLocation();
   const [Data, setData] = useState(property);
 
   function handleChange(e: any) {
@@ -79,11 +77,7 @@ const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
       borderRadius="lg"
       overflow="hidden"
     >
-      <Link
-        to={`/product-detail/${property._id}`}
-        replace
-        state={{ redirectTo: location.pathname }}
-      >
+      
         <Box>
           <Box m="auto" height="28vh" width={{ base: "", lg: "18vw" }}>
             <Image
@@ -152,7 +146,6 @@ const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
             </Box>
           </Box>
         </Box>
-      </Link>
       <Box
         // border="1px solid"
         p="5px"
