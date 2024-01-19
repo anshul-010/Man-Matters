@@ -1,9 +1,7 @@
-import { GetCartItems, SetCartItems } from "../Redux/CartReducer/action";
-import { useAppDispatch, useAppSelector } from "../Redux/store";
 
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDownIcon, StarIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import {  StarIcon } from "@chakra-ui/icons";
+import {    useState } from "react";
 import {
   Badge,
   Box,
@@ -12,10 +10,6 @@ import {
   FormLabel,
   Image,
   Input,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -28,38 +22,19 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Pencil, Trash2 } from "lucide-react";
+import axios from "axios";
 
-// let initialState = {
-//   image: [],
-//   price: "",
-//   title: "",
-//   for: "",
-//   stage: "",
-//   with: "",
-//   category: "",
-//   rating: "",
-//   newlaunch: false,
-// };
 
 const AdminProductCard = ({ property }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
   const location = useLocation();
-  const dispatch = useAppDispatch();
-  const [cartData, setCartData] = useState<any>([]);
-  const [singleData, setSingleData] = useState(property);
-  const toggleCart = useAppSelector(
-    (state: any) => state.CartReducer.toggleCart
-  );
-
-  // Updating cart array when new item is added
-  useEffect(() => {
-    setCartData(GetCartItems());
-  }, [toggleCart]);
+  const [Data, setData] = useState(property);
+  
 
   function handleChange(e: any) {
     const { name, value } = e.target;
-    setSingleData((prev: any) => {
+    setData((prev: any) => {
       return {
         ...prev,
         [name]:
@@ -70,11 +45,83 @@ const AdminProductCard = ({ property }: any) => {
     });
   }
 
-  function handleUpdate() {
-    console.log(singleData);
+  async function handleUpdate(props: any) {
+
+    try {
+      
+      let id = props._id;
+      const res = await axios.patch(`http://localhost:8080/product//update/${id}`, Data);
+      
+      
+        if (res.data.msg === "item has been updated successfully") {
+          toast({
+            position: "top",
+            duration: 2500,
+            render: () => (
+              <Box color="white" p={3} bg="#69d729">
+                <b>Item Updated Successfully 👍</b>
+              </Box>
+            ),
+          });
+        } else {
+          toast({
+            position: "top",
+            duration: 2500,
+            render: () => (
+              <Box color="white" p={3} bg="#d74029">
+                <b>Something went wrong</b>
+              </Box>
+            ),
+          });
+        }
+        onClose();
+        window.location.reload();
+      }catch(error){
+        console.error("Error updating item:", error);
+        toast({
+          position: "top",
+          duration: 2500,
+          render: () => (
+            <Box color="white" p={3} bg="#d74029">
+              <b>Something went wrong</b>
+            </Box>
+          ),
+        });
+    }
   }
 
+  async function handleDelete(id:any){
+    try {
+      await axios.delete(`http://localhost:8080/product/delete/${id}`)
+      toast({
+        position: "top",
+        duration: 2500,
+        render: () => (
+          <Box color="white" p={3} bg="#69d729">
+            <b>Item Deleted Successfully 👍</b>
+          </Box>
+        ),
+      });
+      window.location.reload();
+
+    } catch (error) {
+      toast({
+        position: "top",
+        duration: 2500,
+        render: () => (
+          <Box color="white" p={3} bg="#d74029">
+            <b>Something went wrong</b>
+          </Box>
+        ),
+      });
+    }
+  }
+
+  
+
+
   return (
+
     <Box
       width={{ base: "", lg: "18vw" }}
       borderWidth="2px"
@@ -174,15 +221,13 @@ const AdminProductCard = ({ property }: any) => {
           leftIcon={<Trash2 size="15px" />}
           colorScheme="pink"
           variant="outline"
-          onClick={() => alert(property._id)}
+          onClick={()=>handleDelete(property._id)}
         >
           Delete
         </Button>
       </Box>
       {/*  */}
       <Modal
-        // initialFocusRef={initialRef}
-        // finalFocusRef={finalRef}
         isOpen={isOpen}
         onClose={onClose}
       >
@@ -195,43 +240,45 @@ const AdminProductCard = ({ property }: any) => {
               <FormLabel>image url 1</FormLabel>
               <Input
                 placeholder="image url 1"
-                value={singleData.image[0]}
+                value={Data.image[0]}
                 onChange={handleChange}
               />
               <FormLabel>image url 2</FormLabel>
               <Input
                 placeholder="image url 2"
-                value={singleData.image[1]}
+                value={Data.image[1]}
                 onChange={handleChange}
               />
               <FormLabel>image url 3</FormLabel>
               <Input
                 placeholder="image url 3"
-                value={singleData.image[2]}
+                value={Data.image[2]}
                 onChange={handleChange}
               />
               <FormLabel>image url 4</FormLabel>
               <Input
                 placeholder="image url 4"
-                value={singleData.image[3]}
+                value={Data.image[3]}
                 onChange={handleChange}
               />
               <FormLabel>price</FormLabel>
               <Input
                 placeholder="price"
-                value={singleData.price}
+                name="price"
+                value={Data.price}
                 onChange={handleChange}
               />
               <FormLabel>title</FormLabel>
               <Input
                 placeholder="title"
-                value={singleData.title}
+                name="title"
+                value={Data.title}
                 onChange={handleChange}
               />
               <FormLabel>for</FormLabel>
               <Select
                 id=""
-                value={singleData.for}
+                value={Data.for}
                 name="for"
                 onChange={handleChange}
                 required
@@ -263,7 +310,7 @@ const AdminProductCard = ({ property }: any) => {
               <FormLabel>stage</FormLabel>
               <Select
                 id=""
-                value={singleData.stage}
+                value={Data.stage}
                 name="stage"
                 onChange={handleChange}
                 required
@@ -277,7 +324,7 @@ const AdminProductCard = ({ property }: any) => {
               <FormLabel>with</FormLabel>
               <Select
                 id=""
-                value={singleData.with}
+                value={Data.with}
                 name="with"
                 onChange={handleChange}
                 required
@@ -311,7 +358,7 @@ const AdminProductCard = ({ property }: any) => {
               <FormLabel>category</FormLabel>
               <Select
                 id=""
-                value={singleData.category}
+                value={Data.category}
                 name="category"
                 onChange={handleChange}
                 required
@@ -324,7 +371,7 @@ const AdminProductCard = ({ property }: any) => {
               <FormLabel>rating</FormLabel>
               <Select
                 id=""
-                value={singleData.rating}
+                value={Data.rating}
                 name="rating"
                 onChange={handleChange}
                 required
@@ -339,7 +386,7 @@ const AdminProductCard = ({ property }: any) => {
               <FormLabel>New Product</FormLabel>
               <Select
                 id=""
-                value={singleData.newlaunch}
+                value={Data.newlaunch}
                 name="newlaunch"
                 onChange={handleChange}
               >
@@ -351,7 +398,7 @@ const AdminProductCard = ({ property }: any) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleUpdate}>
+            <Button colorScheme="blue" mr={3} onClick={()=>handleUpdate(property)}>
               Update
             </Button>
             <Button onClick={onClose}>Cancel</Button>
@@ -360,6 +407,7 @@ const AdminProductCard = ({ property }: any) => {
       </Modal>
       {/*  */}
     </Box>
+    
   );
 };
 
