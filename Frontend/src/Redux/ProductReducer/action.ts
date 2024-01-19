@@ -1,4 +1,4 @@
-import { PRODUCT_LOADING, PRODUCT_ERROR, PRODUCT_SUCCESS } from "./reducer";
+import { PRODUCT_LOADING, PRODUCT_ERROR, PRODUCT_SUCCESS, PRODUCT_PATCH, PRODUCT_DELETE } from "./reducer";
 
 import axios from "axios";
 
@@ -23,3 +23,34 @@ export const GetProducts = async (dispatch: any, toast: any, paramObj: any) => {
       dispatch(PRODUCT_ERROR());
     });
 };
+
+export const patchProduct = (dispatch:any,id:any,Data:any)=>{
+  return (
+    axios.patch(`http://localhost:8080/product//update/${id}`, Data)
+    .then(()=>{
+      dispatch(PRODUCT_PATCH())
+    })
+    .catch((err)=>{
+      console.error(err.message)
+    })
+
+  )
+}
+
+export const deleteProduct = (dispatch:any, id:any)=>{
+  return(
+    axios.delete(`http://localhost:8080/product/delete/${id}`)
+    .then((res:any)=>{
+      dispatch(PRODUCT_DELETE())
+      if(res.data.msg==="item has been deleted"){
+        return {status:true}
+      }
+      else{
+        return {status:true}
+      }
+    })
+    .catch((err)=>{
+      console.log(err.message)
+    })
+  )
+}

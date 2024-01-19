@@ -1,7 +1,6 @@
-
 import { Link, useLocation } from "react-router-dom";
-import {  StarIcon } from "@chakra-ui/icons";
-import {    useState } from "react";
+import { StarIcon } from "@chakra-ui/icons";
+import { useState } from "react";
 import {
   Badge,
   Box,
@@ -22,15 +21,15 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Pencil, Trash2 } from "lucide-react";
-import axios from "axios";
+import { deleteProduct, patchProduct } from "../Redux/ProductReducer/action";
+import { useAppDispatch } from "../Redux/store";
 
-
-const AdminProductCard = ({ property }: any) => {
+const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useAppDispatch();
   const toast = useToast();
   const location = useLocation();
   const [Data, setData] = useState(property);
-  
 
   function handleChange(e: any) {
     const { name, value } = e.target;
@@ -46,82 +45,34 @@ const AdminProductCard = ({ property }: any) => {
   }
 
   async function handleUpdate(props: any) {
+    let id = props._id;
 
-    try {
-      
-      let id = props._id;
-      const res = await axios.patch(`http://localhost:8080/product//update/${id}`, Data);
-      
-      
-        if (res.data.msg === "item has been updated successfully") {
-          toast({
-            position: "top",
-            duration: 2500,
-            render: () => (
-              <Box color="white" p={3} bg="#69d729">
-                <b>Item Updated Successfully 👍</b>
-              </Box>
-            ),
-          });
-        } else {
-          toast({
-            position: "top",
-            duration: 2500,
-            render: () => (
-              <Box color="white" p={3} bg="#d74029">
-                <b>Something went wrong</b>
-              </Box>
-            ),
-          });
-        }
-        onClose();
-        window.location.reload();
-      }catch(error){
-        console.error("Error updating item:", error);
-        toast({
-          position: "top",
-          duration: 2500,
-          render: () => (
-            <Box color="white" p={3} bg="#d74029">
-              <b>Something went wrong</b>
-            </Box>
-          ),
-        });
-    }
+    patchProduct(dispatch, id, Data);
+    onClose();
+    setState(!state);
   }
 
-  async function handleDelete(id:any){
-    try {
-      await axios.delete(`http://localhost:8080/product/delete/${id}`)
-      toast({
-        position: "top",
-        duration: 2500,
-        render: () => (
-          <Box color="white" p={3} bg="#69d729">
-            <b>Item Deleted Successfully 👍</b>
-          </Box>
-        ),
-      });
-      window.location.reload();
+  async function handleDelete(id: any) {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSpin(true);
+    deleteProduct(dispatch, id).then(() => {
+      setSpin(false);
+    });
 
-    } catch (error) {
-      toast({
-        position: "top",
-        duration: 2500,
-        render: () => (
-          <Box color="white" p={3} bg="#d74029">
-            <b>Something went wrong</b>
-          </Box>
-        ),
-      });
-    }
+    toast({
+      position: "top",
+      duration: 2500,
+      render: () => (
+        <Box color="white" p={3} bg="#69d729">
+          <b>Item Deleted Successfully 👍</b>
+        </Box>
+      ),
+    });
+
+    setState(!state);
   }
-
-  
-
 
   return (
-
     <Box
       width={{ base: "", lg: "18vw" }}
       borderWidth="2px"
@@ -221,16 +172,13 @@ const AdminProductCard = ({ property }: any) => {
           leftIcon={<Trash2 size="15px" />}
           colorScheme="pink"
           variant="outline"
-          onClick={()=>handleDelete(property._id)}
+          onClick={() => handleDelete(property._id)}
         >
           Delete
         </Button>
       </Box>
       {/*  */}
-      <Modal
-        isOpen={isOpen}
-        onClose={onClose}
-      >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create your account</ModalHeader>
@@ -398,7 +346,11 @@ const AdminProductCard = ({ property }: any) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={()=>handleUpdate(property)}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={() => handleUpdate(property)}
+            >
               Update
             </Button>
             <Button onClick={onClose}>Cancel</Button>
@@ -407,7 +359,6 @@ const AdminProductCard = ({ property }: any) => {
       </Modal>
       {/*  */}
     </Box>
-    
   );
 };
 
