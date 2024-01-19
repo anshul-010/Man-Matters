@@ -32,10 +32,16 @@ const ProductSlice = createSlice({
       state.products = action.payload.results;
       state.totalCount = action.payload.totalCount;
     },
+    PRODUCT_PATCH:(state )=>{
+      state.isLoading = false;
+    },
+    PRODUCT_DELETE:(state)=>{
+      state.isLoading = false;
+    }
   },
 });
 
-export const { PRODUCT_LOADING, PRODUCT_ERROR, PRODUCT_SUCCESS } =
+export const { PRODUCT_LOADING, PRODUCT_ERROR, PRODUCT_SUCCESS, PRODUCT_PATCH, PRODUCT_DELETE  } =
   ProductSlice.actions;
 
 export default ProductSlice.reducer;
