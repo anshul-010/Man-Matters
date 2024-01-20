@@ -3,9 +3,11 @@ import { People as data } from "../Data/People";
 import { GetProducts } from "../Redux/ProductReducer/action";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import Card2 from "../Components/Card";
-
+import man_face from "../Images/Landing/manface.png";
 import { useState, useEffect } from "react";
-import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+// import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import TypeWriterEffect from "react-typewriter-effect";
+
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { Link, useLocation } from "react-router-dom";
 import {
@@ -32,7 +34,7 @@ export const Home = () => {
   const [category, setCategory] = useState("");
   const daata = useAppSelector((store) => store.ProductReducer.products);
   const loading = useAppSelector((store) => store.ProductReducer.isLoading);
-
+  const myRef = document.querySelector(".scrollable-div");
   let paramObj = {
     params: {
       limit: 4,
@@ -64,24 +66,11 @@ export const Home = () => {
     };
   }, [index]);
 
-  // frame animation
-  // const swipeAnimationLeft = {
-  //   initial: { x: "-100%", opacity: 0 },
-  //   animate: { x: 0, opacity: 1 },
-  //   transition: { duration: 0.7, delay: 0.3 },
-  // };
-
-  // const swipeAnimationRight = {
-  //   initial: { x: "+100%", opacity: 0 },
-  //   animate: { x: 0, opacity: 1 },
-  //   transition: { duration: 0.7, delay: 0.3 },
-  // };
-
   return (
     <div>
       <section className="section">
         {/* Slider Started */}
-        <div className="section-center">
+        {/* <div className="section-center">
           {data.map((person: any, personIndex: number) => {
             const { image, name } = person;
             let position = "nextSlide";
@@ -106,7 +95,63 @@ export const Home = () => {
           <button className="next" onClick={() => setIndex(index + 1)}>
             <FiChevronRight size={50} />
           </button>
-        </div>
+        </div> */}
+        <Box
+          // border="1px solid red"
+          display={{ base: "", lg: "flex" }}
+          justifyContent={"space-between"}
+          alignItems="center"
+          className="home-box-top"
+          mb={{base:"",lg:"50px"}}
+        >
+          <Box
+            // border="1px solid blue"
+            ml={{base:"",lg:"20px"}}
+            width={{ base: "", lg: "40vw" }}
+            height={{ base: "", lg: "30vh" }}
+          >
+          <div className="scrollable-div">
+            
+            <TypeWriterEffect
+              textStyle={{
+                fontFamily: "Noto Serif",
+                color: "#0a325c",
+                fontSize: "3vw",
+              }}
+              startDelay={1000}
+              cursorColor="#0a325c"
+              text="Man Matters..."
+              typeSpeed={100}
+              scrollArea={myRef}
+              hideCursorAfterText="true"
+            />
+          </div>
+          <TypeWriterEffect
+            textStyle={{
+              fontFamily: "Noto Serif",
+              color: "#0a325c",
+              fontWeight: 500,
+              fontSize: "3vw",
+            }}
+            
+            startDelay={2000}
+            cursorColor="#0a325c"
+            multiText={["Where Style Meets Substance: ManMatter", "Discover Your Signature Style: ManMatter", "Crafting Confidence, One Strand at a Time: ManMatter ", "Unleashing the Power of Your Beard and Hair...",]}
+            multiTextDelay={1000}
+            typeSpeed={30}
+            loop={true}
+            autoStart="true"
+            deleteSpeed={50}
+          />
+          </Box>
+          <Box
+            // border="1px solid"
+            width={{ base: "", lg: "50vw" }}
+            height={{ base: "", lg: "90vh" }}
+          >
+            <Image src={man_face} height="100%" width="100%" />
+          </Box>
+        </Box>
       </section>
       {/* Consult On App */}
       <Heading
@@ -1118,7 +1163,6 @@ export const Home = () => {
               mt="1"
               m={"7px"}
               isTruncated
-
             >
               Research Backed Fish Oil Benefits for Men
             </Box>
@@ -1135,7 +1179,6 @@ export const Home = () => {
               color="white"
               py={2}
               mt="2"
-              
             >
               Learn More
             </Box>
