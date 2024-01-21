@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { Box, Center, Flex, Heading, Image } from "@chakra-ui/react";
+import { useEffect } from "react";
 
 export const ScheduleAppoinment = () => {
   const swipeAnimationLeft = {
@@ -25,6 +26,9 @@ export const ScheduleAppoinment = () => {
     animate: { y: 0, opacity: 1 },
     transition: { duration: 0.7, delay: 0.3 },
   };
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  },[])
 
   return (
     <div>

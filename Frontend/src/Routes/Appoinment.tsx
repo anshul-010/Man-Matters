@@ -4,7 +4,7 @@ import { GetUserDetails } from "../Redux/AuthReducer/action";
 import axios from "axios";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useParams } from "react-router-dom";
+import {   useParams } from "react-router-dom";
 import {
   Box,
   Center,
@@ -40,6 +40,7 @@ export const Appoinment = () => {
   }
 
   function addAppoinment() {
+    
     if (!spin) {
       setSpin(true);
       axios

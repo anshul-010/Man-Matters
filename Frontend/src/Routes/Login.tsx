@@ -15,7 +15,7 @@ import {
   useToast,
   Spinner,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";  
 
 let initialData = {
@@ -60,7 +60,7 @@ export const Login = () => {
             ),
           });
           setUserData(initialData);
-          navigate(location?.state?.redirectTo || "/", { replace: true });
+          navigate(location?.state || "/" , { replace: true });
         }
         } else {
           toast({
@@ -76,6 +76,9 @@ export const Login = () => {
       });
     }
   }
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  },[])
   return (
     <>
       {isLoading && (

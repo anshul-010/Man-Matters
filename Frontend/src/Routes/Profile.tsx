@@ -147,7 +147,7 @@ console.log(userData)
         </Center>
          </Flex>
          <Text color={"white"} fontWeight={"small"}>Be on time <span >💙</span></Text>
-         <Button bg={"#5DADEC"} color={"white"} >Join</Button>
+         <Button bg={"#5DADEC"} color={"white"} >Engaged</Button>
          <Box  className="btn2">
           <Text color={"#5DADEC"} fontWeight={"bold"} >Wed</Text>
           <Text color={"white"} fontWeight={"bold"}>{ele.date}</Text>

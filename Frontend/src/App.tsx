@@ -24,6 +24,7 @@ import { Admin } from "./Admin/Admin";
 import { AdminUsers } from "./Admin/AdminUsers";
 import { AdminAddNewItem } from "./Admin/AdminAddNewItem";
 import { AdminManageItems } from "./Admin/AdminManageItems";
+import { Private } from "./Components/Private";
 
 function App() {
   const location = useLocation();
@@ -56,9 +57,9 @@ function App() {
         <Route path="/all-products" element={<AllProduct />} />
         <Route path="/product-detail/:id" element={<ProductCard />} />
         <Route path="/schedule-appoinment" element={<ScheduleAppoinment />} />
-        <Route path="/appoinment/:title" element={<Appoinment />} />
+        <Route path="/appoinment/:title" element={<Private><Appoinment /></Private>} />
         <Route path="/self-assessment" element={<SelfAssessment />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Private><Profile /></Private>} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
