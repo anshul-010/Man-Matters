@@ -51,6 +51,28 @@
   cursor: pointer;
 }
 
+/* onhever bottom line */
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px; 
+  background-color: #fe8974; 
+  transition: width .5s ease-in-out;
+}
+
+.nav-link:hover::before {
+  width: 100%;
+}
+
 /* Styling for the burger menu icon */
 .burger-menu {
   cursor: pointer;

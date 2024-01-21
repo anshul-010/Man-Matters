@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../Redux/store";
 
 import { useEffect, useState } from "react";
 import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
-import {  useToast } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import {
   Menu,
   X,
@@ -25,16 +25,17 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const [cartItemsLength, setCartItemsLength] = useState(0);
 
-  const toggleNavbar = useAppSelector(
-    (store) => store.AuthReducer.toggleNavbar
-  );
+  // const toggleNavbar = useAppSelector(
+  //   (store) => store.AuthReducer.toggleNavbar
+  // );
   const toggleCart = useAppSelector((store) => store.CartReducer.toggleCart);
-
+  const userName = useAppSelector((store) => store.AuthReducer.name);
+  const isAuth = useAppSelector((store) => store.AuthReducer.isAuth);
   // To update no. of items in cart
   useEffect(() => {
     const cartLength = GetCartItems();
@@ -42,15 +43,14 @@ const Navbar = () => {
   }, [toggleCart]);
 
   // To set token on user login
-  useEffect(() => {
-    setToken(GetUserDetails().token);
-  }, [toggleNavbar]);
 
   let paramObj = {
     params: {
       category: searchTerm,
     },
   };
+
+  // console.log(token)
 
   // Toggle Navbar Open
   const toggleNav = () => {
@@ -162,13 +162,16 @@ const Navbar = () => {
           </div>
         </NavLink>
 
-        {token ? (
+        {isAuth ? (
           <div className="user-profile">
             <span className="log-in">
               <UserRound color="#1f5c9d" size={22} />
-              {`Hi! ${GetUserDetails()?.userName}`}
+              {`Hi! ${userName}`}
             </span>
-            <div className="profile-dropdown">
+            <div
+              className="profile-dropdown"
+              onClick={() => setIsNavOpen(true)}
+            >
               <NavLink
                 to="/profile"
                 style={({ isActive }) => (isActive ? activeStyle : {})}
@@ -191,7 +194,6 @@ const Navbar = () => {
           </NavLink>
         )}
       </div>
-
 
       <NavLink
         to="/checkout"

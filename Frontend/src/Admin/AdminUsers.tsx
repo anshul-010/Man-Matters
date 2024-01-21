@@ -1,19 +1,19 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "../Styles/AdminUsers.css";
 import { AdminUserCard } from "./AdminUserCard";
 import axios from "axios";
+import { Grid, Skeleton } from "@chakra-ui/react";
 
 export const AdminUsers = () => {
   const [userData, setUserData] = useState([]);
-
-  
-
+  const [loading, setLoading] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   function getUsers() {
-    axios
-      .get(`https://man-matters.onrender.com/user/getusers`)
-      .then((res) => {
-        setUserData(res.data.allUsers);
-      });
+    setLoading(true);
+    axios.get(`${API_URL}/user/getusers`).then((res) => {
+      setLoading(false);
+      setUserData(res.data.allUsers);
+    });
   }
 
   useEffect(() => {
@@ -31,6 +31,48 @@ export const AdminUsers = () => {
         <div className="admin-user-gender">{"Remove"}</div>
       </div>
       <div>
+        {loading && (
+          <Grid
+            justifyContent="center"
+            gap="30px"
+            w={{ base: "75vw", lg: "80vw" }}
+            m="auto"
+            alignItems={"center"}
+          >
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+            <Skeleton
+              height="50px"
+              width={{ base: "75vw", lg: "70vw" }}
+            ></Skeleton>
+          </Grid>
+        )}
         {userData?.map((user) => (
           <AdminUserCard user={user} getUsers={getUsers} />
         ))}

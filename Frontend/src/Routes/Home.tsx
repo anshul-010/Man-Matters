@@ -66,9 +66,9 @@ export const Home = () => {
     };
   }, [index]);
 
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  },[])
+  }, []);
 
   return (
     <div>
@@ -155,7 +155,6 @@ export const Home = () => {
             />
           </Box>
           <Box
-            // border="1px solid"
             width={{ base: "", lg: "53vw" }}
             height={{ base: "", lg: "100vh" }}
             position="relative"
@@ -165,15 +164,10 @@ export const Home = () => {
               src={man_face}
               height="100%"
               width="100%"
-              style={{ mixBlendMode: "multiply" }}
-            />
-            <Box
-              position="absolute"
-              top="0"
-              left="0"
-              height="100%"
-              width="0%"
-              background="linear-gradient(to right, transparent, white)"
+              style={{
+                mixBlendMode: "multiply",
+                filter: "drop-shadow(5px 3px 10px #072d56)",
+              }}
             />
             <Box
               position="absolute"

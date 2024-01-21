@@ -1,7 +1,7 @@
 import "../Styles/AdminAddNewItem.css";
 import DoctorImg from "../Images/Add-New-Item/DoctorImg.png";
 import { motion } from "framer-motion";
-import {  useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import axios from "axios";
 import { Box, Spinner, useToast } from "@chakra-ui/react";
 
@@ -69,10 +69,10 @@ function reducer(state: any, action: any) {
 }
 
 export const AdminAddNewItem = () => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-
   const swipeAnimationFromBottom = {
     initial: { y: "15%", opacity: 0 },
     animate: { y: 0, opacity: 1 },
@@ -83,7 +83,7 @@ export const AdminAddNewItem = () => {
     setIsLoading(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
     axios
-      .post(`http://localhost:8080/product/add-products`, state)
+      .post(`${API_URL}/product/add-products`, state)
       .then((res) => {
         setIsLoading(false);
         console.log(res.data);
@@ -104,7 +104,6 @@ export const AdminAddNewItem = () => {
   function handleImageChange(index: number, value: string) {
     dispatch({ type: `image${index}`, payload: value });
   }
-  
 
   return (
     <>

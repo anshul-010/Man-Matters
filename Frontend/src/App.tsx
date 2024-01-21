@@ -61,11 +61,11 @@ function App() {
         <Route path="/self-assessment" element={<SelfAssessment />} />
         <Route path="/profile" element={<Private><Profile /></Private>} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/admin-users" element={<AdminUsers/>} />
-        <Route path="/admin-addnewitem" element={<AdminAddNewItem/>} />
-        <Route path="/admin-manageitems" element={<AdminManageItems/>} />
+        <Route path="/admin" element={<Private><Admin /></Private>} />
+        <Route path="/admin-dashboard" element={<Private><AdminDashboard /></Private>} />
+        <Route path="/admin-users" element={<Private><AdminUsers/></Private>} />
+        <Route path="/admin-addnewitem" element={<Private><AdminAddNewItem/></Private>} />
+        <Route path="/admin-manageitems" element={<Private><AdminManageItems/></Private>} />
         <Route path="*" element={<PageNotFound />} />/
       </Routes>
 

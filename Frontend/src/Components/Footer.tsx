@@ -231,26 +231,50 @@ export const Footer = () => {
         </Text>
       </VStack>
       <Center>
-        <Image
-          w={"30px"}
-          m={"20px"}
-          src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/fb_3x.png?tr=w-200"
-        />
-        <Image
-          w={"30px"}
-          m={"20px"}
-          src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/insta_3x.png?tr=w-200"
-        />
-        <Image
-          w={"30px"}
-          m={"20px"}
-          src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/twitter_3x.png?tr=w-200"
-        />
-        <Image
-          w={"30px"}
-          m={"20px"}
-          src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618166/Man%20Matters/misc/yt_3x.png?tr=w-200"
-        />
+        <a
+          href="https://www.facebook.com/manmatters.official/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            w={"30px"}
+            m={"20px"}
+            src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/fb_3x.png?tr=w-200"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/man.matters/?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            w={"30px"}
+            m={"20px"}
+            src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/insta_3x.png?tr=w-200"
+          />
+        </a>
+        <a
+          href="https://twitter.com/manmatters_in?lang=en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            w={"30px"}
+            m={"20px"}
+            src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618167/Man%20Matters/misc/twitter_3x.png?tr=w-200"
+          />
+        </a>
+        <a
+          href="https://www.youtube.com/@ManMatters"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            w={"30px"}
+            m={"20px"}
+            src="https://i.mscwlns.co/mosaic-wellness/image/upload/v1631618166/Man%20Matters/misc/yt_3x.png?tr=w-200"
+          />
+        </a>
       </Center>
     </Box>
   );
