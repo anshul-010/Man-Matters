@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ProgressBar } from "react-loader-spinner";
 import {
   Box,
@@ -53,7 +53,9 @@ export const SelfAssessment = () => {
       chatContainer.scrollTop = chatContainer.scrollHeight;
     }
   };
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <Box textAlign="center" mr="2%">
       <VStack

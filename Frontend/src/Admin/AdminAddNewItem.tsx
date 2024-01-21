@@ -1,7 +1,7 @@
 import "../Styles/AdminAddNewItem.css";
 import DoctorImg from "../Images/Add-New-Item/DoctorImg.png";
 import { motion } from "framer-motion";
-import { useReducer, useState } from "react";
+import {  useReducer, useState } from "react";
 import axios from "axios";
 import { Box, Spinner, useToast } from "@chakra-ui/react";
 
@@ -104,6 +104,7 @@ export const AdminAddNewItem = () => {
   function handleImageChange(index: number, value: string) {
     dispatch({ type: `image${index}`, payload: value });
   }
+  
 
   return (
     <>

@@ -66,6 +66,10 @@ export const Home = () => {
     };
   }, [index]);
 
+  useEffect(()=>{
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  },[])
+
   return (
     <div>
       <section className="section">
@@ -98,58 +102,87 @@ export const Home = () => {
         </div> */}
         <Box
           // border="1px solid red"
-          display={{ base: "", lg: "flex" }}
+          display={{ base: "flex", lg: "flex" }}
+          flexDirection={{ base: "column-reverse", lg: "row" }}
           justifyContent={"space-between"}
           alignItems="center"
           className="home-box-top"
-          mb={{base:"",lg:"50px"}}
+          mb={{ base: "", lg: "50px" }}
         >
           <Box
             // border="1px solid blue"
-            ml={{base:"",lg:"20px"}}
+            ml={{ base: "", lg: "40px" }}
             width={{ base: "", lg: "40vw" }}
             height={{ base: "", lg: "30vh" }}
           >
-          <div className="scrollable-div">
-            
+            <div className="scrollable-div">
+              <TypeWriterEffect
+                textStyle={{
+                  fontFamily: "Noto Serif",
+                  color: "#0a325c",
+                  fontSize: "3vw",
+                  textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                }}
+                startDelay={1000}
+                cursorColor="#0a325c"
+                text="Man Matters..."
+                typeSpeed={100}
+                scrollArea={myRef}
+                hideCursorAfterText="true"
+              />
+            </div>
             <TypeWriterEffect
               textStyle={{
                 fontFamily: "Noto Serif",
                 color: "#0a325c",
+                fontWeight: 500,
                 fontSize: "3vw",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
               }}
-              startDelay={1000}
-              cursorColor="#0a325c"
-              text="Man Matters..."
-              typeSpeed={100}
-              scrollArea={myRef}
-              hideCursorAfterText="true"
+              startDelay={2000}
+              cursorColor="#103e70"
+              multiText={[
+                "Where Style Meets Substance: ManMatter",
+                "Discover Your Signature Style: ManMatter",
+                "Crafting Confidence, One Strand at a Time: ManMatter ",
+                "Unleashing the Power of Your Beard and Hair...",
+              ]}
+              multiTextDelay={1000}
+              typeSpeed={30}
+              loop={true}
+              autoStart="true"
+              deleteSpeed={50}
             />
-          </div>
-          <TypeWriterEffect
-            textStyle={{
-              fontFamily: "Noto Serif",
-              color: "#0a325c",
-              fontWeight: 500,
-              fontSize: "3vw",
-            }}
-            
-            startDelay={2000}
-            cursorColor="#0a325c"
-            multiText={["Where Style Meets Substance: ManMatter", "Discover Your Signature Style: ManMatter", "Crafting Confidence, One Strand at a Time: ManMatter ", "Unleashing the Power of Your Beard and Hair...",]}
-            multiTextDelay={1000}
-            typeSpeed={30}
-            loop={true}
-            autoStart="true"
-            deleteSpeed={50}
-          />
           </Box>
           <Box
             // border="1px solid"
-            width={{ base: "", lg: "50vw" }}
-            height={{ base: "", lg: "90vh" }}
+            width={{ base: "", lg: "53vw" }}
+            height={{ base: "", lg: "100vh" }}
+            position="relative"
+            overflow="hidden"
           >
-            <Image src={man_face} height="100%" width="100%" />
+            <Image
+              src={man_face}
+              height="100%"
+              width="100%"
+              style={{ mixBlendMode: "multiply" }}
+            />
+            <Box
+              position="absolute"
+              top="0"
+              left="0"
+              height="100%"
+              width="0%"
+              background="linear-gradient(to right, transparent, white)"
+            />
+            <Box
+              position="absolute"
+              bottom="0"
+              left="0"
+              width="100%"
+              height="20%"
+              background="linear-gradient(to bottom, transparent, white)"
+            />
           </Box>
         </Box>
       </section>

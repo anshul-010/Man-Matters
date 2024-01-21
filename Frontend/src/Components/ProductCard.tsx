@@ -2,7 +2,7 @@ import "../App.css";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
   Badge,
   Box,
@@ -18,12 +18,20 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
+import { useAppDispatch, useAppSelector } from "../Redux/store";
+import { GetCartItems, SetCartItems } from "../Redux/CartReducer/action";
 
 export const ProductCard = () => {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   const toast = useToast();
+  const navigate = useNavigate();
   const [image, setImage] = useState(0);
   const [details, setDetails] = useState(true);
+  const dispatch = useAppDispatch();
+  const [cartData, setCartData] = useState<any>([]);
+  const toggleCart = useAppSelector(
+    (state: any) => state.CartReducer.toggleCart
+  );
   const [el, setEl] = useState({
     image: "",
     price: 0,
@@ -51,9 +59,52 @@ export const ProductCard = () => {
   }
 
   useEffect(() => {
-    GetSingleProduct();
-  }, []);
+    setCartData(GetCartItems());
+  }, [toggleCart]);
 
+  function handleAddToCart(obj: any) {
+    let checkItem = cartData.filter((item: any) => item._id === obj._id);
+    toast.closeAll();
+    if (checkItem.length == 0) {
+      cartData.push({ ...obj, itemQty: 1 });
+      SetCartItems(dispatch, cartData);
+      toast({
+        position: "top",
+        duration: 2500,
+        render: () => (
+          <Box borderRadius="" color="white" p={3} bg="#619ed8">
+            <b>Item added to cart 👍</b>
+          </Box>
+        ),
+      });
+    } else {
+      toast({
+        position: "top",
+        duration: 2500,
+        render: () => (
+          <Box borderRadius="" color="white" p={3} bg="#d86161">
+            <b>Item already added to cart ✋</b>
+          </Box>
+        ),
+      });
+    }
+  }
+
+  function handleBuyNow(obj: any) {
+    let checkItemBuy = cartData.filter((item: any) => item._id === obj._id);
+    if (checkItemBuy.length == 0) {
+      cartData.push({ ...obj, itemQty: 1 });
+      SetCartItems(dispatch, cartData);
+      navigate("/checkout");
+    } else {
+      navigate("/checkout");
+    }
+  }
+
+  useEffect(() => {
+    GetSingleProduct();
+    window.scrollTo({ top: 0 });
+  }, []);
   return (
     <div style={{ overflowY: "hidden", overflowX: "hidden" }}>
       <div>
@@ -1015,10 +1066,20 @@ export const ProductCard = () => {
           </Show>
           <Flex m={"auto"} p={"5px"} gap={"30px"} alignContent={"center"}>
             <Heading>₹{el?.price}</Heading>
-            <Button color={"white"} bg={"black"} p={"10px 25px 10px 25px"}>
+            <Button
+              color={"white"}
+              bg={"black"}
+              p={"10px 25px 10px 25px"}
+              onClick={() => handleAddToCart(el)}
+            >
               Add to Cart
             </Button>
-            <Button color={"white"} bg={"#5194D1"} p={"10px 25px 10px 25px"}>
+            <Button
+              color={"white"}
+              bg={"#5194D1"}
+              p={"10px 25px 10px 25px"}
+              onClick={() => handleBuyNow(el)}
+            >
               Buy Now
             </Button>
           </Flex>

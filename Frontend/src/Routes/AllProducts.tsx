@@ -109,6 +109,10 @@ export const AllProduct = () => {
     };
   }, [index]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div>
       <Box id="top-bar">
