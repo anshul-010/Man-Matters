@@ -77,75 +77,72 @@ const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
       borderRadius="lg"
       overflow="hidden"
     >
-      
-        <Box>
-          <Box m="auto" height="28vh" width={{ base: "", lg: "18vw" }}>
-            <Image
-              src={property.image[0]}
-              height="100%"
-              width="100%"
-              alt={property.image}
-              loading={"lazy"}
-            />
-          </Box>
-          <Box pt="0">
-            <Box ml="8px" display="flex" alignItems="baseline">
-              <Box display="flex" alignItems="center">
-                {Array(5)
-                  .fill("")
-                  .map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      color={i < property.rating ? "gold" : "gray.300"}
-                    />
-                  ))}
-                <Box as="span" color="gray.600" fontSize="sm" ml="2">
-                  {property.rating} reviews
-                </Box>
-                <Badge borderRadius="full" px="2" colorScheme="teal">
-                  New
-                </Badge>
+      <Box>
+        <Box m="auto" height="28vh" width={{ base: "", lg: "18vw" }}>
+          <Image
+            src={property.image[0]}
+            height="100%"
+            width="100%"
+            alt={property.image}
+            loading={"lazy"}
+          />
+        </Box>
+        <Box pt="0">
+          <Box ml="8px" display="flex" alignItems="baseline">
+            <Box display="flex" alignItems="center">
+              {Array(5)
+                .fill("")
+                .map((_, i) => (
+                  <StarIcon
+                    key={i}
+                    color={i < property.rating ? "gold" : "gray.300"}
+                  />
+                ))}
+              <Box as="span" color="gray.600" fontSize="sm" ml="2">
+                {property.rating} reviews
               </Box>
+              <Badge borderRadius="full" px="2" colorScheme="teal">
+                New
+              </Badge>
             </Box>
-            <Box
-              fontWeight="semibold"
-              lineHeight="tight"
-              as="h4"
-              mt="1"
-              isTruncated
-              ml="8px"
-            >
-              {property.title}
-            </Box>
-            <Box
-              fontWeight="semibold"
-              lineHeight="tight"
-              as="h4"
-              mt="1"
-              ml="8px"
-              isTruncated
-            >
-              ₹{property.price}{" "}
-              <span
-                style={{ color: "gray", textDecorationLine: "line-through" }}
-              >
-                {property.price + 195}
-              </span>
-            </Box>
-            <Box lineHeight="tight" as="h6" mt="1" isTruncated ml="8px">
-              <Badge bg={"none"} color="#5194D1">
-                For
-              </Badge>{" "}
-              {property.for}
-            </Box>
-            <Box lineHeight="tight" as="h6" mt="1" isTruncated ml="8px">
-              <Badge bg={"none"} color="#5194D1">
-                With
-              </Badge>{" "}
-              {property.with}
-            </Box>
+          </Box>
+          <Box
+            fontWeight="semibold"
+            lineHeight="tight"
+            as="h4"
+            mt="1"
+            isTruncated
+            ml="8px"
+          >
+            {property.title}
+          </Box>
+          <Box
+            fontWeight="semibold"
+            lineHeight="tight"
+            as="h4"
+            mt="1"
+            ml="8px"
+            isTruncated
+          >
+            ₹{property.price}{" "}
+            <span style={{ color: "gray", textDecorationLine: "line-through" }}>
+              {property.price + 195}
+            </span>
+          </Box>
+          <Box lineHeight="tight" as="h6" mt="1" isTruncated ml="8px">
+            <Badge bg={"none"} color="#5194D1">
+              For
+            </Badge>{" "}
+            {property.for}
+          </Box>
+          <Box lineHeight="tight" as="h6" mt="1" isTruncated ml="8px">
+            <Badge bg={"none"} color="#5194D1">
+              With
+            </Badge>{" "}
+            {property.with}
           </Box>
         </Box>
+      </Box>
       <Box
         // border="1px solid"
         p="5px"

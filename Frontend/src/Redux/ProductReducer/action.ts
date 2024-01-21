@@ -26,7 +26,7 @@ export const GetProducts = async (dispatch: any, toast: any, paramObj: any) => {
 
 export const patchProduct = (dispatch:any,id:any,Data:any)=>{
   return (
-    axios.patch(`http://localhost:8080/product//update/${id}`, Data)
+    axios.patch(`${API_URL}/product/update/${id}`, Data)
     .then(()=>{
       dispatch(PRODUCT_PATCH())
     })
@@ -39,7 +39,7 @@ export const patchProduct = (dispatch:any,id:any,Data:any)=>{
 
 export const deleteProduct = (dispatch:any, id:any)=>{
   return(
-    axios.delete(`http://localhost:8080/product/delete/${id}`)
+    axios.delete(`${API_URL}/product/delete/${id}`)
     .then((res:any)=>{
       dispatch(PRODUCT_DELETE())
       if(res.data.msg==="item has been deleted"){

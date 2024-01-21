@@ -14,13 +14,14 @@ import {
   Image,
   useToast,
   Spinner,
+  Center,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";  
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 let initialData = {
-  email: "anshkush532@gmail.com",
-  password: "ansh",
+  email: "",
+  password: "",
 };
 export const Login = () => {
   const toast = useToast();
@@ -46,22 +47,21 @@ export const Login = () => {
       toast.closeAll();
       LogIn(dispatch, userData).then((auth: any) => {
         if (auth.auth) {
-          if(auth.admin==="Admin"){
-            return navigate("/admin");
+          if (auth.admin === "Admin") {
+            return navigate("/admin-dashboard");
+          } else {
+            toast({
+              position: "top",
+              duration: 2500,
+              render: () => (
+                <Box color="white" p={3} bg="#69d729">
+                  <b>Login Successfull 👍</b>
+                </Box>
+              ),
+            });
+            setUserData(initialData);
+            navigate(location?.state || "/", { replace: true });
           }
-          else{
-          toast({
-            position: "top",
-            duration: 2500,
-            render: () => (
-              <Box color="white" p={3} bg="#69d729">
-                <b>Login Successfull 👍</b>
-              </Box>
-            ),
-          });
-          setUserData(initialData);
-          navigate(location?.state || "/" , { replace: true });
-        }
         } else {
           toast({
             position: "top",
@@ -76,9 +76,53 @@ export const Login = () => {
       });
     }
   }
-  useEffect(()=>{
+
+  function loginAsGuest() {
+    let guestData = {
+      email: "anshkush532@gmail.com",
+      password: "ansh",
+    };
+
+    if (!isLoading) {
+      toast.closeAll();
+      LogIn(dispatch, guestData).then((auth: any) => {
+        if (auth.auth) {
+          if (auth.admin === "Admin") {
+            return navigate("/admin-dashboard");
+          } else {
+            toast({
+              position: "top",
+              duration: 2500,
+              render: () => (
+                <Box color="white" p={3} bg="#69d729">
+                  <b>Login Successfull 👍</b>
+                </Box>
+              ),
+            });
+            setUserData(initialData);
+            navigate(location?.state || "/", { replace: true });
+          }
+        }
+      });
+    }
+  }
+
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  },[])
+  }, []);
+
+  useEffect(() => {
+    toast({
+      position: "top",
+      duration: 2500,
+      render: () => (
+        <Box color="white" p={3} bg="gold">
+          <b>Please Login First</b>
+        </Box>
+      ),
+    });
+  }, []);
+
   return (
     <>
       {isLoading && (
@@ -173,6 +217,21 @@ export const Login = () => {
           <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
         </Box>
       </Box>
+      <Center>
+        <Button
+          size="md"
+          height="48px"
+          width="200px"
+          border="2px"
+          backgroundColor="whatsapp.100"
+          borderColor="whatsapp.400"
+          colorScheme="whatsapp"
+          variant="ghost"
+          onClick={loginAsGuest}
+        >
+          login as guest
+        </Button>
+      </Center>
     </>
   );
 };

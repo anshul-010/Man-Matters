@@ -14,7 +14,7 @@ import {
   useToast,
   Skeleton,
   Flex,
-  Button
+  Button,
 } from "@chakra-ui/react";
 
 export const Profile = () => {
@@ -28,10 +28,10 @@ export const Profile = () => {
     email: "",
     mobile: "",
   });
-console.log(userData)
+  console.log(userData);
   // Get User Appointment Data Function
   function getUserData() {
-    setLoading(true)
+    setLoading(true);
     axios
       .get(`${API_URL}/appointment`, {
         headers: {
@@ -39,7 +39,7 @@ console.log(userData)
         },
       })
       .then((res) => {
-    setLoading(false)
+        setLoading(false);
         setUserData(res.data.data);
       })
       .catch((err: any) => {
@@ -104,59 +104,109 @@ console.log(userData)
           <Center onClick={handleLogout}>Logout</Center>
         </Box>
       </Box>
-      <Box width={{ base: "", lg: "90vw" }} m="auto" >
+      <Box width={{ base: "", lg: "90vw" }} m="auto">
         <Heading size="md" mt="20px" color="#3b3b3b">
           Your Previous Schedule Appoinment
         </Heading>
-          {loading  && <Grid templateColumns={{
-            base: "repeat(1, 1fr)",
-            sm: "repeat(1, 1fr)",
-            md: "repeat(3, 1fr)",
-            lg: "repeat(3, 1fr)",
-            xl: "repeat(3, 1fr)",
-            
-          }}
-          width={{ base: "10vw", lg: "90vw" }}
-          // border="1px solid"
-          gap="15px"
-          mt="20px" >
-            <Skeleton height={{ base: "", lg: "30vh" }} borderRadius="10px"></Skeleton>
-            <Skeleton height={{ base: "", lg: "30vh" }} borderRadius="10px"></Skeleton>
-            <Skeleton height={{ base: "", lg: "30vh" }} borderRadius="10px"></Skeleton>
-          </Grid>}
-        {!loading && <Grid
-          templateColumns={{
-            base: "repeat(1, 1fr)",
-            sm: "repeat(1, 1fr)",
-            md: "repeat(3, 1fr)",
-            lg: "repeat(3, 1fr)",
-            xl: "repeat(3, 1fr)",
-          }}
-          gap="15px"
-          mt="20px"
-        >
-          {userData?.map((ele: any) => {
-            return (
-              
-              <Box bg={"#18222D"} position={"relative"} p={"7px"} maxW="sm" borderRadius="lg"  overflow="hidden">
-         <Text fontWeight={"bold"} color={"white"}>Issue Relate: {ele.title}</Text>
-         <Flex>
-          <Image w={"70px"} m={"5px"} borderRadius={"50%"} src="https://i.mscwlns.co/media/man-matters/Consult/DA/ConsultCardDoctorImageDesktop_HRCEiaVDF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666844428607" alt="" />
-        <Center>
-          <Text fontWeight={"bold"} color={"white"} >Dr. Nitesh </Text>
-        </Center>
-         </Flex>
-         <Text color={"white"} fontWeight={"small"}>Be on time <span >💙</span></Text>
-         <Button bg={"#5DADEC"} color={"white"} >Engaged</Button>
-         <Box  className="btn2">
-          <Text color={"#5DADEC"} fontWeight={"bold"} >Wed</Text>
-          <Text color={"white"} fontWeight={"bold"}>{ele.date}</Text>
-          <Text color={"white"} fontWeight={"bold"}>{ele.time} PM</Text>
-         </Box>
-          </Box>
-            );
-          })}
-        </Grid>}
+        {!loading && userData.length == 0 && (
+          <Center>
+            <Image src="https://media.tenor.com/IqsFmJA4aA0AAAAj/ooz-ooznmates.gif" />
+            <Text fontSize={{ base: "", lg: "20px" }} fontWeight="bold">
+              You haven't booked any slot yet
+            </Text>
+          </Center>
+        )}
+        {loading && (
+          <Grid
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(1, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(3, 1fr)",
+              xl: "repeat(3, 1fr)",
+            }}
+            width={{ base: "10vw", lg: "90vw" }}
+            // border="1px solid"
+            gap="15px"
+            mt="20px"
+          >
+            <Skeleton
+              height={{ base: "", lg: "30vh" }}
+              borderRadius="10px"
+            ></Skeleton>
+            <Skeleton
+              height={{ base: "", lg: "30vh" }}
+              borderRadius="10px"
+            ></Skeleton>
+            <Skeleton
+              height={{ base: "", lg: "30vh" }}
+              borderRadius="10px"
+            ></Skeleton>
+          </Grid>
+        )}
+        {!loading && (
+          <Grid
+            templateColumns={{
+              base: "repeat(1, 1fr)",
+              sm: "repeat(1, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(3, 1fr)",
+              xl: "repeat(3, 1fr)",
+            }}
+            padding="5px"
+            gap="15px"
+            mt="20px"
+          >
+            {userData?.map((ele: any, i: any) => {
+              return (
+                <Box
+                  bg={"#18222D"}
+                  position={"relative"}
+                  p={"7px"}
+                  maxW="sm"
+                  borderRadius="lg"
+                  overflow="hidden"
+                  key={i}
+                >
+                  <Text fontWeight={"bold"} color={"white"}>
+                    Issue Relate: {ele.title}
+                  </Text>
+                  <Flex>
+                    <Image
+                      w={"70px"}
+                      m={"5px"}
+                      borderRadius={"50%"}
+                      src="https://i.mscwlns.co/media/man-matters/Consult/DA/ConsultCardDoctorImageDesktop_HRCEiaVDF.png?ik-sdk-version=javascript-1.4.3&updatedAt=1666844428607"
+                      alt=""
+                    />
+                    <Center>
+                      <Text fontWeight={"bold"} color={"white"}>
+                        Dr. Nitesh{" "}
+                      </Text>
+                    </Center>
+                  </Flex>
+                  <Text color={"white"} fontWeight={"small"}>
+                    Be on time <span>💙</span>
+                  </Text>
+                  <Button bg={"#5DADEC"} color={"white"}>
+                    Engaged
+                  </Button>
+                  <Box className="btn2">
+                    <Text color={"#5DADEC"} fontWeight={"bold"}>
+                      Wed
+                    </Text>
+                    <Text color={"white"} fontWeight={"bold"}>
+                      {ele.date}
+                    </Text>
+                    <Text color={"white"} fontWeight={"bold"}>
+                      {ele.time} PM
+                    </Text>
+                  </Box>
+                </Box>
+              );
+            })}
+          </Grid>
+        )}
       </Box>
     </div>
   );

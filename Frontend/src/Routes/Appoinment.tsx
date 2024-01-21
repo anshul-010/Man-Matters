@@ -4,7 +4,7 @@ import { GetUserDetails } from "../Redux/AuthReducer/action";
 import axios from "axios";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import {   useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   Box,
   Center,
@@ -40,7 +40,6 @@ export const Appoinment = () => {
   }
 
   function addAppoinment() {
-    
     if (!spin) {
       setSpin(true);
       axios
@@ -118,7 +117,7 @@ export const Appoinment = () => {
           zIndex="1"
         ></Box>
       )}
-      <Flex justify="space-between" >
+      <Flex justify="space-between">
         <Box width="20vw" height="70vh" ml="5%" mt="2%">
           <motion.div {...swipeAnimationLeft}>
             <Image src={DoctorImg} width="100%" />

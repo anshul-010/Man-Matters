@@ -13,11 +13,14 @@ interface AdminUserCardProps {
   getUsers: () => void;
 }
 
-export const AdminUserCard: React.FC<AdminUserCardProps> = ({ user, getUsers }) => {
-
-
+export const AdminUserCard: React.FC<AdminUserCardProps> = ({
+  user,
+  getUsers,
+}) => {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
   function handleDelete(id: string) {
-    axios.delete(`https://man-matters.onrender.com/user/delete-user/${id}`)
+    axios
+      .delete(`${API_URL}/user/delete-user/${id}`)
       .then(() => getUsers());
   }
 
@@ -27,8 +30,8 @@ export const AdminUserCard: React.FC<AdminUserCardProps> = ({ user, getUsers }) 
         <User2 fill="orange" color="orange" size={25} />
       </div>
       <div className="admin-user-name">{`${user.firstName} ${user.lastName}`}</div>
-      <div className="admin-user-email" >{user.email}</div>
-      <div className="admin-user-gender" >{user.mobile}</div>
+      <div className="admin-user-email">{user.email}</div>
+      <div className="admin-user-gender">{user.mobile}</div>
       <div
         className="admin-user-gender"
         id="delete-user-btn"

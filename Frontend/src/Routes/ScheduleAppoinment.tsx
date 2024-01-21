@@ -26,9 +26,9 @@ export const ScheduleAppoinment = () => {
     animate: { y: 0, opacity: 1 },
     transition: { duration: 0.7, delay: 0.3 },
   };
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  },[])
+  }, []);
 
   return (
     <div>
