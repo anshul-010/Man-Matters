@@ -1,5 +1,6 @@
 import "../Styles/Navbar.css";
-import { LogOut, GetUserDetails } from "../Redux/AuthReducer/action";
+import { LogOut } from "../Redux/AuthReducer/action";
+// import { LogOut, GetUserDetails } from "../Redux/AuthReducer/action";
 import { GetProducts } from "../Redux/ProductReducer/action";
 import { GetCartItems } from "../Redux/CartReducer/action";
 import { useAppDispatch, useAppSelector } from "../Redux/store";

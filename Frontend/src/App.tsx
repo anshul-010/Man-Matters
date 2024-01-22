@@ -14,8 +14,7 @@ import { ResetPassword } from "./Routes/ResetPassword";
 import { ForgotPassword } from "./Routes/ForgotPassword";
 import { Signup } from "./Routes/Signup";
 import { Login } from "./Routes/Login";
-import { Home } from "./Routes/Home";
-
+import { Home} from "./Routes/Home";
 import { Box } from "@chakra-ui/react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AdminDashboard } from "./Admin/AdminDashboard";
@@ -49,7 +48,7 @@ function App() {
 
       {/* All Routes */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />

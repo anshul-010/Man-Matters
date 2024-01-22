@@ -1,18 +1,6 @@
 import "../Styles/Barchart.css";
-import {
-  Chart as ChartJS,
-  LinearScale,
-  CategoryScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip,
-  LineController,
-  BarController,
-} from "chart.js";
+import { Chart as ChartJS, LinearScale, CategoryScale, BarElement, PointElement, LineElement, Legend, Tooltip, LineController, BarController } from "chart.js";
 import { Chart } from "react-chartjs-2";
-
 ChartJS.register(
   LinearScale,
   CategoryScale,
@@ -379,7 +367,7 @@ const getREData = (year: any, month: any) => {
   return entry ? entry["R/E"] : 0;
 };
 
-const data = {
+const data:any = {
   labels,
   datasets: [
     {
@@ -419,7 +407,7 @@ const data = {
   ],
 };
 
-const options = {
+const options:any = {
   scales: {
     y: {
       beginAtZero: true,
@@ -457,7 +445,7 @@ export function CombinedChart() {
       <div>
         <p>Sale/Revenue</p>
       </div>
-      <Chart type="bar" data={data} options={options} />
+      <Chart type="bar" data={data} options={options}  />
     </div>
   );
 }
