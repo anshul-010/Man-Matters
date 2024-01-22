@@ -943,7 +943,7 @@ export const Home = () => {
           m="auto"
           alignItems={"center"}
         >
-          {daata?.map((property: any, ind: number) => (
+          {daata?.map((property: any, ind: any) => (
             <Card2 property={property} key={ind} />
           ))}
         </Grid>

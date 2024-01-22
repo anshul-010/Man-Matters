@@ -45,7 +45,7 @@ const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
   async function handleUpdate(props: any) {
     let id = props._id;
 
-    patchProduct(dispatch, id, Data);
+    await patchProduct(dispatch, id, Data)
     onClose();
     setState(!state);
   }
@@ -53,9 +53,9 @@ const AdminProductCard = ({ property, setState, state, setSpin }: any) => {
   async function handleDelete(id: any) {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setSpin(true);
-    deleteProduct(dispatch, id).then(() => {
+    await deleteProduct(dispatch, id)
       setSpin(false);
-    });
+    
 
     toast({
       position: "top",
