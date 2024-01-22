@@ -3,7 +3,6 @@ import { People as data } from "../Data/People";
 import { GetProducts } from "../Redux/ProductReducer/action";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 import Card2 from "../Components/Card";
-import man_face from "../Images/Landing/manface.png";
 import { useState, useEffect } from "react";
 // import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import TypeWriterEffect from "react-typewriter-effect";
@@ -161,7 +160,7 @@ export const Home = () => {
             overflow="hidden"
           >
             <Image
-              src={man_face}
+              src={"https://github.com/anshul-010/GreenMentot/assets/93611786/5fd4b687-83fd-446d-bf2a-09124fece593"}
               height="100%"
               width="100%"
               style={{

@@ -1,5 +1,4 @@
 import "../Styles/Styles.css";
-import Rangoli from "../Images/ForgotPassword/Rangoli.jpg";
 
 import axios from "axios";
 import { useState } from "react";
@@ -85,7 +84,7 @@ export const ForgotPassword = () => {
       )}
       <Box display="flex" m="auto" width="98vw" justifyContent="space-evenly">
         <Box width="20%" height="30%" mt="20px" className="rotating-image">
-          <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
+          <Image src={"https://github.com/anshul-010/GreenMentot/assets/93611786/7126e52c-2ec0-4f28-bb83-fdc3d550c8a5"} width="100%" height="100%" alt="img-not-found" />
         </Box>
         <Box
           width={{ lg: "30vw", base: "80vw" }}
@@ -126,7 +125,7 @@ export const ForgotPassword = () => {
           </Flex>
         </Box>
         <Box width="20%" height="30%" mt="20px" className="rotating-image">
-          <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
+          <Image src={"https://github.com/anshul-010/GreenMentot/assets/93611786/7126e52c-2ec0-4f28-bb83-fdc3d550c8a5"} width="100%" height="100%" alt="img-not-found" />
         </Box>
       </Box>
     </div>
