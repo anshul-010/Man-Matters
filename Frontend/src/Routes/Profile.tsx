@@ -158,6 +158,10 @@ export const Profile = () => {
             mt="20px"
           >
             {userData?.map((ele: any, i: any) => {
+              const date = new Date(ele.date);
+              const dayOfWeek = date.getDay();
+              const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+              const dayName = daysOfWeek[dayOfWeek];
               return (
                 <Box
                   bg={"#18222D"}
@@ -193,7 +197,7 @@ export const Profile = () => {
                   </Button>
                   <Box className="btn2">
                     <Text color={"#5DADEC"} fontWeight={"bold"}>
-                      Wed
+                    {dayName}.
                     </Text>
                     <Text color={"white"} fontWeight={"bold"}>
                       {ele.date}
