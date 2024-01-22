@@ -1,5 +1,3 @@
-import doctorLeftImg from "../Images/ScheduleAppoinment/doctor-image.png";
-import doctorRightImg from "../Images/ScheduleAppoinment/doctor-image2.png";
 import { AppointmentTypes } from "../Data/AppointmentTypes";
 
 import { motion } from "framer-motion";
@@ -35,7 +33,7 @@ export const ScheduleAppoinment = () => {
       <Flex justify="space-around">
         <Box width="20vw" height="70vh" mt="2%">
           <motion.div {...swipeAnimationLeft}>
-            <Image src={doctorLeftImg} width="100%" />
+            <Image src={"https://github.com/anshul-010/GreenMentot/assets/93611786/f7f67606-3986-4906-81e2-7e7d7f7ec06e"} width="100%" />
           </motion.div>
         </Box>
         <div>
@@ -103,7 +101,7 @@ export const ScheduleAppoinment = () => {
         </div>
         <Box width="20vw" height="70vh" mt="2%">
           <motion.div {...swipeAnimationRight}>
-            <Image src={doctorRightImg} width="100%" />
+            <Image src={"https://github.com/anshul-010/GreenMentot/assets/93611786/a048dd7d-1a98-4532-9bbe-852b849602be"} width="100%" />
           </motion.div>
         </Box>
       </Flex>

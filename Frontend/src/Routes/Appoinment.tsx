@@ -1,6 +1,4 @@
-import DoctorImg from "../Images/Appointment/doctor-thums-up.jpg";
 import { GetUserDetails } from "../Redux/AuthReducer/action";
-
 import axios from "axios";
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -120,7 +118,7 @@ export const Appoinment = () => {
       <Flex justify="space-between">
         <Box width="20vw" height="70vh" ml="5%" mt="2%">
           <motion.div {...swipeAnimationLeft}>
-            <Image src={DoctorImg} width="100%" />
+            <Image src={"https://github.com/anshul-010/GreenMentot/assets/93611786/902a6c02-a561-48b2-9873-66f3712433ad"} width="100%" />
           </motion.div>
         </Box>
         <motion.div {...swipeAnimationFromBottom}>
@@ -260,7 +258,7 @@ export const Appoinment = () => {
         </motion.div>
         <Box width="20vw" height="70vh" mr="5%" mt="2%">
           <motion.div {...swipeAnimationRight}>
-            <Image src={DoctorImg} width="100%" />
+            <Image src={"https://github.com/anshul-010/GreenMentot/assets/93611786/902a6c02-a561-48b2-9873-66f3712433ad"} width="100%" />
           </motion.div>
         </Box>
       </Flex>
