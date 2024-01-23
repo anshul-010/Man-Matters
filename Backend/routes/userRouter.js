@@ -116,7 +116,7 @@ userRoute.post("/forgot-password", async (req, res) => {
 
     await user.save();
 
-    const resetLink = `http://localhost:5173/reset-password?token=${resetToken}`;
+    const resetLink = `https://man-matter.netlify.app/reset-password?token=${resetToken}`;
     const mailOptions = {
       from: process.env.email,
       to: email,
