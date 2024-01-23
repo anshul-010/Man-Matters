@@ -1,4 +1,5 @@
 import "../Styles/Styles.css";
+import Rangoli from "../Images/ForgotPassword/Rangoli.jpg";
 import { LogIn } from "../Redux/AuthReducer/action";
 import { useAppDispatch, useAppSelector } from "../Redux/store";
 
@@ -150,7 +151,7 @@ export const Login = () => {
       )}
       <Box display="flex" m="auto" width="98vw" justifyContent="space-evenly">
         <Box width="24%" height="40%" mt="20px" className="rotating-image">
-          <Image src={"https://github-production-user-asset-6210df.s3.amazonaws.com/93611786/298686082-7126e52c-2ec0-4f28-bb83-fdc3d550c8a5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240122T183614Z&X-Amz-Expires=300&X-Amz-Signature=6a260d9699787fb36ab0a49579a2200dcb7e66af4fb6e9b159b9bd8af7f5c9ca&X-Amz-SignedHeaders=host&actor_id=93611786&key_id=0&repo_id=741043090"} width="100%" height="100%" alt="img-not-found" />
+          <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
         </Box>
         <Box
           width={{ lg: "30vw", base: "80vw" }}
@@ -213,7 +214,7 @@ export const Login = () => {
           </Flex>
         </Box>
         <Box width="24%" height="40%" mt="20px" className="rotating-image">
-          <Image src={"https://github-production-user-asset-6210df.s3.amazonaws.com/93611786/298686082-7126e52c-2ec0-4f28-bb83-fdc3d550c8a5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20240122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240122T183614Z&X-Amz-Expires=300&X-Amz-Signature=6a260d9699787fb36ab0a49579a2200dcb7e66af4fb6e9b159b9bd8af7f5c9ca&X-Amz-SignedHeaders=host&actor_id=93611786&key_id=0&repo_id=741043090"} width="100%" height="100%" alt="img-not-found" />
+          <Image src={Rangoli} width="100%" height="100%" alt="img-not-found" />
         </Box>
       </Box>
       <Center>
