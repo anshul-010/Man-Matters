@@ -36,7 +36,7 @@ Man-Matters is your one-stop destination for personalized health consultations w
   - Chart.js for visualization of data.
 
 - Back-end:
-  - MongoDB for storing recipe and user data.
+  - MongoDB for storing products and user data.
   - Express.js for handling server-side logic.
   - Node.js for server-side scripting and runtime environment.
   - OpenAI API powered chat-bot.
