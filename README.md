@@ -45,7 +45,7 @@ Man-Matters is your one-stop destination for personalized health consultations w
 
 # Front-end:
 
-- **User Side:** [man-matters-drab.vercel.app](man-matters-drab.vercel.app/)
+- **User Side:** [https://man-matters-drab.vercel.app/](https://man-matters-drab.vercel.app/)
 - **Admin Side:** [https://man-matters-drab.vercel.app/admin](https://man-matters-drab.vercel.app/admin/)
 - **Admin Login:** Email: admin123@gmail.com | Password: admin123
 
