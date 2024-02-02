@@ -1,2 +1,2 @@
 # Man-Matters
-https://man-matter.netlify.app/
+https://man-matters-drab.vercel.app/
