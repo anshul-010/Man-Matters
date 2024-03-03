@@ -114,7 +114,7 @@ export const Login = () => {
   useEffect(() => {
     toast({
       position: "top",
-      duration: 2500,
+      duration: 1200,
       render: () => (
         <Box color="white" p={3} bg="gold">
           <b>Please Login First</b>
